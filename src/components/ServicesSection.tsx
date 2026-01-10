@@ -6,37 +6,43 @@ const services = [
     icon: Phone,
     title: "AI Receptionist",
     description:
-      "Never miss a call again. Our AI handles incoming calls, schedules appointments, and routes inquiries 24/7.",
+      "Answer every inbound call, book appointments, and route inquiries to the right person—24/7, without hiring.",
+    isCore: true,
   },
   {
     icon: Mail,
     title: "Email Automation",
     description:
-      "Intelligent email responses that understand context and reply professionally on your behalf.",
+      "Respond to customer emails in seconds with context-aware replies that sound human and stay on-brand.",
+    isCore: true,
   },
   {
     icon: MessageSquare,
     title: "Chat Support",
     description:
-      "Deploy AI chatbots that engage customers, answer questions, and qualify leads around the clock.",
+      "Engage website visitors instantly, answer FAQs, and capture leads—even outside business hours.",
+    isCore: false,
   },
   {
     icon: Calendar,
     title: "Smart Scheduling",
     description:
-      "AI-powered scheduling that syncs with your calendar and handles bookings automatically.",
+      "Let customers book directly into your calendar. No back-and-forth emails, no double-bookings.",
+    isCore: false,
   },
   {
     icon: FileText,
     title: "Document Processing",
     description:
-      "Extract, analyze, and organize data from documents with intelligent automation.",
+      "Extract key data from invoices, contracts, and forms automatically—saving hours of manual entry.",
+    isCore: false,
   },
   {
     icon: Users,
     title: "Lead Qualification",
     description:
-      "AI that identifies and prioritizes your best leads so your team focuses on closing deals.",
+      "Score and prioritize incoming leads so your sales team focuses only on high-intent prospects.",
+    isCore: false,
   },
 ];
 
@@ -70,8 +76,17 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group glass-card p-8 rounded-2xl hover:border-primary/50 transition-all duration-300"
+              className={`group glass-card p-8 rounded-2xl transition-all duration-300 ${
+                service.isCore 
+                  ? "border-primary/40 hover:border-primary/60 ring-1 ring-primary/20" 
+                  : "hover:border-primary/50"
+              }`}
             >
+              {service.isCore && (
+                <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full mb-4">
+                  Core Service
+                </span>
+              )}
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                 <service.icon className="w-7 h-7 text-primary" />
               </div>

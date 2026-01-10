@@ -81,10 +81,10 @@ const Contact = () => {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Get in <span className="gradient-text">Touch</span>
+              Book Your Free <span className="gradient-text">Consultation</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Ready to let AI handle the small stuff? Fill out the form below and we'll get back to you.
+              Tell us about your business and we'll show you exactly how AI can save you time and money.
             </p>
           </motion.div>
 
@@ -137,7 +137,7 @@ const Contact = () => {
                 {/* Company & Phone Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
+                    <Label htmlFor="company">Company <span className="text-muted-foreground font-normal">(optional)</span></Label>
                     <Input
                       id="company"
                       name="company"
@@ -180,16 +180,21 @@ const Contact = () => {
                 </div>
 
                 {/* Submit Button */}
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="xl" 
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="w-5 h-5" />
-                </Button>
+                <div className="space-y-3">
+                  <Button 
+                    type="submit" 
+                    variant="hero" 
+                    size="xl" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Book Consultation"}
+                    <Send className="w-5 h-5" />
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    No spam. We'll only contact you about your request.
+                  </p>
+                </div>
               </div>
             </form>
           </motion.div>
