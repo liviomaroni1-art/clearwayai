@@ -170,11 +170,11 @@ const Contact = () => {
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name *</Label>
+                    <Label htmlFor="name">Full Name *</Label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder="Your name"
+                      placeholder="Your full name"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -286,10 +286,11 @@ const Contact = () => {
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label>What's your budget range?</Label>
+                    <Label>What's your budget range? *</Label>
                     <Select
                       value={formData.budget}
                       onValueChange={(value) => handleSelectChange("budget", value)}
+                      required
                     >
                       <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
                         <SelectValue placeholder="Select budget range" />
