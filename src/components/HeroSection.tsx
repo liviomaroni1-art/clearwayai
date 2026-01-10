@@ -36,7 +36,7 @@ const HeroSection = () => {
             {/* Gradient border glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-3xl blur-sm opacity-50" />
             
-            <div className="relative bg-card/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
+            <div className="relative bg-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
               {/* Main Heading */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 It's time to let AI handle the{" "}

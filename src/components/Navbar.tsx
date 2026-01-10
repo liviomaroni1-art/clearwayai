@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,16 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Left - Nav Links (Desktop) */}
+          {/* Left - Logo */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src={logo} 
+              alt="Clearway AI" 
+              className="h-10 w-auto brightness-150"
+            />
+          </Link>
+
+          {/* Center - Nav Links (Desktop) */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -35,16 +45,13 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button - Left on mobile */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-
-          {/* Spacer for mobile */}
-          <div className="flex-1 md:hidden" />
 
           {/* Right - CTA Button */}
           <Button variant="hero" size="default" className="hidden md:flex" asChild>
