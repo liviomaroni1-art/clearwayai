@@ -6,26 +6,24 @@ import logo from "@/assets/logo.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12">
-      {/* Background Glow Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+      {/* Large Background Logo */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <motion.img 
+          src={logo} 
+          alt="" 
+          aria-hidden="true"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.06, scale: 1 }}
+          transition={{ duration: 1.2 }}
+          className="w-[80vw] md:w-[60vw] lg:w-[50vw] max-w-[800px] h-auto"
+        />
       </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Large Centered Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
-            <img 
-              src={logo} 
-              alt="Clearway AI" 
-              className="h-24 md:h-32 lg:h-40 w-auto mx-auto"
-            />
-          </motion.div>
 
           {/* Hero Card - Morningside Style */}
           <motion.div
