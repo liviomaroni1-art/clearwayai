@@ -39,26 +39,27 @@ const HeroSection = () => {
             <div className="relative bg-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
               {/* Main Heading */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                It's time to let AI handle the{" "}
-                <span className="gradient-text">small stuff.</span>
+                AI That Answers Calls, Emails & Schedules—
+                <br />
+                <span className="gradient-text">So You Don't Have To</span>
               </h1>
 
               {/* Description */}
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-                From AI receptionists to automated email responses, we help businesses 
-                implement intelligent solutions so you can focus on what truly matters—scaling your operations and growing your business.
+                We build and deploy AI-powered systems that handle inbound calls, respond to emails, 
+                book appointments, and manage customer inquiries—giving your team time back for high-value work.
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="xl" asChild>
                   <Link to="/contact">
-                    Get in Touch
+                    Book Free Consultation
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
-                <Button variant="heroOutline" size="xl">
-                  Learn More
+                <Button variant="heroOutline" size="xl" asChild>
+                  <a href="#services">See How It Works</a>
                 </Button>
               </div>
             </div>
@@ -71,14 +72,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-16"
           >
-            <p className="text-sm text-muted-foreground mb-6">Trusted by forward-thinking businesses</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-              {["Company A", "Company B", "Company C", "Company D"].map((company) => (
+            <p className="text-sm text-muted-foreground mb-6">Trusted by service-focused teams across industries</p>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-muted-foreground/70">
+              {["Healthcare", "Logistics", "Professional Services", "Real Estate"].map((industry) => (
                 <div 
-                  key={company}
-                  className="px-6 py-2 text-muted-foreground text-sm font-medium tracking-wider"
+                  key={industry}
+                  className="px-4 py-2 text-sm font-medium tracking-wide border border-border/30 rounded-full"
                 >
-                  {company}
+                  {industry}
                 </div>
               ))}
             </div>

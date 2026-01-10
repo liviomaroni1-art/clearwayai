@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
@@ -18,20 +19,22 @@ const CTASection = () => {
 
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Ready to Clear the Way <br />
-              <span className="gradient-text">for Growth?</span>
+              Ready to Automate <br />
+              <span className="gradient-text">Your Operations?</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-              Book a free consultation and discover how AI can transform your business operations. 
-              No commitment, just clarity.
+              Book a free 30-minute consultation. We'll assess your workflows and show you 
+              exactly where AI can save time and reduce costs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl">
-                Book Free Consultation
-                <ArrowRight className="w-5 h-5" />
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/contact">
+                  Book Free Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </Button>
-              <Button variant="heroOutline" size="xl">
-                View Case Studies
+              <Button variant="heroOutline" size="xl" asChild>
+                <a href="#services">See How It Works</a>
               </Button>
             </div>
           </div>

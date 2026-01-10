@@ -6,25 +6,25 @@ const benefits = [
     icon: Clock,
     title: "Save 20+ Hours Weekly",
     description:
-      "Automate repetitive tasks and reclaim your time for strategic decisions.",
+      "Eliminate time spent on calls, emails, and scheduling. Reinvest those hours in growth.",
   },
   {
     icon: TrendingUp,
-    title: "Scale Without Hiring",
+    title: "Handle 3–5× More Volume",
     description:
-      "Handle 10x more inquiries without adding headcount to your team.",
+      "Process more inquiries and bookings without hiring additional staff.",
   },
   {
     icon: Zap,
-    title: "Instant Response Times",
+    title: "Respond in Seconds",
     description:
-      "Never leave a customer waiting. AI responds in seconds, not hours.",
+      "Customers get instant answers—day or night. No more waiting for callbacks.",
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
+    title: "Reliable & Secure",
     description:
-      "Your data is protected with bank-level encryption and compliance standards.",
+      "Enterprise-grade security with 99.9% uptime. Your data stays protected.",
   },
 ];
 
