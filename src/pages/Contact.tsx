@@ -7,7 +7,62 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import logo from "@/assets/logo.jpg";
+
+const businessTypes = [
+  "Auto Shop / Mechanic",
+  "Car Wash",
+  "Gardening / Landscaping",
+  "Cleaning Services",
+  "Plumbing",
+  "Electrical Services",
+  "HVAC / Heating & Cooling",
+  "Roofing",
+  "Construction",
+  "Real Estate",
+  "Dental Practice",
+  "Medical Practice",
+  "Law Firm",
+  "Accounting / Tax Services",
+  "Insurance Agency",
+  "Salon / Spa",
+  "Fitness / Gym",
+  "Restaurant / Cafe",
+  "Retail Store",
+  "E-Commerce",
+  "Logistics / Delivery",
+  "IT Services",
+  "Marketing Agency",
+  "Consulting",
+  "Other",
+];
+
+const budgetOptions = [
+  "Under $500/month",
+  "$500 - $1,000/month",
+  "$1,000 - $2,500/month",
+  "$2,500 - $5,000/month",
+  "$5,000+/month",
+  "Not sure yet",
+];
+
+const serviceOptions = [
+  "AI Receptionist (Phone Handling)",
+  "Email Automation",
+  "Appointment Scheduling",
+  "Customer Support Automation",
+  "Lead Qualification",
+  "Workflow Automation",
+  "Multiple Services",
+  "Not sure - need consultation",
+];
 
 const Contact = () => {
   const { toast } = useToast();
@@ -17,11 +72,18 @@ const Contact = () => {
     email: "",
     company: "",
     phone: "",
+    businessType: "",
+    budget: "",
+    service: "",
     message: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -37,7 +99,7 @@ const Contact = () => {
       description: "We'll get back to you as soon as possible.",
     });
     
-    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+    setFormData({ name: "", email: "", company: "", phone: "", businessType: "", budget: "", service: "", message: "" });
     setIsSubmitting(false);
   };
 
@@ -160,6 +222,68 @@ const Contact = () => {
                       maxLength={20}
                       className="bg-secondary/50 border-border/50 focus:border-primary"
                     />
+                  </div>
+                </div>
+
+                {/* Business Type Dropdown */}
+                <div className="space-y-2">
+                  <Label>What type of business do you have? *</Label>
+                  <Select
+                    value={formData.businessType}
+                    onValueChange={(value) => handleSelectChange("businessType", value)}
+                    required
+                  >
+                    <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
+                      <SelectValue placeholder="Select your business type" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-card border-border max-h-60">
+                      {businessTypes.map((type) => (
+                        <SelectItem key={type} value={type}>
+                          {type}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Service Interest & Budget Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label>What service are you interested in? *</Label>
+                    <Select
+                      value={formData.service}
+                      onValueChange={(value) => handleSelectChange("service", value)}
+                      required
+                    >
+                      <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
+                        <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-card border-border">
+                        {serviceOptions.map((service) => (
+                          <SelectItem key={service} value={service}>
+                            {service}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>What's your budget range?</Label>
+                    <Select
+                      value={formData.budget}
+                      onValueChange={(value) => handleSelectChange("budget", value)}
+                    >
+                      <SelectTrigger className="bg-secondary/50 border-border/50 focus:border-primary">
+                        <SelectValue placeholder="Select budget range" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-card border-border">
+                        {budgetOptions.map((budget) => (
+                          <SelectItem key={budget} value={budget}>
+                            {budget}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
