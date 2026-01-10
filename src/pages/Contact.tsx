@@ -60,6 +60,7 @@ const serviceOptions = [
   "Customer Support Automation",
   "Lead Qualification",
   "Workflow Automation",
+  "Website Creation",
   "Multiple Services",
   "Not sure - need consultation",
 ];
@@ -72,6 +73,7 @@ const Contact = () => {
     email: "",
     company: "",
     phone: "",
+    website: "",
     businessType: "",
     budget: "",
     service: "",
@@ -99,7 +101,7 @@ const Contact = () => {
       description: "We'll get back to you as soon as possible.",
     });
     
-    setFormData({ name: "", email: "", company: "", phone: "", businessType: "", budget: "", service: "", message: "" });
+    setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", budget: "", service: "", message: "" });
     setIsSubmitting(false);
   };
 
@@ -211,7 +213,7 @@ const Contact = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">Phone *</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -219,10 +221,26 @@ const Contact = () => {
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
                       onChange={handleChange}
+                      required
                       maxLength={20}
                       className="bg-secondary/50 border-border/50 focus:border-primary"
                     />
                   </div>
+                </div>
+
+                {/* Website Link */}
+                <div className="space-y-2">
+                  <Label htmlFor="website">Website <span className="text-muted-foreground font-normal">(if available)</span></Label>
+                  <Input
+                    id="website"
+                    name="website"
+                    type="url"
+                    placeholder="https://yourwebsite.com"
+                    value={formData.website}
+                    onChange={handleChange}
+                    maxLength={255}
+                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                  />
                 </div>
 
                 {/* Business Type Dropdown */}
