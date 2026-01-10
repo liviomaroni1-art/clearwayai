@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MessageSquare, Calendar, FileText, Users, ChevronDown, Check } from "lucide-react";
+import { Phone, Mail, MessageSquare, Globe, FileText, Users, ChevronDown, Check } from "lucide-react";
 
 const services = [
   {
@@ -49,19 +49,19 @@ const services = [
     details: "Deploy intelligent chat that understands context, answers product questions, and guides visitors through your sales funnel—all without human intervention.",
   },
   {
-    icon: Calendar,
-    title: "Smart Scheduling",
+    icon: Globe,
+    title: "Website Creation",
     description:
-      "Let customers book directly into your calendar. No back-and-forth emails, no double-bookings.",
+      "Get a professional, conversion-focused website that represents your brand and generates leads around the clock.",
     isCore: false,
     benefits: [
-      "Eliminate scheduling back-and-forth completely",
-      "Automatic timezone detection and conversion",
-      "Buffer time and availability rules built-in",
-      "Reduce no-shows with smart reminders",
-      "Integrates with Google, Outlook, and more",
+      "Custom design tailored to your brand identity",
+      "Mobile-responsive and fast-loading pages",
+      "SEO-optimized to rank higher on Google",
+      "Built-in lead capture forms and CTAs",
+      "Easy content updates without technical skills",
     ],
-    details: "Smart Scheduling connects to your existing calendar, respects your availability rules, and lets customers book instantly—saving hours of coordination every week.",
+    details: "We build modern, professional websites designed to convert visitors into customers. From single-page landing sites to full business websites—all optimized for speed, SEO, and user experience.",
   },
   {
     icon: FileText,
