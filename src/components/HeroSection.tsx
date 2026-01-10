@@ -7,20 +7,20 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-12">
       {/* Large Background Logo */}
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
         <motion.img 
           src={logo} 
           alt="" 
           aria-hidden="true"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.06, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="w-[80vw] md:w-[60vw] lg:w-[50vw] max-w-[800px] h-auto"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.25, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="w-[90vw] md:w-[70vw] lg:w-[60vw] max-w-[1000px] h-auto"
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+      {/* Subtle Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
