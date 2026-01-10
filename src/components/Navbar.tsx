@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,38 +17,38 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <img src={logo} alt="Clearway AI" className="h-10 w-auto" />
-          </a>
-
-          {/* Desktop Navigation */}
+          {/* Left - Nav Links (Desktop) */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
               >
                 {link.name}
               </a>
             ))}
-            <Button variant="hero" size="default">
-              Get Started
-            </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Left on mobile */}
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+
+          {/* Spacer for mobile */}
+          <div className="flex-1 md:hidden" />
+
+          {/* Right - CTA Button */}
+          <Button variant="hero" size="default" className="hidden md:flex">
+            Get in Touch
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -73,7 +72,7 @@ const Navbar = () => {
                   </a>
                 ))}
                 <Button variant="hero" size="default" className="w-full">
-                  Get Started
+                  Get in Touch
                 </Button>
               </div>
             </motion.div>
