@@ -1,0 +1,202 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import logo from "@/assets/logo.jpg";
+
+const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Message sent!",
+      description: "We'll get back to you as soon as possible.",
+    });
+    
+    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+    setIsSubmitting(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Background Logo */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <img 
+          src={logo} 
+          alt="" 
+          aria-hidden="true"
+          className="w-[100vw] md:w-[80vw] lg:w-[70vw] max-w-[1200px] h-auto opacity-20 brightness-150"
+        />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60 pointer-events-none" />
+
+      <div className="container mx-auto px-6 py-12 relative z-10">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <Link 
+            to="/" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </motion.div>
+
+        <div className="max-w-2xl mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Get in <span className="gradient-text">Touch</span>
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              Ready to let AI handle the small stuff? Fill out the form below and we'll get back to you.
+            </p>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Gradient border glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-3xl blur-sm opacity-50" />
+            
+            <form 
+              onSubmit={handleSubmit}
+              className="relative bg-card/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-primary/20"
+            >
+              <div className="space-y-6">
+                {/* Name & Email Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      maxLength={100}
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      maxLength={255}
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                {/* Company & Phone Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company</Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      placeholder="Your company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      maxLength={100}
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      maxLength={20}
+                      className="bg-secondary/50 border-border/50 focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your project and how we can help..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    maxLength={1000}
+                    rows={5}
+                    className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <Button 
+                  type="submit" 
+                  variant="hero" 
+                  size="xl" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <Send className="w-5 h-5" />
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
