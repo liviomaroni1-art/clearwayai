@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 
@@ -13,14 +14,14 @@ const HeroSection = () => {
           alt="" 
           aria-hidden="true"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 0.25, scale: 1 }}
+          animate={{ opacity: 0.5, scale: 1 }}
           transition={{ duration: 1.5 }}
-          className="w-[90vw] md:w-[70vw] lg:w-[60vw] max-w-[1000px] h-auto"
+          className="w-[100vw] md:w-[80vw] lg:w-[70vw] max-w-[1200px] h-auto brightness-150"
         />
       </div>
 
       {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -50,9 +51,11 @@ const HeroSection = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="xl">
-                  Get in Touch
-                  <ArrowRight className="w-5 h-5" />
+                <Button variant="hero" size="xl" asChild>
+                  <Link to="/contact">
+                    Get in Touch
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
                 </Button>
                 <Button variant="heroOutline" size="xl">
                   Learn More

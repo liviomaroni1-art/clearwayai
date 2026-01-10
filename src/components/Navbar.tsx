@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -46,8 +47,8 @@ const Navbar = () => {
           <div className="flex-1 md:hidden" />
 
           {/* Right - CTA Button */}
-          <Button variant="hero" size="default" className="hidden md:flex">
-            Get in Touch
+          <Button variant="hero" size="default" className="hidden md:flex" asChild>
+            <Link to="/contact">Get in Touch</Link>
           </Button>
         </div>
 
@@ -71,8 +72,8 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
-                <Button variant="hero" size="default" className="w-full">
-                  Get in Touch
+                <Button variant="hero" size="default" className="w-full" asChild>
+                  <Link to="/contact">Get in Touch</Link>
                 </Button>
               </div>
             </motion.div>
