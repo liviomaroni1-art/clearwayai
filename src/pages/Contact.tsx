@@ -56,7 +56,6 @@ const budgetOptions = [
 const serviceOptions = [
   "AI Receptionist (Phone Handling)",
   "Email Automation",
-  "Appointment Scheduling",
   "Customer Support Automation",
   "Lead Qualification",
   "Workflow Automation",
