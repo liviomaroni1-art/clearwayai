@@ -45,9 +45,12 @@ const HeroSection = () => {
               </h1>
 
               {/* Description */}
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
                 We build and deploy AI-powered systems that handle inbound calls, respond to emails, 
                 book appointments, and manage customer inquiries—giving your team time back for high-value work.
+              </p>
+              <p className="text-sm text-muted-foreground/80 mb-8">
+                Built for service-based teams that rely on calls, emails, and bookings to grow.
               </p>
 
               {/* CTA Buttons */}

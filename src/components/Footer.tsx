@@ -23,10 +23,15 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Clearway AI. All rights reserved.
-          </p>
+          {/* Copyright & Positioning */}
+          <div className="text-right">
+            <p className="text-sm text-muted-foreground mb-1">
+              © {new Date().getFullYear()} Clearway AI. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground/70">
+              Your AI automation partner for service-based teams.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

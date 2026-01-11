@@ -50,18 +50,18 @@ const services = [
   },
   {
     icon: Globe,
-    title: "Website Creation",
+    title: "Conversion-Ready Websites",
     description:
-      "Get a professional, conversion-focused website that represents your brand and generates leads around the clock.",
+      "Get a professional website built to capture leads and integrate seamlessly with your AI automation stack.",
     isCore: false,
     benefits: [
-      "Custom design tailored to your brand identity",
+      "Designed to work with AI chat, forms, and booking systems",
       "Mobile-responsive and fast-loading pages",
-      "SEO-optimized to rank higher on Google",
-      "Built-in lead capture forms and CTAs",
-      "Easy content updates without technical skills",
+      "SEO-optimized to drive organic traffic",
+      "Built-in lead capture that feeds your automation",
+      "Easy updates without technical skills",
     ],
-    details: "We build modern, professional websites designed to convert visitors into customers. From single-page landing sites to full business websites—all optimized for speed, SEO, and user experience.",
+    details: "We build modern websites designed as the front door to your AI-powered operations. Every site integrates with your automation systems—capturing leads, triggering follow-ups, and booking appointments automatically.",
   },
   {
     icon: FileText,
