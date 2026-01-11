@@ -73,6 +73,17 @@ const TrustSection = () => {
             <p className="text-sm text-muted-foreground">Teams Served</p>
           </div>
         </motion.div>
+
+        {/* Security reassurance */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center text-sm text-muted-foreground mt-8"
+        >
+          Every system is custom-built, client-specific, and secured to enterprise standards.
+        </motion.p>
       </div>
     </section>
   );
