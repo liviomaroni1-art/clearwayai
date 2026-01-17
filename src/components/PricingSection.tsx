@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Diamond, Crown, Building2, Wrench } from "lucide-react";
+import { Check, Diamond, Crown, Building2, Wrench, Shield, MapPin, Clock } from "lucide-react";
 
 const PricingSection = () => {
   const bookDemo = (type: string) => {
@@ -9,9 +9,43 @@ const PricingSection = () => {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="pricing" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
+        {/* Scarcity Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-amber-500/20 to-red-500/20 border border-amber-500/30 rounded-2xl p-4 mb-8 text-center"
+        >
+          <p className="text-amber-400 font-semibold flex items-center justify-center gap-2">
+            <Clock className="w-5 h-5" />
+            ⚡ Only 3 Signature spots remaining for Q1 2026 — First come, first served
+          </p>
+        </motion.div>
+
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 md:p-16">
+          {/* Swiss Trust Bar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-4 mb-10 pb-8 border-b border-white/10"
+          >
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
+              <MapPin className="w-4 h-4 text-red-400" />
+              <span className="text-slate-300">Built in Freienbach, Switzerland 🇨🇭</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
+              <Shield className="w-4 h-4 text-emerald-400" />
+              <span className="text-slate-300">GDPR Compliant</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
+              <Clock className="w-4 h-4 text-primary" />
+              <span className="text-slate-300">Live in 48 hours</span>
+            </div>
+          </motion.div>
+
           {/* Header */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -22,8 +56,11 @@ const PricingSection = () => {
             <h2 className="text-4xl md:text-5xl font-extrabold mb-5 bg-gradient-to-r from-violet-500 to-pink-500 bg-clip-text text-transparent">
               Premium AI Receptionist
             </h2>
-            <p className="text-xl text-slate-300">
-              Replaces entire reception teams. Custom Swiss engineering.
+            <p className="text-xl text-slate-300 mb-2">
+              Replaces CHF 4,500+/month receptionists. Swiss precision engineering.
+            </p>
+            <p className="text-emerald-400 font-medium">
+              💰 Save CHF 54,000/year compared to human staff
             </p>
           </motion.div>
 
@@ -71,11 +108,18 @@ const PricingSection = () => {
                 <div className="text-slate-400">Done-for-you Retell.ai/n8n (4-6 hours)</div>
               </div>
 
+              {/* Value comparison */}
+              <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl mb-6 text-center">
+                <p className="text-sm text-emerald-400">
+                  <strong>vs Human Receptionist:</strong> Save CHF 2,000+/month
+                </p>
+              </div>
+
               <Button 
                 onClick={() => bookDemo('signature')}
-                className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white py-6 text-lg font-bold rounded-2xl"
+                className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white py-6 text-lg font-bold rounded-2xl min-h-[56px]"
               >
-                🚀 Book Signature Demo
+                🚀 Book Signature Demo — See It Live
               </Button>
             </motion.div>
 
@@ -121,11 +165,18 @@ const PricingSection = () => {
                 <div className="text-slate-400">Enterprise-grade implementation</div>
               </div>
 
+              {/* Value comparison */}
+              <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl mb-6 text-center">
+                <p className="text-sm text-emerald-400">
+                  <strong>Most Popular:</strong> Best value for growing teams
+                </p>
+              </div>
+
               <Button 
                 onClick={() => bookDemo('elite')}
-                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-6 text-lg font-bold rounded-2xl"
+                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-6 text-lg font-bold rounded-2xl min-h-[56px]"
               >
-                🚀 Book Elite Demo
+                🚀 Book Elite Demo — See It Live
               </Button>
             </motion.div>
           </div>
