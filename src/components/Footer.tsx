@@ -1,4 +1,4 @@
-import { Linkedin, Mail, MapPin, Phone, Shield } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, Shield, Globe } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
@@ -14,8 +14,8 @@ const Footer = () => {
               <img src={logo} alt="Clearway AI" className="h-8 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground mb-4 max-w-sm">
-              Ihr KI-Automatisierungspartner für Schweizer Praxen und Kanzleien. 
-              Wir sorgen dafür, dass Sie keine Chance mehr verpassen.
+              Your AI automation partner for Swiss clinics and law firms. 
+              We ensure you never miss an opportunity.
             </p>
             <div className="flex items-center gap-4 mb-4">
               <a 
@@ -40,11 +40,15 @@ const Footer = () => {
             <div className="flex flex-wrap gap-2">
               <div className="flex items-center gap-1 px-2 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs">
                 <Shield className="w-3 h-3 text-emerald-400" />
-                <span className="text-emerald-400">DSGVO</span>
+                <span className="text-emerald-400">GDPR</span>
               </div>
               <div className="flex items-center gap-1 px-2 py-1 bg-primary/10 border border-primary/30 rounded text-xs">
                 <span>🇨🇭</span>
                 <span className="text-primary">Swiss Made</span>
+              </div>
+              <div className="flex items-center gap-1 px-2 py-1 bg-primary/10 border border-primary/30 rounded text-xs">
+                <Globe className="w-3 h-3 text-primary" />
+                <span className="text-primary">30+ Languages</span>
               </div>
             </div>
           </div>
@@ -57,10 +61,10 @@ const Footer = () => {
                 Services
               </a>
               <a href="#calculator" className="hover:text-foreground transition-colors">
-                ROI Rechner
+                ROI Calculator
               </a>
               <a href="#pricing" className="hover:text-foreground transition-colors">
-                Preise
+                Pricing
               </a>
               <a href="#faq" className="hover:text-foreground transition-colors">
                 FAQ
@@ -70,7 +74,7 @@ const Footer = () => {
 
           {/* Contact & Location */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Kontakt</h4>
+            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <a 
                 href="mailto:sales@clearwayai.co" 
@@ -87,7 +91,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Freienbach SZ, Schweiz 🇨🇭</span>
+                <span>Freienbach SZ, Switzerland 🇨🇭</span>
               </div>
             </div>
           </div>
@@ -96,14 +100,14 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Clearway AI. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Clearway AI. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="/privacy" className="hover:text-foreground transition-colors">
-              Datenschutz
+              Privacy Policy
             </a>
             <a href="/terms" className="hover:text-foreground transition-colors">
-              AGB
+              Terms of Service
             </a>
             <span className="text-xs">🇨🇭 Made in Switzerland</span>
           </div>
