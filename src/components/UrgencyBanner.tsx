@@ -43,14 +43,14 @@ const UrgencyBanner = () => {
           <span className="hidden lg:block text-muted-foreground">•</span>
           
           <motion.a 
-            href="tel:+41440000000"
+            href="tel:+18887783091"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="hidden lg:flex items-center gap-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            <span>Live Demo: +41 44 000 00 00</span>
+            <span>Live Demo: +1 (888) 778-3091</span>
           </motion.a>
         </div>
       </div>

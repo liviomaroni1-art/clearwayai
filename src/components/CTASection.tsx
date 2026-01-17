@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
-  const demoNumber = "+41 44 000 00 00"; // Replace with actual demo number
+  const demoNumber = "+1 (888) 778-3091";
   
   return (
     <section id="contact" className="py-24 relative">
