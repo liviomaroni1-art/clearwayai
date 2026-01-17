@@ -33,19 +33,19 @@ const faqs = [
       "Our AI gracefully hands off to a human when needed. You'll get an immediate notification with call details so you can follow up personally.",
   },
   {
-    question: "Is there a long-term contract?",
+    question: "Do you require a contract?",
     answer:
-      "No contracts, ever. All plans are month-to-month. Cancel anytime with no penalties. We earn your business every month.",
+      "Yes, we work with service agreements tailored to your business needs. This ensures commitment from both sides and allows us to deliver the best results for your team.",
   },
   {
-    question: "How is pricing calculated?",
+    question: "How is pricing determined?",
     answer:
-      "Pricing is based on monthly call volume. Each plan includes a set number of calls, with additional calls billed at a small per-call rate. No hidden fees.",
+      "Every business is different, so we provide custom pricing based on your call volume, integrations needed, and specific requirements. Book a free consultation to get a personalized quote.",
   },
   {
     question: "Is my data secure?",
     answer:
-      "Absolutely. We're Swiss-based and GDPR compliant. All data is encrypted and stored securely. We never sell or share your customer data.",
+      "Absolutely. We follow industry-standard security practices and are fully compliant with US data protection requirements. All data is encrypted and stored securely. We never sell or share your customer data.",
   },
 ];
 
