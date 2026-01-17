@@ -14,16 +14,16 @@ const ProblemSection = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-destructive/10 text-destructive rounded-full text-sm font-medium mb-6">
             <PhoneMissed className="w-4 h-4" />
-            Das Problem
+            The Problem
           </div>
           
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Verpasste Anrufe kosten Sie <span className="text-destructive">CHF 50'000+/Jahr</span>
+            Missed Calls Are Costing You <span className="text-destructive">CHF 50,000+/Year</span>
           </h2>
           
           <p className="text-lg text-muted-foreground mb-10">
-            Schweizer Praxen und Kanzleien verpassen bis zu 40% ihrer Anrufe. Jeder verpasste Anruf 
-            bedeutet CHF 300-800 Umsatzverlust—und ein Patient/Mandant, der zur Konkurrenz geht.
+            Swiss practices and law firms miss up to 40% of inbound calls. Each missed call 
+            means CHF 300-800 in lost revenue—and a patient/client who went to your competitor.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -36,7 +36,7 @@ const ProblemSection = () => {
             >
               <PhoneMissed className="w-8 h-8 text-destructive mx-auto mb-3" />
               <p className="text-2xl font-bold text-foreground mb-1">40%</p>
-              <p className="text-sm text-muted-foreground">der Anrufe unbeantwortet</p>
+              <p className="text-sm text-muted-foreground">of calls go unanswered</p>
             </motion.div>
 
             <motion.div
@@ -48,7 +48,7 @@ const ProblemSection = () => {
             >
               <Wallet className="w-8 h-8 text-destructive mx-auto mb-3" />
               <p className="text-2xl font-bold text-foreground mb-1">CHF 500+</p>
-              <p className="text-sm text-muted-foreground">Verlust pro verpasstem Lead</p>
+              <p className="text-sm text-muted-foreground">lost per missed lead</p>
             </motion.div>
 
             <motion.div
@@ -60,7 +60,7 @@ const ProblemSection = () => {
             >
               <Clock className="w-8 h-8 text-destructive mx-auto mb-3" />
               <p className="text-2xl font-bold text-foreground mb-1">78%</p>
-              <p className="text-sm text-muted-foreground">wählen den Erstantwortenden</p>
+              <p className="text-sm text-muted-foreground">choose the first responder</p>
             </motion.div>
           </div>
 
@@ -74,20 +74,20 @@ const ProblemSection = () => {
           >
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
               <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-1">Empfangsdame (Vollzeit)</p>
-                <p className="text-3xl font-bold text-destructive">CHF 4'500/Mt</p>
-                <p className="text-xs text-muted-foreground">+ Ferien, Krankheit, 9-17 Uhr</p>
+                <p className="text-sm text-muted-foreground mb-1">Full-Time Receptionist</p>
+                <p className="text-3xl font-bold text-destructive">CHF 4,500/mo</p>
+                <p className="text-xs text-muted-foreground">+ holidays, sick days, 9-5 only</p>
               </div>
               
               <div className="flex items-center gap-2">
                 <TrendingDown className="w-6 h-6 text-emerald-400" />
-                <span className="text-emerald-400 font-bold">44% günstiger</span>
+                <span className="text-emerald-400 font-bold">44% cheaper</span>
               </div>
               
               <div className="text-center">
                 <p className="text-sm text-muted-foreground mb-1">Clearway AI</p>
-                <p className="text-3xl font-bold text-emerald-400">CHF 2'500/Mt</p>
-                <p className="text-xs text-muted-foreground">24/7/365, keine Ausfälle</p>
+                <p className="text-3xl font-bold text-emerald-400">CHF 2,500/mo</p>
+                <p className="text-xs text-muted-foreground">24/7/365, no downtime</p>
               </div>
             </div>
           </motion.div>
@@ -99,7 +99,7 @@ const ProblemSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-10 text-lg font-medium text-foreground"
           >
-            Was wenn jeder Anruf sofort beantwortet wird—24/7?
+            What if every call was answered instantly—24/7?
           </motion.p>
         </motion.div>
       </div>

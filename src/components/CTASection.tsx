@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Phone, Clock, CheckCircle2, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -30,23 +30,23 @@ const CTASection = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm mb-6"
                 >
                   <Clock className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">In 48 Stunden live</span>
+                  <span className="text-emerald-400 font-medium">Live in 48 hours</span>
                 </motion.div>
                 
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                  Bereit Ihre Praxis zu
+                  Ready to Automate
                   <br />
-                  <span className="gradient-text">automatisieren?</span>
+                  <span className="gradient-text">Your Practice?</span>
                 </h2>
                 <p className="text-muted-foreground text-lg max-w-lg mb-8">
-                  Kostenlose 30-Minuten Demo. Wir analysieren Ihre Workflows und zeigen Ihnen 
-                  genau, wie viel Sie mit KI sparen können.
+                  Free 30-minute demo. We'll analyze your workflows and show you 
+                  exactly how much you can save with AI.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Button variant="hero" size="xl" className="min-h-[56px]" asChild>
                     <Link to="/contact">
-                      Kostenlose Demo buchen
+                      Book Free Demo
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
@@ -54,7 +54,7 @@ const CTASection = () => {
                 
                 {/* Trust points */}
                 <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-                  {["Keine Kreditkarte", "Keine Verpflichtung", "Sofort-Ergebnis"].map((point) => (
+                  {["No credit card", "No commitment", "Instant results"].map((point) => (
                     <div key={point} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                       <span>{point}</span>
@@ -76,11 +76,17 @@ const CTASection = () => {
                   </div>
                   
                   <h3 className="text-2xl font-bold text-foreground mb-2">
-                    Live Demo anrufen
+                    Call Live Demo
                   </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Hören Sie unsere KI-Rezeptionistin jetzt live — 24/7 verfügbar
+                  <p className="text-muted-foreground mb-4">
+                    Hear our AI receptionist now — available 24/7
                   </p>
+                  
+                  {/* Languages badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 border border-primary/30 rounded-full text-xs mb-6">
+                    <Globe className="w-3 h-3 text-primary" />
+                    <span className="text-primary">30+ languages supported</span>
+                  </div>
                   
                   <a
                     href={`tel:${demoNumber.replace(/\s/g, '')}`}
@@ -91,7 +97,7 @@ const CTASection = () => {
                   </a>
                   
                   <p className="text-xs text-muted-foreground mt-4">
-                    Sie erleben: Begrüssung → Terminbuchung → CRM-Sync → SMS-Bestätigung
+                    You'll experience: Greeting → Appointment booking → CRM sync → SMS confirmation
                   </p>
                 </div>
               </div>

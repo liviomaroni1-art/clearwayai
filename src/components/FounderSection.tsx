@@ -28,20 +28,19 @@ const FounderSection = () => {
               {/* Content */}
               <div className="md:col-span-2 text-center md:text-left">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Gründer aus <span className="gradient-text">Freienbach, Schweiz</span>
+                  Founded in <span className="gradient-text">Freienbach, Switzerland</span>
                 </h2>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Nach Jahren in der KI-Automatisierung habe ich gesehen, wie viele Schweizer 
-                  Praxen und Kanzleien Kunden verlieren, nur weil niemand ans Telefon geht. 
-                  Clearway AI wurde gegründet, um dieses Problem zu lösen—mit Schweizer Präzision 
-                  und modernster KI-Technologie.
+                  After years in AI automation, I saw how many Swiss practices and law firms 
+                  lose clients simply because no one answers the phone. Clearway AI was founded 
+                  to solve this problem—with Swiss precision and cutting-edge AI technology.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground mb-6">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-primary" />
-                    <span>Freienbach SZ, Schweiz</span>
+                    <span>Freienbach SZ, Switzerland</span>
                   </div>
                   <a 
                     href="https://linkedin.com/in/founder" 
@@ -50,7 +49,7 @@ const FounderSection = () => {
                     className="flex items-center gap-2 hover:text-primary transition-colors"
                   >
                     <Linkedin className="w-4 h-4" />
-                    <span>Auf LinkedIn vernetzen</span>
+                    <span>Connect on LinkedIn</span>
                   </a>
                 </div>
 
@@ -58,7 +57,7 @@ const FounderSection = () => {
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
                   <div className="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs">
                     <Shield className="w-3 h-3 text-emerald-400" />
-                    <span className="text-emerald-400">DSGVO/GDPR Konform</span>
+                    <span className="text-emerald-400">GDPR Compliant</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/30 rounded-full text-xs">
                     <Award className="w-3 h-3 text-primary" />
@@ -68,7 +67,7 @@ const FounderSection = () => {
 
                 <div className="pt-6 border-t border-border">
                   <p className="text-sm italic text-muted-foreground">
-                    "Meine Mission: Schweizer Unternehmen sollen nie wieder eine Chance verpassen."
+                    "My mission: Help Swiss businesses never miss an opportunity again."
                   </p>
                 </div>
               </div>

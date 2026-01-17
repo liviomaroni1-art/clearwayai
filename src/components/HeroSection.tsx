@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingDown, Sparkles } from "lucide-react";
+import { ArrowRight, TrendingDown, Sparkles, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/clearway-logo.png";
@@ -50,36 +50,42 @@ const HeroSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-3xl blur-sm opacity-50" />
             
             <div className="relative bg-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
-              {/* Main Heading - Swiss-focused */}
+              {/* Main Heading */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Ihre CHF 4'500 Empfangsdame ersetzen
+                Replace Your CHF 4,500 Receptionist
                 <br />
-                <span className="gradient-text">Mit KI für CHF 2'500/Monat — 24/7 aktiv</span>
+                <span className="gradient-text">With AI for CHF 2,500/mo — Active 24/7</span>
               </h1>
 
-              {/* Description - Benefit focused */}
+              {/* Description */}
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-                Kein verpasster Anruf mehr. Unsere KI-Rezeptionistin antwortet sofort, bucht Termine 
-                und synchronisiert mit Ihrem CRM—auch um 3 Uhr morgens. Swiss-made. In 48 Stunden live.
+                Never miss a call again. Our AI receptionist answers instantly, books appointments, 
+                and syncs with your CRM—even at 3 AM. Swiss-built. Live in 48 hours.
               </p>
               
-              {/* Trust line */}
-              <p className="text-sm text-primary/80 mb-8 font-medium">
-                Entwickelt für Schweizer Praxen, Kanzleien und Agenturen in Zürich, Zug und der ganzen Schweiz
-              </p>
+              {/* Trust line with languages */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <span className="text-sm text-primary/80 font-medium">
+                  Built for Swiss clinics, law firms, and agencies
+                </span>
+                <span className="flex items-center gap-1 text-sm text-emerald-400 font-medium">
+                  <Globe className="w-4 h-4" />
+                  30+ languages supported
+                </span>
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="xl" className="w-full sm:w-auto min-h-[56px] text-base" asChild>
                   <Link to="/contact">
-                    Kostenlose Demo buchen
+                    Book Free Demo
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="heroOutline" size="xl" className="w-full sm:w-auto min-h-[56px] text-base" asChild>
                   <a href="#calculator">
                     <TrendingDown className="w-5 h-5" />
-                    ROI berechnen
+                    Calculate Your Savings
                   </a>
                 </Button>
               </div>
@@ -96,17 +102,17 @@ const HeroSection = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-amber-400">24/7</div>
-                  <div className="text-xs text-muted-foreground">Erreichbar</div>
+                  <div className="text-xs text-muted-foreground">Available</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-pink-400">CHF 54K</div>
-                  <div className="text-xs text-muted-foreground">Ersparnis/Jahr</div>
+                  <div className="text-xs text-muted-foreground">Saved/Year</div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* LIVE DEMO PHONE - TOP PRIORITY */}
+          {/* LIVE DEMO PHONE */}
           <LiveDemoPhone variant="hero" />
 
           {/* Swiss Trust Bar */}

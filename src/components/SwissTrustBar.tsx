@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Shield, Phone, Clock } from "lucide-react";
+import { MapPin, Shield, Phone, Globe } from "lucide-react";
 
 const SwissTrustBar = () => {
   const demoNumber = "+41 44 000 00 00"; // Replace with actual demo number
@@ -13,18 +13,18 @@ const SwissTrustBar = () => {
     >
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
         <MapPin className="w-4 h-4 text-red-500" />
-        <span className="text-muted-foreground">Freienbach, Schweiz</span>
+        <span className="text-muted-foreground">Freienbach, Switzerland</span>
         <span className="text-lg">🇨🇭</span>
       </div>
       
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
         <Shield className="w-4 h-4 text-emerald-500" />
-        <span className="text-muted-foreground">DSGVO Konform</span>
+        <span className="text-muted-foreground">GDPR Compliant</span>
       </div>
       
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
-        <Clock className="w-4 h-4 text-amber-500" />
-        <span className="text-muted-foreground">48h Setup</span>
+        <Globe className="w-4 h-4 text-primary" />
+        <span className="text-muted-foreground">30+ Languages</span>
       </div>
       
       <a 
