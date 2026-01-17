@@ -65,7 +65,7 @@ const TrustSection = () => {
             <p className="text-sm text-muted-foreground">Uptime</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-primary">&lt;3s</p>
+            <p className="text-3xl font-bold text-primary">&lt;2s</p>
             <p className="text-sm text-muted-foreground">Avg Response</p>
           </div>
           <div>
