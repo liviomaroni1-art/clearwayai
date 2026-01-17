@@ -69,8 +69,40 @@ const TrustSection = () => {
             <p className="text-sm text-muted-foreground">Avg Response</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-primary">100+</p>
-            <p className="text-sm text-muted-foreground">Teams Served</p>
+            <p className="text-3xl font-bold text-primary">24/7</p>
+            <p className="text-sm text-muted-foreground">Availability</p>
+          </div>
+        </motion.div>
+
+        {/* Early Access Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-10 mx-auto max-w-md"
+        >
+          <div className="bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 text-center">
+            <p className="text-sm font-medium text-primary">
+              🚀 Early Access: First 10 businesses get 50% lifetime discount
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Tech Stack Logos */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap justify-center items-center gap-6 mt-10"
+        >
+          <p className="text-xs text-muted-foreground w-full text-center mb-2">Powered by</p>
+          <div className="flex flex-wrap justify-center gap-6 text-muted-foreground/60 text-sm font-medium">
+            <span className="px-3 py-1 border border-border/50 rounded-full">Retell.ai</span>
+            <span className="px-3 py-1 border border-border/50 rounded-full">n8n</span>
+            <span className="px-3 py-1 border border-border/50 rounded-full">Google Calendar</span>
+            <span className="px-3 py-1 border border-border/50 rounded-full">HubSpot</span>
           </div>
         </motion.div>
 
@@ -79,7 +111,7 @@ const TrustSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
           className="text-center text-sm text-muted-foreground mt-8"
         >
           Every system is custom-built, client-specific, and secured to enterprise standards.
