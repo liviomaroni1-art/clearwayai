@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Shield, Phone, Globe } from "lucide-react";
 
 const SwissTrustBar = () => {
-  const demoNumber = "+41 44 000 00 00"; // Replace with actual demo number
+  const demoNumber = "+1 (888) 778-3091";
   
   return (
     <motion.div

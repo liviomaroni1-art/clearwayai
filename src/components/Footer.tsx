@@ -2,7 +2,7 @@ import { Linkedin, Mail, MapPin, Phone, Shield, Globe } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
-  const demoNumber = "+41 44 000 00 00";
+  const demoNumber = "+1 (888) 778-3091";
   
   return (
     <footer className="py-12 border-t border-border">
