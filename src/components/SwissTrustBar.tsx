@@ -1,31 +1,38 @@
 import { motion } from "framer-motion";
-import { MapPin, Shield, Phone } from "lucide-react";
+import { MapPin, Shield, Phone, Clock } from "lucide-react";
 
 const SwissTrustBar = () => {
+  const demoNumber = "+41 44 000 00 00"; // Replace with actual demo number
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="flex flex-wrap items-center justify-center gap-4 md:gap-6 py-4"
+      className="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4"
     >
-      <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full text-sm">
+      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
         <MapPin className="w-4 h-4 text-red-500" />
-        <span className="text-muted-foreground">Built in Freienbach, Switzerland</span>
+        <span className="text-muted-foreground">Freienbach, Schweiz</span>
         <span className="text-lg">🇨🇭</span>
       </div>
       
-      <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full text-sm">
+      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
         <Shield className="w-4 h-4 text-emerald-500" />
-        <span className="text-muted-foreground">GDPR Compliant</span>
+        <span className="text-muted-foreground">DSGVO Konform</span>
+      </div>
+      
+      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
+        <Clock className="w-4 h-4 text-amber-500" />
+        <span className="text-muted-foreground">48h Setup</span>
       </div>
       
       <a 
-        href="tel:+41000000000" 
-        className="flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full text-sm hover:bg-primary/30 transition-colors"
+        href={`tel:${demoNumber.replace(/\s/g, '')}`}
+        className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs md:text-sm hover:bg-emerald-500/30 transition-colors"
       >
-        <Phone className="w-4 h-4 text-primary" />
-        <span className="text-primary font-medium">+41 Live Demo</span>
+        <Phone className="w-4 h-4 text-emerald-400" />
+        <span className="text-emerald-400 font-medium">Live Demo: {demoNumber}</span>
       </a>
     </motion.div>
   );
