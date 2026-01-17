@@ -12,6 +12,7 @@ import FounderSection from "@/components/FounderSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import LiveDemoPhone from "@/components/LiveDemoPhone";
 
 const Index = () => {
   return (
@@ -30,6 +31,9 @@ const Index = () => {
       <FAQSection />
       <CTASection />
       <Footer />
+      
+      {/* Floating Live Demo Phone */}
+      <LiveDemoPhone variant="floating" />
     </div>
   );
 };

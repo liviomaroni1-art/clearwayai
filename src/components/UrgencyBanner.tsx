@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
-import { Clock, TrendingUp, Zap } from "lucide-react";
+import { Clock, TrendingUp, Zap, Phone } from "lucide-react";
 
 const UrgencyBanner = () => {
   return (
-    <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border-y border-primary/30">
+    <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border-y border-primary/30 mt-[112px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 py-3 text-sm">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center gap-2 text-primary font-medium"
+            className="flex items-center gap-2 text-amber-400 font-medium"
           >
             <Clock className="w-4 h-4" />
-            <span>Only 3 Signature spots left Q1 2026</span>
+            <span>⚡ Nur noch 5 Plätze für Q1 2026</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>
@@ -25,7 +25,7 @@ const UrgencyBanner = () => {
             className="flex items-center gap-2 text-emerald-400 font-medium"
           >
             <TrendingUp className="w-4 h-4" />
-            <span>CHF 54K annual savings vs human staff</span>
+            <span>CHF 54'000 Ersparnis/Jahr</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>
@@ -34,11 +34,24 @@ const UrgencyBanner = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex items-center gap-2 text-amber-400 font-medium"
+            className="flex items-center gap-2 text-primary font-medium"
           >
             <Zap className="w-4 h-4" />
-            <span>Live in 48 hours guaranteed</span>
+            <span>Live in 48 Stunden</span>
           </motion.div>
+          
+          <span className="hidden lg:block text-muted-foreground">•</span>
+          
+          <motion.a 
+            href="tel:+41440000000"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="hidden lg:flex items-center gap-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+          >
+            <Phone className="w-4 h-4" />
+            <span>Live Demo: +41 44 000 00 00</span>
+          </motion.a>
         </div>
       </div>
     </div>
