@@ -25,7 +25,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="mailto:hello@clearwayai.co" 
+                href="mailto:sales@clearwayai.co" 
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
@@ -44,8 +44,8 @@ const Footer = () => {
               <a href="#how-it-works" className="hover:text-foreground transition-colors">
                 How It Works
               </a>
-              <a href="#pricing" className="hover:text-foreground transition-colors">
-                Pricing
+              <a href="#calculator" className="hover:text-foreground transition-colors">
+                Cost Calculator
               </a>
               <a href="#faq" className="hover:text-foreground transition-colors">
                 FAQ
@@ -58,14 +58,14 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <a 
-                href="mailto:hello@clearwayai.co" 
+                href="mailto:sales@clearwayai.co" 
                 className="hover:text-foreground transition-colors"
               >
-                hello@clearwayai.co
+                sales@clearwayai.co
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>Zurich, Switzerland</span>
+                <span>Dallas, TX</span>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const Footer = () => {
             <a href="/terms" className="hover:text-foreground transition-colors">
               Terms of Service
             </a>
-            <span className="text-xs">🇨🇭 Built in Switzerland</span>
+            <span className="text-xs">🇺🇸 Based in Dallas, TX</span>
           </div>
         </div>
       </div>

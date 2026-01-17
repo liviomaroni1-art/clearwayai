@@ -37,7 +37,7 @@ const FounderSection = () => {
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-primary" />
-                    <span>Zurich, Switzerland</span>
+                    <span>Dallas, TX</span>
                   </div>
                   <a 
                     href="https://linkedin.com/in/founder" 
