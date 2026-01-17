@@ -39,30 +39,29 @@ const HeroSection = () => {
             <div className="relative bg-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
               {/* Main Heading */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                AI That Answers Calls, Emails & Schedules—
+                Never Miss a Call Again
                 <br />
-                <span className="gradient-text">So You Don't Have To</span>
+                <span className="gradient-text">AI That Answers, Books & Updates Your CRM—24/7</span>
               </h1>
 
               {/* Description */}
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-                We build and deploy AI-powered systems that handle inbound calls, respond to emails, 
-                book appointments, and manage customer inquiries—giving your team time back for high-value work.
+                Your AI receptionist answers every call, books appointments instantly, and syncs with your CRM—so you never lose a lead to voicemail again.
               </p>
               <p className="text-sm text-muted-foreground/80 mb-8">
-                Built for service-based teams that rely on calls, emails, and bookings to grow.
+                Built for service-based teams in healthcare, real estate, and professional services.
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="xl" asChild>
                   <Link to="/contact">
-                    Book Free Consultation
+                    Book Free Demo
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
                 <Button variant="heroOutline" size="xl" asChild>
-                  <a href="#services">See How It Works</a>
+                  <a href="#how-it-works">See How It Works</a>
                 </Button>
               </div>
             </div>
