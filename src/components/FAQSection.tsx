@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "What languages are supported?",
     answer:
-      "Currently, we support English and German (Hochdeutsch), with Swiss German and French coming soon. Perfect for Swiss and international businesses.",
+      "We support 30+ languages including English, Spanish, Mandarin Chinese, Hindi, Arabic, Portuguese, French, German, Japanese, Korean, Italian, Russian, Dutch, Polish, Turkish, Vietnamese, Thai, Indonesian, Tagalog, and more. Our AI handles native-level fluency for global businesses.",
   },
   {
     question: "How long does setup take?",
