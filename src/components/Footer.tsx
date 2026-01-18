@@ -1,10 +1,7 @@
 import { Phone, MapPin, Shield, Globe, Linkedin, Mail } from "lucide-react";
-
 const Footer = () => {
   const demoNumber = "+1 (888) 778-3091";
-  
-  return (
-    <footer className="bg-gradient-to-br from-slate-800 to-slate-900 py-16 md:py-20">
+  return <footer className="bg-gradient-to-br from-slate-800 to-slate-900 py-16 md:py-20">
       <div className="container mx-auto px-6">
         {/* Founder Trust Section */}
         <div className="max-w-3xl mx-auto text-center mb-12">
@@ -12,17 +9,12 @@ const Footer = () => {
             🏔️ FREIENBACH, SWITZERLAND
           </div>
           
-          <p className="text-lg md:text-xl text-slate-300 mb-8">
-            Hi, I'm building AI receptionists for Swiss clinics and law firms. 
-            <br className="hidden md:block" />
+          <p className="text-lg md:text-xl text-slate-300 mb-8">"Hi, I build premium AI receptionists that replace $3,500/month staff for US businesses. Our Clearway AI handles unlimited calls simultaneously, 24/7/365 - no sick days, no excuses. Just pure productivity so you focus on your core business, not endless phone tag.<br className="hidden md:block" />
             Every system is custom-built, secure, and client-specific.
           </p>
           
           {/* Demo Number - Big CTA */}
-          <a 
-            href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`}
-            className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors mb-6"
-          >
+          <a href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`} className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors mb-6">
             <Phone className="w-8 h-8" />
             {demoNumber}
           </a>
@@ -42,20 +34,10 @@ const Footer = () => {
           
           {/* Social links */}
           <div className="flex items-center justify-center gap-4">
-            <a 
-              href="https://linkedin.com/company/clearwayai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
+            <a href="https://linkedin.com/company/clearwayai" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors" aria-label="LinkedIn">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a 
-              href="mailto:sales@clearwayai.co" 
-              className="text-slate-400 hover:text-primary transition-colors"
-              aria-label="Email"
-            >
+            <a href="mailto:sales@clearwayai.co" className="text-slate-400 hover:text-primary transition-colors" aria-label="Email">
               <Mail className="w-6 h-6" />
             </a>
           </div>
@@ -74,8 +56,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

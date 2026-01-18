@@ -1,45 +1,46 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "We went from missing 40% of calls to capturing every single inquiry. The AI handles scheduling better than we ever could manually.",
-    role: "Operations Director",
-    industry: "Healthcare Practice",
-  },
-  {
-    quote: "Response time dropped from hours to seconds. Our customers noticed immediately—and so did our conversion rate.",
-    role: "Managing Partner",
-    industry: "Professional Services Firm",
-  },
-];
-
+const testimonials = [{
+  quote: "We went from missing 40% of calls to capturing every single inquiry. The AI handles scheduling better than we ever could manually.",
+  role: "Operations Director",
+  industry: "Healthcare Practice"
+}, {
+  quote: "Response time dropped from hours to seconds. Our customers noticed immediately—and so did our conversion rate.",
+  role: "Managing Partner",
+  industry: "Professional Services Firm"
+}];
 const TrustSection = () => {
-  return (
-    <section className="py-20 relative">
+  return <section className="py-20 relative">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5
+      }} className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             What Teams Are <span className="gradient-text">Saying</span>
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 rounded-2xl relative"
-            >
+          {testimonials.map((testimonial, index) => <motion.div key={index} initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.5,
+          delay: index * 0.1
+        }} className="glass-card p-8 rounded-2xl relative">
               <Quote className="w-8 h-8 text-primary/30 absolute top-6 right-6" />
               <p className="text-foreground/90 leading-relaxed mb-6 text-lg">
                 "{testimonial.quote}"
@@ -48,18 +49,20 @@ const TrustSection = () => {
                 <p className="font-medium text-foreground">{testimonial.role}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.industry}</p>
               </div>
-            </motion.div>
-          ))}
+            </motion.div>)}
         </div>
 
         {/* Trust indicators */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-8 mt-12 text-center"
-        >
+        <motion.div initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5,
+        delay: 0.3
+      }} className="flex flex-wrap justify-center gap-8 mt-12 text-center">
           <div>
             <p className="text-3xl font-bold text-primary">99.9%</p>
             <p className="text-sm text-muted-foreground">Uptime</p>
@@ -69,19 +72,24 @@ const TrustSection = () => {
             <p className="text-sm text-muted-foreground">Avg Response</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-primary">24/7</p>
+            <p className="text-3xl font-bold text-primary">24/7/365</p>
             <p className="text-sm text-muted-foreground">Availability</p>
           </div>
         </motion.div>
 
         {/* Early Access Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-10 mx-auto max-w-md"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 10
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5,
+        delay: 0.35
+      }} className="mt-10 mx-auto max-w-md">
           <div className="bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 text-center">
             <p className="text-sm font-medium text-primary">
               🚀 Early Access: First 10 businesses get 50% lifetime discount
@@ -90,13 +98,16 @@ const TrustSection = () => {
         </motion.div>
 
         {/* Tech Stack Logos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center items-center gap-6 mt-10"
-        >
+        <motion.div initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5,
+        delay: 0.4
+      }} className="flex flex-wrap justify-center items-center gap-6 mt-10">
           <p className="text-xs text-muted-foreground w-full text-center mb-2">Powered by</p>
           <div className="flex flex-wrap justify-center gap-6 text-muted-foreground/60 text-sm font-medium">
             <span className="px-3 py-1 border border-border/50 rounded-full">Retell.ai</span>
@@ -107,18 +118,19 @@ const TrustSection = () => {
         </motion.div>
 
         {/* Security reassurance */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.45 }}
-          className="text-center text-sm text-muted-foreground mt-8"
-        >
+        <motion.p initial={{
+        opacity: 0
+      }} whileInView={{
+        opacity: 1
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.5,
+        delay: 0.45
+      }} className="text-center text-sm text-muted-foreground mt-8">
           Every system is custom-built, client-specific, and secured to enterprise standards.
         </motion.p>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TrustSection;
