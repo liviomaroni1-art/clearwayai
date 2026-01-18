@@ -1,14 +1,11 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Clearway AI - AI Receptionist Service
+# https://clearwayai.co
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://clearwayai.co/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1
