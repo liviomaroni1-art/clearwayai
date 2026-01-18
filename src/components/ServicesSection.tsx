@@ -122,7 +122,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -130,7 +130,7 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group glass-card rounded-2xl transition-all duration-300 cursor-pointer ${
+              className={`group glass-card rounded-2xl transition-all duration-300 cursor-pointer w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] self-start ${
                 service.isCore 
                   ? "border-primary/40 hover:border-primary/60 ring-1 ring-primary/20" 
                   : "hover:border-primary/50"
