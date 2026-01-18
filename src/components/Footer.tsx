@@ -30,14 +30,6 @@ const Footer = () => {
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-slate-300">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span>GDPR Compliant</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-slate-300">
-              <span>🇨🇭</span>
-              <span>Swiss Made</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm text-slate-300">
               <Globe className="w-4 h-4 text-primary" />
               <span>30+ Languages</span>
             </div>
@@ -77,7 +69,7 @@ const Footer = () => {
             <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
             <div className="flex items-center gap-1">
               <MapPin className="w-4 h-4" />
-              <span>Freienbach SZ 🇨🇭</span>
+              <span>Freienbach, Switzerland</span>
             </div>
           </div>
         </div>

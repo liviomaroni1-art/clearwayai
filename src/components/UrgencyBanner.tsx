@@ -25,7 +25,7 @@ const UrgencyBanner = () => {
             className="flex items-center gap-2 text-emerald-400 font-medium"
           >
             <TrendingUp className="w-4 h-4" />
-            <span>CHF 54K saved/year</span>
+            <span>$54K saved/year</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>
