@@ -32,15 +32,15 @@ const FounderSection = () => {
                 </h2>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  After years in AI automation, I saw how many Swiss practices and law firms 
+                  After years in AI automation, I saw how many practices and law firms 
                   lose clients simply because no one answers the phone. Clearway AI was founded 
-                  to solve this problem—with Swiss precision and cutting-edge AI technology.
+                  to solve this problem—with precision engineering and cutting-edge AI technology.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground mb-6">
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-primary" />
-                    <span>Freienbach SZ, Switzerland</span>
+                    <span>Freienbach, Switzerland</span>
                   </div>
                   <a 
                     href="https://linkedin.com/in/founder" 
@@ -53,21 +53,9 @@ const FounderSection = () => {
                   </a>
                 </div>
 
-                {/* Trust badges */}
-                <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
-                  <div className="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-xs">
-                    <Shield className="w-3 h-3 text-emerald-400" />
-                    <span className="text-emerald-400">GDPR Compliant</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/30 rounded-full text-xs">
-                    <Award className="w-3 h-3 text-primary" />
-                    <span className="text-primary">Swiss Made</span>
-                  </div>
-                </div>
-
                 <div className="pt-6 border-t border-border">
                   <p className="text-sm italic text-muted-foreground">
-                    "My mission: Help Swiss businesses never miss an opportunity again."
+                    "My mission: Help businesses never miss an opportunity again."
                   </p>
                 </div>
               </div>

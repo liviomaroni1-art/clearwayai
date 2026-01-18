@@ -50,23 +50,23 @@ const HeroSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-3xl blur-sm opacity-50" />
             
             <div className="relative bg-card/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-primary/20">
-              {/* Main Heading */}
+          {/* Main Heading */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Replace Your CHF 4,500 Receptionist
+                Replace Your $4,500 Receptionist
                 <br />
-                <span className="gradient-text">With AI for CHF 2,500/mo — Active 24/7</span>
+                <span className="gradient-text">With AI for $2,500/mo — Active 24/7</span>
               </h1>
 
               {/* Description */}
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
                 Never miss a call again. Our AI receptionist answers instantly, books appointments, 
-                and syncs with your CRM—even at 3 AM. Swiss-built. Live in 48 hours.
+                and syncs with your CRM—even at 3 AM. Live in 48 hours.
               </p>
               
               {/* Trust line with languages */}
               <div className="flex flex-wrap justify-center gap-3 mb-8">
                 <span className="text-sm text-primary/80 font-medium">
-                  Built for Swiss clinics, law firms, and agencies
+                  Built for clinics, law firms, and agencies
                 </span>
                 <span className="flex items-center gap-1 text-sm text-emerald-400 font-medium">
                   <Globe className="w-4 h-4" />
@@ -105,7 +105,7 @@ const HeroSection = () => {
                   <div className="text-xs text-muted-foreground">Available</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-pink-400">CHF 54K</div>
+                  <div className="text-2xl font-bold text-pink-400">$54K</div>
                   <div className="text-xs text-muted-foreground">Saved/Year</div>
                 </div>
               </div>

@@ -22,12 +22,12 @@ const PricingSection = () => {
             ⚡ ONLY 3 SIGNATURE SPOTS LEFT Q1 2026
           </div>
           <div className="text-lg md:text-xl text-red-100 font-semibold">
-            💰 CHF 54,000 savings vs CHF 4,500/month human staff
+            💰 $54,000 savings vs $4,500/month human staff
           </div>
         </motion.div>
 
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 md:p-16">
-          {/* Swiss Trust Bar */}
+          {/* Trust Bar */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -36,11 +36,7 @@ const PricingSection = () => {
           >
             <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
               <MapPin className="w-4 h-4 text-red-400" />
-              <span className="text-slate-300">Built in Freienbach, Switzerland 🇨🇭</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span className="text-slate-300">GDPR Compliant</span>
+              <span className="text-slate-300">Based in Freienbach, Switzerland</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm">
               <Clock className="w-4 h-4 text-primary" />
@@ -59,10 +55,10 @@ const PricingSection = () => {
               Premium AI Receptionist
             </h2>
             <p className="text-xl text-slate-300 mb-2">
-              Replaces CHF 4,500+/month receptionists. Swiss precision engineering.
+              Replaces $4,500+/month receptionists. Precision engineering.
             </p>
             <p className="text-emerald-400 font-medium">
-              💰 Save CHF 54,000/year compared to human staff
+              💰 Save $54,000/year compared to human staff
             </p>
           </motion.div>
 
@@ -81,7 +77,7 @@ const PricingSection = () => {
               </div>
               
               <div className="text-5xl font-extrabold text-violet-500 mb-5">
-                CHF 2,500<span className="text-xl">/month</span>
+                $2,500<span className="text-xl">/month</span>
               </div>
               
               <div className="bg-violet-500/20 text-violet-400 px-6 py-4 rounded-2xl text-lg font-semibold mb-8">
@@ -105,7 +101,7 @@ const PricingSection = () => {
 
               <div className="bg-black/30 p-6 rounded-2xl mb-6 text-center">
                 <div className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-2">
-                  <Wrench className="w-6 h-6" /> Setup: CHF 1,000
+                  <Wrench className="w-6 h-6" /> Setup: $1,000
                 </div>
                 <div className="text-slate-400">Done-for-you Retell.ai/n8n (4-6 hours)</div>
               </div>
@@ -113,7 +109,7 @@ const PricingSection = () => {
               {/* Value comparison */}
               <div className="bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl mb-6 text-center">
                 <p className="text-sm text-emerald-400">
-                  <strong>vs Human Receptionist:</strong> Save CHF 2,000+/month
+                  <strong>vs Human Receptionist:</strong> Save $2,000+/month
                 </p>
               </div>
 
@@ -138,7 +134,7 @@ const PricingSection = () => {
               </div>
               
               <div className="text-5xl font-extrabold text-amber-500 mb-5">
-                CHF 3,500<span className="text-xl">/month</span>
+                $3,500<span className="text-xl">/month</span>
               </div>
               
               <div className="bg-amber-500/20 text-amber-400 px-6 py-4 rounded-2xl text-lg font-semibold mb-8">
@@ -162,7 +158,7 @@ const PricingSection = () => {
 
               <div className="bg-black/30 p-6 rounded-2xl mb-6 text-center">
                 <div className="text-2xl font-bold text-white mb-2 flex items-center justify-center gap-2">
-                  <Wrench className="w-6 h-6" /> Setup: CHF 1,500
+                  <Wrench className="w-6 h-6" /> Setup: $1,500
                 </div>
                 <div className="text-slate-400">Enterprise-grade implementation</div>
               </div>
@@ -195,7 +191,7 @@ const PricingSection = () => {
               <Building2 className="w-10 h-10" /> Enterprise Concierge
             </div>
             <div className="text-5xl md:text-6xl font-extrabold text-amber-100 mb-6">
-              CHF 5,000+/month
+              $5,000+/month
             </div>
             <p className="text-xl text-slate-300 mb-5">
               Multi-location • HIPAA • Custom EMR/EHR • Dedicated manager
@@ -226,11 +222,11 @@ const PricingSection = () => {
             </h3>
             <div className="grid sm:grid-cols-3 gap-6">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">CHF 2,000/mo</div>
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">$2,000/mo</div>
                 <div className="text-slate-300">Signature</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">CHF 2,800/mo</div>
+                <div className="text-3xl md:text-4xl font-bold text-emerald-400">$2,800/mo</div>
                 <div className="text-slate-300">Elite</div>
               </div>
               <div className="flex items-center">

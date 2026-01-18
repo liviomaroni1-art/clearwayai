@@ -118,7 +118,7 @@ const CostCalculator = () => {
                   <label className="text-sm font-medium text-foreground">
                     Average value per lead/booking
                   </label>
-                  <span className="text-lg font-bold text-primary">CHF {avgCallValue[0]}</span>
+                  <span className="text-lg font-bold text-primary">${avgCallValue[0]}</span>
                 </div>
                 <Slider
                   value={avgCallValue}
@@ -160,13 +160,13 @@ const CostCalculator = () => {
                   <div className="bg-red-500/10 rounded-xl p-4">
                     <p className="text-xs text-muted-foreground mb-1">Lost Revenue/Year</p>
                     <p className="text-2xl font-bold text-red-400">
-                      CHF {yearlyLostRevenue.toLocaleString()}
+                      ${yearlyLostRevenue.toLocaleString()}
                     </p>
                   </div>
                   <div className="bg-muted/30 rounded-xl p-4">
                     <p className="text-xs text-muted-foreground mb-1">Clearway AI Cost/Year</p>
                     <p className="text-2xl font-bold text-foreground">
-                      CHF {clearwayYearlyCost.toLocaleString()}
+                      ${clearwayYearlyCost.toLocaleString()}
                     </p>
                   </div>
                   <div className="bg-emerald-500/10 rounded-xl p-4">
@@ -188,11 +188,11 @@ const CostCalculator = () => {
                     Your net annual savings with Clearway AI
                   </p>
                   <p className="text-4xl md:text-5xl font-extrabold text-emerald-400">
-                    CHF {Math.max(0, netSavings).toLocaleString()}/year
+                    ${Math.max(0, netSavings).toLocaleString()}/year
                   </p>
                   {netSavings > 0 && (
                     <p className="text-sm text-muted-foreground mt-2">
-                      That's CHF {Math.round(netSavings / 12).toLocaleString()}/month in your pocket
+                      That's ${Math.round(netSavings / 12).toLocaleString()}/month in your pocket
                     </p>
                   )}
                 </motion.div>
@@ -201,7 +201,7 @@ const CostCalculator = () => {
                 <div className="mt-8 text-center">
                   <Button variant="hero" size="xl" className="w-full sm:w-auto min-h-[48px]" asChild>
                     <Link to="/contact">
-                      Start Saving CHF {Math.max(0, netSavings).toLocaleString()}/year
+                      Start Saving ${Math.max(0, netSavings).toLocaleString()}/year
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
