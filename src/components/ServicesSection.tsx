@@ -135,7 +135,10 @@ const ServicesSection = () => {
                   ? "border-primary/40 hover:border-primary/60 ring-1 ring-primary/20" 
                   : "hover:border-primary/50"
               } ${expandedService === service.title ? "ring-2 ring-primary/50" : ""}`}
-              onClick={() => toggleService(service.title)}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleService(service.title);
+              }}
             >
               <div className="p-8">
                 <div className="flex items-start justify-between">
