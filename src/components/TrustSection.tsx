@@ -32,10 +32,10 @@ const TrustSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-100">
             Why teams trust <span className="gradient-text">ClearwayAI</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Confidence comes from clarity. Here's what our partners experience.
           </p>
         </motion.div>
@@ -49,13 +49,13 @@ const TrustSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 text-center hover:shadow-lg transition-shadow"
+              className="glass-card p-6 text-center hover:border-primary/30 transition-colors"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <benefit.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
-              <p className="text-sm text-muted-foreground">{benefit.description}</p>
+              <h3 className="font-semibold text-gray-100 mb-2">{benefit.title}</h3>
+              <p className="text-sm text-gray-400">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
@@ -72,12 +72,12 @@ const TrustSection = () => {
               className="elevated-card p-8 relative"
             >
               <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
-              <p className="text-foreground/90 leading-relaxed mb-6 text-lg">
+              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
                 "{testimonial.quote}"
               </p>
-              <div className="border-t border-border/40 pt-4">
-                <p className="font-medium text-foreground">{testimonial.role}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.industry}</p>
+              <div className="border-t border-white/10 pt-4">
+                <p className="font-medium text-gray-100">{testimonial.role}</p>
+                <p className="text-sm text-gray-500">{testimonial.industry}</p>
               </div>
             </motion.div>
           ))}
@@ -98,7 +98,7 @@ const TrustSection = () => {
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</p>
-              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+              <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
             </div>
           ))}
         </motion.div>
@@ -111,7 +111,7 @@ const TrustSection = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-16 mx-auto max-w-lg"
         >
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 text-center">
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 text-center glow-effect">
             <p className="text-sm font-medium text-primary">
               🚀 Early Access: First 10 businesses get 50% lifetime discount on setup
             </p>
@@ -126,10 +126,10 @@ const TrustSection = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-12 text-center"
         >
-          <p className="text-xs text-muted-foreground mb-3">Powered by</p>
-          <div className="flex flex-wrap justify-center gap-4 text-muted-foreground/60 text-sm">
+          <p className="text-xs text-gray-500 mb-3">Powered by</p>
+          <div className="flex flex-wrap justify-center gap-4 text-gray-500 text-sm">
             {["Retell.ai", "n8n", "Google Calendar", "HubSpot"].map((tech) => (
-              <span key={tech} className="px-3 py-1.5 bg-secondary/50 border border-border/30 rounded-full">
+              <span key={tech} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full">
                 {tech}
               </span>
             ))}
