@@ -242,11 +242,11 @@ const PricingSection = () => {
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
                   <Check className="w-5 h-5" />
-                  No setup fee required
+                  $0 setup fee
                 </div>
                 <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
                   <Check className="w-5 h-5" />
-                  Setup fee waived
+                  Priority onboarding included
                 </div>
               </div>
             </div>
