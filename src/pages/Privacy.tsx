@@ -140,7 +140,7 @@ const Privacy = () => {
               <div className="space-y-2 text-muted-foreground">
                 <p><strong className="text-foreground">Email:</strong> sales@clearwayai.co</p>
                 <p><strong className="text-foreground">Address:</strong> Freienbach, Switzerland</p>
-                <p><strong className="text-foreground">Response Time:</strong> Within 48 business hours</p>
+                <p><strong className="text-foreground">Response Time:</strong> Within 24-48 hours</p>
               </div>
             </section>
           </motion.div>

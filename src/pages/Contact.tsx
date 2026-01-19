@@ -187,7 +187,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Response Time</h3>
-                    <p className="text-muted-foreground">Within 24 hours</p>
+                    <p className="text-muted-foreground">Within 24-48 hours</p>
                     <p className="text-sm text-muted-foreground">Usually much faster</p>
                   </div>
                 </div>

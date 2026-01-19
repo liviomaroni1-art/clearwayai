@@ -20,7 +20,7 @@ const faqs = [
   {
     question: "How long does setup take?",
     answer:
-      "Most businesses are live within 24-48 hours. We handle the technical setup—you just provide your business info, services, and booking preferences.",
+      "Most businesses are live within 72 hours. We handle the technical setup—you just provide your business info, services, and booking preferences.",
   },
   {
     question: "What integrations do you support?",
