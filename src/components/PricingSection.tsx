@@ -107,8 +107,8 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="pricing" className="py-28 px-4 md:px-6">
+      <div className="max-w-[1400px] mx-auto">
         {/* Trust Bar */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -131,18 +131,18 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
             Choose the plan that fits your practice. No hidden fees, no surprises.
           </p>
         </motion.div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
           {plans.map((plan, index) => {
             const colors = colorClasses[plan.color];
             const Icon = plan.icon;
@@ -154,46 +154,46 @@ const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative bg-gradient-to-b ${colors.bg} backdrop-blur-xl rounded-2xl p-6 border ${colors.border} transition-all duration-300 flex flex-col`}
+                className={`relative bg-gradient-to-b ${colors.bg} backdrop-blur-xl rounded-3xl p-8 md:p-10 border-2 ${colors.border} transition-all duration-300 flex flex-col min-h-[580px]`}
               >
                 {/* Popular Badge */}
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className="bg-primary text-primary-foreground text-sm font-bold px-5 py-2 rounded-full shadow-lg">
                       Most Popular
                     </span>
                   </div>
                 )}
 
                 {/* Plan Header */}
-                <div className="text-center mb-6 pt-2">
-                  <div className={`inline-flex items-center gap-2 ${colors.text} mb-3`}>
-                    <Icon className="w-5 h-5" />
-                    <span className="text-lg font-semibold">{plan.name} {plan.emoji}</span>
+                <div className="text-center mb-8 pt-4">
+                  <div className={`inline-flex items-center gap-3 ${colors.text} mb-4`}>
+                    <Icon className="w-7 h-7" />
+                    <span className="text-xl md:text-2xl font-bold">{plan.name} {plan.emoji}</span>
                   </div>
                   
-                  <div className={`text-4xl font-bold ${colors.text} mb-1`}>
+                  <div className={`text-5xl md:text-6xl font-extrabold ${colors.text} mb-2`}>
                     {plan.price}
-                    <span className="text-base font-normal text-muted-foreground">/mo</span>
+                    <span className="text-lg font-normal text-muted-foreground">/mo</span>
                   </div>
                   
-                  <div className="text-sm text-muted-foreground">
-                    Setup: {plan.setup}
+                  <div className="text-base text-muted-foreground">
+                    Setup: <span className="font-semibold">{plan.setup}</span>
                   </div>
                 </div>
 
                 {/* Ideal For */}
-                <div className={`bg-white/5 rounded-xl px-4 py-3 text-center mb-6 border border-white/5`}>
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Ideal for:</span> {plan.idealFor}
+                <div className={`bg-white/5 rounded-2xl px-5 py-4 text-center mb-8 border border-white/10`}>
+                  <p className="text-base text-muted-foreground">
+                    <span className="font-semibold text-foreground">Ideal for:</span> {plan.idealFor}
                   </p>
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-6 flex-grow">
+                <ul className="space-y-4 mb-8 flex-grow">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm">
-                      <Check className={`w-4 h-4 ${colors.text} flex-shrink-0 mt-0.5`} />
+                    <li key={i} className="flex items-start gap-4 text-base">
+                      <Check className={`w-5 h-5 ${colors.text} flex-shrink-0 mt-0.5`} />
                       <span className="text-muted-foreground">{feature}</span>
                     </li>
                   ))}
@@ -202,7 +202,7 @@ const PricingSection = () => {
                 {/* CTA Button */}
                 <Button 
                   onClick={() => bookDemo(plan.name)}
-                  className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-white/10 hover:bg-white/20 text-foreground'} font-semibold py-5 rounded-xl transition-all`}
+                  className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-white/10 hover:bg-white/20 text-foreground'} font-bold text-lg py-7 rounded-2xl transition-all`}
                 >
                   Book Demo
                 </Button>
@@ -218,9 +218,9 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-2xl p-6 text-center">
-            <p className="text-lg md:text-xl font-medium text-foreground flex items-center justify-center gap-3 flex-wrap">
-              <span className="text-2xl">💬</span>
+          <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-2 border-primary/20 rounded-3xl p-8 md:p-10 text-center">
+            <p className="text-xl md:text-2xl font-semibold text-foreground flex items-center justify-center gap-4 flex-wrap">
+              <span className="text-3xl">💬</span>
               <span>
                 Commit to <span className="text-primary font-bold">36 months</span> and save{" "}
                 <span className="text-primary font-bold">20%</span> — setup fee waived.
@@ -235,15 +235,15 @@ const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
-          <p className="text-muted-foreground mb-4">
+          <p className="text-lg text-muted-foreground mb-6">
             Need something custom? We build tailored solutions for unique workflows.
           </p>
           <Button 
             variant="outline"
             onClick={() => bookDemo('custom')}
-            className="border-white/20 hover:bg-white/5"
+            className="border-white/20 hover:bg-white/5 text-lg px-8 py-6"
           >
             Request Custom Quote
           </Button>
