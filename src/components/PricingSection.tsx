@@ -61,7 +61,7 @@ const plans = [
     icon: Building2,
     price: "$5,000+",
     setup: "Custom",
-    idealFor: "Enterprise, HIPAA, multi-location",
+    idealFor: "Enterprise & multi-location",
     color: "slate",
     features: [
       "8,000+ minutes/month",
@@ -183,9 +183,10 @@ const PricingSection = () => {
                 </div>
 
                 {/* Ideal For */}
-                <div className={`bg-white/5 rounded-2xl px-5 py-4 text-center mb-8 border border-white/10`}>
-                  <p className="text-base text-muted-foreground">
-                    <span className="font-semibold text-foreground">Ideal for:</span> {plan.idealFor}
+                <div className={`bg-white/5 rounded-2xl px-4 py-4 text-center mb-8 border border-white/10`}>
+                  <p className="text-sm md:text-base text-muted-foreground leading-tight">
+                    <span className="font-semibold text-foreground block mb-1">Ideal for:</span> 
+                    {plan.idealFor}
                   </p>
                 </div>
 
