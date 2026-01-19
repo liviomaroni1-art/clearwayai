@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { PhoneMissed, Wallet, Clock, ArrowRight } from "lucide-react";
+import { PhoneMissed, Wallet, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const ProblemSection = () => {
   return (
@@ -66,7 +68,7 @@ const ProblemSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Solution preview */}
+          {/* Right - Solution preview with CTA */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,15 +81,16 @@ const ProblemSection = () => {
                 What if every call was answered?
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {[
                   "AI answers instantly, 24/7/365",
                   "Books appointments directly into your calendar",
                   "Sends confirmations and syncs with your CRM",
+                  "Speaks 30+ languages naturally",
                 ].map((text, i) => (
                   <div key={text} className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <span className="text-primary font-bold">{i + 1}</span>
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-primary" />
                     </div>
                     <p className="text-gray-200">{text}</p>
                   </div>
@@ -97,7 +100,7 @@ const ProblemSection = () => {
               {/* Cost comparison */}
               <div className="mt-8 pt-8 border-t border-white/10">
                 <p className="text-sm text-gray-500 mb-4">Know your cost—no surprises.</p>
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-between gap-4 mb-6">
                   <div className="text-center">
                     <p className="text-sm text-gray-500">Full-time staff</p>
                     <p className="text-xl font-bold text-red-400 line-through">$4,500/mo</p>
@@ -108,6 +111,14 @@ const ProblemSection = () => {
                     <p className="text-xl font-bold text-primary">$2,500/mo</p>
                   </div>
                 </div>
+                
+                {/* CTA Button */}
+                <Button variant="hero" size="lg" className="w-full btn-glow" asChild>
+                  <Link to="/contact">
+                    Get a Free Demo
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </motion.div>

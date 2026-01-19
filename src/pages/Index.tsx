@@ -2,13 +2,14 @@ import Navbar from "@/components/Navbar";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
+import FeaturesBreakdown from "@/components/FeaturesBreakdown";
 import ServicesSection from "@/components/ServicesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import WhoItsFor from "@/components/WhoItsFor";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import CostCalculator from "@/components/CostCalculator";
 import PricingSection from "@/components/PricingSection";
-import TrustSection from "@/components/TrustSection";
+import SocialProofSection from "@/components/SocialProofSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import AboutSection from "@/components/AboutSection";
 import FounderSection from "@/components/FounderSection";
@@ -31,13 +32,14 @@ const Index = () => {
       <UrgencyBanner />
       <HeroSection />
       <ProblemSection />
+      <FeaturesBreakdown />
       <WhoItsFor />
       <ServicesSection />
       <HowItWorksSection />
       <IntegrationsSection />
       <CostCalculator />
       <PricingSection />
-      <TrustSection />
+      <SocialProofSection />
       <BenefitsSection />
       <AboutSection />
       <FounderSection />
