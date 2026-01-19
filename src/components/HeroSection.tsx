@@ -113,7 +113,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            {["No setup fees for first 5 clients", "Cancel anytime", "Live in 48 hours"].map((item) => (
+            {["No setup fees for first 5 clients", "3-month cancellation notice", "Live in 48 hours"].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-gray-400">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
                 {item}

@@ -141,7 +141,7 @@ const Terms = () => {
               <h2 className="text-2xl font-bold text-foreground mb-4">Cancellation Policy</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  <strong className="text-foreground">Monthly Plans:</strong> Cancel anytime with 30 days written notice. No refunds for partial months.
+                  <strong className="text-foreground">Monthly Plans:</strong> Cancellation requires 3 months written notice. No refunds for partial months.
                 </p>
                 <p>
                   <strong className="text-foreground">Annual/Multi-Year Commitments:</strong> Early termination requires payment of remaining contract balance or 50% of remaining value, whichever is less.
