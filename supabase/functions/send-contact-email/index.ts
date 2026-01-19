@@ -17,6 +17,7 @@ interface ContactFormData {
   businessType: string;
   budget: string;
   service: string;
+  term: string;
   message: string;
 }
 
@@ -58,6 +59,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <ul>
           <li><strong>Business Type:</strong> ${formData.businessType}</li>
           <li><strong>Service Interest:</strong> ${formData.service}</li>
+          <li><strong>Preferred Term:</strong> ${formData.term === "36-months" ? "36 Months (20% off + waived setup)" : "Monthly"}</li>
           <li><strong>Budget Range:</strong> ${formData.budget}</li>
         </ul>
         
@@ -84,6 +86,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <p>In the meantime, here's a quick summary of what you shared:</p>
         <ul>
           <li><strong>Service:</strong> ${formData.service}</li>
+          <li><strong>Term:</strong> ${formData.term === "36-months" ? "36 Months (with discount)" : "Monthly"}</li>
           <li><strong>Budget:</strong> ${formData.budget}</li>
           <li><strong>Business Type:</strong> ${formData.businessType}</li>
         </ul>
