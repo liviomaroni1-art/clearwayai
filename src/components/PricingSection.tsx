@@ -282,7 +282,7 @@ const PricingSection = () => {
             <span className="hidden md:inline">•</span>
             <span>🎁 Annual: <strong className="text-primary">2 months free</strong></span>
             <span className="hidden md:inline">•</span>
-            <span>🛡️ <strong className="text-foreground">14-day</strong> money-back</span>
+            <span>📋 Cancel: <strong className="text-foreground">3-month notice</strong></span>
           </div>
         </motion.div>
 
