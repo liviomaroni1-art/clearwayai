@@ -26,7 +26,7 @@ const plans = [
     emoji: "🟣",
     icon: Diamond,
     price: "$2,500",
-    setup: "$1,250",
+    setup: "$1,500",
     idealFor: "Growing solo teams or small clinics",
     color: "violet",
     features: [
@@ -43,7 +43,7 @@ const plans = [
     emoji: "🟠",
     icon: Crown,
     price: "$3,500",
-    setup: "$1,750",
+    setup: "$2,000",
     idealFor: "Busy offices, law firms, clinics",
     color: "amber",
     features: [
@@ -60,7 +60,7 @@ const plans = [
     emoji: "⚫",
     icon: Building2,
     price: "$5,000+",
-    setup: "Custom",
+    setup: "$3,000",
     idealFor: "Enterprise & multi-location",
     color: "slate",
     features: [
@@ -239,9 +239,15 @@ const PricingSection = () => {
                 <span className="text-primary font-bold text-3xl md:text-4xl">20%</span>
               </p>
               
-              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
-                <Check className="w-5 h-5" />
-                Setup fee waived
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
+                  <Check className="w-5 h-5" />
+                  No setup fee required
+                </div>
+                <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
+                  <Check className="w-5 h-5" />
+                  Setup fee waived
+                </div>
               </div>
             </div>
           </div>
