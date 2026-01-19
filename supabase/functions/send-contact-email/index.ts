@@ -40,7 +40,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Send notification email to sales team
     const salesEmailResponse = await resend.emails.send({
-      from: "ClearwayAI Contact Form <onboarding@resend.dev>",
+      from: "ClearwayAI <noreply@clearwayai.co>",
       to: ["sales@clearwayai.co"],
       subject: `New Lead: ${formData.name} - ${formData.service}`,
       html: `
@@ -75,7 +75,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the customer
     const confirmationEmailResponse = await resend.emails.send({
-      from: "ClearwayAI <onboarding@resend.dev>",
+      from: "ClearwayAI <noreply@clearwayai.co>",
       to: [formData.email],
       subject: "We received your message - ClearwayAI",
       html: `
