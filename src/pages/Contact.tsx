@@ -65,6 +65,11 @@ const serviceOptions = [
   "Not sure - need consultation",
 ];
 
+const termOptions = [
+  { value: "monthly", label: "Monthly", discount: null },
+  { value: "36-months", label: "36 Months", discount: "20% off + waived setup" },
+];
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,6 +82,7 @@ const Contact = () => {
     businessType: "",
     budget: "",
     service: "",
+    term: "",
     message: "",
   });
 
@@ -105,7 +111,7 @@ const Contact = () => {
         description: "We'll get back to you as soon as possible.",
       });
       
-      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", budget: "", service: "", message: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", budget: "", service: "", term: "", message: "" });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -317,22 +323,48 @@ const Contact = () => {
                     </Select>
                   </div>
 
-                  {/* Service Interest & Budget Row */}
+                  {/* Service Interest */}
+                  <div className="space-y-2">
+                    <Label>What service are you interested in? *</Label>
+                    <Select
+                      value={formData.service}
+                      onValueChange={(value) => handleSelectChange("service", value)}
+                      required
+                    >
+                      <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
+                        <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-background border-white/10">
+                        {serviceOptions.map((service) => (
+                          <SelectItem key={service} value={service}>
+                            {service}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Term & Budget Row */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label>What service are you interested in? *</Label>
+                      <Label>Preferred Term *</Label>
                       <Select
-                        value={formData.service}
-                        onValueChange={(value) => handleSelectChange("service", value)}
+                        value={formData.term}
+                        onValueChange={(value) => handleSelectChange("term", value)}
                         required
                       >
                         <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select a service" />
+                          <SelectValue placeholder="Select term length" />
                         </SelectTrigger>
                         <SelectContent className="bg-background border-white/10">
-                          {serviceOptions.map((service) => (
-                            <SelectItem key={service} value={service}>
-                              {service}
+                          {termOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              <span className="flex items-center gap-2">
+                                {option.label}
+                                {option.discount && (
+                                  <span className="text-xs text-primary font-medium">({option.discount})</span>
+                                )}
+                              </span>
                             </SelectItem>
                           ))}
                         </SelectContent>
