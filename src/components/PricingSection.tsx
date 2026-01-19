@@ -166,18 +166,18 @@ const PricingSection = () => {
                 )}
 
                 {/* Plan Header */}
-                <div className="text-center mb-8 pt-4">
-                  <div className={`inline-flex items-center gap-3 ${colors.text} mb-4`}>
+                <div className="text-center mb-8 pt-4 flex flex-col items-center justify-center">
+                  <div className={`inline-flex items-center justify-center gap-3 ${colors.text} mb-4`}>
                     <Icon className="w-7 h-7" />
-                    <span className="text-xl md:text-2xl font-bold">{plan.name} {plan.emoji}</span>
+                    <span className="text-xl md:text-2xl font-bold whitespace-nowrap">{plan.name} {plan.emoji}</span>
                   </div>
                   
-                  <div className={`text-5xl md:text-6xl font-extrabold ${colors.text} mb-2`}>
+                  <div className={`text-5xl md:text-6xl font-extrabold ${colors.text} mb-2 text-center`}>
                     {plan.price}
                     <span className="text-lg font-normal text-muted-foreground">/mo</span>
                   </div>
                   
-                  <div className="text-base text-muted-foreground">
+                  <div className="text-base text-muted-foreground text-center">
                     Setup: <span className="font-semibold">{plan.setup}</span>
                   </div>
                 </div>
