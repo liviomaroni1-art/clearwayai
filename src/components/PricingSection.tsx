@@ -214,19 +214,36 @@ const PricingSection = () => {
 
         {/* 36-Month Savings Note */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-2 border-primary/20 rounded-3xl p-8 md:p-10 text-center">
-            <p className="text-xl md:text-2xl font-semibold text-foreground flex items-center justify-center gap-4 flex-wrap">
-              <span className="text-3xl">💬</span>
-              <span>
+          <div className="relative overflow-hidden bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 border-2 border-primary/40 rounded-3xl p-10 md:p-14 text-center shadow-[0_0_60px_-15px_hsl(var(--primary)/0.4)]">
+            {/* Decorative glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/10 pointer-events-none" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
+            
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 border border-primary/30 mb-6">
+                <span className="text-4xl">💰</span>
+              </div>
+              
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Long-Term Partnership Discount
+              </h3>
+              
+              <p className="text-xl md:text-2xl text-muted-foreground mb-6">
                 Commit to <span className="text-primary font-bold">36 months</span> and save{" "}
-                <span className="text-primary font-bold">20%</span> — setup fee waived.
-              </span>
-            </p>
+                <span className="text-primary font-bold text-3xl md:text-4xl">20%</span>
+              </p>
+              
+              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
+                <Check className="w-5 h-5" />
+                Setup fee waived
+              </div>
+            </div>
           </div>
         </motion.div>
 
