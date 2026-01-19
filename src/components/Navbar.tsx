@@ -20,16 +20,16 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/30"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0C]/80 backdrop-blur-xl border-b border-white/5"
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - White logo prominent against dark bg */}
           <Link to="/" className="flex items-center">
             <img 
               src={logo} 
               alt="ClearwayAI" 
-              className="h-20 w-auto"
+              className="h-24 w-auto brightness-150"
             />
           </Link>
 
@@ -39,7 +39,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium"
               >
                 {link.name}
               </a>
@@ -48,15 +48,20 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Desktop CTA */}
-          <Button variant="hero" size="default" className="hidden md:flex shadow-md" asChild>
+          {/* Desktop CTA - Cyan glow */}
+          <Button 
+            variant="hero" 
+            size="default" 
+            className="hidden md:flex btn-glow hover:scale-105 transition-transform" 
+            asChild
+          >
             <Link to="/contact">See It in Action</Link>
           </Button>
         </div>
@@ -76,13 +81,13 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </a>
                 ))}
-                <Button variant="hero" size="default" className="w-full shadow-md" asChild>
+                <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     See It in Action
                   </Link>
