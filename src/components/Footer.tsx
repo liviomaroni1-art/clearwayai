@@ -1,58 +1,156 @@
-import { Phone, MapPin, Globe, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Phone, MapPin, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const demoNumber = "+1 (888) 778-3091";
   
+  const quickLinks = [
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  const legalLinks = [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Security", href: "/security" },
+  ];
+
+  const services = [
+    { label: "AI Receptionist", href: "#services" },
+    { label: "Email Automation", href: "#services" },
+    { label: "Chat Support", href: "#services" },
+    { label: "Custom Integrations", href: "#services" },
+  ];
+  
   return (
-    <footer className="bg-[#060608] py-16 md:py-20 border-t border-white/5">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="text-lg md:text-xl text-primary font-semibold mb-4 flex items-center justify-center gap-2">
-            🇨🇭 Built in Switzerland, for US teams
+    <footer className="bg-[#060608] border-t border-white/5">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          
+          {/* Brand & CTA Column */}
+          <div className="lg:col-span-1">
+            <h3 className="text-2xl font-bold text-gray-100 mb-4">ClearwayAI</h3>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              AI-powered automation that helps businesses scale without hiring. Built in Switzerland, trusted globally.
+            </p>
+            <Button variant="hero" size="default" className="btn-glow" asChild>
+              <Link to="/contact">
+                Get Started
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </div>
-          
-          <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-            Premium AI receptionists that help you focus on what matters—not the noise. 
-            Every system is custom-built, secure, and tailored to your practice.
-          </p>
-          
-          <a 
-            href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`} 
-            className="inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-primary hover:text-primary/80 transition-colors mb-6"
-          >
-            <Phone className="w-7 h-7" />
-            {demoNumber}
-          </a>
-          
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm text-gray-400">
-              <Globe className="w-4 h-4 text-primary" />
-              <span>30+ Languages</span>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  {link.href.startsWith('/') ? (
+                    <Link to={link.href} className="text-gray-400 hover:text-primary transition-colors">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-gray-400 hover:text-primary transition-colors">
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Services</h4>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service.label}>
+                  <a href={service.href} className="text-gray-400 hover:text-primary transition-colors">
+                    {service.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Contact</h4>
+            <ul className="space-y-4">
+              <li>
+                <a 
+                  href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`}
+                  className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
+                >
+                  <Phone className="w-4 h-4" />
+                  {demoNumber}
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="mailto:sales@clearwayai.co"
+                  className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  sales@clearwayai.co
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-gray-400">
+                <MapPin className="w-4 h-4" />
+                Freienbach, Switzerland
+              </li>
+            </ul>
+            
+            {/* Social Links */}
+            <div className="flex items-center gap-4 mt-6">
+              <a 
+                href="https://linkedin.com/company/clearwayai" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="mailto:sales@clearwayai.co" 
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
-          
-          <p className="text-gray-500 text-sm mb-6">
-            sales@clearwayai.co • Powered by Retell.ai + n8n
-          </p>
-          
-          <div className="flex items-center justify-center gap-4">
-            <a href="https://linkedin.com/company/clearwayai" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors" aria-label="LinkedIn">
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a href="mailto:sales@clearwayai.co" className="text-gray-500 hover:text-primary transition-colors" aria-label="Email">
-              <Mail className="w-5 h-5" />
-            </a>
-          </div>
         </div>
-        
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} ClearwayAI. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <a href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</a>
-            <div className="flex items-center gap-1">
-              <MapPin className="w-4 h-4" />
-              <span>Freienbach, Switzerland</span>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-white/5">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} ClearwayAI. All rights reserved.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+              {legalLinks.map((link) => (
+                <Link 
+                  key={link.label}
+                  to={link.href} 
+                  className="text-gray-500 hover:text-gray-300 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-500">
+              <span className="text-lg">🇨🇭</span>
+              <span>Swiss Quality</span>
             </div>
           </div>
         </div>

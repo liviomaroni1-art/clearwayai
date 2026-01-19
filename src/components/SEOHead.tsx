@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "AI Phone Receptionist | Never Miss a Call | Clearway AI",
-  description = "AI receptionist that answers calls 24/7, books appointments, and updates your CRM. Replace your $4,500 receptionist with AI for $2,500/mo. Swiss-built. Live in 48 hours.",
+  title = "AI-Powered Business Automation | 24/7 AI Receptionist | ClearwayAI",
+  description = "Never miss another call. ClearwayAI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Live in 48 hours.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -25,11 +25,14 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       
+      {/* Keywords for SEO */}
+      <meta name="keywords" content="AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, call answering service" />
+      
       {/* Robots */}
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
       
       {/* Open Graph / Facebook */}
@@ -38,7 +41,8 @@ const SEOHead = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Clearway AI" />
+      <meta property="og:site_name" content="ClearwayAI" />
+      <meta property="og:locale" content="en_US" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -48,9 +52,13 @@ const SEOHead = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Additional SEO */}
-      <meta name="author" content="Clearway AI" />
+      <meta name="author" content="ClearwayAI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
+      <meta name="theme-color" content="#00E0FF" />
+      
+      {/* Structured breadcrumb support */}
+      <meta name="format-detection" content="telephone=no" />
     </Helmet>
   );
 };
