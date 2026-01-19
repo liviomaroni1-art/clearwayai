@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Linkedin, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 
 const FounderSection = () => {
   return (
@@ -48,13 +48,11 @@ const FounderSection = () => {
                     <span>US timezone support: 6am–10pm EST</span>
                   </div>
                   <a 
-                    href="https://linkedin.com/in/founder" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="mailto:sales@clearwayai.co"
                     className="flex items-center gap-2 hover:text-primary transition-colors"
                   >
-                    <Linkedin className="w-4 h-4" />
-                    <span>Connect</span>
+                    <Mail className="w-4 h-4" />
+                    <span>Contact</span>
                   </a>
                 </div>
 

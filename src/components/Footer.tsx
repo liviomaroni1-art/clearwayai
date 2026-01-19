@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -110,20 +110,18 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4 mt-6">
               <a 
-                href="https://linkedin.com/company/clearwayai" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
                 href="mailto:sales@clearwayai.co" 
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
+              </a>
+              <a 
+                href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`}
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors"
+                aria-label="Call us"
+              >
+                <Phone className="w-5 h-5" />
               </a>
             </div>
           </div>
