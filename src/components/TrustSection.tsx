@@ -1,136 +1,143 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
-const testimonials = [{
-  quote: "We went from missing 40% of calls to capturing every single inquiry. The AI handles scheduling better than we ever could manually.",
-  role: "Operations Director",
-  industry: "Healthcare Practice"
-}, {
-  quote: "Response time dropped from hours to seconds. Our customers noticed immediately—and so did our conversion rate.",
-  role: "Managing Partner",
-  industry: "Professional Services Firm"
-}];
+import { Quote, Shield, Clock, Zap, Users } from "lucide-react";
+
+const testimonials = [
+  {
+    quote: "We went from missing 40% of calls to capturing every single inquiry. The AI handles scheduling better than we ever could manually.",
+    role: "Operations Director",
+    industry: "Healthcare Practice"
+  },
+  {
+    quote: "Response time dropped from hours to seconds. Our customers noticed immediately—and so did our conversion rate.",
+    role: "Managing Partner",
+    industry: "Professional Services Firm"
+  }
+];
+
+const benefits = [
+  { icon: Shield, title: "Enterprise security", description: "HIPAA-ready, encrypted, SOC 2 compliant infrastructure" },
+  { icon: Clock, title: "Always available", description: "24/7/365 coverage without sick days or holidays" },
+  { icon: Zap, title: "Instant response", description: "Under 2-second answer time, every call" },
+  { icon: Users, title: "Scales with you", description: "Handle 1 or 1,000 calls without hiring" },
+];
+
 const TrustSection = () => {
-  return <section className="py-20 relative">
+  return (
+    <section className="section-calm">
       <div className="container mx-auto px-6">
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5
-      }} className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            What Teams Are <span className="gradient-text">Saying</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            Why teams trust <span className="gradient-text">ClearwayAI</span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Confidence comes from clarity. Here's what our partners experience.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {testimonials.map((testimonial, index) => <motion.div key={index} initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.5,
-          delay: index * 0.1
-        }} className="glass-card p-8 rounded-2xl relative">
-              <Quote className="w-8 h-8 text-primary/30 absolute top-6 right-6" />
+        {/* Benefits grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="glass-card p-6 text-center hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <benefit.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+              <p className="text-sm text-muted-foreground">{benefit.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Testimonials */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="elevated-card p-8 relative"
+            >
+              <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
               <p className="text-foreground/90 leading-relaxed mb-6 text-lg">
                 "{testimonial.quote}"
               </p>
-              <div className="border-t border-border/50 pt-4">
+              <div className="border-t border-border/40 pt-4">
                 <p className="font-medium text-foreground">{testimonial.role}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.industry}</p>
               </div>
-            </motion.div>)}
+            </motion.div>
+          ))}
         </div>
 
-        {/* Trust indicators */}
-        <motion.div initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5,
-        delay: 0.3
-      }} className="flex flex-wrap justify-center gap-8 mt-12 text-center">
-          <div>
-            <p className="text-3xl font-bold text-primary">99.9%</p>
-            <p className="text-sm text-muted-foreground">Uptime</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-primary">&lt;2s</p>
-            <p className="text-sm text-muted-foreground">Avg Response</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-primary">24/7/365</p>
-            <p className="text-sm text-muted-foreground">Availability</p>
-          </div>
+        {/* Key metrics */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap justify-center gap-12 text-center"
+        >
+          {[
+            { value: "99.9%", label: "Uptime SLA" },
+            { value: "<2s", label: "Avg response" },
+            { value: "24/7/365", label: "Availability" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</p>
+              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
 
         {/* Early Access Banner */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 10
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5,
-        delay: 0.35
-      }} className="mt-10 mx-auto max-w-md">
-          <div className="bg-primary/10 border border-primary/30 rounded-xl px-6 py-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 mx-auto max-w-lg"
+        >
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 text-center">
             <p className="text-sm font-medium text-primary">
-              🚀 Early Access: First 10 businesses get 50% lifetime discount
+              🚀 Early Access: First 10 businesses get 50% lifetime discount on setup
             </p>
           </div>
         </motion.div>
 
-        {/* Tech Stack Logos */}
-        <motion.div initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5,
-        delay: 0.4
-      }} className="flex flex-wrap justify-center items-center gap-6 mt-10">
-          <p className="text-xs text-muted-foreground w-full text-center mb-2">Powered by</p>
-          <div className="flex flex-wrap justify-center gap-6 text-muted-foreground/60 text-sm font-medium">
-            <span className="px-3 py-1 border border-border/50 rounded-full">Retell.ai</span>
-            <span className="px-3 py-1 border border-border/50 rounded-full">n8n</span>
-            <span className="px-3 py-1 border border-border/50 rounded-full">Google Calendar</span>
-            <span className="px-3 py-1 border border-border/50 rounded-full">HubSpot</span>
+        {/* Tech Stack */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-xs text-muted-foreground mb-3">Powered by</p>
+          <div className="flex flex-wrap justify-center gap-4 text-muted-foreground/60 text-sm">
+            {["Retell.ai", "n8n", "Google Calendar", "HubSpot"].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-secondary/50 border border-border/30 rounded-full">
+                {tech}
+              </span>
+            ))}
           </div>
         </motion.div>
-
-        {/* Security reassurance */}
-        <motion.p initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.5,
-        delay: 0.45
-      }} className="text-center text-sm text-muted-foreground mt-8">
-          Every system is custom-built, client-specific, and secured to enterprise standards.
-        </motion.p>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default TrustSection;
