@@ -72,7 +72,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
             className="text-lg text-gray-400 max-w-2xl mx-auto mb-8"
           >
-            Built for clinics, law firms, and service businesses. Live in 48 hours.
+            Built for clinics, law firms, and service businesses. Live in 72 hours.
           </motion.p>
 
           {/* Strong CTAs */}
@@ -113,7 +113,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            {["No setup fees for first 5 clients", "3-month cancellation notice", "Live in 48 hours"].map((item) => (
+            {["3-month cancellation notice", "Live in 72 hours", "24/7 availability"].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-gray-400">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
                 {item}
@@ -149,7 +149,7 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-8 md:gap-16 mt-16 pt-12 border-t border-white/10"
           >
             {[
-              { value: "48h", label: "Setup time" },
+              { value: "72h", label: "Setup time" },
               { value: "99.9%", label: "Uptime SLA" },
               { value: "24/7", label: "Availability" },
               { value: "$54K+", label: "Avg. saved/year" },

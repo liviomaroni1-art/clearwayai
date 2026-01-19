@@ -41,7 +41,7 @@ const CTASection = () => {
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6"
                 >
                   <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-primary font-medium">Live in 48 hours</span>
+                  <span className="text-primary font-medium">Live in 72 hours</span>
                 </motion.div>
                 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-100">

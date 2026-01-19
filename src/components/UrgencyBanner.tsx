@@ -13,7 +13,7 @@ const UrgencyBanner = () => {
             className="flex items-center gap-2 text-amber-400 font-medium"
           >
             <Clock className="w-4 h-4" />
-            <span>⚡ Only 5 spots left for Q1 2026</span>
+            <span>⚡ Live in 72 hours</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>

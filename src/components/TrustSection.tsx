@@ -103,7 +103,7 @@ const TrustSection = () => {
           ))}
         </motion.div>
 
-        {/* Early Access Banner */}
+        {/* 36-Month Discount Banner */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ const TrustSection = () => {
         >
           <div className="bg-primary/5 border border-primary/20 rounded-2xl px-6 py-5 text-center glow-effect">
             <p className="text-sm font-medium text-primary">
-              🚀 Early Access: First 10 businesses get 50% lifetime discount on setup
+              💰 36-month commitment: $0 setup fee + 20% off monthly
             </p>
           </div>
         </motion.div>

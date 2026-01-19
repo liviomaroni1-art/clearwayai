@@ -78,7 +78,7 @@ const faqSchema = {
       "name": "How quickly can the AI receptionist be set up?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most businesses are live within 48-72 hours. Our team handles the complete setup including voice customization, calendar integration, and CRM connection."
+        "text": "Most businesses are live within 72 hours. Our team handles the complete setup including voice customization, calendar integration, and CRM connection."
       }
     },
     {

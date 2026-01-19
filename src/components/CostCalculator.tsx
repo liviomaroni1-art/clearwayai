@@ -206,7 +206,7 @@ const CostCalculator = () => {
                     </Link>
                   </Button>
                   <p className="text-xs text-muted-foreground mt-3">
-                    Free demo • Live in 48 hours • No commitment
+                    Free demo • Live in 72 hours • 3-month cancellation notice
                   </p>
                 </div>
               </div>

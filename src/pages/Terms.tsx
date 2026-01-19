@@ -67,17 +67,20 @@ const Terms = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">Subscription Plans</h3>
                   <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Signature:</strong> $2,500/month (2,000 minutes included)</li>
-                    <li><strong>Elite:</strong> $3,500/month (3,000 minutes included)</li>
-                    <li><strong>Enterprise:</strong> $5,000+/month (custom)</li>
+                    <li><strong>Solo Launch:</strong> $1,500/month (1,000 minutes included)</li>
+                    <li><strong>Pro Practice:</strong> $2,500/month (2,000 minutes included)</li>
+                    <li><strong>Team Pro:</strong> $3,500/month (3,000 minutes included)</li>
+                    <li><strong>Concierge AI:</strong> $5,000+/month (8,000+ minutes, custom)</li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">Setup Fees</h3>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Signature: $1,000 one-time setup</li>
-                    <li>Elite: $1,500 one-time setup</li>
-                    <li>36-month commitment: Setup fees waived</li>
+                    <li>Solo Launch: $1,000 one-time setup</li>
+                    <li>Pro Practice: $1,500 one-time setup</li>
+                    <li>Team Pro: $2,000 one-time setup</li>
+                    <li>Concierge AI: $3,000 one-time setup</li>
+                    <li>36-month commitment: Setup fees waived ($0)</li>
                   </ul>
                 </div>
                 <div>
@@ -97,7 +100,7 @@ const Terms = () => {
                   <strong className="text-foreground">Uptime Guarantee:</strong> We guarantee 99.9% uptime for our AI receptionist service, excluding scheduled maintenance windows.
                 </p>
                 <p>
-                  <strong className="text-foreground">Implementation:</strong> New accounts are typically live within 48-72 hours of contract signing and receipt of necessary integrations.
+                  <strong className="text-foreground">Implementation:</strong> New accounts are typically live within 72 hours of contract signing and receipt of necessary integrations.
                 </p>
                 <p>
                   <strong className="text-foreground">Support Hours:</strong> Email support available 24/7. Live support available Monday-Friday, 6 AM - 6 PM Pacific Time (to accommodate US business hours from Switzerland).
