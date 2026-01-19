@@ -10,14 +10,17 @@ const plans = [
     icon: Rocket,
     price: "$1,500",
     setup: "$1,000",
-    idealFor: "Solo providers & micro businesses",
+    idealFor: "Solo providers & micro businesses just testing AI receptionists",
     color: "emerald",
     features: [
-      "1,000 minutes/month",
-      "AI call handling 24/7",
-      "Basic calendar sync",
-      "Call summaries via email",
-      "Standard voice"
+      { text: "1,000 minutes/month", bold: true },
+      { text: "AI call handling 24/7", bold: false },
+      { text: "Basic calendar sync (Google/Outlook)", bold: false },
+      { text: "Call summaries via email", bold: false },
+      { text: "Standard voice (3 accents)", bold: false },
+      { text: "1 phone number", bold: false },
+      { text: "Basic analytics dashboard", bold: false },
+      { text: "Email support (48h response)", bold: false }
     ],
     popular: false
   },
@@ -27,14 +30,17 @@ const plans = [
     icon: Diamond,
     price: "$2,500",
     setup: "$1,500",
-    idealFor: "Growing solo teams or small clinics",
+    idealFor: "Growing solo teams or small clinics needing automations",
     color: "violet",
     features: [
-      "2,000 minutes/month",
-      "Everything in Solo Launch",
-      "CRM sync integration",
-      "SMS/email reminders",
-      "Weekly performance reports"
+      { text: "Everything in Solo Launch +", bold: true, italic: true },
+      { text: "2,000 minutes/month", bold: true },
+      { text: "CRM sync (Salesforce, HubSpot, SimplePractice)", bold: true },
+      { text: "SMS/email reminders (custom templates)", bold: true },
+      { text: "Weekly performance reports", bold: false },
+      { text: "Premium voice (10+ accents, custom tone)", bold: false },
+      { text: "2 phone numbers", bold: false },
+      { text: "Priority email support (24h)", bold: false }
     ],
     popular: true
   },
@@ -44,14 +50,17 @@ const plans = [
     icon: Crown,
     price: "$3,500",
     setup: "$2,000",
-    idealFor: "Busy offices, law firms, clinics",
+    idealFor: "Busy offices, law firms, clinics with multiple staff",
     color: "amber",
     features: [
-      "3,000 minutes/month",
-      "Everything in Pro Practice",
-      "Advanced call routing",
-      "Multi-calendar support",
-      "Bi-weekly performance tuning"
+      { text: "Everything in Pro Practice +", bold: true, italic: true },
+      { text: "3,000 minutes/month", bold: true },
+      { text: "Advanced call routing (to specific staff/calendars)", bold: true },
+      { text: "Multi-calendar support (team scheduling)", bold: true },
+      { text: "Bi-weekly performance tuning (AI optimization calls)", bold: false },
+      { text: "Custom IVR menus", bold: false },
+      { text: "5 phone numbers", bold: false },
+      { text: "Phone + chat support (12h)", bold: false }
     ],
     popular: false
   },
@@ -61,14 +70,17 @@ const plans = [
     icon: Building2,
     price: "$5,000+",
     setup: "$3,000",
-    idealFor: "Enterprise & multi-location",
+    idealFor: "Enterprise & multi-location practices",
     color: "slate",
     features: [
-      "8,000+ minutes/month",
-      "Everything in Team Pro",
-      "Advanced logic & EHR integration",
-      "HIPAA compliance included",
-      "Dedicated account manager"
+      { text: "Everything in Team Pro +", bold: true, italic: true },
+      { text: "8,000+ minutes/month (custom scaling)", bold: true },
+      { text: "Advanced logic & EHR integration (Epic, Cerner)", bold: true },
+      { text: "HIPAA compliance included (BAA signed)", bold: true },
+      { text: "Dedicated account manager (weekly check-ins)", bold: false },
+      { text: "Unlimited phone numbers", bold: false },
+      { text: "Custom voice cloning", bold: false },
+      { text: "24/7 white-glove support", bold: false }
     ],
     popular: false
   }
@@ -154,7 +166,7 @@ const PricingSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative bg-gradient-to-b ${colors.bg} backdrop-blur-xl rounded-3xl p-8 md:p-10 border-2 ${colors.border} transition-all duration-300 flex flex-col min-h-[580px]`}
+                className={`relative bg-gradient-to-b ${colors.bg} backdrop-blur-xl rounded-3xl p-6 md:p-8 border-2 ${colors.border} transition-all duration-300 flex flex-col min-h-[620px]`}
               >
                 {/* Popular Badge */}
                 {plan.popular && (
@@ -191,11 +203,13 @@ const PricingSection = () => {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-4 mb-8 flex-grow">
+                <ul className="space-y-3 mb-8 flex-grow">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-4 text-base">
-                      <Check className={`w-5 h-5 ${colors.text} flex-shrink-0 mt-0.5`} />
-                      <span className="text-muted-foreground">{feature}</span>
+                    <li key={i} className="flex items-start gap-3 text-sm">
+                      <Check className={`w-4 h-4 ${colors.text} flex-shrink-0 mt-0.5`} />
+                      <span className={`${feature.italic ? 'italic text-muted-foreground/80' : 'text-muted-foreground'} ${feature.bold ? 'font-semibold text-foreground' : ''}`}>
+                        {feature.text}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -253,13 +267,32 @@ const PricingSection = () => {
           </div>
         </motion.div>
 
+        {/* Included Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-center mt-12"
+        >
+          <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground bg-white/5 border border-white/10 rounded-2xl px-8 py-4">
+            <span>✅ <strong className="text-foreground">Unlimited</strong> missed call texts</span>
+            <span className="hidden md:inline">•</span>
+            <span>📊 Overage: <strong className="text-foreground">$0.50/min</strong></span>
+            <span className="hidden md:inline">•</span>
+            <span>🎁 Annual: <strong className="text-primary">2 months free</strong></span>
+            <span className="hidden md:inline">•</span>
+            <span>🛡️ <strong className="text-foreground">14-day</strong> money-back</span>
+          </div>
+        </motion.div>
+
         {/* Custom Solution CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-center mt-16"
+          className="text-center mt-10"
         >
           <p className="text-lg text-muted-foreground mb-6">
             Need something custom? We build tailored solutions for unique workflows.
