@@ -33,7 +33,7 @@ const FounderSection = () => {
                 
                 {/* Founder quote */}
                 <blockquote className="text-lg text-gray-400 mb-6 leading-relaxed border-l-4 border-primary/40 pl-4 italic">
-                  "We built ClearwayAI to help teams focus on what matters—not the noise. 
+                  "We built Clearway AI to help teams focus on what matters—not the noise. 
                   After years in automation, I saw too many practices lose clients simply 
                   because no one could answer the phone. That ends now."
                 </blockquote>

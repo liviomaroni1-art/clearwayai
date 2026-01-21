@@ -48,7 +48,7 @@ const SocialProofSection = () => {
             Trusted by Growing <span className="gradient-text">Businesses</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            See why clinics, law firms, and service businesses choose ClearwayAI to handle their calls.
+            See why clinics, law firms, and service businesses choose Clearway AI to handle their calls.
           </p>
         </motion.div>
 

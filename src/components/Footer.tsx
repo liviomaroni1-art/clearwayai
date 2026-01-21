@@ -33,7 +33,7 @@ const Footer = () => {
           
           {/* Brand & CTA Column */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold text-gray-100 mb-4">ClearwayAI</h3>
+            <h3 className="text-2xl font-bold text-gray-100 mb-4">Clearway AI</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
               AI-powered automation that helps businesses scale without hiring. Built in Switzerland, trusted globally.
             </p>
@@ -133,7 +133,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} ClearwayAI. All rights reserved.
+              © {new Date().getFullYear()} Clearway AI. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               {legalLinks.map((link) => (
