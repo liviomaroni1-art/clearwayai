@@ -50,7 +50,7 @@ const BenefitsSection = () => {
             </h2>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed">
               Every minute spent answering routine calls is a minute not spent with patients 
-              or clients. ClearwayAI removes the noise so you can focus on what you do best.
+              or clients. Clearway AI removes the noise so you can focus on what you do best.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-500">
               <div className="flex -space-x-2">

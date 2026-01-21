@@ -40,7 +40,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Send notification email to sales team
     const salesEmailResponse = await resend.emails.send({
-      from: "ClearwayAI <noreply@clearwayai.co>",
+      from: "Clearway AI <noreply@clearwayai.co>",
       to: ["sales@clearwayai.co"],
       subject: `New Lead: ${formData.name} - ${formData.service}`,
       html: `
@@ -67,7 +67,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <p>${formData.message.replace(/\n/g, "<br>")}</p>
         
         <hr>
-        <p><em>This lead was submitted via the ClearwayAI contact form.</em></p>
+        <p><em>This lead was submitted via the Clearway AI contact form.</em></p>
       `,
     });
 
@@ -75,9 +75,9 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the customer
     const confirmationEmailResponse = await resend.emails.send({
-      from: "ClearwayAI <noreply@clearwayai.co>",
+      from: "Clearway AI <noreply@clearwayai.co>",
       to: [formData.email],
-      subject: "We received your message - ClearwayAI",
+      subject: "We received your message - Clearway AI",
       html: `
         <h1>Thank you for reaching out, ${formData.name}!</h1>
         
@@ -96,11 +96,11 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <p>Looking forward to helping you automate your business!</p>
         
         <p>Best regards,<br>
-        The ClearwayAI Team</p>
+        The Clearway AI Team</p>
         
         <hr>
         <p style="color: #666; font-size: 12px;">
-          ClearwayAI | Freienbach, Switzerland<br>
+          Clearway AI | Freienbach, Switzerland<br>
           <a href="mailto:sales@clearwayai.co">sales@clearwayai.co</a>
         </p>
       `,

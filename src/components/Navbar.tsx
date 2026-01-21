@@ -28,7 +28,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center">
             <img 
               src={logo} 
-              alt="ClearwayAI" 
+              alt="Clearway AI"
               className="h-24 w-auto brightness-150"
             />
           </Link>

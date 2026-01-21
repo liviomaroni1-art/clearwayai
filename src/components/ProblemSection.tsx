@@ -107,7 +107,7 @@ const ProblemSection = () => {
                   </div>
                   <ArrowRight className="w-5 h-5 text-primary" />
                   <div className="text-center">
-                    <p className="text-sm text-gray-500">ClearwayAI</p>
+                    <p className="text-sm text-gray-500">Clearway AI</p>
                     <p className="text-xl font-bold text-primary">$2,500/mo</p>
                   </div>
                 </div>

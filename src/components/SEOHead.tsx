@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "AI-Powered Business Automation | 24/7 AI Receptionist | ClearwayAI",
-  description = "Never miss another call. ClearwayAI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Live in 72 hours.",
+  title = "AI-Powered Business Automation | 24/7 AI Receptionist | Clearway AI",
+  description = "Never miss another call. Clearway AI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Live in 72 hours.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -41,7 +41,7 @@ const SEOHead = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="ClearwayAI" />
+      <meta property="og:site_name" content="Clearway AI" />
       <meta property="og:locale" content="en_US" />
       
       {/* Twitter */}
@@ -52,7 +52,7 @@ const SEOHead = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Additional SEO */}
-      <meta name="author" content="ClearwayAI" />
+      <meta name="author" content="Clearway AI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
       <meta name="theme-color" content="#00E0FF" />
