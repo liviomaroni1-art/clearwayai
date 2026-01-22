@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Mail, ArrowRight, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -35,14 +35,26 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h3 className="text-2xl font-bold text-gray-100 mb-4">Clearway AI</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              AI-powered automation that helps businesses scale without hiring. Built in Switzerland, trusted globally.
+              AI-powered automation that captures every lead, 24/7. Swiss precision, built for ambitious businesses worldwide.
             </p>
             <Button variant="hero" size="default" className="btn-glow" asChild>
               <Link to="/contact">
-                Get Started
+                Get Your Free Strategy Call
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
+            
+            {/* Trust badges */}
+            <div className="flex items-center gap-4 mt-6 text-xs text-gray-500">
+              <div className="flex items-center gap-1">
+                <Shield className="w-3 h-3" />
+                <span>HIPAA Ready</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-3 h-3" />
+                <span>99.9% Uptime</span>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -67,7 +79,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Services</h4>
+            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Solutions</h4>
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.label}>
@@ -81,7 +93,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Contact</h4>
+            <h4 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">Get In Touch</h4>
             <ul className="space-y-4">
               <li>
                 <a 
@@ -91,6 +103,7 @@ const Footer = () => {
                   <Phone className="w-4 h-4" />
                   {demoNumber}
                 </a>
+                <p className="text-xs text-gray-500 mt-1 ml-6">Try our AI live—24/7</p>
               </li>
               <li>
                 <a 
@@ -148,7 +161,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <span className="text-lg">🇨🇭</span>
-              <span>Swiss Quality</span>
+              <span>Swiss Engineering, Global Trust</span>
             </div>
           </div>
         </div>

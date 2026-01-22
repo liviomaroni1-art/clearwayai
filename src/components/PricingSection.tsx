@@ -1,26 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Rocket, Diamond, Crown, Building2, MapPin, Clock } from "lucide-react";
+import { Check, Rocket, Diamond, Crown, Building2, MapPin, Clock, Zap, Star } from "lucide-react";
 
 const plans = [
   {
     name: "Solo Launch",
     emoji: "🟢",
     icon: Rocket,
-    price: "$1,500",
-    setup: "$1,000",
-    idealFor: "Solo providers & micro businesses just testing AI receptionists",
+    price: "$1,497",
+    setup: "$997",
+    idealFor: "Solo providers testing AI—low risk, high reward",
     color: "emerald",
     features: [
       { text: "1,000 minutes/month", bold: true },
-      { text: "AI call handling 24/7", bold: false },
-      { text: "Basic calendar sync (Google/Outlook)", bold: false },
+      { text: "24/7 AI call handling", bold: false },
+      { text: "Google/Outlook calendar sync", bold: false },
       { text: "Call summaries via email", bold: false },
-      { text: "Standard voice (3 accents)", bold: false },
+      { text: "3 voice options", bold: false },
       { text: "1 phone number", bold: false },
-      { text: "Basic analytics dashboard", bold: false },
-      { text: "Email support (48h response)", bold: false }
+      { text: "Basic analytics", bold: false },
+      { text: "Email support (48h)", bold: false }
     ],
     popular: false
   },
@@ -28,9 +28,9 @@ const plans = [
     name: "Pro Practice",
     emoji: "🟣",
     icon: Diamond,
-    price: "$2,500",
-    setup: "$1,500",
-    idealFor: "Growing solo teams or small clinics needing automations",
+    price: "$2,497",
+    setup: "$1,497",
+    idealFor: "Growing teams ready to capture every lead",
     color: "violet",
     features: [
       { text: "Everything in Solo Launch +", bold: true, italic: true },
@@ -38,9 +38,9 @@ const plans = [
       { text: "CRM sync (Salesforce, HubSpot, SimplePractice)", bold: true },
       { text: "SMS/email reminders (custom templates)", bold: true },
       { text: "Weekly performance reports", bold: false },
-      { text: "Premium voice (10+ accents, custom tone)", bold: false },
+      { text: "10+ voice options + custom tone", bold: false },
       { text: "2 phone numbers", bold: false },
-      { text: "Priority email support (24h)", bold: false }
+      { text: "Priority support (24h)", bold: false }
     ],
     popular: true
   },
@@ -48,16 +48,16 @@ const plans = [
     name: "Team Pro",
     emoji: "🟠",
     icon: Crown,
-    price: "$3,500",
-    setup: "$2,000",
-    idealFor: "Busy offices, law firms, clinics with multiple staff",
+    price: "$3,497",
+    setup: "$1,997",
+    idealFor: "Busy offices that can't afford to miss a single call",
     color: "amber",
     features: [
       { text: "Everything in Pro Practice +", bold: true, italic: true },
       { text: "3,000 minutes/month", bold: true },
-      { text: "Advanced call routing (to specific staff/calendars)", bold: true },
-      { text: "Multi-calendar support (team scheduling)", bold: true },
-      { text: "Bi-weekly performance tuning (AI optimization calls)", bold: false },
+      { text: "Advanced call routing (by staff/department)", bold: true },
+      { text: "Multi-calendar team scheduling", bold: true },
+      { text: "Bi-weekly AI optimization calls", bold: false },
       { text: "Custom IVR menus", bold: false },
       { text: "5 phone numbers", bold: false },
       { text: "Phone + chat support (12h)", bold: false }
@@ -68,16 +68,16 @@ const plans = [
     name: "Concierge AI",
     emoji: "⚫",
     icon: Building2,
-    price: "$5,000+",
-    setup: "$3,000",
-    idealFor: "Enterprise & multi-location practices",
+    price: "$4,997+",
+    setup: "$2,997",
+    idealFor: "Enterprise & multi-location—white glove service",
     color: "slate",
     features: [
       { text: "Everything in Team Pro +", bold: true, italic: true },
-      { text: "8,000+ minutes/month (custom scaling)", bold: true },
-      { text: "Advanced logic & EHR integration (Epic, Cerner)", bold: true },
-      { text: "HIPAA compliance included (BAA signed)", bold: true },
-      { text: "Dedicated account manager (weekly check-ins)", bold: false },
+      { text: "8,000+ minutes (custom scaling)", bold: true },
+      { text: "EHR integration (Epic, Cerner)", bold: true },
+      { text: "HIPAA compliance + BAA included", bold: true },
+      { text: "Dedicated account manager (weekly)", bold: false },
       { text: "Unlimited phone numbers", bold: false },
       { text: "Custom voice cloning", bold: false },
       { text: "24/7 white-glove support", bold: false }
@@ -130,15 +130,15 @@ const PricingSection = () => {
         >
           <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">
             <MapPin className="w-4 h-4 text-primary" />
-            <span className="text-muted-foreground">Based in Freienbach, Switzerland</span>
+            <span className="text-muted-foreground">Swiss precision, global reach</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-sm border border-white/10">
-            <Clock className="w-4 h-4 text-primary" />
-            <span className="text-muted-foreground">Live in 72 hours</span>
+          <div className="flex items-center gap-2 px-4 py-2 bg-amber-500/10 rounded-full text-sm border border-amber-500/30">
+            <Clock className="w-4 h-4 text-amber-400" />
+            <span className="text-amber-400 font-medium">Only 5 onboarding slots left this month</span>
           </div>
         </motion.div>
 
-        {/* Header */}
+        {/* Header with Value Anchoring */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,10 +146,13 @@ const PricingSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground">
-            Simple, Transparent Pricing
+            Invest Once, <span className="gradient-text">Save Forever</span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Choose the plan that fits your practice. No hidden fees, no surprises.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
+            A full-time receptionist costs $4,500/month. Your AI never takes sick days, never quits, never sleeps.
+          </p>
+          <p className="text-lg text-gray-500">
+            No hidden fees. Cancel with 3 months notice. ROI guaranteed or your money back.
           </p>
         </motion.div>
 
@@ -171,8 +174,9 @@ const PricingSection = () => {
                 {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground text-sm font-bold px-5 py-2 rounded-full shadow-lg">
-                      Most Popular
+                    <span className="bg-primary text-primary-foreground text-sm font-bold px-5 py-2 rounded-full shadow-lg flex items-center gap-1">
+                      <Star className="w-4 h-4 fill-current" />
+                      Best Value
                     </span>
                   </div>
                 )}
@@ -190,14 +194,14 @@ const PricingSection = () => {
                   </div>
                   
                   <div className="text-base text-muted-foreground text-center">
-                    Setup: <span className="font-semibold">{plan.setup}</span>
+                    One-time setup: <span className="font-semibold">{plan.setup}</span>
                   </div>
                 </div>
 
                 {/* Ideal For */}
                 <div className={`bg-white/5 rounded-2xl px-4 py-4 text-center mb-8 border border-white/10`}>
                   <p className="text-sm md:text-base text-muted-foreground leading-tight">
-                    <span className="font-semibold text-foreground block mb-1">Ideal for:</span> 
+                    <span className="font-semibold text-foreground block mb-1">Perfect for:</span> 
                     {plan.idealFor}
                   </p>
                 </div>
@@ -219,14 +223,15 @@ const PricingSection = () => {
                   onClick={() => bookDemo(plan.name)}
                   className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'bg-white/10 hover:bg-white/20 text-foreground'} font-bold text-lg py-7 rounded-2xl transition-all`}
                 >
-                  Book Demo
+                  <Zap className="w-5 h-5 mr-2" />
+                  Claim This Plan
                 </Button>
               </motion.div>
             );
           })}
         </div>
 
-        {/* 36-Month Savings Note */}
+        {/* 36-Month Savings with Urgency */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -245,24 +250,28 @@ const PricingSection = () => {
               </div>
               
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Long-Term Partnership Discount
+                Exclusive: Long-Term Partnership Savings
               </h3>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-6">
                 Commit to <span className="text-primary font-bold">36 months</span> and save{" "}
-                <span className="text-primary font-bold text-3xl md:text-4xl">20%</span>
+                <span className="text-primary font-bold text-3xl md:text-4xl">20%</span> + get $0 setup
               </p>
               
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
                   <Check className="w-5 h-5" />
-                  $0 setup fee
+                  $0 setup fee (save up to $2,997)
                 </div>
                 <div className="inline-flex items-center gap-2 bg-primary/20 text-primary font-semibold px-6 py-3 rounded-full text-lg border border-primary/30">
                   <Check className="w-5 h-5" />
                   Priority onboarding included
                 </div>
               </div>
+              
+              <p className="text-sm text-gray-500 mt-6">
+                ⏰ Only available for new clients this quarter
+              </p>
             </div>
           </div>
         </motion.div>

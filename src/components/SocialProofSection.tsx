@@ -1,35 +1,38 @@
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Quote, Star, TrendingUp, Shield } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We went from missing 40% of calls to capturing every single inquiry. The AI handles scheduling better than we ever could manually.",
+    quote: "We went from missing 40% of calls to capturing every single inquiry. ROI paid for itself in the first month—and we're saving $54K annually.",
     author: "Dr. Sarah Mitchell",
     role: "Operations Director",
     company: "Smile Dental Group",
     rating: 5,
+    result: "45% more bookings",
   },
   {
-    quote: "Response time dropped from hours to seconds. Our clients noticed immediately—and so did our conversion rate. Up 35% in the first month.",
-    author: "James Rodriguez",
-    role: "Managing Partner",
-    company: "Rodriguez Law Firm",
-    rating: 5,
-  },
-  {
-    quote: "The AI speaks Spanish as naturally as English. Our bilingual patient base finally feels fully supported, even at midnight.",
+    quote: "The AI speaks Spanish as naturally as English. Our bilingual clients finally feel fully supported—even at midnight. Conversion rate up 35%.",
     author: "Maria Chen",
     role: "Practice Manager",
     company: "Family Care Medical",
     rating: 5,
+    result: "35% conversion lift",
+  },
+  {
+    quote: "Response time dropped from hours to seconds. Clients noticed immediately. We've added 12 new cases this quarter directly from after-hours calls.",
+    author: "James Rodriguez",
+    role: "Managing Partner",
+    company: "Rodriguez Law Firm",
+    rating: 5,
+    result: "12 new cases/quarter",
   },
 ];
 
 const stats = [
   { value: "10,000+", label: "Calls Handled Monthly" },
-  { value: "98%", label: "Customer Satisfaction" },
-  { value: "45%", label: "Increase in Bookings" },
-  { value: "<2s", label: "Average Response Time" },
+  { value: "98%", label: "Client Satisfaction" },
+  { value: "45%", label: "Avg. Booking Increase" },
+  { value: "<2s", label: "Response Time" },
 ];
 
 const SocialProofSection = () => {
@@ -44,15 +47,20 @@ const SocialProofSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
+            <Shield className="w-4 h-4 text-primary" />
+            <span className="text-primary font-medium">Proven results from real businesses</span>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-100">
-            Trusted by Growing <span className="gradient-text">Businesses</span>
+            Don't Just Take <span className="gradient-text">Our Word For It</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            See why clinics, law firms, and service businesses choose Clearway AI to handle their calls.
+            See why clinics, law firms, and service businesses are switching to Clearway AI—and never looking back.
           </p>
         </motion.div>
 
-        {/* Stats Row */}
+        {/* Stats Row with Anchoring */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +75,7 @@ const SocialProofSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-card p-6 rounded-2xl text-center"
+              className="glass-card p-6 rounded-2xl text-center hover:border-primary/30 transition-colors"
             >
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
               <div className="text-sm text-gray-400">{stat.label}</div>
@@ -75,7 +83,7 @@ const SocialProofSection = () => {
           ))}
         </motion.div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid with Results */}
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -87,6 +95,12 @@ const SocialProofSection = () => {
               className="elevated-card p-8 relative group hover:border-primary/30 transition-colors"
             >
               <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
+              
+              {/* Result Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-medium mb-4">
+                <TrendingUp className="w-3 h-3" />
+                {testimonial.result}
+              </div>
               
               {/* Rating */}
               <div className="flex gap-1 mb-4">
@@ -116,12 +130,12 @@ const SocialProofSection = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-gray-500 mb-4">Trusted technology partners</p>
+          <p className="text-sm text-gray-500 mb-4">Powered by industry-leading technology</p>
           <div className="flex flex-wrap justify-center gap-4">
-            {["Retell.ai", "n8n", "Google Calendar", "HubSpot", "Twilio"].map((partner) => (
+            {["Retell.ai", "n8n", "Google Calendar", "HubSpot", "Twilio", "Salesforce"].map((partner) => (
               <span 
                 key={partner}
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-400"
+                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-400 hover:border-primary/30 transition-colors"
               >
                 {partner}
               </span>

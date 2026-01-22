@@ -1,97 +1,103 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MessageSquare, Globe, FileText, Users, ChevronDown, Check } from "lucide-react";
+import { Phone, Mail, MessageSquare, Globe, FileText, Users, ChevronDown, Check, Sparkles } from "lucide-react";
 
 const services = [
   {
     icon: Phone,
     title: "AI Receptionist",
+    tagline: "Your 24/7 revenue machine",
     description:
-      "Answer every inbound call, book appointments, and route inquiries to the right person—24/7, without hiring.",
+      "Never lose another lead. Our AI answers every call instantly, books appointments, and routes urgent inquiries—while you focus on what you do best.",
     isCore: true,
     benefits: [
-      "Never miss a call again—even outside business hours",
-      "Reduce staffing costs by up to 70%",
-      "Instant call routing to the right department",
-      "Seamless appointment booking directly into your calendar",
-      "Professional, consistent customer experience every time",
+      "Answer 100% of calls—even at 2 AM on holidays",
+      "Cut staffing costs by 70% (vs. hiring a receptionist)",
+      "Instant lead qualification so you only call back hot prospects",
+      "Books directly into your calendar—no back-and-forth",
+      "Sounds natural, speaks 30+ languages fluently",
     ],
-    details: "Our AI Receptionist handles unlimited concurrent calls with natural conversation, understands context, and integrates directly with your existing systems. Perfect for businesses that can't afford to miss leads.",
+    details: "Our AI handles unlimited concurrent calls with human-like conversation. It understands context, answers FAQs, and integrates with your CRM. Perfect for practices that can't afford to miss a single lead.",
   },
   {
     icon: Mail,
     title: "Email Automation",
+    tagline: "Respond in seconds, not hours",
     description:
-      "Respond to customer emails in seconds with context-aware replies that sound human and stay on-brand.",
+      "Turn inbox chaos into effortless client communication. Our AI writes perfect, on-brand replies in under 60 seconds—24/7.",
     isCore: true,
     benefits: [
-      "Respond to emails in under 60 seconds, 24/7",
-      "Maintain your brand voice across all communications",
-      "Auto-categorize and prioritize incoming messages",
-      "Reduce email handling time by 80%",
-      "Seamless handoff to human agents when needed",
+      "Reply to emails 50x faster than your team",
+      "Maintain your exact brand voice across all messages",
+      "Auto-prioritize urgent requests (never miss a VIP)",
+      "Handle 80% of routine inquiries without human touch",
+      "Seamless handoff when human expertise is needed",
     ],
-    details: "Our email automation learns your communication style and handles routine inquiries, follow-ups, and customer support tickets—freeing your team to focus on complex issues.",
+    details: "Our email AI learns your communication style and handles routine inquiries, follow-ups, and support tickets—freeing your team for high-value work.",
   },
   {
     icon: MessageSquare,
-    title: "Chat Support",
+    title: "Website Chat",
+    tagline: "Convert visitors while you sleep",
     description:
-      "Engage website visitors instantly, answer FAQs, and capture leads—even outside business hours.",
+      "Engage every website visitor instantly. Answer questions, capture leads, and book appointments—even at 3 AM.",
     isCore: false,
     benefits: [
-      "Instant responses increase conversion by 40%",
-      "Capture leads while you sleep",
-      "Handle unlimited simultaneous conversations",
-      "Reduce support ticket volume by 60%",
-      "Smooth escalation to live agents when needed",
+      "Boost conversion rates by 40% with instant responses",
+      "Capture leads 24/7 (your competition doesn't sleep)",
+      "Handle 100+ conversations simultaneously",
+      "Slash support ticket volume by 60%",
+      "Smart escalation to live agents when needed",
     ],
-    details: "Deploy intelligent chat that understands context, answers product questions, and guides visitors through your sales funnel—all without human intervention.",
+    details: "Deploy intelligent chat that understands your business, answers product questions, and guides visitors through your sales funnel—all automatically.",
   },
   {
     icon: Globe,
-    title: "Conversion-Ready Websites",
+    title: "Conversion Websites",
+    tagline: "Built to capture, not just impress",
     description:
-      "Get a professional website built to capture leads and integrate seamlessly with your AI automation stack.",
+      "Get a professional website designed to turn visitors into booked appointments—fully integrated with your AI stack.",
     isCore: false,
     benefits: [
-      "Designed to work with AI chat, forms, and booking systems",
-      "Mobile-responsive and fast-loading pages",
+      "Designed for conversion (not just looks)",
+      "AI chat + booking built-in from day one",
+      "Mobile-first, lightning-fast loading",
       "SEO-optimized to drive organic traffic",
-      "Built-in lead capture that feeds your automation",
-      "Easy updates without technical skills",
+      "Update content yourself—no developer needed",
     ],
-    details: "We build modern websites designed as the front door to your AI-powered operations. Every site integrates with your automation systems—capturing leads, triggering follow-ups, and booking appointments automatically.",
+    details: "We build modern websites that work as the front door to your AI-powered operations. Every site integrates with your automation—capturing leads, triggering follow-ups, and booking appointments automatically.",
   },
   {
     icon: FileText,
     title: "Document Processing",
+    tagline: "Eliminate manual data entry",
     description:
-      "Extract key data from invoices, contracts, and forms automatically—saving hours of manual entry.",
+      "Extract data from invoices, contracts, and forms automatically—with 99%+ accuracy. Hours of work → seconds.",
     isCore: false,
     benefits: [
       "Process documents 10x faster than manual entry",
       "99%+ accuracy on structured data extraction",
-      "Automatic validation and error detection",
-      "Seamless integration with your existing systems",
-      "Reduce data entry costs by 90%",
+      "Automatic validation catches errors before humans do",
+      "Direct integration with your existing systems",
+      "Cut data entry costs by 90%",
     ],
     details: "Our document processing AI reads invoices, contracts, applications, and forms—extracting key data and pushing it directly into your systems without human intervention.",
   },
   {
     icon: Users,
     title: "Lead Qualification",
+    tagline: "Focus on buyers, not tire-kickers",
     description:
-      "Score and prioritize incoming leads so your sales team focuses only on high-intent prospects.",
+      "Automatically score and prioritize incoming leads so your team only talks to high-intent prospects.",
     isCore: false,
     benefits: [
       "Increase sales efficiency by 50%",
-      "Automatic lead scoring based on behavior",
-      "Instant follow-up on high-priority leads",
-      "Reduce time wasted on unqualified prospects",
-      "Better conversion rates with smarter targeting",
+      "Auto-score leads based on real behavior",
+      "Instant follow-up on hot prospects",
+      "Stop wasting time on unqualified leads",
+      "Higher conversion rates with smarter targeting",
     ],
-    details: "Our lead qualification system analyzes prospect behavior, engagement, and fit—automatically scoring and routing leads so your sales team only talks to ready-to-buy customers.",
+    details: "Our lead qualification system analyzes prospect behavior, engagement, and fit—automatically scoring and routing leads so your team only talks to ready-to-buy customers.",
   },
 ];
 
@@ -113,11 +119,16 @@ const ServicesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-primary font-medium">Done-for-you automation</span>
+          </div>
+          
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            AI Solutions That <span className="gradient-text">Scale</span>
+            AI That <span className="gradient-text">Actually Works</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Click on any service to learn more about how it can transform your business operations.
+            Proven solutions. Real results. Click any service to see exactly how it transforms your business.
           </p>
         </motion.div>
 
@@ -145,13 +156,14 @@ const ServicesSection = () => {
                   <div className="flex-1">
                     {service.isCore && (
                       <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full mb-4">
-                        Core Service
+                        ⭐ Most Popular
                       </span>
                     )}
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                       <service.icon className="w-7 h-7 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
+                    <p className="text-sm text-primary font-medium mb-3">{service.tagline}</p>
                     <p className="text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
@@ -180,7 +192,7 @@ const ServicesSection = () => {
                           {service.details}
                         </p>
                         <h4 className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                          Key Benefits
+                          What You Get
                         </h4>
                         <ul className="space-y-3">
                           {service.benefits.map((benefit, i) => (

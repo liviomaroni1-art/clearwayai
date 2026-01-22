@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, TrendingUp, Zap, Phone, Globe } from "lucide-react";
+import { Clock, TrendingUp, Zap, Phone, Globe, Shield } from "lucide-react";
 
 const UrgencyBanner = () => {
   return (
@@ -12,8 +12,8 @@ const UrgencyBanner = () => {
             transition={{ delay: 0.2 }}
             className="flex items-center gap-2 text-amber-400 font-medium"
           >
-            <Clock className="w-4 h-4" />
-            <span>⚡ Live in 72 hours</span>
+            <Zap className="w-4 h-4" />
+            <span>⚡ Go live in 72 hours</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>
@@ -25,7 +25,7 @@ const UrgencyBanner = () => {
             className="flex items-center gap-2 text-emerald-400 font-medium"
           >
             <TrendingUp className="w-4 h-4" />
-            <span>$54K saved/year</span>
+            <span>Save $54K+/year vs. hiring</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>
@@ -47,10 +47,10 @@ const UrgencyBanner = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="hidden lg:flex items-center gap-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+            className="hidden lg:flex items-center gap-2 bg-primary/20 text-primary font-semibold hover:bg-primary/30 transition-colors px-4 py-1.5 rounded-full"
           >
             <Phone className="w-4 h-4" />
-            <span>Live Demo: +1 (888) 778-3091</span>
+            <span>Try Live Demo: +1 (888) 778-3091</span>
           </motion.a>
         </div>
       </div>
