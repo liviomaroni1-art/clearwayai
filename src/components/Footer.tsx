@@ -145,8 +145,14 @@ const Footer = () => {
       <div className="border-t border-white/5">
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 group">
               © {new Date().getFullYear()} Clearway AI. All rights reserved.
+              <Link 
+                to="/admin" 
+                className="ml-2 opacity-0 group-hover:opacity-30 hover:!opacity-100 transition-opacity duration-300 text-gray-600"
+              >
+                ·
+              </Link>
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               {legalLinks.map((link) => (
