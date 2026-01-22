@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, CheckCircle2, Globe, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle2, Globe, Sparkles, Zap, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -9,7 +9,7 @@ const CTASection = () => {
   return (
     <section id="contact" className="section-calm">
       <div className="container mx-auto px-6">
-        {/* Empathetic closing */}
+        {/* Empathetic + Urgency closing */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ const CTASection = () => {
           transition={{ duration: 0.5 }}
           className="text-transition mb-12"
         >
-          You've seen what's possible. Let's make it clear together.
+          Every day you wait is another day of lost revenue. Let's fix that.
         </motion.p>
 
         <motion.div
@@ -32,26 +32,26 @@ const CTASection = () => {
 
           <div className="relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left - Main CTA */}
+              {/* Left - Main CTA with scarcity */}
               <div className="text-center lg:text-left">
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-sm mb-6"
                 >
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-primary font-medium">Live in 72 hours</span>
+                  <Clock className="w-4 h-4 text-amber-400" />
+                  <span className="text-amber-400 font-medium">Only 5 onboarding slots left this month</span>
                 </motion.div>
                 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-100">
-                  Ready to clear
+                  Ready to stop
                   <br />
-                  <span className="gradient-text">the noise?</span>
+                  <span className="gradient-text">leaving money on the table?</span>
                 </h2>
                 <p className="text-gray-400 text-lg max-w-lg mb-8">
-                  Free 30-minute consultation. We'll analyze your call flow and show you 
-                  exactly what's possible—no pressure, just clarity.
+                  Book your free 15-minute strategy call. We'll audit your call flow, 
+                  show you exactly what you're losing—and build a custom solution in 72 hours.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -62,15 +62,16 @@ const CTASection = () => {
                     asChild
                   >
                     <Link to="/contact">
-                      Start Clearing the Noise
+                      <Zap className="w-5 h-5" />
+                      Claim My Free Strategy Call
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
                 </div>
                 
-                {/* Trust points */}
+                {/* Low-friction trust points */}
                 <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-                  {["No credit card", "No commitment", "Instant clarity"].map((point) => (
+                  {["Free, no obligation", "15 minutes", "Get your custom plan"].map((point) => (
                     <div key={point} className="flex items-center gap-2 text-sm text-gray-400">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
                       <span>{point}</span>
@@ -79,7 +80,7 @@ const CTASection = () => {
                 </div>
               </div>
 
-              {/* Right - Call Demo */}
+              {/* Right - Call Demo with urgency */}
               <div className="relative">
                 <motion.div
                   animate={{ scale: [1, 1.02, 1] }}
@@ -92,16 +93,16 @@ const CTASection = () => {
                   </div>
                   
                   <h3 className="text-2xl font-bold text-gray-100 mb-2">
-                    Hear it for yourself
+                    Don't take our word for it
                   </h3>
                   <p className="text-gray-400 mb-4">
-                    Call our AI receptionist now—available 24/7
+                    Call and experience the AI yourself—right now
                   </p>
                   
                   {/* Languages badge */}
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs mb-6">
                     <Globe className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-gray-400">30+ languages supported</span>
+                    <span className="text-gray-400">30+ languages • Instant pickup</span>
                   </div>
                   
                   <a
@@ -113,7 +114,7 @@ const CTASection = () => {
                   </a>
                   
                   <p className="text-xs text-gray-500 mt-4">
-                    Experience: Greeting → Appointment booking → CRM sync → Confirmation
+                    🎯 Experience: Greeting → Lead qualification → Booking → CRM sync
                   </p>
                 </div>
               </div>

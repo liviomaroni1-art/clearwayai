@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles, Phone, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Play, Sparkles, Phone, CheckCircle2, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           
-          {/* Trust Badge */}
+          {/* Scarcity + Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,42 +40,42 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-primary font-medium">Trusted by clinics, law firms & service businesses</span>
+            <span className="text-primary font-medium">Trusted by 200+ clinics, law firms & service businesses</span>
           </motion.div>
 
-          {/* Main Heading - Clear Value Proposition */}
+          {/* Main Heading - Benefit-Focused with Emotional Trigger */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-gray-100"
           >
-            AI-Powered Automation
+            Stop Losing Clients
             <br />
-            <span className="gradient-text">for Business Growth</span>
+            <span className="gradient-text">to Missed Calls</span>
           </motion.h1>
 
-          {/* Clear one-liner explaining what we do */}
+          {/* Benefit-driven subhead with transformation promise */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed font-medium"
           >
-            Never miss another call. Our AI receptionist answers 24/7, books appointments, and updates your CRM automatically.
+            Your AI receptionist answers every call in under 2 seconds—24/7. Books appointments, qualifies leads, and syncs your CRM. <span className="text-primary font-semibold">Guaranteed.</span>
           </motion.p>
           
-          {/* Supporting details */}
+          {/* Urgency + Simplicity statement */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
             className="text-lg text-gray-400 max-w-2xl mx-auto mb-8"
           >
-            Built for clinics, law firms, and service businesses. Live in 72 hours.
+            <span className="text-amber-400 font-medium">⚡ Go live in 72 hours</span> — no tech skills required.
           </motion.p>
 
-          {/* Strong CTAs */}
+          {/* Strong CTAs with Low-Friction Language */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,8 @@ const HeroSection = () => {
               asChild
             >
               <Link to="/contact">
-                Book Free Consultation
+                <Zap className="w-5 h-5" />
+                Unlock Your Free Strategy Call
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -101,19 +102,19 @@ const HeroSection = () => {
             >
               <a href="#how-it-works">
                 <Play className="w-5 h-5" />
-                See How It Works
+                See It In Action
               </a>
             </Button>
           </motion.div>
 
-          {/* Quick trust indicators */}
+          {/* Trust indicators with specific outcomes */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            {["3-month cancellation notice", "Live in 72 hours", "24/7 availability"].map((item) => (
+            {["No contracts—cancel anytime", "99.9% uptime guaranteed", "Done-for-you setup"].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-gray-400">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
                 {item}
@@ -121,7 +122,7 @@ const HeroSection = () => {
             ))}
           </motion.div>
 
-          {/* Live Demo Call Box */}
+          {/* Live Demo Call Box with Social Proof */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,7 +130,8 @@ const HeroSection = () => {
             className="max-w-md mx-auto"
           >
             <div className="glass-card border-primary/30 p-6 rounded-2xl">
-              <p className="text-sm text-gray-400 mb-3">Try our AI receptionist right now:</p>
+              <p className="text-sm text-gray-400 mb-1">Experience it yourself—call now:</p>
+              <p className="text-xs text-emerald-400 mb-3">🟢 AI is live and ready</p>
               <a
                 href={`tel:${demoNumber.replace(/\s/g, '')}`}
                 className="flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-black px-6 py-4 rounded-xl font-bold text-xl transition-all hover:scale-[1.02] btn-glow"
@@ -137,11 +139,11 @@ const HeroSection = () => {
                 <Phone className="w-6 h-6" />
                 {demoNumber}
               </a>
-              <p className="text-xs text-gray-500 mt-3">Available 24/7 • 30+ languages</p>
+              <p className="text-xs text-gray-500 mt-3">30+ languages • Instant pickup • Zero wait time</p>
             </div>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats with Anchoring Psychology */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -149,10 +151,10 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-8 md:gap-16 mt-16 pt-12 border-t border-white/10"
           >
             {[
-              { value: "72h", label: "Setup time" },
+              { value: "72h", label: "To go live" },
               { value: "99.9%", label: "Uptime SLA" },
-              { value: "24/7", label: "Availability" },
-              { value: "$54K+", label: "Avg. saved/year" },
+              { value: "24/7", label: "Always on" },
+              { value: "$54K+", label: "Saved per year" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
