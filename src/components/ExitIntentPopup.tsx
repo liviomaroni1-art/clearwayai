@@ -4,6 +4,7 @@ import { X, Calculator, Gift, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ExitIntentPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,19 +54,30 @@ const ExitIntentPopup = () => {
 
     setIsSubmitting(true);
 
-    // Simulate saving email (in production, send to your backend)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase
+        .from("leads")
+        .insert({ email, source: "exit_popup" });
 
-    toast({
-      title: "Success! Check your inbox 📧",
-      description: "Your free ROI Calculator is on its way!",
-    });
+      if (error) throw error;
 
-    setIsSubmitting(false);
-    setIsOpen(false);
-    
-    // Store that user has downloaded
-    localStorage.setItem("roiCalculatorDownloaded", "true");
+      toast({
+        title: "Success! Check your inbox 📧",
+        description: "Your free ROI Calculator is on its way!",
+      });
+
+      setIsOpen(false);
+      localStorage.setItem("roiCalculatorDownloaded", "true");
+    } catch (error) {
+      console.error("Failed to save lead:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
