@@ -19,6 +19,7 @@ import Footer from "@/components/Footer";
 import LiveDemoPhone from "@/components/LiveDemoPhone";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const Index = () => {
   return (
@@ -49,6 +50,9 @@ const Index = () => {
       
       {/* Floating Live Demo Phone */}
       <LiveDemoPhone variant="floating" />
+      
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
     </div>
   );
 };
