@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Mail, ArrowRight, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 
 const Footer = () => {
+  const { isAdmin } = useAuth();
   const demoNumber = "+1 (888) 778-3091";
   
   const quickLinks = [
@@ -147,12 +149,14 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500 group">
               © {new Date().getFullYear()} Clearway AI. All rights reserved.
-              <Link 
-                to="/admin" 
-                className="ml-2 opacity-0 group-hover:opacity-30 hover:!opacity-100 transition-opacity duration-300 text-gray-600"
-              >
-                ·
-              </Link>
+              {isAdmin && (
+                <Link 
+                  to="/admin/leads" 
+                  className="ml-2 opacity-50 hover:opacity-100 transition-opacity duration-300 text-primary"
+                >
+                  Admin
+                </Link>
+              )}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               {legalLinks.map((link) => (
