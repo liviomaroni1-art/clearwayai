@@ -25,7 +25,7 @@ const UrgencyBanner = () => {
             className="flex items-center gap-2 text-emerald-400 font-medium"
           >
             <TrendingUp className="w-4 h-4" />
-            <span>Save $54K+/year vs. hiring</span>
+            <span>Up to $54K+/year in potential savings</span>
           </motion.div>
           
           <span className="hidden md:block text-muted-foreground">•</span>

@@ -152,7 +152,7 @@ const PricingSection = () => {
             A full-time receptionist costs $4,500/month. Your AI never takes sick days, never quits, never sleeps.
           </p>
           <p className="text-lg text-gray-500">
-            No hidden fees. Cancel with 3 months notice. ROI guaranteed or your money back.
+            No hidden fees. Cancel with 3 months notice. Results-focused implementation.
           </p>
         </motion.div>
 

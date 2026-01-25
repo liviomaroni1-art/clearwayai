@@ -8,8 +8,8 @@ const features = [
   {
     icon: Phone,
     title: "24/7 Call Answering",
-    description: "Never miss a call. Our AI answers instantly, handles inquiries, and routes urgent calls to you.",
-    highlight: "< 2 second pickup",
+    description: "Designed to answer calls instantly, handle inquiries, and route urgent calls to you around the clock.",
+    highlight: "< 2 second avg. pickup",
   },
   {
     icon: Calendar,
