@@ -42,7 +42,7 @@ const HowItWorksSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-100">
-            Three Steps to <span className="gradient-text">Never Miss a Call Again</span>
+            Three Steps to <span className="gradient-text">Capture More Calls</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-xl mx-auto">
             We handle everything. You just approve and go live.

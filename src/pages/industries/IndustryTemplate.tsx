@@ -30,15 +30,15 @@ const industryData: Record<string, IndustryData> = {
       "Staff spending 2+ hours/day on scheduling calls"
     ],
     solutions: [
-      "Instant answer for new patient inquiries—converts 3x more leads",
+      "Instant answer for new patient inquiries—designed to improve lead conversion",
       "Automated appointment booking synced to your practice management system",
       "After-hours triage for dental emergencies",
-      "Appointment reminders reduce no-shows by 40%"
+      "Appointment reminders designed to reduce no-shows"
     ],
     roi: [
-      { metric: "New patients/month", value: "+15" },
-      { metric: "Staff hours saved/week", value: "12" },
-      { metric: "Annual revenue increase", value: "$180K" }
+      { metric: "Potential new patients/month", value: "+15" },
+      { metric: "Est. staff hours saved/week", value: "12" },
+      { metric: "Potential annual revenue", value: "$180K*" }
     ],
     testimonial: {
       quote: "We were losing 8-10 new patient calls per week to voicemail. Now every call gets answered and booked.",
@@ -65,9 +65,9 @@ const industryData: Record<string, IndustryData> = {
       "Seamless calendar booking for consultations"
     ],
     roi: [
-      { metric: "Lead capture rate", value: "+40%" },
-      { metric: "Intake time saved/case", value: "15 min" },
-      { metric: "Monthly revenue increase", value: "$25K" }
+      { metric: "Potential lead capture rate", value: "+40%" },
+      { metric: "Est. intake time saved/case", value: "15 min" },
+      { metric: "Potential monthly revenue", value: "$25K*" }
     ],
     testimonial: {
       quote: "The AI captures more detail in intake than our previous receptionist. And it never puts someone on hold.",
@@ -94,9 +94,9 @@ const industryData: Record<string, IndustryData> = {
       "Appointment booking with service area verification"
     ],
     roi: [
-      { metric: "Emergency jobs captured/month", value: "+22" },
-      { metric: "Revenue per emergency call", value: "$450" },
-      { metric: "Monthly revenue increase", value: "$10K" }
+      { metric: "Potential emergency jobs/month", value: "+22" },
+      { metric: "Avg. revenue per emergency call", value: "$450" },
+      { metric: "Potential monthly revenue", value: "$10K*" }
     ],
     testimonial: {
       quote: "I was missing 5-6 calls a day on the truck. Now I get a text for every lead and can call back between jobs.",
@@ -117,15 +117,15 @@ const industryData: Record<string, IndustryData> = {
       "No-shows costing thousands monthly"
     ],
     solutions: [
-      "Instant call answering eliminates hold times",
+      "Instant call answering designed to reduce hold times",
       "Automated appointment scheduling with provider matching",
       "Prescription refill request routing",
-      "Appointment reminders reduce no-shows by 35%"
+      "Appointment reminders designed to reduce no-shows"
     ],
     roi: [
-      { metric: "Patient satisfaction", value: "+28%" },
-      { metric: "Staff phone time reduced", value: "60%" },
-      { metric: "No-shows reduced", value: "35%" }
+      { metric: "Potential patient satisfaction", value: "+28%" },
+      { metric: "Est. staff phone time reduced", value: "60%" },
+      { metric: "Potential no-show reduction", value: "35%*" }
     ],
     testimonial: {
       quote: "Our phones used to ring off the hook. Now patients get immediate help and my staff can actually do their jobs.",
@@ -278,8 +278,9 @@ const IndustryTemplate = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Real Results, <span className="gradient-text">Real ROI</span>
+              Potential Results, <span className="gradient-text">Real Value</span>
             </h2>
+            <p className="text-sm text-muted-foreground">*Based on client averages. Individual results may vary.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

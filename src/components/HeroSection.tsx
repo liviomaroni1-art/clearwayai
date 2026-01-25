@@ -62,7 +62,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed font-medium"
           >
-            Your AI receptionist answers every call in under 2 seconds—24/7. Books appointments, qualifies leads, and syncs your CRM. <span className="text-primary font-semibold">Guaranteed.</span>
+            Your AI receptionist answers calls in under 2 seconds—24/7. Books appointments, qualifies leads, and syncs your CRM automatically.
           </motion.p>
           
           {/* Urgency + Simplicity statement */}
@@ -114,7 +114,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            {["No contracts—cancel anytime", "99.9% uptime guaranteed", "Done-for-you setup"].map((item) => (
+            {["3-month cancellation notice", "99.9% uptime target", "Done-for-you setup"].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-gray-400">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
                 {item}
@@ -152,9 +152,9 @@ const HeroSection = () => {
           >
             {[
               { value: "72h", label: "To go live" },
-              { value: "99.9%", label: "Uptime SLA" },
+              { value: "99.9%", label: "Uptime target" },
               { value: "24/7", label: "Always on" },
-              { value: "$54K+", label: "Saved per year" },
+              { value: "$54K+", label: "Avg. saved/year*" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
