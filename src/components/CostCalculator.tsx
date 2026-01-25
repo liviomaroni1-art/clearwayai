@@ -48,10 +48,10 @@ const CostCalculator = () => {
             ROI Calculator
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-4">
-            Calculate Your <span className="gradient-text">Annual Savings</span>
+            Estimate Your <span className="gradient-text">Potential Savings</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            See exactly how much you'll save by replacing missed calls with an AI receptionist that works 24/7.
+            See how much you could recover by capturing missed calls with an AI receptionist that works 24/7.
           </p>
         </motion.div>
 
@@ -158,7 +158,7 @@ const CostCalculator = () => {
                     </p>
                   </div>
                   <div className="bg-red-500/10 rounded-xl p-4">
-                    <p className="text-xs text-muted-foreground mb-1">Lost Revenue/Year</p>
+                    <p className="text-xs text-muted-foreground mb-1">Est. Lost Revenue/Year</p>
                     <p className="text-2xl font-bold text-red-400">
                       ${yearlyLostRevenue.toLocaleString()}
                     </p>
@@ -185,14 +185,14 @@ const CostCalculator = () => {
                 >
                   <p className="text-sm text-foreground mb-2 flex items-center justify-center gap-2">
                     <TrendingUp className="w-4 h-4 text-emerald-400" />
-                    Your net annual savings with Clearway AI
+                    Your estimated net savings with Clearway AI
                   </p>
                   <p className="text-4xl md:text-5xl font-extrabold text-emerald-400">
-                    ${Math.max(0, netSavings).toLocaleString()}/year
+                    ~${Math.max(0, netSavings).toLocaleString()}/year
                   </p>
                   {netSavings > 0 && (
                     <p className="text-sm text-muted-foreground mt-2">
-                      That's ${Math.round(netSavings / 12).toLocaleString()}/month in your pocket
+                      That's approximately ${Math.round(netSavings / 12).toLocaleString()}/month in potential recovery
                     </p>
                   )}
                 </motion.div>
@@ -201,11 +201,12 @@ const CostCalculator = () => {
                 <div className="mt-8 text-center">
                   <Button variant="hero" size="xl" className="w-full sm:w-auto min-h-[48px]" asChild>
                     <Link to="/contact">
-                      Start Saving ${Math.max(0, netSavings).toLocaleString()}/year
+                      Start Recovering Lost Revenue
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
                   <p className="text-xs text-muted-foreground mt-3">
+                    *Estimates based on your inputs. Actual results may vary.
                     Free demo • Live in 72 hours • 3-month cancellation notice
                   </p>
                 </div>
