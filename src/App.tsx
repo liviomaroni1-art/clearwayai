@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Security from "./pages/Security";
+import AddOns from "./pages/AddOns";
 import IndustryTemplate from "./pages/industries/IndustryTemplate";
 import AdminLogin from "./pages/AdminLogin";
 import LeadsDashboard from "./pages/admin/LeadsDashboard";
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/security" element={<Security />} />
+              <Route path="/add-ons" element={<AddOns />} />
               <Route path="/industries/:industry" element={<IndustryTemplate />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/leads" element={<LeadsDashboard />} />

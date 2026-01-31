@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/clearway-logo-new.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Benefits", href: "#benefits" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "About", href: "#about" },
+    { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { name: "Proof", href: isHomePage ? "#proof" : "/#proof" },
+    { name: "Pricing", href: isHomePage ? "#pricing" : "/#pricing" },
+    { name: "Security", href: "/security" },
+    { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -20,11 +24,11 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0C]/80 backdrop-blur-xl border-b border-white/5"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border"
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          {/* Logo - White logo prominent against dark bg */}
+          {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={logo} 
@@ -36,33 +40,43 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium"
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Desktop CTA - Cyan glow */}
+          {/* Desktop CTA */}
           <Button 
             variant="hero" 
             size="default" 
             className="hidden md:flex btn-glow hover:scale-105 transition-transform" 
             asChild
           >
-            <Link to="/contact">See It in Action</Link>
+            <Link to="/contact">Book a Demo</Link>
           </Button>
         </div>
 
@@ -78,18 +92,29 @@ const Navbar = () => {
             >
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200 font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
+                  link.href.startsWith('/') ? (
+                    <Link
+                      key={link.name}
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  )
                 ))}
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    See It in Action
+                    Book a Demo
                   </Link>
                 </Button>
               </div>

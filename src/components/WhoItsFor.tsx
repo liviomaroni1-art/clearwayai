@@ -3,17 +3,17 @@ import { Check, X } from "lucide-react";
 
 const WhoItsFor = () => {
   const idealFor = [
-    { text: "Service businesses getting 20+ calls/day", detail: "Dental, legal, medical, home services" },
-    { text: "Teams tired of missed calls costing leads", detail: "Every unanswered call = lost revenue" },
-    { text: "Owners ready to invest in growth", detail: "$2,500+/mo for premium AI automation" },
-    { text: "Businesses using CRM + calendar systems", detail: "We integrate with your existing stack" },
+    { text: "20+ calls/day", detail: "Volume where AI receptionist ROI makes sense" },
+    { text: "Losing calls during peak hours", detail: "When you're too busy to answer" },
+    { text: "Want booked calendar + CRM logging", detail: "Automated scheduling and lead capture" },
+    { text: "Willing to invest in growth", detail: "Premium solution for serious businesses" },
   ];
 
   const notFor = [
-    { text: "Businesses with under 10 calls/day", detail: "ROI may not justify the investment" },
-    { text: "Companies needing highly specialized intake", detail: "Complex medical triage, crisis counseling" },
-    { text: "Those looking for the cheapest option", detail: "We're premium, not budget" },
-    { text: "Businesses unwilling to do initial setup call", detail: "We need 30 min to configure your AI" },
+    { text: "Under 10 calls/day", detail: "ROI may not justify the investment" },
+    { text: "Looking for the cheapest option", detail: "We're premium, not budget" },
+    { text: "Highly specialized triage", detail: "Complex medical intake without enterprise setup" },
+    { text: "Unwilling to do onboarding call", detail: "We need 30 min to configure your AI" },
   ];
 
   return (
@@ -25,30 +25,30 @@ const WhoItsFor = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Is Clearway AI <span className="gradient-text">Right For You?</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We're not for everyone—and that's by design. We build premium solutions for businesses ready to scale.
+            We're not for everyone—and that's by design.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Ideal For */}
+          {/* Perfect Fit */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl border-emerald-500/30"
+            className="glass-card p-8 rounded-2xl border-primary/30"
           >
-            <h3 className="text-2xl font-bold text-emerald-400 mb-6 flex items-center gap-2">
+            <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
               <Check className="w-6 h-6" />
               Perfect Fit
             </h3>
             <ul className="space-y-4">
               {idealFor.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-foreground font-medium">{item.text}</p>
                     <p className="text-sm text-muted-foreground">{item.detail}</p>
