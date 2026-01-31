@@ -87,11 +87,14 @@ const TransformationSection = () => {
           className="text-center"
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
-            <Link to="/contact">
-              Book a Demo
+            <a href="#calculator">
+              Calculate My ROI — Free
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
           </Button>
+          <p className="text-xs text-muted-foreground mt-3">
+            No credit card • 5-minute consultation
+          </p>
         </motion.div>
       </div>
     </section>
