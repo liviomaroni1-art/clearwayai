@@ -45,12 +45,13 @@ const businessTypes = [
   "Other",
 ];
 
-const teamSizeOptions = [
-  "Just me (solo)",
-  "2-5 people",
-  "6-15 people",
-  "16-50 people",
-  "50+ people",
+const estimatedLossOptions = [
+  "Under $1,000/month",
+  "$1,000 - $5,000/month",
+  "$5,000 - $10,000/month",
+  "$10,000 - $25,000/month",
+  "$25,000+/month",
+  "Not sure - help me calculate",
 ];
 
 const serviceOptions = [
@@ -80,7 +81,7 @@ const Contact = () => {
     phone: "",
     website: "",
     businessType: "",
-    teamSize: "",
+    estimatedLoss: "",
     service: "",
     term: "",
     message: "",
@@ -111,7 +112,7 @@ const Contact = () => {
         description: "We'll get back to you as soon as possible.",
       });
       
-      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", teamSize: "", service: "", term: "", message: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", estimatedLoss: "", service: "", term: "", message: "" });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -371,17 +372,17 @@ const Contact = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>Team size *</Label>
+                      <Label>Estimated monthly loss from missed calls/leads *</Label>
                       <Select
-                        value={formData.teamSize}
-                        onValueChange={(value) => handleSelectChange("teamSize", value)}
+                        value={formData.estimatedLoss}
+                        onValueChange={(value) => handleSelectChange("estimatedLoss", value)}
                         required
                       >
                         <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select team size" />
+                          <SelectValue placeholder="Select estimated loss" />
                         </SelectTrigger>
                         <SelectContent className="bg-background border-white/10">
-                          {teamSizeOptions.map((option) => (
+                          {estimatedLossOptions.map((option) => (
                             <SelectItem key={option} value={option}>
                               {option}
                             </SelectItem>
