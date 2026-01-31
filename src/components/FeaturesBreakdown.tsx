@@ -90,7 +90,7 @@ const FeaturesBreakdown = () => {
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              See It in Action
+              Book a Demo
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
