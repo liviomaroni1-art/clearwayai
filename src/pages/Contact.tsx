@@ -45,13 +45,12 @@ const businessTypes = [
   "Other",
 ];
 
-const callVolumeOptions = [
-  "Under 500 calls/month",
-  "500 - 1,000 calls/month",
-  "1,000 - 2,000 calls/month",
-  "2,000 - 5,000 calls/month",
-  "5,000+ calls/month",
-  "Not sure yet",
+const teamSizeOptions = [
+  "Just me (solo)",
+  "2-5 people",
+  "6-15 people",
+  "16-50 people",
+  "50+ people",
 ];
 
 const serviceOptions = [
@@ -81,7 +80,7 @@ const Contact = () => {
     phone: "",
     website: "",
     businessType: "",
-    callVolume: "",
+    teamSize: "",
     service: "",
     term: "",
     message: "",
@@ -112,7 +111,7 @@ const Contact = () => {
         description: "We'll get back to you as soon as possible.",
       });
       
-      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", callVolume: "", service: "", term: "", message: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", teamSize: "", service: "", term: "", message: "" });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -372,17 +371,17 @@ const Contact = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>Estimated monthly call volume *</Label>
+                      <Label>Team size *</Label>
                       <Select
-                        value={formData.callVolume}
-                        onValueChange={(value) => handleSelectChange("callVolume", value)}
+                        value={formData.teamSize}
+                        onValueChange={(value) => handleSelectChange("teamSize", value)}
                         required
                       >
                         <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select call volume" />
+                          <SelectValue placeholder="Select team size" />
                         </SelectTrigger>
                         <SelectContent className="bg-background border-white/10">
-                          {callVolumeOptions.map((option) => (
+                          {teamSizeOptions.map((option) => (
                             <SelectItem key={option} value={option}>
                               {option}
                             </SelectItem>
