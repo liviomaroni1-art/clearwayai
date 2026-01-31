@@ -1,4 +1,4 @@
-import { Rocket, Diamond, Crown, Building2 } from "lucide-react";
+import { Rocket, Diamond, Users, Building2 } from "lucide-react";
 
 export const plans = [
   {
@@ -60,7 +60,7 @@ export const plans = [
   },
   {
     name: "Team Pro",
-    icon: Crown,
+    icon: Users,
     price: "$3,500",
     priceAnnual: "$2,800",
     setup: "$2,000",
