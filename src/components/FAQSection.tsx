@@ -5,48 +5,59 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "How natural does the AI voice sound?",
-    answer:
-      "Our AI uses Retell.ai's advanced voice technology, delivering natural, human-like conversations. Most callers can't tell they're speaking with an AI. Book a demo to hear it yourself.",
-  },
-  {
-    question: "What languages are supported?",
-    answer:
-      "We support 30+ languages including English, Spanish, Mandarin Chinese, Hindi, Arabic, Portuguese, French, German, Japanese, Korean, Italian, Russian, Dutch, Polish, Turkish, Vietnamese, Thai, Indonesian, Tagalog, and more. Our AI handles native-level fluency for global businesses.",
-  },
-  {
-    question: "How long does setup take?",
-    answer:
-      "Most businesses are live within 72 hours. We handle the technical setup—you just provide your business info, services, and booking preferences.",
-  },
-  {
-    question: "What integrations do you support?",
-    answer:
-      "We integrate with Google Calendar, Outlook, HubSpot, and other popular CRM systems. Need something specific? Enterprise plans include custom integrations.",
-  },
-  {
     question: "What happens if the AI can't handle a call?",
     answer:
-      "Our AI gracefully hands off to a human when needed. You'll get an immediate notification with call details so you can follow up personally.",
+      "The AI is designed to recognize its limits. When it encounters a situation it can't handle confidently, it will transfer the call to your staff, take a voicemail, or send an SMS follow-up. You'll receive an immediate notification with call details so you can follow up personally. Nothing falls through the cracks."
   },
   {
-    question: "Do you require a contract?",
+    question: "Can it transfer to different departments or staff?",
     answer:
-      "Yes, we work with service agreements tailored to your business needs. This ensures commitment from both sides and allows us to deliver the best results for your team.",
+      "Yes. We configure routing rules during setup. Calls can be directed to specific departments (billing, scheduling, general inquiries) or individual staff members based on caller needs, time of day, or other criteria you define."
+  },
+  {
+    question: "Can it book across multiple calendars or locations?",
+    answer:
+      "Absolutely. The AI can sync with multiple Google Calendars or Outlook calendars, check availability across your team, and book appointments at different locations. Multi-location support is included in Team Pro and Concierge plans."
+  },
+  {
+    question: "How long does setup take and what do you need from me?",
+    answer:
+      "Most clients are live within 72 hours of their kickoff call. We need about 30 minutes of your time to walk through your call flow, FAQs, booking rules, and integration preferences. We handle all the technical setup—you just approve and go live."
+  },
+  {
+    question: "Do you record calls? How is consent handled?",
+    answer:
+      "Call recording is optional. When enabled, the AI announces the recording at the start of the call (you can customize this message). Recordings are retained for 90 days by default, but this is configurable. See our Security page for details."
+  },
+  {
+    question: "How do you prevent wrong bookings or misinformation?",
+    answer:
+      "The AI is trained on your specific knowledge base—your services, pricing, FAQs, and booking rules. It only says what you've approved. When uncertain, it escalates to a human rather than guessing. We continuously refine responses based on call outcomes."
+  },
+  {
+    question: "Which integrations are native vs via Zapier/n8n?",
+    answer:
+      "Native integrations include Google Calendar, Outlook, HubSpot, Salesforce, Pipedrive, and SimplePractice. Other tools can be connected via Zapier or n8n. Enterprise plans include custom API integrations for specialized systems."
+  },
+  {
+    question: "What are the contract terms and cancellation policy?",
+    answer:
+      "All plans require a rolling 90-day cancellation notice. Annual billing saves 20%. Long-term commitments (36 months) receive additional discounts and waived setup fees. No hidden fees—pricing is transparent and all-inclusive."
   },
   {
     question: "How is pricing determined?",
     answer:
-      "Every business is different, so we provide custom pricing based on your call volume, integrations needed, and specific requirements. Book a free consultation to get a personalized quote.",
+      "Pricing is based on included minutes per month, features, and support level. Overages are billed at $0.50/minute. We provide custom quotes for high-volume or specialized needs. Book a demo and we'll give you an exact quote."
   },
   {
     question: "Is my data secure?",
     answer:
-      "Absolutely. We follow industry-standard security practices and are fully compliant with US data protection requirements. All data is encrypted and stored securely. We never sell or share your customer data.",
-  },
+      "Yes. We use TLS 1.3 encryption in transit, AES-256 encryption at rest, and role-based access controls. BAA available for Enterprise customers who need HIPAA compliance. See our Security page for full details."
+  }
 ];
 
 const FAQSection = () => {
@@ -60,11 +71,11 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-foreground">
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about Clearway AI
+            Real answers to the questions we hear most
           </p>
         </motion.div>
 
@@ -98,9 +109,13 @@ const FAQSection = () => {
         >
           <p className="text-muted-foreground">
             Still have questions?{" "}
-            <a href="/contact" className="text-primary hover:underline">
+            <Link to="/contact" className="text-primary hover:underline">
               Get in touch
-            </a>
+            </Link>
+            {" "}or{" "}
+            <Link to="/security" className="text-primary hover:underline">
+              view our Security page
+            </Link>
           </p>
         </motion.div>
       </div>

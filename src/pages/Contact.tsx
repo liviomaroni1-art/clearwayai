@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Clock } from "lucide-react";
+import { Send, Mail, MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,33 +14,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const businessTypes = [
-  "Auto Shop / Mechanic",
-  "Car Wash",
-  "Gardening / Landscaping",
-  "Cleaning Services",
-  "Plumbing",
-  "Electrical Services",
-  "HVAC / Heating & Cooling",
-  "Roofing",
-  "Construction",
-  "Real Estate",
   "Dental Practice",
   "Medical Practice",
   "Law Firm",
-  "Accounting / Tax Services",
-  "Insurance Agency",
+  "Home Services (Plumbing, HVAC, etc.)",
+  "Real Estate",
   "Salon / Spa",
-  "Fitness / Gym",
-  "Restaurant / Cafe",
-  "Retail Store",
-  "E-Commerce",
-  "Logistics / Delivery",
-  "IT Services",
-  "Marketing Agency",
+  "Insurance Agency",
+  "Accounting / Tax Services",
+  "Auto Shop / Mechanic",
   "Consulting",
   "Other",
 ];
@@ -51,24 +38,7 @@ const estimatedLossOptions = [
   "$5,000 - $10,000/month",
   "$10,000 - $25,000/month",
   "$25,000+/month",
-  "Not sure - help me calculate",
-];
-
-const serviceOptions = [
-  "AI Receptionist (Phone Handling)",
-  "Email Automation",
-  "Customer Support Automation",
-  "Lead Qualification",
-  "Workflow Automation",
-  "Website Creation",
-  "Multiple Services",
-  "Not sure - need consultation",
-];
-
-const termOptions = [
-  { value: "monthly", label: "Monthly", discount: null },
-  { value: "annual", label: "1 Year", discount: "10% off" },
-  { value: "36-months", label: "36 Months", discount: "20% off + $0 setup" },
+  "Not sure",
 ];
 
 const Contact = () => {
@@ -77,13 +47,12 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
     phone: "",
     website: "",
     businessType: "",
+    service: "AI Phone Receptionist",
     estimatedLoss: "",
-    service: "",
-    term: "",
+    preferredContact: "email",
     message: "",
   });
 
@@ -109,10 +78,20 @@ const Contact = () => {
 
       toast({
         title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        description: "We'll get back to you within 24-48 hours.",
       });
       
-      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", estimatedLoss: "", service: "", term: "", message: "" });
+      setFormData({ 
+        name: "", 
+        email: "", 
+        phone: "", 
+        website: "", 
+        businessType: "", 
+        service: "AI Phone Receptionist",
+        estimatedLoss: "", 
+        preferredContact: "email",
+        message: "" 
+      });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -124,6 +103,8 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
+  const demoNumber = "+1 (888) 778-3091";
 
   return (
     <div className="min-h-screen bg-background">
@@ -139,10 +120,10 @@ const Contact = () => {
             className="text-center mb-16 max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              Book Your Free <span className="text-primary">Consultation</span>
+              Book a <span className="gradient-text">Demo</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Tell us about your business and we'll show you exactly how AI can save you time and money.
+              15 minutes. No obligation. We'll map your call flow and show you exactly how Clearway AI can help.
             </p>
           </motion.div>
 
@@ -154,7 +135,27 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-6"
             >
-              <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+              {/* Call Demo Box */}
+              <div className="glass-card border-primary/30 p-6 rounded-2xl bg-primary/5">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Call the Live Demo</h3>
+                    <p className="text-xs text-muted-foreground">Experience the AI now</p>
+                  </div>
+                </div>
+                <a
+                  href={`tel:${demoNumber.replace(/\s/g, '')}`}
+                  className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-xl font-bold transition-all"
+                >
+                  <Phone className="w-5 h-5" />
+                  {demoNumber}
+                </a>
+              </div>
+
+              <div className="glass-card p-6 rounded-2xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
                     <Mail className="w-6 h-6 text-primary" />
@@ -168,20 +169,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Location</h3>
-                    <p className="text-muted-foreground">Freienbach, Switzerland</p>
-                    <p className="text-sm text-muted-foreground">Serving US & Global clients</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+              <div className="glass-card p-6 rounded-2xl">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
                     <Clock className="w-6 h-6 text-primary" />
@@ -189,32 +177,21 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground">Response Time</h3>
                     <p className="text-muted-foreground">Within 24-48 hours</p>
-                    <p className="text-sm text-muted-foreground">Usually much faster</p>
                   </div>
                 </div>
               </div>
 
-              {/* Trust indicators */}
-              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-6 border border-primary/20">
-                <h3 className="font-semibold text-foreground mb-4">Why Choose Us?</h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    Live in 72 hours or less
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    99.9% uptime guarantee
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    30+ languages supported
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    No long-term lock-in required
-                  </li>
-                </ul>
+              <div className="glass-card p-6 rounded-2xl">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Location</h3>
+                    <p className="text-muted-foreground">Freienbach, Switzerland</p>
+                    <p className="text-sm text-muted-foreground">Serving US clients</p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -225,7 +202,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10">
+              <div className="glass-card p-8 md:p-10 rounded-3xl">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name & Email Row */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -239,7 +216,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={100}
-                        className="bg-white/5 border-white/10 focus:border-primary h-12"
+                        className="bg-muted/50 border-border focus:border-primary h-12"
                       />
                     </div>
                     <div className="space-y-2">
@@ -253,68 +230,23 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={255}
-                        className="bg-white/5 border-white/10 focus:border-primary h-12"
+                        className="bg-muted/50 border-border focus:border-primary h-12"
                       />
                     </div>
                   </div>
 
-                  {/* Company & Phone Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company <span className="text-muted-foreground font-normal">(optional)</span></Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        placeholder="Your company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        maxLength={100}
-                        className="bg-white/5 border-white/10 focus:border-primary h-12"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+1 (555) 000-0000"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        maxLength={20}
-                        className="bg-white/5 border-white/10 focus:border-primary h-12"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Website Link */}
+                  {/* Business Type */}
                   <div className="space-y-2">
-                    <Label htmlFor="website">Website <span className="text-muted-foreground font-normal">(if available)</span></Label>
-                    <Input
-                      id="website"
-                      name="website"
-                      type="url"
-                      placeholder="https://yourwebsite.com"
-                      value={formData.website}
-                      onChange={handleChange}
-                      maxLength={255}
-                      className="bg-white/5 border-white/10 focus:border-primary h-12"
-                    />
-                  </div>
-
-                  {/* Business Type Dropdown */}
-                  <div className="space-y-2">
-                    <Label>What type of business do you have? *</Label>
+                    <Label>Business Type *</Label>
                     <Select
                       value={formData.businessType}
                       onValueChange={(value) => handleSelectChange("businessType", value)}
                       required
                     >
-                      <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
+                      <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-12">
                         <SelectValue placeholder="Select your business type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-background border-white/10 max-h-60">
+                      <SelectContent className="bg-background border-border max-h-60">
                         {businessTypes.map((type) => (
                           <SelectItem key={type} value={type}>
                             {type}
@@ -324,87 +256,100 @@ const Contact = () => {
                     </Select>
                   </div>
 
-                  {/* Service Interest */}
+                  {/* Service Interest - Defaulted */}
                   <div className="space-y-2">
-                    <Label>What service are you interested in? *</Label>
+                    <Label>Service Interest</Label>
+                    <Input
+                      value="AI Phone Receptionist"
+                      disabled
+                      className="bg-muted/30 border-border h-12 text-muted-foreground"
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Need other services? Mention them in your message below.
+                    </p>
+                  </div>
+
+                  {/* Phone & Website Row */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        maxLength={20}
+                        className="bg-muted/50 border-border focus:border-primary h-12"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="website">Website <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <Input
+                        id="website"
+                        name="website"
+                        type="url"
+                        placeholder="https://yourwebsite.com"
+                        value={formData.website}
+                        onChange={handleChange}
+                        maxLength={255}
+                        className="bg-muted/50 border-border focus:border-primary h-12"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Estimated Loss */}
+                  <div className="space-y-2">
+                    <Label>Estimated monthly loss from missed calls/leads <span className="text-muted-foreground font-normal">(optional)</span></Label>
                     <Select
-                      value={formData.service}
-                      onValueChange={(value) => handleSelectChange("service", value)}
-                      required
+                      value={formData.estimatedLoss}
+                      onValueChange={(value) => handleSelectChange("estimatedLoss", value)}
                     >
-                      <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                        <SelectValue placeholder="Select a service" />
+                      <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-12">
+                        <SelectValue placeholder="Select estimated loss" />
                       </SelectTrigger>
-                      <SelectContent className="bg-background border-white/10">
-                        {serviceOptions.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
+                      <SelectContent className="bg-background border-border">
+                        {estimatedLossOptions.map((option) => (
+                          <SelectItem key={option} value={option}>
+                            {option}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  {/* Term & Budget Row */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label>Preferred Term *</Label>
-                      <Select
-                        value={formData.term}
-                        onValueChange={(value) => handleSelectChange("term", value)}
-                        required
-                      >
-                        <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select term length" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background border-white/10">
-                          {termOptions.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
-                              <span className="flex items-center gap-2">
-                                {option.label}
-                                {option.discount && (
-                                  <span className="text-xs text-primary font-medium">({option.discount})</span>
-                                )}
-                              </span>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Estimated monthly loss from missed calls/leads *</Label>
-                      <Select
-                        value={formData.estimatedLoss}
-                        onValueChange={(value) => handleSelectChange("estimatedLoss", value)}
-                        required
-                      >
-                        <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select estimated loss" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background border-white/10">
-                          {estimatedLossOptions.map((option) => (
-                            <SelectItem key={option} value={option}>
-                              {option}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  {/* Preferred Contact Method */}
+                  <div className="space-y-3">
+                    <Label>Preferred contact method</Label>
+                    <RadioGroup
+                      value={formData.preferredContact}
+                      onValueChange={(value) => handleSelectChange("preferredContact", value)}
+                      className="flex gap-6"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="email" id="contact-email" />
+                        <Label htmlFor="contact-email" className="font-normal cursor-pointer">Email</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="phone" id="contact-phone" />
+                        <Label htmlFor="contact-phone" className="font-normal cursor-pointer">Phone</Label>
+                      </div>
+                    </RadioGroup>
                   </div>
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message">Message <span className="text-muted-foreground font-normal">(optional)</span></Label>
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Tell us about your project and how we can help..."
+                      placeholder="Tell us about your current call handling challenges..."
                       value={formData.message}
                       onChange={handleChange}
-                      required
                       maxLength={1000}
-                      rows={5}
-                      className="bg-white/5 border-white/10 focus:border-primary resize-none"
+                      rows={4}
+                      className="bg-muted/50 border-border focus:border-primary resize-none"
                     />
                   </div>
 
@@ -415,11 +360,11 @@ const Contact = () => {
                       className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg py-7 rounded-2xl"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Book Consultation"}
+                      {isSubmitting ? "Sending..." : "Book a Demo"}
                       <Send className="w-5 h-5 ml-2" />
                     </Button>
                     <p className="text-sm text-muted-foreground text-center">
-                      No spam. We'll only contact you about your request.
+                      We reply within 24-48 hours. No spam.
                     </p>
                   </div>
                 </form>

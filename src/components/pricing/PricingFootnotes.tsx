@@ -12,7 +12,7 @@ const PricingFootnotes: React.FC = () => {
         </h4>
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-muted-foreground">
           <p>
-            <strong className="text-foreground">Minutes:</strong> Total talk time across inbound & outbound AI calls. Fair-use policy applies.
+            <strong className="text-foreground">Minutes:</strong> Total talk time across inbound & outbound AI calls.
           </p>
           <p>
             <strong className="text-foreground">Overage:</strong> {billingRules.overageRate}/min beyond included (Enterprise: custom rates).
@@ -24,13 +24,13 @@ const PricingFootnotes: React.FC = () => {
             <strong className="text-foreground">SMS:</strong> Carrier fees may apply for high-volume messaging.
           </p>
           <p>
-            <strong className="text-foreground">Cancellation:</strong> {billingRules.cancellationNotice} written notice required.
+            <strong className="text-foreground">Cancellation:</strong> Rolling 90-day cancellation notice.
           </p>
           <p>
-            <strong className="text-foreground">Annual billing:</strong> Save {billingRules.annualDiscount}—ask us for details.
+            <strong className="text-foreground">Annual billing:</strong> Save {billingRules.annualDiscount} on monthly fees.
           </p>
           <p>
-            <strong className="text-foreground">Bundle discount:</strong> {billingRules.bundleDiscount} off when purchasing {billingRules.bundleMinimum}+ add-on services.
+            <strong className="text-foreground">Setup fee:</strong> Includes call flow design, integrations, knowledge base, testing, and go-live support.
           </p>
           <p>
             <strong className="text-foreground">Usage alert:</strong> Notification at {billingRules.usageWarning} of included minutes.

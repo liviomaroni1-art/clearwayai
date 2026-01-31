@@ -2,24 +2,20 @@ import Navbar from "@/components/Navbar";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
-import FeaturesBreakdown from "@/components/FeaturesBreakdown";
-import ServicesSection from "@/components/ServicesSection";
+import TransformationSection from "@/components/TransformationSection";
+import CoreBenefitsSection from "@/components/CoreBenefitsSection";
+import ReliabilitySection from "@/components/ReliabilitySection";
 import HowItWorksSection from "@/components/HowItWorksSection";
-import WhoItsFor from "@/components/WhoItsFor";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import CostCalculator from "@/components/CostCalculator";
 import PricingSection from "@/components/PricingSection";
-import SocialProofSection from "@/components/SocialProofSection";
-import BenefitsSection from "@/components/BenefitsSection";
-import AboutSection from "@/components/AboutSection";
-import FounderSection from "@/components/FounderSection";
+import ProofSection from "@/components/ProofSection";
+import WhoItsFor from "@/components/WhoItsFor";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import LiveDemoPhone from "@/components/LiveDemoPhone";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const Index = () => {
   return (
@@ -30,29 +26,22 @@ const Index = () => {
       <StructuredData type="faq" />
       
       <Navbar />
-      <UrgencyBanner />
       <HeroSection />
       <ProblemSection />
-      <FeaturesBreakdown />
-      <WhoItsFor />
-      <ServicesSection />
+      <TransformationSection />
+      <CoreBenefitsSection />
+      <ReliabilitySection />
       <HowItWorksSection />
       <IntegrationsSection />
       <CostCalculator />
       <PricingSection />
-      <SocialProofSection />
-      <BenefitsSection />
-      <AboutSection />
-      <FounderSection />
+      <section id="proof">
+        <ProofSection />
+      </section>
+      <WhoItsFor />
       <FAQSection />
       <CTASection />
       <Footer />
-      
-      {/* Floating Live Demo Phone */}
-      <LiveDemoPhone variant="floating" />
-      
-      {/* Exit Intent Popup */}
-      <ExitIntentPopup />
     </div>
   );
 };
