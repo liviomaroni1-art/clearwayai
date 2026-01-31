@@ -250,10 +250,10 @@ const Security = () => {
                 For security inquiries, vulnerability reports, or compliance documentation requests:
               </p>
               <a 
-                href="mailto:security@clearwayai.co"
+                href="mailto:hello@clearwayai.co"
                 className="text-primary hover:text-primary/80 font-medium text-lg"
               >
-                security@clearwayai.co
+                hello@clearwayai.co
               </a>
               <div className="mt-6">
                 <Button variant="hero" size="lg" asChild>
