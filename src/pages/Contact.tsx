@@ -46,12 +46,11 @@ const businessTypes = [
 ];
 
 const budgetOptions = [
-  "Under $500/month",
-  "$500 - $1,000/month",
-  "$1,000 - $2,500/month",
-  "$2,500 - $5,000/month",
-  "$5,000+/month",
-  "Not sure yet",
+  "$1,500/month (Solo Launch)",
+  "$2,500/month (Pro Practice)",
+  "$3,500/month (Team Pro)",
+  "$5,000+/month (Concierge AI)",
+  "Not sure yet - need guidance",
 ];
 
 const serviceOptions = [
