@@ -29,7 +29,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="Clearway AI"
-              className="h-24 w-auto brightness-150"
+              className="h-12 w-auto object-contain"
             />
           </Link>
 
