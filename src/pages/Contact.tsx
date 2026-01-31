@@ -45,12 +45,13 @@ const businessTypes = [
   "Other",
 ];
 
-const budgetOptions = [
-  "$1,500/month (Solo Launch)",
-  "$2,500/month (Pro Practice)",
-  "$3,500/month (Team Pro)",
-  "$5,000+/month (Concierge AI)",
-  "Not sure yet - need guidance",
+const callVolumeOptions = [
+  "Under 500 calls/month",
+  "500 - 1,000 calls/month",
+  "1,000 - 2,000 calls/month",
+  "2,000 - 5,000 calls/month",
+  "5,000+ calls/month",
+  "Not sure yet",
 ];
 
 const serviceOptions = [
@@ -80,7 +81,7 @@ const Contact = () => {
     phone: "",
     website: "",
     businessType: "",
-    budget: "",
+    callVolume: "",
     service: "",
     term: "",
     message: "",
@@ -111,7 +112,7 @@ const Contact = () => {
         description: "We'll get back to you as soon as possible.",
       });
       
-      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", budget: "", service: "", term: "", message: "" });
+      setFormData({ name: "", email: "", company: "", phone: "", website: "", businessType: "", callVolume: "", service: "", term: "", message: "" });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -371,19 +372,19 @@ const Contact = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>What's your budget range? *</Label>
+                      <Label>Estimated monthly call volume *</Label>
                       <Select
-                        value={formData.budget}
-                        onValueChange={(value) => handleSelectChange("budget", value)}
+                        value={formData.callVolume}
+                        onValueChange={(value) => handleSelectChange("callVolume", value)}
                         required
                       >
                         <SelectTrigger className="bg-white/5 border-white/10 focus:border-primary h-12">
-                          <SelectValue placeholder="Select budget range" />
+                          <SelectValue placeholder="Select call volume" />
                         </SelectTrigger>
                         <SelectContent className="bg-background border-white/10">
-                          {budgetOptions.map((budget) => (
-                            <SelectItem key={budget} value={budget}>
-                              {budget}
+                          {callVolumeOptions.map((option) => (
+                            <SelectItem key={option} value={option}>
+                              {option}
                             </SelectItem>
                           ))}
                         </SelectContent>
