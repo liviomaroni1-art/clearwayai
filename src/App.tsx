@@ -15,6 +15,7 @@ import IndustryTemplate from "./pages/industries/IndustryTemplate";
 import AdminLogin from "./pages/AdminLogin";
 import LeadsDashboard from "./pages/admin/LeadsDashboard";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/contact" element={<Contact />} />
