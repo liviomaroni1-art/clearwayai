@@ -1,5 +1,6 @@
 import React from "react";
 import { HelpCircle } from "lucide-react";
+import { billingRules } from "./PricingData";
 
 const PricingFootnotes: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const PricingFootnotes: React.FC = () => {
             <strong className="text-foreground">Minutes:</strong> Total talk time across inbound & outbound AI calls. Fair-use policy applies.
           </p>
           <p>
-            <strong className="text-foreground">Overage:</strong> $0.45/min beyond included (Enterprise: custom rates).
+            <strong className="text-foreground">Overage:</strong> {billingRules.overageRate}/min beyond included (Enterprise: custom rates).
           </p>
           <p>
             <strong className="text-foreground">Additional numbers:</strong> $25/month per number.
@@ -23,10 +24,16 @@ const PricingFootnotes: React.FC = () => {
             <strong className="text-foreground">SMS:</strong> Carrier fees may apply for high-volume messaging.
           </p>
           <p>
-            <strong className="text-foreground">Cancellation:</strong> 3-month written notice required.
+            <strong className="text-foreground">Cancellation:</strong> {billingRules.cancellationNotice} written notice required.
           </p>
           <p>
-            <strong className="text-foreground">Annual billing:</strong> Save 10%—ask us for details.
+            <strong className="text-foreground">Annual billing:</strong> Save {billingRules.annualDiscount}—ask us for details.
+          </p>
+          <p>
+            <strong className="text-foreground">Bundle discount:</strong> {billingRules.bundleDiscount} off when purchasing {billingRules.bundleMinimum}+ add-on services.
+          </p>
+          <p>
+            <strong className="text-foreground">Usage alert:</strong> Notification at {billingRules.usageWarning} of included minutes.
           </p>
         </div>
       </div>
