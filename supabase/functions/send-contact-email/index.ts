@@ -29,7 +29,7 @@ interface ContactFormData {
   phone: string;
   website: string;
   businessType: string;
-  budget: string;
+  estimatedLoss: string;
   service: string;
   term: string;
   message: string;
@@ -63,6 +63,7 @@ const ALLOWED_ORIGINS = [
   'https://www.clearwayai.co',
   'https://clearwayai.lovable.app',
   'https://id-preview--21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovable.app',
+  'https://21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovableproject.com',
   'http://localhost:8080',
   'http://localhost:5173',
 ];
@@ -156,7 +157,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const safeBusinessType = escapeHtml(formData.businessType);
     const safeService = escapeHtml(formData.service);
     const safeTerm = escapeHtml(formData.term);
-    const safeBudget = escapeHtml(formData.budget);
+    const safeEstimatedLoss = escapeHtml(formData.estimatedLoss);
     const safeMessage = escapeHtml(formData.message).replace(/\n/g, "<br>");
 
     // Send notification email to sales team
@@ -181,7 +182,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
           <li><strong>Business Type:</strong> ${safeBusinessType}</li>
           <li><strong>Service Interest:</strong> ${safeService}</li>
           <li><strong>Preferred Term:</strong> ${safeTerm === "36-months" ? "36 Months (20% off + waived setup)" : "Monthly"}</li>
-          <li><strong>Budget Range:</strong> ${safeBudget}</li>
+          <li><strong>Estimated Monthly Loss:</strong> ${safeEstimatedLoss}</li>
         </ul>
         
         <h3>Message</h3>
@@ -208,7 +209,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <ul>
           <li><strong>Service:</strong> ${safeService}</li>
           <li><strong>Term:</strong> ${safeTerm === "36-months" ? "36 Months (with discount)" : "Monthly"}</li>
-          <li><strong>Budget:</strong> ${safeBudget}</li>
+          <li><strong>Estimated Loss:</strong> ${safeEstimatedLoss}</li>
           <li><strong>Business Type:</strong> ${safeBusinessType}</li>
         </ul>
         
