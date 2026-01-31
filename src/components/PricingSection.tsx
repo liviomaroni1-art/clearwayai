@@ -7,7 +7,7 @@ import TrustBadges from "@/components/pricing/TrustBadges";
 import PricingFootnotes from "@/components/pricing/PricingFootnotes";
 import HowToChoose from "@/components/pricing/HowToChoose";
 import LongTermSavings from "@/components/pricing/LongTermSavings";
-import SLATable from "@/components/pricing/SLATable";
+
 import { plans, addOnServices, billingRules } from "@/components/pricing/PricingData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Phone, Puzzle } from "lucide-react";
@@ -124,8 +124,6 @@ const PricingSection = () => {
             {/* How to Choose */}
             <HowToChoose />
 
-            {/* SLA Table */}
-            <SLATable />
           </TabsContent>
 
           {/* Add-Ons Tab */}

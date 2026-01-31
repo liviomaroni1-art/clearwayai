@@ -27,7 +27,7 @@ export const plans = [
       "Calendar integration setup",
       "Testing & go-live support"
     ],
-    sla: { firstResponse: "24 hours", resolution: "72 hours" },
+    
     ctaText: "Start with Solo",
     popular: false
   },
@@ -57,7 +57,7 @@ export const plans = [
       "Lead routing configuration",
       "30-min training session"
     ],
-    sla: { firstResponse: "8 hours", resolution: "48 hours" },
+    
     ctaText: "Book a Demo",
     popular: true
   },
@@ -88,7 +88,7 @@ export const plans = [
       "Team calendar integration",
       "1-hour team training session"
     ],
-    sla: { firstResponse: "4 hours", resolution: "24 hours" },
+    
     ctaText: "Book a Demo",
     popular: false
   },
@@ -119,7 +119,7 @@ export const plans = [
       "Dedicated onboarding manager",
       "Full team training sessions"
     ],
-    sla: { firstResponse: "1 hour", resolution: "8 hours" },
+    
     notes: [
       "HIPAA/BAA available—scoped to your specific systems and workflows.",
       "EHR integration (Epic, Cerner, etc.) quoted separately based on requirements."
@@ -235,10 +235,3 @@ export const billingRules = {
   }
 };
 
-// SLA tiers
-export const slaTiers = [
-  { tier: "Standard", plan: "Solo Launch", firstResponse: "24 hours", resolution: "72 hours" },
-  { tier: "Priority", plan: "Pro Practice", firstResponse: "8 hours", resolution: "48 hours" },
-  { tier: "Premium", plan: "Team Pro", firstResponse: "4 hours", resolution: "24 hours" },
-  { tier: "Concierge", plan: "Concierge AI", firstResponse: "1 hour", resolution: "8 hours" }
-];
