@@ -38,7 +38,7 @@ const PricingSection = () => {
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2">
+          <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2 mb-6">
             <button
               onClick={() => setIsAnnual(false)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
@@ -66,6 +66,17 @@ const PricingSection = () => {
                 Save {billingRules.annualDiscount}
               </span>
             </button>
+          </div>
+
+          {/* Add-ons Link - Prominent placement */}
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-sm text-muted-foreground">Need additional services?</span>
+            <Link 
+              to="/add-ons" 
+              className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-4 transition-colors"
+            >
+              View Add-On Services →
+            </Link>
           </div>
         </motion.div>
 
@@ -104,26 +115,6 @@ const PricingSection = () => {
         {/* 36-Month Savings */}
         <LongTermSavings />
 
-        {/* Add-ons link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <p className="text-muted-foreground mb-4">
-            Need additional services like website chat, email automation, or custom integrations?
-          </p>
-          <Button 
-            variant="outline"
-            asChild
-            className="border-border hover:bg-muted px-6 py-5"
-          >
-            <Link to="/add-ons">
-              View Add-On Services
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
