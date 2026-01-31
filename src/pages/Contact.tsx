@@ -67,7 +67,8 @@ const serviceOptions = [
 
 const termOptions = [
   { value: "monthly", label: "Monthly", discount: null },
-  { value: "36-months", label: "36 Months", discount: "10% off" },
+  { value: "annual", label: "1 Year", discount: "10% off" },
+  { value: "36-months", label: "36 Months", discount: "20% off + $0 setup" },
 ];
 
 const Contact = () => {
