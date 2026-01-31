@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { billingRules } from "./PricingData";
 
 const LongTermSavings: React.FC = () => {
+  const { longTermCommitment } = billingRules;
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -19,7 +22,7 @@ const LongTermSavings: React.FC = () => {
             Long-Term Partnership
           </h3>
           <p className="text-base md:text-lg text-muted-foreground mb-4">
-            Commit to <span className="text-primary font-semibold">36 months</span> → <span className="text-primary font-semibold">20% off</span> monthly fees + <span className="text-primary font-semibold">$0 setup</span>
+            Commit to <span className="text-primary font-semibold">{longTermCommitment.months} months</span> → <span className="text-primary font-semibold">{longTermCommitment.discount} off</span> monthly fees + <span className="text-primary font-semibold">$0 setup</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <div className="inline-flex items-center gap-2 bg-primary/15 text-primary font-medium px-4 py-2 rounded-full text-sm border border-primary/25">
