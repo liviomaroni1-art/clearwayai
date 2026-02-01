@@ -1,13 +1,29 @@
 import { Resend } from "https://esm.sh/resend@2.0.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.4";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-};
+// Validate allowed origins
+const ALLOWED_ORIGINS = [
+  'https://clearwayai.co',
+  'https://www.clearwayai.co',
+  'https://clearwayai.lovable.app',
+  'https://id-preview--21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovable.app',
+  'https://21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovableproject.com',
+  'http://localhost:8080',
+  'http://localhost:5173',
+];
+
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return false;
+  return ALLOWED_ORIGINS.some(allowed => origin.startsWith(allowed));
+}
+
+function getCorsHeaders(origin: string | null) {
+  return {
+    "Access-Control-Allow-Origin": isAllowedOrigin(origin) ? origin! : ALLOWED_ORIGINS[0],
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  };
+}
 
 // HTML escape function to prevent XSS in emails
 const escapeHtml = (text: string): string => {
@@ -57,29 +73,25 @@ function checkRateLimit(clientIp: string): boolean {
   return true;
 }
 
-// Validate allowed origins
-const ALLOWED_ORIGINS = [
-  'https://clearwayai.co',
-  'https://www.clearwayai.co',
-  'https://clearwayai.lovable.app',
-  'https://id-preview--21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovable.app',
-  'https://21a27ec4-5e52-4802-bbc7-8c425415ce9e.lovableproject.com',
-  'http://localhost:8080',
-  'http://localhost:5173',
-];
-
-function isAllowedOrigin(origin: string | null): boolean {
-  if (!origin) return false;
-  return ALLOWED_ORIGINS.some(allowed => origin.startsWith(allowed));
-}
-
 Deno.serve(async (req: Request): Promise<Response> => {
+  const origin = req.headers.get('origin');
+  const corsHeaders = getCorsHeaders(origin);
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    // Validate origin
+    if (!isAllowedOrigin(origin)) {
+      console.warn(`Request from unauthorized origin: ${origin}`);
+      return new Response(
+        JSON.stringify({ error: "Unauthorized request origin" }),
+        { status: 403, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
     // Get client IP for rate limiting
     const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
                      req.headers.get('x-real-ip') || 
@@ -91,16 +103,6 @@ Deno.serve(async (req: Request): Promise<Response> => {
       return new Response(
         JSON.stringify({ error: "Too many requests. Please try again later." }),
         { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } }
-      );
-    }
-
-    // Validate origin
-    const origin = req.headers.get('origin');
-    if (!isAllowedOrigin(origin)) {
-      console.warn(`Request from unauthorized origin: ${origin}`);
-      return new Response(
-        JSON.stringify({ error: "Unauthorized request origin" }),
-        { status: 403, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
@@ -240,7 +242,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
     // Return generic error message to prevent information leakage
     return new Response(
