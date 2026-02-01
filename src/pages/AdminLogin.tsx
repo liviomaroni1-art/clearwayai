@@ -24,10 +24,11 @@ const AdminLogin = () => {
     const { error } = await signIn(email, password);
 
     if (error) {
+      console.error("Login error:", error);
       toast({
         variant: "destructive",
         title: "Login failed",
-        description: error.message,
+        description: "Invalid email or password. Please try again.",
       });
       setIsLoading(false);
       return;

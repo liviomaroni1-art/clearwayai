@@ -78,10 +78,11 @@ const LeadsDashboard = () => {
       .order("created_at", { ascending: false });
 
     if (error) {
+      console.error("Fetch leads error:", error);
       toast({
         variant: "destructive",
         title: "Error fetching leads",
-        description: error.message,
+        description: "Unable to load leads. Please refresh or contact support.",
       });
     } else {
       setLeads(data || []);
