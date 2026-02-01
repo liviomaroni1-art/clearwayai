@@ -32,23 +32,43 @@ const LeadsDashboard = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!authLoading) {
+    const verifyAndLoad = async () => {
+      if (authLoading) return;
+      
       if (!user) {
         navigate("/admin");
         return;
       }
-      if (!isAdmin) {
+
+      // Server-side admin verification for defense-in-depth
+      try {
+        const { data, error } = await supabase.functions.invoke('verify-admin');
+        
+        if (error || !data?.isAdmin) {
+          toast({
+            variant: "destructive",
+            title: "Access Denied",
+            description: "You don't have admin privileges.",
+          });
+          navigate("/admin");
+          return;
+        }
+        
+        // Only fetch leads after server-side verification passes
+        fetchLeads();
+      } catch (err) {
+        console.error("Admin verification failed:", err);
         toast({
           variant: "destructive",
-          title: "Access Denied",
-          description: "You don't have admin privileges.",
+          title: "Verification Failed",
+          description: "Unable to verify admin access. Please try again.",
         });
         navigate("/admin");
-        return;
       }
-      fetchLeads();
-    }
-  }, [user, isAdmin, authLoading, navigate]);
+    };
+    
+    verifyAndLoad();
+  }, [user, authLoading, navigate]);
 
   const fetchLeads = async () => {
     setIsLoading(true);
