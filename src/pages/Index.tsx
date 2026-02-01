@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import HeroSection from "@/components/HeroSection";
+import LiveDemoPhone from "@/components/LiveDemoPhone";
 import ProblemSection from "@/components/ProblemSection";
 import TransformationSection from "@/components/TransformationSection";
 import CoreBenefitsSection from "@/components/CoreBenefitsSection";
@@ -42,6 +43,7 @@ const Index = () => {
       <FAQSection />
       <CTASection />
       <Footer />
+      <LiveDemoPhone variant="floating" />
     </div>
   );
 };
