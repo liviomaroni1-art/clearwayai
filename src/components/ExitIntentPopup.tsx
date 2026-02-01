@@ -55,21 +55,14 @@ const ExitIntentPopup = () => {
     setIsSubmitting(true);
 
     try {
-      // Save lead to database
-      const { error: dbError } = await supabase
-        .from("leads")
-        .insert({ email, source: "exit_popup" });
-
-      if (dbError) throw dbError;
-
-      // Send ROI calculator email
-      const { error: emailError } = await supabase.functions.invoke("send-lead-email", {
-        body: { email },
+      // All lead capture now goes through the rate-limited edge function
+      // The edge function saves to database AND sends the email
+      const { error } = await supabase.functions.invoke("send-lead-email", {
+        body: { email, source: "exit_popup" },
       });
 
-      if (emailError) {
-        console.error("Email send failed:", emailError);
-        // Still show success since lead was saved
+      if (error) {
+        throw error;
       }
 
       toast({

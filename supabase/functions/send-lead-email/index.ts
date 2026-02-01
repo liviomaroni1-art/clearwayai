@@ -1,6 +1,13 @@
 import { Resend } from "https://esm.sh/resend@2.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+
+// Create admin client with service role key for bypassing RLS
+const supabaseAdmin = createClient(
+  Deno.env.get("SUPABASE_URL")!,
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+);
 
 // Allowed origins for CORS
 const ALLOWED_ORIGINS = [
@@ -27,6 +34,7 @@ function getCorsHeaders(origin: string | null) {
 
 interface LeadEmailRequest {
   email: string;
+  source?: string;
 }
 
 // Simple in-memory rate limiting (resets on function restart)
@@ -83,7 +91,7 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    const { email }: LeadEmailRequest = await req.json();
+    const { email, source = 'exit_popup' }: LeadEmailRequest = await req.json();
 
     // Comprehensive email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -92,6 +100,30 @@ const handler = async (req: Request): Promise<Response> => {
         JSON.stringify({ error: "Valid email is required" }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
+    }
+
+    // Validate source to prevent injection
+    const allowedSources = ['exit_popup', 'contact_form', 'newsletter'];
+    const sanitizedSource = allowedSources.includes(source) ? source : 'exit_popup';
+
+    // Save lead to database using service role (bypasses RLS)
+    // This happens AFTER rate limiting, so spam is prevented
+    const { error: dbError } = await supabaseAdmin
+      .from('leads')
+      .insert({ email, source: sanitizedSource });
+
+    if (dbError) {
+      // Check for duplicate email (unique constraint violation)
+      if (dbError.code === '23505') {
+        console.log("Duplicate lead email:", email);
+        // Still send email for duplicates - they might want it again
+      } else {
+        console.error("Database error saving lead:", dbError);
+        return new Response(
+          JSON.stringify({ error: "Unable to save your information. Please try again later." }),
+          { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+        );
+      }
     }
 
     const emailResponse = await resend.emails.send({
