@@ -100,7 +100,7 @@ const Terms = () => {
                   <strong className="text-foreground">Uptime Target:</strong> We target 99.9% uptime for our AI receptionist service, excluding scheduled maintenance windows. Service credits may be issued at our discretion for extended outages.
                 </p>
                 <p>
-                  <strong className="text-foreground">Implementation:</strong> New accounts are typically live within 72 hours of contract signing and receipt of necessary integrations. Timelines may vary based on integration complexity.
+                  <strong className="text-foreground">Implementation:</strong> New accounts are typically live ~72 hours after onboarding is completed. Onboarding is considered complete once the client has submitted onboarding answers and provided required access (phone forwarding, calendar connection, CRM access if applicable). Timelines may vary based on integration complexity.
                 </p>
                 <p>
                   <strong className="text-foreground">Support Hours:</strong> Email support available 24/7. Live support available Monday-Friday, 6 AM - 6 PM Pacific Time (to accommodate US business hours from Switzerland).

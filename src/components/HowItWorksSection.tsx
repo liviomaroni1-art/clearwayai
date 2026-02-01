@@ -91,7 +91,7 @@ const HowItWorksSection = () => {
           className="text-center mt-8"
         >
           <p className="text-muted-foreground mb-6">
-            💡 Most clients go live in ~72 hours after kickoff (typical).
+            💡 Most clients go live ~72 hours after onboarding is completed.
           </p>
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">

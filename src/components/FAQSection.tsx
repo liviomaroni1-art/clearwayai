@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "How long does setup take and what do you need from me?",
     answer:
-      "Most clients are live within 72 hours of their kickoff call. We need about 30 minutes of your time to walk through your call flow, FAQs, booking rules, and integration preferences. We handle all the technical setup—you just approve and go live."
+      "Typically ~72 hours after onboarding is completed. Onboarding takes about 30 minutes of your time to walk through your call flow, FAQs, booking rules, and provide required access (phone forwarding, calendar, CRM if applicable). Once we have everything, we handle the technical setup—timing may vary with integration complexity."
   },
   {
     question: "Do you record calls? How is consent handled?",
