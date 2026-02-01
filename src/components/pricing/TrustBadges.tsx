@@ -6,7 +6,7 @@ const TrustBadges: React.FC = () => {
     <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
       <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20">
         <Zap className="w-4 h-4" />
-        Live in 72 hours
+        ~72h after onboarding
       </div>
       <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-500 px-4 py-2 rounded-full text-sm font-medium border border-emerald-500/20">
         <Shield className="w-4 h-4" />

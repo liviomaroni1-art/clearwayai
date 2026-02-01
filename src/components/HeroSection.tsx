@@ -106,7 +106,7 @@ const HeroSection = () => {
             {[
               "15 minutes. No obligation.",
               "We map your call flow + routing.",
-              "Go live in ~72 hours (typical)."
+              "Live ~72h after onboarding."
             ].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -152,7 +152,7 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-8 md:gap-16 mt-16 pt-12 border-t border-border"
           >
             {[
-              { value: "~72h", label: "Typical go-live" },
+              { value: "~72h", label: "After onboarding" },
               { value: "99.9%", label: "Uptime target" },
               { value: "24/7", label: "Always on" },
               { value: "<2s", label: "Answer time (target)" },

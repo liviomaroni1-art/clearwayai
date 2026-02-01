@@ -11,7 +11,7 @@ interface SEOHeadProps {
 
 const SEOHead = ({
   title = "AI-Powered Business Automation | 24/7 AI Receptionist | Clearway AI",
-  description = "Never miss another call. Clearway AI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Live in 72 hours.",
+  description = "Never miss another call. Clearway AI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Typically live ~72h after onboarding.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
