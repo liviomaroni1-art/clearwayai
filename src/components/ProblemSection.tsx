@@ -21,24 +21,24 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-card/30">
+    <section className="py-12 md:py-20 bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
             Missed Calls = <span className="text-destructive">Lost Revenue</span> (and Lost Trust)
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
             Every unanswered call is a potential client choosing your competitor instead.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto mb-6 md:mb-8">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}
@@ -46,13 +46,13 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 rounded-2xl text-center hover:border-destructive/30 transition-colors"
+              className="glass-card p-5 md:p-8 rounded-2xl text-center hover:border-destructive/30 transition-colors"
             >
-              <div className="w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center mx-auto mb-4">
-                <problem.icon className="w-7 h-7 text-destructive" />
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-destructive/10 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                <problem.icon className="w-5 h-5 md:w-7 md:h-7 text-destructive" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-foreground">{problem.title}</h3>
-              <p className="text-muted-foreground">{problem.description}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-foreground">{problem.title}</h3>
+              <p className="text-sm md:text-base text-muted-foreground">{problem.description}</p>
             </motion.div>
           ))}
         </div>

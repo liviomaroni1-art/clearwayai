@@ -29,29 +29,29 @@ const steps = [
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-card/30">
+    <section id="how-it-works" className="py-12 md:py-20 bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
             <Clock className="w-4 h-4 text-primary" />
             <span className="text-primary font-medium">Done-for-you setup</span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
             Three Steps to <span className="gradient-text">Capture More Calls</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
             We handle everything. You just approve and go live.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
@@ -59,19 +59,19 @@ const HowItWorksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card p-8 text-center hover:border-primary/30 transition-colors group"
+              className="glass-card p-5 md:p-8 text-center hover:border-primary/30 transition-colors group"
             >
-              <div className="relative inline-block mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <step.icon className="w-7 h-7 text-primary" />
+              <div className="relative inline-block mb-4 md:mb-6">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <step.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                 </div>
-                <span className="absolute -top-2 -right-2 text-xs font-bold text-primary-foreground bg-primary rounded-full w-7 h-7 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 text-xs font-bold text-primary-foreground bg-primary rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center">
                   {step.step}
                 </span>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">{step.title}</h3>
-              <p className="text-sm text-primary font-medium mb-3">{step.tagline}</p>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 text-foreground">{step.title}</h3>
+              <p className="text-xs md:text-sm text-primary font-medium mb-2 md:mb-3">{step.tagline}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
             </motion.div>

@@ -19,40 +19,40 @@ const TransformationSection = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-12 md:py-20">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
             The <span className="gradient-text">Transformation</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
             From chaos to clarity—here's what changes with Clearway AI
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-8 max-w-4xl mx-auto mb-8 md:mb-12">
           {/* Before */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl border-destructive/30"
+            className="glass-card p-5 md:p-8 rounded-2xl border-destructive/30"
           >
-            <h3 className="text-2xl font-bold text-destructive mb-6 flex items-center gap-2">
-              <Phone className="w-6 h-6" />
+            <h3 className="text-lg md:text-2xl font-bold text-destructive mb-4 md:mb-6 flex items-center gap-2">
+              <Phone className="w-5 h-5 md:w-6 md:h-6" />
               Before
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2 md:space-y-4">
               {before.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{item}</span>
+                <li key={i} className="flex items-start gap-2 md:gap-3">
+                  <X className="w-4 h-4 md:w-5 md:h-5 text-destructive flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base text-muted-foreground">{item}</span>
                 </li>
               ))}
             </ul>
@@ -63,17 +63,17 @@ const TransformationSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl border-primary/30 bg-primary/5"
+            className="glass-card p-5 md:p-8 rounded-2xl border-primary/30 bg-primary/5"
           >
-            <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-              <Check className="w-6 h-6" />
+            <h3 className="text-lg md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-2">
+              <Check className="w-5 h-5 md:w-6 md:h-6" />
               After Clearway AI
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2 md:space-y-4">
               {after.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-foreground font-medium">{item}</span>
+                <li key={i} className="flex items-start gap-2 md:gap-3">
+                  <Check className="w-4 h-4 md:w-5 md:h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base text-foreground font-medium">{item}</span>
                 </li>
               ))}
             </ul>
