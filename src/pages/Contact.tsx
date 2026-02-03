@@ -96,7 +96,7 @@ const Contact = () => {
       console.error('Error sending message:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again or email us directly at sales@clearwayai.co",
+        description: "Please try again or email us directly at hello@clearwayai.co",
         variant: "destructive",
       });
     } finally {
@@ -162,8 +162,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email Us</h3>
-                    <a href="mailto:sales@clearwayai.co" className="text-primary hover:underline">
-                      sales@clearwayai.co
+                    <a href="mailto:hello@clearwayai.co" className="text-primary hover:underline">
+                      hello@clearwayai.co
                     </a>
                   </div>
                 </div>
