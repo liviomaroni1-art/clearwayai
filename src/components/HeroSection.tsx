@@ -7,7 +7,7 @@ const HeroSection = () => {
   const demoNumber = "+1 (888) 778-3091";
   
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-16">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
@@ -47,7 +47,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-foreground"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 md:mb-6 text-foreground"
           >
             Never Miss a Call Again
             <br />
@@ -59,7 +59,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 sm:px-0"
           >
             Built for clinics, law firms, and service businesses that lose revenue when calls go unanswered. 
             Answers in under 2 seconds, books directly into your calendar, qualifies leads, and logs every call into your CRM.
@@ -70,12 +70,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-4 md:mb-6 px-2 sm:px-0"
           >
             <Button 
               variant="hero" 
-              size="xl" 
-              className="w-full sm:w-auto min-h-[60px] text-lg btn-glow hover:scale-105 transition-all px-8" 
+              size="lg"
+              className="w-full sm:w-auto min-h-[48px] md:min-h-[60px] text-sm md:text-lg btn-glow hover:scale-105 transition-all px-6 md:px-8" 
               asChild
             >
               <Link to="/contact">
@@ -85,8 +85,8 @@ const HeroSection = () => {
             </Button>
             <Button 
               variant="heroOutline" 
-              size="xl" 
-              className="w-full sm:w-auto min-h-[60px] text-lg border-border text-foreground hover:bg-muted" 
+              size="lg" 
+              className="w-full sm:w-auto min-h-[48px] md:min-h-[60px] text-sm md:text-lg border-border text-foreground hover:bg-muted"
               asChild
             >
               <a href={`tel:${demoNumber.replace(/\s/g, '')}`}>
@@ -101,7 +101,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 md:mb-12 px-2"
           >
             {[
               "15 minutes. No obligation.",
@@ -149,7 +149,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-8 md:gap-16 mt-16 pt-12 border-t border-border"
+            className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-16 mt-10 md:mt-16 pt-8 md:pt-12 border-t border-border"
           >
             {[
               { value: "~72h", label: "After onboarding" },
@@ -164,7 +164,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.4, delay: 0.8 + i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
               </motion.div>
             ))}

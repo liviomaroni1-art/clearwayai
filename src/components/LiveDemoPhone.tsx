@@ -15,15 +15,15 @@ const LiveDemoPhone = ({ variant = "hero" }: LiveDemoPhoneProps) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-5 py-4 rounded-full shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center gap-2 md:gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-3 py-2.5 md:px-5 md:py-4 rounded-full shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all"
       >
         <motion.div
           animate={{ rotate: [0, -10, 10, -10, 0] }}
           transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
         >
-          <Phone className="w-5 h-5" />
+          <Phone className="w-4 h-4 md:w-5 md:h-5" />
         </motion.div>
-        <div className="text-left">
+        <div className="text-left hidden sm:block">
           <div className="text-xs font-medium opacity-90">Call Live Demo</div>
           <div className="text-sm font-bold">{demoNumber}</div>
         </div>

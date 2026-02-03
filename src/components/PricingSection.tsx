@@ -21,19 +21,19 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 px-4 md:px-6">
+    <section id="pricing" className="py-16 md:py-24 px-4 md:px-6">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8 md:mb-10"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground">
             Transparent <span className="gradient-text">Pricing</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 md:mb-6">
             Choose the plan that fits your practice. Scale up anytime as you grow.
           </p>
 
@@ -81,7 +81,7 @@ const PricingSection = () => {
         </motion.div>
 
         {/* Core Plans */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-14">
           {plans.map((plan, index) => (
             <PricingCard
               key={plan.name}
