@@ -165,7 +165,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     // Send notification email to sales team
     const salesEmailResponse = await resend.emails.send({
       from: "Clearway AI <noreply@clearwayai.co>",
-      to: ["sales@clearwayai.co"],
+      to: ["hello@clearwayai.co"],
       subject: `New Lead: ${safeName} - ${safeService}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -225,7 +225,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         <hr>
         <p style="color: #666; font-size: 12px;">
           Clearway AI | Freienbach, Switzerland<br>
-          <a href="mailto:sales@clearwayai.co">sales@clearwayai.co</a>
+          <a href="mailto:hello@clearwayai.co">hello@clearwayai.co</a>
         </p>
       `,
     });
@@ -246,7 +246,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     console.error("Error in send-contact-email function:", error);
     // Return generic error message to prevent information leakage
     return new Response(
-      JSON.stringify({ error: "Unable to send message. Please try again or contact us directly at sales@clearwayai.co" }),
+      JSON.stringify({ error: "Unable to send message. Please try again or contact us directly at hello@clearwayai.co" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

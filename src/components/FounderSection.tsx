@@ -48,7 +48,7 @@ const FounderSection = () => {
                     <span>US timezone support: 6am–10pm EST</span>
                   </div>
                   <a 
-                    href="mailto:sales@clearwayai.co"
+                    href="mailto:hello@clearwayai.co"
                     className="flex items-center gap-2 hover:text-primary transition-colors"
                   >
                     <Mail className="w-4 h-4" />

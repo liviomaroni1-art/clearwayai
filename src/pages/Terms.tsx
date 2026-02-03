@@ -168,7 +168,7 @@ const Terms = () => {
                 For questions about these terms:
               </p>
               <div className="space-y-2 text-muted-foreground">
-                <p><strong className="text-foreground">Email:</strong> sales@clearwayai.co</p>
+                <p><strong className="text-foreground">Email:</strong> hello@clearwayai.co</p>
                 <p><strong className="text-foreground">Address:</strong> Clearway AI, Freienbach, Switzerland</p>
               </div>
             </section>

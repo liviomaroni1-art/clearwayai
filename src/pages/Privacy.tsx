@@ -112,7 +112,7 @@ const Privacy = () => {
                   <strong className="text-foreground">Retention Period:</strong> Call recordings are retained for 90 days unless otherwise specified in your service agreement. Transcriptions and summaries are retained for 1 year.
                 </p>
                 <p>
-                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your data at any time by contacting sales@clearwayai.co.
+                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your data at any time by contacting hello@clearwayai.co.
                 </p>
               </div>
             </section>
@@ -138,7 +138,7 @@ const Privacy = () => {
                 For privacy-related inquiries or data requests:
               </p>
               <div className="space-y-2 text-muted-foreground">
-                <p><strong className="text-foreground">Email:</strong> sales@clearwayai.co</p>
+                <p><strong className="text-foreground">Email:</strong> hello@clearwayai.co</p>
                 <p><strong className="text-foreground">Address:</strong> Freienbach, Switzerland</p>
                 <p><strong className="text-foreground">Response Time:</strong> Within 24-48 hours</p>
               </div>

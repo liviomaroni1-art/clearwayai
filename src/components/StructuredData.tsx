@@ -114,7 +114,7 @@ const localBusinessSchema = {
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
   "telephone": "+1-888-778-3091",
-  "email": "sales@clearwayai.co",
+  "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",

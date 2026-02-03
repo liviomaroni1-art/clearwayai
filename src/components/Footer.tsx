@@ -90,11 +90,11 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="mailto:sales@clearwayai.co"
+                  href="mailto:hello@clearwayai.co"
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-3 h-3 md:w-4 md:h-4" />
-                  sales@clearwayai.co
+                  hello@clearwayai.co
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
