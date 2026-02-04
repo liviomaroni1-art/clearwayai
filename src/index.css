@@ -7,7 +7,7 @@
 @layer base {
   :root {
     /* Dark mode as default - premium dark theme */
-    --background: 220 20% 1%;
+    --background: 217 30% 6%;
     --foreground: 210 20% 92%;
 
     --card: 220 28% 7%;
@@ -43,12 +43,12 @@
 
     /* Premium dark tokens */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 55% 25%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(220 20% 1%) 0%, hsl(220 28% 7%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(217 30% 6%) 0%, hsl(217 35% 9%) 100%);
     --shadow-glow: 0 0 40px -8px hsl(217 91% 60% / 0.4);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
     --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
 
-    --sidebar-background: 220 20% 1%;
+    --sidebar-background: 217 30% 6%;
     --sidebar-foreground: 210 20% 92%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
