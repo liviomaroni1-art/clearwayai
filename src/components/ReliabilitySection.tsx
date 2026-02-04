@@ -42,16 +42,16 @@ const ReliabilitySection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-sm mb-6">
-            <ShieldCheck className="w-4 h-4 text-amber-400" />
-            <span className="text-amber-400 font-medium">Built-in guardrails</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-warning/10 border border-warning/20 rounded-full text-sm mb-6">
+            <ShieldCheck className="w-4 h-4 text-warning" />
+            <span className="text-warning font-medium">Built-in guardrails</span>
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            When the AI Isn't 100% Sure, <span className="gradient-text">It Escalates</span>
+            When Uncertain, <span className="gradient-text">It Escalates</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Guardrails, routing rules, and fallbacks—so your team stays in control.
+            Your team stays in control with smart routing, warm transfers, and automatic fallbacks.
           </p>
         </motion.div>
 
@@ -63,11 +63,11 @@ const ReliabilitySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 rounded-xl hover:border-amber-500/30 transition-colors"
+              className="glass-card p-6 rounded-xl hover:border-warning/20 transition-colors"
             >
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-5 h-5 text-amber-400" />
+                <div className="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-5 h-5 text-warning" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-foreground">{feature.title}</h3>

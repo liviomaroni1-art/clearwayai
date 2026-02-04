@@ -11,8 +11,8 @@ const buttonVariants = cva("inline-flex items-center justify-center gap-2 whites
       secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
       ghost: "hover:bg-secondary hover:text-secondary-foreground",
       link: "text-primary underline-offset-4 hover:underline",
-      hero: "bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-105 glow-effect",
-      heroOutline: "border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary"
+      hero: "bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-xl hover:scale-105",
+      heroOutline: "border-2 border-primary/40 text-foreground hover:bg-primary/10 hover:border-primary/60"
     },
     size: {
       default: "h-10 px-4 py-2",

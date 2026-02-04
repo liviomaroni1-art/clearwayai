@@ -31,10 +31,10 @@ const ProblemSection = () => {
           className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Missed Calls = <span className="text-destructive">Lost Revenue</span> (and Lost Trust)
+            Every Missed Call <span className="text-destructive">Costs You Money</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Every unanswered call is a potential client choosing your competitor instead.
+            When you're busy with clients, potential customers call your competitors instead.
           </p>
         </motion.div>
 

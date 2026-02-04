@@ -40,10 +40,10 @@ const ProofSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Proof You Can <span className="gradient-text">Verify</span>
+            Don't Take Our Word. <span className="gradient-text">Test It Yourself.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Call our demo line and experience the AI yourself.
+            Call our demo line right now and experience the AI receptionist in action.
           </p>
         </motion.div>
 
