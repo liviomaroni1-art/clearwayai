@@ -32,37 +32,37 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           
-          {/* Trust Badge - Safe claim */}
+          {/* Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
-            <span className="text-primary font-medium">Used by clinics, law firms, and service businesses across the US</span>
+            <span className="text-primary font-medium">Trusted by clinics, law firms & service businesses</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* Main Heading - Clearer, benefit-focused */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 md:mb-6 text-foreground"
           >
-            Never Miss a Call Again
+            Stop Losing Clients
             <br />
-            <span className="gradient-text">Your AI Receptionist Answers, Qualifies, and Books Appointments 24/7</span>
+            <span className="gradient-text">to Missed Calls</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Subheadline - Concrete, outcome-focused */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 sm:px-0"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 sm:px-0"
           >
-            Built for clinics, law firms, and service businesses that lose revenue when calls go unanswered. 
-            Answers in under 2 seconds, books directly into your calendar, qualifies leads, and logs every call into your CRM.
+            An AI receptionist that answers every call in under 2 seconds, qualifies leads, 
+            and books appointments directly into your calendar—24/7.
           </motion.p>
 
           {/* CTAs */}
@@ -75,38 +75,38 @@ const HeroSection = () => {
             <Button 
               variant="hero" 
               size="lg"
-              className="w-full sm:w-auto min-h-[48px] md:min-h-[60px] text-sm md:text-lg btn-glow hover:scale-105 transition-all px-6 md:px-8" 
+              className="w-full sm:w-auto min-h-[48px] md:min-h-[56px] text-sm md:text-base btn-glow hover:scale-105 transition-all px-6 md:px-8" 
               asChild
             >
               <Link to="/contact">
-                Book a Demo
+                Book Your Free Demo
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button 
               variant="heroOutline" 
               size="lg" 
-              className="w-full sm:w-auto min-h-[48px] md:min-h-[60px] text-sm md:text-lg border-border text-foreground hover:bg-muted"
+              className="w-full sm:w-auto min-h-[48px] md:min-h-[56px] text-sm md:text-base border-primary/30 text-foreground hover:bg-primary/10"
               asChild
             >
               <a href={`tel:${demoNumber.replace(/\s/g, '')}`}>
                 <Phone className="w-5 h-5" />
-                Call the Live Demo: {demoNumber}
+                Try the Live Demo
               </a>
             </Button>
           </motion.div>
 
-          {/* Microcopy bullets */}
+          {/* Microcopy bullets - Outcome focused */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-8 md:mb-12 px-2"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 md:mb-12 px-2"
           >
             {[
-              "15 minutes. No obligation.",
-              "We map your call flow + routing.",
-              "Live ~72h after onboarding."
+              "15-min setup call",
+              "Live in ~72 hours",
+              "No long-term contract required"
             ].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -122,23 +122,23 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="max-w-xl mx-auto"
           >
-            <div className="glass-card border-amber-500/30 p-6 rounded-2xl bg-amber-500/5">
+            <div className="glass-card border-warning/20 p-6 rounded-2xl bg-warning/5">
               <div className="flex items-center gap-2 mb-4">
-                <AlertTriangle className="w-5 h-5 text-amber-400" />
-                <h3 className="font-semibold text-foreground">If the AI isn't sure, it doesn't guess.</h3>
+                <AlertTriangle className="w-5 h-5 text-warning" />
+                <h3 className="font-semibold text-foreground">When it's unsure, it escalates—never guesses.</h3>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <PhoneForwarded className="w-4 h-4 text-primary" />
-                  Transfers to your staff or department
+                  Transfers to your team with full context
                 </li>
                 <li className="flex items-center gap-2">
                   <MessageSquare className="w-4 h-4 text-primary" />
-                  Captures voicemail + SMS follow-up
+                  Takes a message and sends SMS follow-up
                 </li>
                 <li className="flex items-center gap-2">
                   <FileText className="w-4 h-4 text-primary" />
-                  Creates a call summary + tags in your CRM
+                  Logs call summary and tags in your CRM
                 </li>
               </ul>
             </div>

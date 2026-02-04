@@ -29,10 +29,10 @@ const TransformationSection = () => {
           className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            The <span className="gradient-text">Transformation</span>
+            What Changes <span className="gradient-text">With Clearway AI</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            From chaos to clarity—here's what changes with Clearway AI
+            From voicemail chaos to a fully automated front desk
           </p>
         </motion.div>
 

@@ -38,16 +38,16 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-6">
             <Clock className="w-4 h-4 text-primary" />
             <span className="text-primary font-medium">Done-for-you setup</span>
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Three Steps to <span className="gradient-text">Capture More Calls</span>
+            Live in <span className="gradient-text">Three Simple Steps</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-            We handle everything. You just approve and go live.
+            We handle the technical work. You approve and go live.
           </p>
         </motion.div>
 
@@ -95,7 +95,7 @@ const HowItWorksSection = () => {
           </p>
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              Book a Demo
+              Book Your Free Demo
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

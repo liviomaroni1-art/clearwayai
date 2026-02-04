@@ -42,10 +42,10 @@ const CoreBenefitsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Everything You Need to <span className="gradient-text">Capture Every Call</span>
+            One AI. <span className="gradient-text">Four Critical Jobs.</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            One AI receptionist. Four critical capabilities. Zero missed opportunities.
+            Answer calls, book appointments, qualify leads, and log everything—automatically.
           </p>
         </motion.div>
 

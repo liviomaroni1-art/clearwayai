@@ -72,10 +72,10 @@ const FAQSection = () => {
           className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Frequently Asked <span className="gradient-text">Questions</span>
+            Common <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-            Real answers to the questions we hear most
+            Straight answers to what you're probably wondering
           </p>
         </motion.div>
 

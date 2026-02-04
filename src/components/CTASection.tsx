@@ -24,12 +24,12 @@ const CTASection = () => {
               {/* Left - Main CTA */}
               <div className="text-center lg:text-left">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-                  Ready to Stop
+                  Ready to Capture
                   <br />
-                  <span className="gradient-text">Leaving Money on the Table?</span>
+                  <span className="gradient-text">Every Call?</span>
                 </h2>
                 <p className="text-muted-foreground text-base md:text-lg max-w-lg mb-6 md:mb-8">
-                  Book your free 15-minute demo. We'll show you exactly how Clearway AI can capture the calls you're missing.
+                  Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI can work for your business.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -40,7 +40,7 @@ const CTASection = () => {
                     asChild
                   >
                     <Link to="/contact">
-                      Book a Demo
+                      Book Your Free Demo
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
