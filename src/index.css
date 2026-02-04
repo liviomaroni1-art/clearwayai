@@ -60,24 +60,24 @@
 
   /* Dark mode */
   .dark {
-    --background: 215 32% 6%;
+    --background: 220 25% 4%;
     --foreground: 210 20% 92%;
 
-    --card: 215 36% 11%;
+    --card: 220 28% 7%;
     --card-foreground: 210 20% 92%;
 
-    --popover: 215 36% 11%;
+    --popover: 220 28% 7%;
     --popover-foreground: 210 20% 92%;
 
     /* Info Blue - CTAs, links, primary actions */
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 38% 14%;
+    --secondary: 220 30% 10%;
     --secondary-foreground: 210 20% 85%;
 
-    --muted: 215 38% 14%;
-    --muted-foreground: 214 14% 55%;
+    --muted: 220 30% 10%;
+    --muted-foreground: 214 14% 50%;
 
     --accent: 217 55% 12%;
     --accent-foreground: 0 0% 100%;
@@ -88,24 +88,24 @@
     --success: 160 84% 39%;
     --warning: 38 92% 50%;
 
-    --border: 215 33% 20%;
-    --input: 215 33% 20%;
+    --border: 220 25% 14%;
+    --input: 220 25% 14%;
     --ring: 217 91% 60%;
 
     /* Premium dark tokens */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 55% 25%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(215 32% 6%) 0%, hsl(215 36% 11%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(220 25% 4%) 0%, hsl(220 28% 7%) 100%);
     --shadow-glow: 0 0 40px -8px hsl(217 91% 60% / 0.4);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
-    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
 
-    --sidebar-background: 215 32% 6%;
+    --sidebar-background: 220 25% 4%;
     --sidebar-foreground: 210 20% 92%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 38% 14%;
+    --sidebar-accent: 220 30% 10%;
     --sidebar-accent-foreground: 210 20% 85%;
-    --sidebar-border: 215 33% 20%;
+    --sidebar-border: 220 25% 14%;
     --sidebar-ring: 217 91% 60%;
   }
 }
