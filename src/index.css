@@ -60,7 +60,7 @@
 
   /* Dark mode */
   .dark {
-    --background: 220 20% 3%;
+    --background: 220 20% 1%;
     --foreground: 210 20% 92%;
 
     --card: 220 28% 7%;
