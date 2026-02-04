@@ -60,6 +60,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,10 +69,6 @@ export default {
         sm: "calc(var(--radius) - 4px)",
         xl: "0.75rem",
         "2xl": "1rem",
-      },
-      colors: {
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
       },
       keyframes: {
         "accordion-down": {
