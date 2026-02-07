@@ -210,16 +210,16 @@ Deno.serve(async (req: Request): Promise<Response> => {
           <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hi ${safeName},</p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Thanks for getting in touch! One of us will get back to you within 24–48 hours on weekdays.
+            Thank you for getting in touch with us. We have received your message and a member of our team will follow up with you within 24–48 hours on weekdays.
           </p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Looking forward to chatting soon.
+            We appreciate your trust and are glad to have you with us.
           </p>
           
           <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Cheers,<br>
-            The Clearway AI Team
+            Best regards,<br>
+            Your Clearway AI Team
           </p>
           
           <img src="${logoUrl}" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 24px;" />
