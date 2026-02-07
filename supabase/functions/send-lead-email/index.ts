@@ -173,9 +173,23 @@ const handler = async (req: Request): Promise<Response> => {
             <p style="color: #666; font-size: 14px; margin-top: 15px;">See exactly how AI can recover your lost revenue</p>
           </div>
 
-          <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center; color: #666; font-size: 14px;">
-            <p>Clearway AI - AI-Powered Marketing, Made Clear.</p>
-            <p style="font-size: 12px;">You're receiving this because you downloaded our ROI Calculator.</p>
+          <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; color: #1a1a1a; font-size: 14px;">
+            <p style="margin: 0 0 16px 0;">
+              --<br>
+              <strong>Livio</strong><br>
+              <strong>Clearway AI</strong><br>
+              <em style="color: #666;">AI Receptionists That Never Miss a Call</em>
+            </p>
+            
+            <p style="margin: 0 0 16px 0;">
+              +41 76 471 46 78 (CH)<br>
+              <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
+              <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
+            </p>
+            
+            <img src="https://clearwayai.lovable.app/email-logo.jpg" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 16px;" />
+            
+            <p style="font-size: 12px; color: #666; margin-top: 16px;">You're receiving this because you downloaded our ROI Calculator.</p>
           </div>
         </body>
         </html>
