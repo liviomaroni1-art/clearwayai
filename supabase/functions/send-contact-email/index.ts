@@ -199,35 +199,111 @@ Deno.serve(async (req: Request): Promise<Response> => {
     console.log("Sales notification email sent:", salesEmailResponse);
 
     // Send confirmation email to the customer
+    const logoUrl = "https://clearwayai.co/email-logo.jpg";
+    
     const confirmationEmailResponse = await resend.emails.send({
       from: "Clearway AI <noreply@clearwayai.co>",
       to: [formData.email],
-      subject: "We received your message - Clearway AI",
+      subject: `${safeService} - Clearway AI`,
       html: `
-        <h1>Thank you for reaching out, ${safeName}!</h1>
-        
-        <p>We've received your inquiry about <strong>${safeService}</strong> and our team will get back to you within 24 hours (usually much faster).</p>
-        
-        <p>In the meantime, here's a quick summary of what you shared:</p>
-        <ul>
-          <li><strong>Service:</strong> ${safeService}</li>
-          <li><strong>Term:</strong> ${safeTerm === "36-months" ? "36 Months (with discount)" : "Monthly"}</li>
-          <li><strong>Estimated Loss:</strong> ${safeEstimatedLoss}</li>
-          <li><strong>Business Type:</strong> ${safeBusinessType}</li>
-        </ul>
-        
-        <p>If you have any urgent questions, feel free to call us directly.</p>
-        
-        <p>Looking forward to helping you automate your business!</p>
-        
-        <p>Best regards,<br>
-        The Clearway AI Team</p>
-        
-        <hr>
-        <p style="color: #666; font-size: 12px;">
-          Clearway AI | Freienbach, Switzerland<br>
-          <a href="mailto:hello@clearwayai.co">hello@clearwayai.co</a>
-        </p>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; background-color: #0a1628; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0a1628;">
+            <tr>
+              <td align="center" style="padding: 40px 20px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background: linear-gradient(135deg, #0f2942 0%, #0a1628 100%); border-radius: 16px; border: 1px solid rgba(45, 212, 191, 0.2);">
+                  <tr>
+                    <td style="padding: 40px 32px;">
+                      <!-- Header -->
+                      <h1 style="margin: 0 0 8px 0; font-size: 28px; font-weight: 700; color: #ffffff;">
+                        ${safeService}
+                      </h1>
+                      <p style="margin: 0 0 32px 0; font-size: 14px; color: #94a3b8;">
+                        Your inquiry has been received
+                      </p>
+                      
+                      <!-- Main content -->
+                      <p style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
+                        Hi ${safeName},
+                      </p>
+                      <p style="margin: 0 0 20px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
+                        Thank you for reaching out! We're excited to learn more about your business and how we can help you never miss another call.
+                      </p>
+                      <p style="margin: 0 0 24px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
+                        A member of our team will be in touch within <strong style="color: #2dd4bf;">24-48 hours on weekdays</strong> to discuss your needs and answer any questions.
+                      </p>
+                      
+                      <!-- Summary box -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: rgba(45, 212, 191, 0.05); border-radius: 12px; border: 1px solid rgba(45, 212, 191, 0.15); margin-bottom: 24px;">
+                        <tr>
+                          <td style="padding: 20px;">
+                            <p style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2dd4bf; text-transform: uppercase; letter-spacing: 0.5px;">
+                              Your Request Summary
+                            </p>
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td style="padding: 6px 0; font-size: 14px; color: #94a3b8;">Service:</td>
+                                <td style="padding: 6px 0; font-size: 14px; color: #e2e8f0; text-align: right;">${safeService}</td>
+                              </tr>
+                              <tr>
+                                <td style="padding: 6px 0; font-size: 14px; color: #94a3b8;">Term:</td>
+                                <td style="padding: 6px 0; font-size: 14px; color: #e2e8f0; text-align: right;">${safeTerm === "36-months" ? "36 Months (20% off)" : "Monthly"}</td>
+                              </tr>
+                              <tr>
+                                <td style="padding: 6px 0; font-size: 14px; color: #94a3b8;">Business Type:</td>
+                                <td style="padding: 6px 0; font-size: 14px; color: #e2e8f0; text-align: right;">${safeBusinessType}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <p style="margin: 0 0 32px 0; font-size: 16px; line-height: 1.6; color: #e2e8f0;">
+                        In the meantime, feel free to reply to this email if you have any questions.
+                      </p>
+                      
+                      <!-- Signature -->
+                      <p style="margin: 0 0 4px 0; font-size: 16px; color: #e2e8f0;">
+                        Talk soon,
+                      </p>
+                      <p style="margin: 0 0 32px 0; font-size: 16px; font-weight: 600; color: #2dd4bf;">
+                        Your Clearway AI Team
+                      </p>
+                      
+                      <!-- Divider -->
+                      <hr style="border: none; border-top: 1px solid rgba(148, 163, 184, 0.2); margin: 0 0 24px 0;">
+                      
+                      <!-- Logo at bottom -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center">
+                            <img src="${logoUrl}" alt="Clearway AI" style="height: 40px; width: auto;" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="center" style="padding-top: 16px;">
+                            <p style="margin: 0; font-size: 12px; color: #64748b;">
+                              Freienbach, Switzerland
+                            </p>
+                            <p style="margin: 4px 0 0 0; font-size: 12px;">
+                              <a href="mailto:hello@clearwayai.co" style="color: #2dd4bf; text-decoration: none;">hello@clearwayai.co</a>
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
       `,
     });
 
