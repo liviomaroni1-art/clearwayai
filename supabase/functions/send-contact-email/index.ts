@@ -199,7 +199,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     console.log("Sales notification email sent:", salesEmailResponse);
 
     // Send confirmation email to the customer
-    const logoUrl = "https://clearwayai.co/email-logo.jpg";
+    const logoUrl = "https://clearwayai.lovable.app/email-logo.jpg";
     
     const confirmationEmailResponse = await resend.emails.send({
       from: "Clearway AI <noreply@clearwayai.co>",
@@ -210,16 +210,16 @@ Deno.serve(async (req: Request): Promise<Response> => {
           <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hi ${safeName},</p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Thanks for reaching out! A teammate will follow up with you — we aim to respond within 24-48 hours on weekdays.
+            Thanks for getting in touch! One of us will get back to you within 24–48 hours on weekdays.
           </p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            We appreciate your trust and are happy to have you explore Clearway AI.
+            Looking forward to chatting soon.
           </p>
           
           <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Best,<br>
-            Your Clearway AI Team
+            Cheers,<br>
+            The Clearway AI Team
           </p>
           
           <img src="${logoUrl}" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 24px;" />
