@@ -213,8 +213,12 @@ Deno.serve(async (req: Request): Promise<Response> => {
             Thank you for getting in touch with us. We've received your message, and a member of our team will follow up with you within 24–48 hours on weekdays.
           </p>
           
-          <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
+          <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
             We appreciate your trust and are glad to have you with us.
+          </p>
+          
+          <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
+            This message was composed by Clearways AI Support Agent.
           </p>
           
           <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
