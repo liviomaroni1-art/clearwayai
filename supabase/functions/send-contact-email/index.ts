@@ -207,10 +207,10 @@ Deno.serve(async (req: Request): Promise<Response> => {
       subject: `${safeService} - Clearway AI`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hi ${safeName},</p>
+          <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hi ${escapeHtml(formData.name.split(' ')[0])},</p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Thank you for getting in touch with us. We have received your message and a member of our team will follow up with you within 24–48 hours on weekdays.
+            Thank you for getting in touch with us. We've received your message, and a member of our team will follow up with you within 24–48 hours on weekdays.
           </p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
