@@ -165,7 +165,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Send notification email to sales team
     const salesEmailResponse = await resend.emails.send({
-      from: "Clearway AI <noreply@clearwayai.co>",
+      from: "Clearway AI <hello@clearwayai.co>",
       to: ["hello@clearwayai.co"],
       subject: `New Lead: ${safeName} - ${safeService}`,
       html: `
@@ -202,7 +202,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const logoUrl = "https://clearwayai.lovable.app/email-logo.jpg";
     
     const confirmationEmailResponse = await resend.emails.send({
-      from: "Clearway AI <noreply@clearwayai.co>",
+      from: "Clearway AI <hello@clearwayai.co>",
       to: [formData.email],
       subject: `${safeService} - Clearway AI`,
       html: `
