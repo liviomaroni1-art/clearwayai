@@ -127,7 +127,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const emailResponse = await resend.emails.send({
-      from: "Clearway AI <noreply@clearwayai.co>",
+      from: "Clearway AI <hello@clearwayai.co>",
       to: [email],
       subject: "🎁 Your Free ROI Calculator is Here!",
       html: `
