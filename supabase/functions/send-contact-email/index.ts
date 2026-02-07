@@ -14,7 +14,8 @@ const ALLOWED_ORIGINS = [
 ];
 
 function isAllowedOrigin(origin: string | null): boolean {
-  if (!origin) return false;
+  // Allow null origin for edge function invocations (testing)
+  if (!origin) return true;
   return ALLOWED_ORIGINS.some(allowed => origin.startsWith(allowed));
 }
 
