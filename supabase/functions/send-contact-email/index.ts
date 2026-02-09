@@ -50,6 +50,7 @@ interface ContactFormData {
   service: string;
   term: string;
   message: string;
+  preferredContact: string;
 }
 
 // Simple in-memory rate limiting (resets on function restart)
@@ -162,6 +163,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const safeTerm = escapeHtml(formData.term);
     const safeEstimatedLoss = escapeHtml(formData.estimatedLoss);
     const safeMessage = escapeHtml(formData.message).replace(/\n/g, "<br>");
+    const safePreferredContact = escapeHtml(formData.preferredContact || "email");
 
     // Send notification email to sales team
     const salesEmailResponse = await resend.emails.send({
@@ -186,6 +188,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
           <li><strong>Service Interest:</strong> ${safeService}</li>
           <li><strong>Preferred Term:</strong> ${safeTerm === "36-months" ? "36 Months (20% off + waived setup)" : "Monthly"}</li>
           <li><strong>Estimated Monthly Loss:</strong> ${safeEstimatedLoss}</li>
+          <li><strong>Preferred Contact Method:</strong> ${safePreferredContact === "phone" ? "📞 Phone" : "📧 Email"}</li>
         </ul>
         
         <h3>Message</h3>
