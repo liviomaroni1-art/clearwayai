@@ -1,0 +1,13 @@
+# Clearway AI - AI-readable site information
+# This site is a JavaScript SPA (React). AI tools that cannot execute JavaScript
+# should use the static HTML snapshot instead.
+
+User-agent: *
+Static-HTML: https://clearwayai.co/snapshot.html
+
+# Site summary
+Name: Clearway AI
+Description: AI-powered phone receptionist for small and mid-size businesses. Answers calls 24/7, books appointments, qualifies leads, and integrates with CRMs.
+URL: https://clearwayai.co
+Contact: hello@clearwayai.co
+Location: Freienbach, Switzerland
