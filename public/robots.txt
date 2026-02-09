@@ -4,6 +4,10 @@
 User-agent: *
 Allow: /
 
+# Static HTML snapshot for AI tools and scrapers that cannot render JavaScript SPAs
+# Use https://clearwayai.co/snapshot.html for a full, pre-rendered version of the site
+Allow: /snapshot.html
+
 # Sitemap
 Sitemap: https://clearwayai.co/sitemap.xml
 
