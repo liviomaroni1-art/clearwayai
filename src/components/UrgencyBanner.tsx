@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, TrendingUp, Zap, Phone, Globe, Shield } from "lucide-react";
+import { Clock, TrendingUp, Zap, Globe } from "lucide-react";
 
 const UrgencyBanner = () => {
   return (
@@ -39,19 +39,6 @@ const UrgencyBanner = () => {
             <Globe className="w-4 h-4" />
             <span>30+ languages</span>
           </motion.div>
-          
-          <span className="hidden lg:block text-muted-foreground">•</span>
-          
-          <motion.a 
-            href="tel:+18887783091"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="hidden lg:flex items-center gap-2 bg-primary/20 text-primary font-semibold hover:bg-primary/30 transition-colors px-4 py-1.5 rounded-full"
-          >
-            <Phone className="w-4 h-4" />
-            <span>Try Live Demo: +1 (888) 778-3091</span>
-          </motion.a>
         </div>
       </div>
     </div>

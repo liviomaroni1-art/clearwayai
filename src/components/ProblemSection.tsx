@@ -5,18 +5,18 @@ const ProblemSection = () => {
   const problems = [
     {
       icon: Clock,
-      title: "Peak hours = missed calls",
-      description: "When you're busiest serving clients, that's exactly when most calls go unanswered."
+      title: "Busiest hours = most missed calls",
+      description: "You're with a client. The phone rings. It goes to voicemail. That caller books with someone else."
     },
     {
       icon: PhoneOff,
-      title: "First to answer wins",
-      description: "Callers usually book with whoever picks up first. Your competitor answers—they get the client."
+      title: "Your competitor answers first",
+      description: "People call 2–3 providers. Whoever picks up gets the appointment. Every time."
     },
     {
       icon: DollarSign,
-      title: "Admin catch-up creates chaos",
-      description: "Every missed call means voicemails to check, callbacks to make, and no-shows to manage."
+      title: "Admin chaos after every missed call",
+      description: "Voicemails stack up. Callbacks get delayed. No-shows multiply. Revenue leaks quietly."
     }
   ];
 
@@ -34,7 +34,7 @@ const ProblemSection = () => {
             Every Missed Call <span className="text-destructive">Costs You Money</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            When you're busy with clients, potential customers call your competitors instead.
+            While you're serving clients, new ones are calling your competitors instead.
           </p>
         </motion.div>
 
@@ -69,7 +69,7 @@ const ProblemSection = () => {
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
           >
             <Info className="w-4 h-4" />
-            See how we estimate potential recovery
+            See how much you could recover
             <ArrowRight className="w-3 h-3" />
           </a>
         </motion.div>

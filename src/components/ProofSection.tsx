@@ -3,10 +3,9 @@ import { Quote, Star, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-// Anonymized testimonials with verifiable proof mechanism
 const testimonials = [
   {
-    quote: "We went from missing about 40% of calls to capturing nearly every inquiry. The AI handles after-hours calls that we'd never get before.",
+    quote: "We went from missing about 40% of calls to capturing nearly every inquiry. The AI handles after-hours calls we'd never get before.",
     role: "Practice Manager",
     industry: "Dental clinic (TX)",
     result: "~40% more inquiries captured",
@@ -37,40 +36,14 @@ const ProofSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Don't Take Our Word. <span className="gradient-text">Test It Yourself.</span>
+            Real Results From <span className="gradient-text">Real Businesses</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Call our demo line right now and experience the AI receptionist in action.
+            See what happens when every call gets answered.
           </p>
-        </motion.div>
-
-        {/* Proof Mechanism - Call Demo */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-xl mx-auto mb-16"
-        >
-          <div className="glass-card border-primary/30 p-8 rounded-2xl text-center bg-primary/5">
-            <Phone className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2 text-foreground">Call the Live Demo</h3>
-            <p className="text-muted-foreground mb-4">
-              Experience the AI receptionist in action—greeting, qualification, booking flow.
-            </p>
-            <a
-              href={`tel:${demoNumber.replace(/\s/g, '')}`}
-              className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-bold text-xl transition-all hover:scale-[1.02]"
-            >
-              <Phone className="w-6 h-6" />
-              {demoNumber}
-            </a>
-            <p className="text-xs text-muted-foreground mt-4">
-              Available 24/7 • Experience greeting → qualification → booking
-            </p>
-          </div>
         </motion.div>
 
         {/* Testimonials Grid */}
@@ -113,10 +86,16 @@ const ProofSection = () => {
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              Book a Demo
+              Book Your Free Demo
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
+          <p className="text-xs text-muted-foreground mt-4">
+            Want to hear it first?{" "}
+            <a href={`tel:${demoNumber.replace(/\s/g, '')}`} className="text-primary hover:underline">
+              Call the optional live demo: {demoNumber}
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>

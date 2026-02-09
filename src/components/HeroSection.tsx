@@ -39,10 +39,10 @@ const HeroSection = () => {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
-            <span className="text-primary font-medium">Trusted by clinics, law firms & service businesses</span>
+            <span className="text-primary font-medium">Built for clinics, law firms & service businesses</span>
           </motion.div>
 
-          {/* Main Heading - Clearer, benefit-focused */}
+          {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,18 +54,17 @@ const HeroSection = () => {
             <span className="gradient-text">to Missed Calls</span>
           </motion.h1>
 
-          {/* Subheadline - Concrete, outcome-focused */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 sm:px-0"
           >
-            An AI receptionist that answers every call in under 2 seconds, qualifies leads, 
-            and books appointments directly into your calendar—24/7.
+            An AI receptionist that picks up every call, qualifies leads, and books appointments into your calendar—24/7. Live in ~72 hours.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTAs - Single primary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,20 +82,16 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-            <Button 
-              variant="heroOutline" 
-              size="lg" 
-              className="w-full sm:w-auto min-h-[48px] md:min-h-[56px] text-sm md:text-base border-primary/30 text-foreground hover:bg-primary/10"
-              asChild
+            <a 
+              href={`tel:${demoNumber.replace(/\s/g, '')}`}
+              className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[48px]"
             >
-              <a href={`tel:${demoNumber.replace(/\s/g, '')}`}>
-                <Phone className="w-5 h-5" />
-                Try the Live Demo
-              </a>
-            </Button>
+              <Phone className="w-4 h-4" />
+              Or try the live demo: {demoNumber}
+            </a>
           </motion.div>
 
-          {/* Microcopy bullets - Outcome focused */}
+          {/* Microcopy bullets */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -152,10 +147,10 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-16 mt-10 md:mt-16 pt-8 md:pt-12 border-t border-border"
           >
             {[
-              { value: "~72h", label: "After onboarding" },
+              { value: "~72h", label: "Go-live after onboarding" },
               { value: "99.9%", label: "Uptime target" },
-              { value: "24/7", label: "Always on" },
-              { value: "<2s", label: "Answer time (target)" },
+              { value: "24/7", label: "Always answering" },
+              { value: "<2s", label: "Pickup speed (target)" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}

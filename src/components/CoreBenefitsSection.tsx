@@ -7,27 +7,23 @@ const CoreBenefitsSection = () => {
   const benefits = [
     {
       icon: Phone,
-      title: "24/7 Call Answering",
-      outcome: "Every call answered in under 2 seconds (target), even at 3am.",
-      detail: "Our AI picks up instantly, greets callers professionally, and handles inquiries without keeping anyone waiting."
+      title: "Every Call Answered Instantly",
+      description: "AI picks up in under 2 seconds—even at 3 AM. No caller waits, no lead lost."
     },
     {
       icon: Calendar,
-      title: "Smart Scheduling",
-      outcome: "Appointments booked directly into your calendar, no back-and-forth.",
-      detail: "Syncs with Google Calendar or Outlook. Sends confirmations and reminders automatically."
+      title: "Appointments Booked Automatically",
+      description: "Syncs with Google Calendar or Outlook. Sends confirmations and reminders—zero back-and-forth."
     },
     {
       icon: Target,
-      title: "Lead Qualification",
-      outcome: "Know who's serious before you ever call back.",
-      detail: "AI asks qualifying questions, scores leads, and routes high-priority callers to the right person."
+      title: "Leads Qualified Before You Call Back",
+      description: "AI asks your screening questions, scores intent, and routes high-priority callers to the right person."
     },
     {
       icon: Database,
-      title: "CRM Logging",
-      outcome: "Every call captured—no manual entry required.",
-      detail: "Auto-logs to HubSpot, Salesforce, or Pipedrive with call summaries, transcripts, and tags."
+      title: "Every Call Logged in Your CRM",
+      description: "Auto-logs to HubSpot, Salesforce, or Pipedrive with summaries, transcripts, and tags. No manual entry."
     }
   ];
 
@@ -45,7 +41,7 @@ const CoreBenefitsSection = () => {
             One AI. <span className="gradient-text">Four Critical Jobs.</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Answer calls, book appointments, qualify leads, and log everything—automatically.
+            Answer. Book. Qualify. Log. All on autopilot.
           </p>
         </motion.div>
 
@@ -65,8 +61,7 @@ const CoreBenefitsSection = () => {
                 </div>
                 <div>
                   <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 text-foreground">{benefit.title}</h3>
-                  <p className="text-sm md:text-base text-foreground font-medium mb-1 md:mb-2">{benefit.outcome}</p>
-                  <p className="text-xs md:text-sm text-muted-foreground">{benefit.detail}</p>
+                  <p className="text-sm md:text-base text-muted-foreground">{benefit.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -81,7 +76,7 @@ const CoreBenefitsSection = () => {
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              Book a Demo
+              Book Your Free Demo
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

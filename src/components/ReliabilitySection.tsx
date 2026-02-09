@@ -7,28 +7,28 @@ const ReliabilitySection = () => {
   const features = [
     {
       icon: PhoneForwarded,
-      title: "Department routing + warm transfer",
-      description: "AI routes calls to the right person or department, with context passed along."
+      title: "Smart routing & warm transfers",
+      description: "Calls go to the right person with full context—no cold handoffs."
     },
     {
       icon: MessageSquare,
       title: "After-hours capture",
-      description: "Voicemail + SMS follow-up ensures no lead slips through overnight."
+      description: "Voicemail + SMS follow-up so no lead slips through overnight."
     },
     {
       icon: Bell,
-      title: "Appointment confirmations & reminders",
-      description: "Automated SMS and email reminders reduce no-shows."
+      title: "Reminders that reduce no-shows",
+      description: "Automated SMS and email confirmations keep your schedule full."
     },
     {
       icon: FileText,
-      title: "Audit trail",
-      description: "Call summaries, transcripts, and tags for every conversation."
+      title: "Complete audit trail",
+      description: "Summaries, transcripts, and tags for every conversation."
     },
     {
       icon: Users,
-      title: "Optional human review",
-      description: "Flag edge cases for your team to review and handle personally."
+      title: "Human review when needed",
+      description: "Edge cases get flagged for your team to handle personally."
     }
   ];
 
@@ -51,7 +51,7 @@ const ReliabilitySection = () => {
             When Uncertain, <span className="gradient-text">It Escalates</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Your team stays in control with smart routing, warm transfers, and automatic fallbacks.
+            Your AI never guesses. Smart routing, warm transfers, and automatic fallbacks keep you in control.
           </p>
         </motion.div>
 
@@ -78,21 +78,22 @@ const ReliabilitySection = () => {
           ))}
         </div>
 
-        {/* Call the Live Demo CTA */}
+        {/* Demoted phone CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-muted-foreground mb-4">Experience it yourself—call the live demo:</p>
-          <a
-            href={`tel:${demoNumber.replace(/\s/g, '')}`}
-            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02]"
-          >
-            <Phone className="w-5 h-5" />
-            {demoNumber}
-          </a>
+          <p className="text-sm text-muted-foreground">
+            Want to hear it in action?{" "}
+            <a
+              href={`tel:${demoNumber.replace(/\s/g, '')}`}
+              className="text-primary hover:underline font-medium"
+            >
+              Call the optional live demo: {demoNumber}
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>

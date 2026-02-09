@@ -5,17 +5,17 @@ import { Button } from "@/components/ui/button";
 
 const TransformationSection = () => {
   const before = [
-    "Voicemail piling up",
-    "Leads slipping through the cracks",
-    "Admin overload from callbacks",
-    "No visibility into missed opportunities"
+    "Voicemails piling up, callbacks forgotten",
+    "New leads booking with whoever answers first",
+    "Hours wasted on admin and follow-ups",
+    "No idea how many opportunities you're losing"
   ];
 
   const after = [
-    "Instant answer, every time",
-    "Calendar booked automatically",
-    "Leads qualified before you talk",
-    "Every call logged in your CRM"
+    "Every call answered instantly, 24/7",
+    "Calendar fills up automatically",
+    "Leads qualified before you talk to them",
+    "Every call logged, tagged, and tracked"
   ];
 
   return (
@@ -32,7 +32,7 @@ const TransformationSection = () => {
             What Changes <span className="gradient-text">With Clearway AI</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            From voicemail chaos to a fully automated front desk
+            From voicemail chaos to a calm, fully booked calendar.
           </p>
         </motion.div>
 
@@ -87,13 +87,13 @@ const TransformationSection = () => {
           className="text-center"
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
-            <a href="#calculator">
-              Calculate My ROI — Free
+            <Link to="/contact">
+              Book Your Free Demo
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
           </Button>
           <p className="text-xs text-muted-foreground mt-3">
-            No credit card • 5-minute consultation
+            15 minutes • No obligation • We'll map your call flow
           </p>
         </motion.div>
       </div>

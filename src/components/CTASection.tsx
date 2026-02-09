@@ -19,77 +19,46 @@ const CTASection = () => {
           {/* Glow effect */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-primary/15 rounded-full blur-3xl" />
 
-          <div className="relative z-10">
-            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-              {/* Left - Main CTA */}
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-                  Ready to Capture
-                  <br />
-                  <span className="gradient-text">Every Call?</span>
-                </h2>
-                <p className="text-muted-foreground text-base md:text-lg max-w-lg mb-6 md:mb-8">
-                  Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI can work for your business.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Button 
-                    variant="hero" 
-                    size="lg" 
-                    className="min-h-[48px] md:min-h-[56px] btn-glow hover:scale-105 transition-all"
-                    asChild
-                  >
-                    <Link to="/contact">
-                      Book Your Free Demo
-                      <ArrowRight className="w-5 h-5" />
-                    </Link>
-                  </Button>
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
+              Ready to Capture
+              <br />
+              <span className="gradient-text">Every Call?</span>
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-6 md:mb-8">
+              Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI fits your business.
+            </p>
+            
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="min-h-[48px] md:min-h-[56px] btn-glow hover:scale-105 transition-all"
+              asChild
+            >
+              <Link to="/contact">
+                Book Your Free Demo
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            
+            {/* Microcopy */}
+            <div className="flex flex-wrap gap-3 md:gap-4 mt-6 md:mt-8 justify-center">
+              {["15 minutes", "No obligation", "We reply within 24–48h"].map((point) => (
+                <div key={point} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span>{point}</span>
                 </div>
-                
-                {/* Microcopy */}
-                <div className="flex flex-wrap gap-3 md:gap-4 mt-6 md:mt-8 justify-center lg:justify-start">
-                  {["15 minutes", "No obligation", "We map your call flow"].map((point) => (
-                    <div key={point} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
-                      <span>{point}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right - Call Demo */}
-              <div className="relative">
-                <motion.div
-                  animate={{ scale: [1, 1.02, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl"
-                />
-                <div className="relative glass-card border-primary/30 p-5 md:p-8 text-center">
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                    <Phone className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-                    Call the Live Demo
-                  </h3>
-                  <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
-                    Experience the AI yourself—right now
-                  </p>
-                  
-                  <a
-                    href={`tel:${demoNumber.replace(/\s/g, '')}`}
-                    className="inline-flex items-center gap-2 md:gap-3 bg-primary hover:bg-primary/90 text-primary-foreground px-5 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-xl transition-all hover:scale-[1.02] w-full justify-center"
-                  >
-                    <Phone className="w-6 h-6" />
-                    {demoNumber}
-                  </a>
-                  
-                  <p className="text-xs text-muted-foreground mt-4">
-                    24/7 • Greeting → Qualification → Booking
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
+
+            {/* Secondary demo line */}
+            <p className="text-xs text-muted-foreground mt-6">
+              Or try the AI yourself:{" "}
+              <a href={`tel:${demoNumber.replace(/\s/g, '')}`} className="text-primary hover:underline">
+                {demoNumber}
+              </a>
+              {" "}(optional live demo line, available 24/7)
+            </p>
           </div>
         </motion.div>
       </div>
