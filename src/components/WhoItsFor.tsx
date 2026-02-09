@@ -3,17 +3,17 @@ import { Check, X } from "lucide-react";
 
 const WhoItsFor = () => {
   const idealFor = [
-    { text: "20+ calls/day", detail: "Volume where AI receptionist ROI makes sense" },
-    { text: "Losing calls during peak hours", detail: "When you're too busy to answer" },
-    { text: "Want booked calendar + CRM logging", detail: "Automated scheduling and lead capture" },
-    { text: "Willing to invest in growth", detail: "Premium solution for serious businesses" },
+    { text: "You get 20+ calls a day" },
+    { text: "You lose leads during peak hours" },
+    { text: "You want a booked calendar, not voicemails" },
+    { text: "You're ready to invest in growth" },
   ];
 
   const notFor = [
-    { text: "Under 10 calls/day", detail: "ROI may not justify the investment" },
-    { text: "Looking for the cheapest option", detail: "We're premium, not budget" },
-    { text: "Highly specialized triage", detail: "Complex medical intake without enterprise setup" },
-    { text: "Unwilling to do onboarding call", detail: "We need 30 min to configure your AI" },
+    { text: "Under 10 calls a day" },
+    { text: "Looking for the cheapest option" },
+    { text: "Complex medical triage without enterprise setup" },
+    { text: "Not willing to do a 30-min onboarding call" },
   ];
 
   return (
@@ -47,12 +47,9 @@ const WhoItsFor = () => {
             </h3>
             <ul className="space-y-4">
               {idealFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-foreground font-medium">{item.text}</p>
-                    <p className="text-sm text-muted-foreground">{item.detail}</p>
-                  </div>
+                <li key={i} className="flex items-center gap-3">
+                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                  <p className="text-foreground font-medium">{item.text}</p>
                 </li>
               ))}
             </ul>
@@ -71,12 +68,9 @@ const WhoItsFor = () => {
             </h3>
             <ul className="space-y-4">
               {notFor.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-foreground/80 font-medium">{item.text}</p>
-                    <p className="text-sm text-muted-foreground">{item.detail}</p>
-                  </div>
+                <li key={i} className="flex items-center gap-3">
+                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  <p className="text-foreground/80 font-medium">{item.text}</p>
                 </li>
               ))}
             </ul>

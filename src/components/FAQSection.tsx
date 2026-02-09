@@ -11,52 +11,52 @@ const faqs = [
   {
     question: "What happens if the AI can't handle a call?",
     answer:
-      "The AI is designed to recognize its limits. When it encounters a situation it can't handle confidently, it will transfer the call to your staff, take a voicemail, or send an SMS follow-up. You'll receive an immediate notification with call details so you can follow up personally. Nothing falls through the cracks."
+      "It never guesses. If unsure, it transfers the caller to your staff, takes a voicemail, or sends an SMS follow-up. You get an instant notification with full call details."
   },
   {
-    question: "Can it transfer to different departments or staff?",
+    question: "Can I keep my existing phone number?",
     answer:
-      "Yes. We configure routing rules during setup. Calls can be directed to specific departments (billing, scheduling, general inquiries) or individual staff members based on caller needs, time of day, or other criteria you define."
-  },
-  {
-    question: "Can it book across multiple calendars or locations?",
-    answer:
-      "Absolutely. The AI can sync with multiple Google Calendars or Outlook calendars, check availability across your team, and book appointments at different locations. Multi-location support is included in Team Pro and Concierge plans."
-  },
-  {
-    question: "How long does setup take and what do you need from me?",
-    answer:
-      "Typically ~72 hours after onboarding is completed. Onboarding takes about 30 minutes of your time to walk through your call flow, FAQs, booking rules, and provide required access (phone forwarding, calendar, CRM if applicable). Once we have everything, we handle the technical setup—timing may vary with integration complexity."
-  },
-  {
-    question: "Do you record calls? How is consent handled?",
-    answer:
-      "Call recording is optional. When enabled, the AI announces the recording at the start of the call (you can customize this message). Recordings are retained for 90 days by default, but this is configurable. See our Security page for details."
-  },
-  {
-    question: "How do you prevent wrong bookings or misinformation?",
-    answer:
-      "The AI is trained on your specific knowledge base—your services, pricing, FAQs, and booking rules. It only says what you've approved. When uncertain, it escalates to a human rather than guessing. We continuously refine responses based on call outcomes."
-  },
-  {
-    question: "Which integrations are native vs via Zapier/n8n?",
-    answer:
-      "Native integrations include Google Calendar, Outlook, HubSpot, Salesforce, Pipedrive, and SimplePractice. Other tools can be connected via Zapier or n8n. Enterprise plans include custom API integrations for specialized systems."
-  },
-  {
-    question: "What are the contract terms and cancellation policy?",
-    answer:
-      "All plans require a rolling 90-day cancellation notice. Annual billing saves 20%. Long-term commitments (36 months) receive additional discounts and waived setup fees. No hidden fees—pricing is transparent and all-inclusive."
+      "Yes. We set up call forwarding from your current number. Your clients won't notice anything different—calls just get answered faster."
   },
   {
     question: "How is pricing determined?",
     answer:
-      "Pricing is based on included minutes per month, features, and support level. Overages are billed at $0.50/minute. We provide custom quotes for high-volume or specialized needs. Book a demo and we'll give you an exact quote."
+      "Plans are based on included minutes, features, and support level. Overages cost $0.50/min. Book a demo and we'll quote your exact setup."
   },
   {
     question: "Is my data secure?",
     answer:
-      "Yes. We use TLS 1.3 encryption in transit, AES-256 encryption at rest, and role-based access controls. BAA available for Enterprise customers who need HIPAA compliance. See our Security page for full details."
+      "Yes. TLS 1.3 in transit, AES-256 at rest, role-based access controls. BAA available for healthcare practices. See our Security page for details."
+  },
+  {
+    question: "How long does setup take?",
+    answer:
+      "About 30 minutes of your time for the onboarding call. We handle all technical work and typically go live within ~72 hours after that."
+  },
+  {
+    question: "Do you record calls?",
+    answer:
+      "Recording is optional. When enabled, the AI announces it. Recordings are kept 90 days by default (configurable). See our Security page."
+  },
+  {
+    question: "What about wrong bookings or misinformation?",
+    answer:
+      "The AI only says what you've approved—your services, pricing, FAQs, and booking rules. When uncertain, it escalates to a human. We refine responses weekly."
+  },
+  {
+    question: "What are the contract terms?",
+    answer:
+      "Rolling 90-day cancellation notice. Annual billing saves 20%. 36-month commitments get additional discounts and waived setup fees."
+  },
+  {
+    question: "Which integrations are included?",
+    answer:
+      "Native: Google Calendar, Outlook, HubSpot, Salesforce, Pipedrive, SimplePractice. Others via Zapier or n8n. Enterprise plans include custom API integrations."
+  },
+  {
+    question: "Can it handle multiple calendars and locations?",
+    answer:
+      "Yes. The AI syncs with multiple calendars, checks team availability, and books at different locations. Multi-location support is in Team Pro and Concierge plans."
   }
 ];
 
@@ -75,7 +75,7 @@ const FAQSection = () => {
             Common <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
-            Straight answers to what you're probably wondering
+            Straight answers to what you're probably wondering.
           </p>
         </motion.div>
 
@@ -110,7 +110,7 @@ const FAQSection = () => {
           <p className="text-muted-foreground">
             Still have questions?{" "}
             <Link to="/contact" className="text-primary hover:underline">
-              Get in touch
+              Book a demo
             </Link>
             {" "}or{" "}
             <Link to="/security" className="text-primary hover:underline">

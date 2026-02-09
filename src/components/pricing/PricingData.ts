@@ -7,8 +7,8 @@ export const plans = [
     price: "$1,500",
     priceAnnual: "$1,200",
     setup: "$1,000",
-    tagline: "Professional 24/7 AI reception for independent providers.",
-    idealFor: "Solo practitioners and small businesses that need reliable 24/7 call coverage.",
+    tagline: "24/7 AI call coverage for solo providers.",
+    idealFor: "Solo practitioners who need every call answered.",
     color: "emerald",
     features: [
       { text: "1,000 minutes/month (inbound + outbound)", bold: true },
@@ -35,8 +35,8 @@ export const plans = [
     price: "$2,500",
     priceAnnual: "$2,000",
     setup: "$1,500",
-    tagline: "Capture every lead with CRM sync and automated follow-ups.",
-    idealFor: "Growing practices that need CRM sync, automated reminders, or consistent lead tracking.",
+    tagline: "Capture every lead with CRM sync and reminders.",
+    idealFor: "Growing practices that need CRM + automated follow-ups.",
     color: "violet",
     features: [
       { text: "2,000 minutes/month (inbound + outbound)", bold: true },
@@ -64,8 +64,8 @@ export const plans = [
     price: "$3,500",
     priceAnnual: "$2,800",
     setup: "$2,000",
-    tagline: "Intelligent routing and scheduling for multi-staff offices.",
-    idealFor: "Teams of 3+ that need intelligent routing + shared calendars.",
+    tagline: "Smart routing for multi-staff offices.",
+    idealFor: "Teams of 3+ with multiple calendars and departments.",
     color: "amber",
     features: [
       { text: "3,000 minutes/month (inbound + outbound)", bold: true },
@@ -94,8 +94,8 @@ export const plans = [
     price: "$5,000+",
     priceAnnual: "$4,000+",
     setup: "$3,000",
-    tagline: "White-glove service for multi-location and compliance-focused organizations.",
-    idealFor: "Multi-location businesses, healthcare systems, or organizations with compliance requirements.",
+    tagline: "White-glove service for multi-location organizations.",
+    idealFor: "Multi-location or compliance-focused businesses.",
     color: "slate",
     features: [
       { text: "8,000+ minutes (custom volume available)", bold: true },

@@ -26,10 +26,10 @@ const IntegrationsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Connects With Your <span className="gradient-text">Existing Stack</span>
+            Works With Your <span className="gradient-text">Existing Tools</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Native + via Zapier/n8n. We set it up for you.
+            Native integrations + Zapier/n8n. We set it all up for you.
           </p>
         </motion.div>
 
@@ -59,9 +59,9 @@ const IntegrationsSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center text-muted-foreground mt-8"
+            className="text-center text-sm text-muted-foreground mt-8"
           >
-            If it's not listed, we can integrate via API. Enterprise plans include custom integrations.
+            Don't see yours? We can integrate via API. Enterprise plans include custom integrations.
           </motion.p>
         </div>
       </div>

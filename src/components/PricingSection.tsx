@@ -31,10 +31,10 @@ const PricingSection = () => {
           className="text-center mb-8 md:mb-10"
         >
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground">
-            Transparent <span className="gradient-text">Pricing</span>
+            Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 md:mb-6">
-            Choose the plan that fits your practice. Scale up anytime as you grow.
+            Pick a plan. Scale anytime. No hidden fees.
           </p>
 
           {/* Billing Toggle */}

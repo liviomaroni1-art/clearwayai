@@ -11,24 +11,19 @@ const CostCalculator = () => {
   const [missedCallRate, setMissedCallRate] = useState([35]);
   const [conversionRate, setConversionRate] = useState([30]);
 
-  // Calculate with conversion rate factored in
   const monthlyMissedCalls = callsPerDay[0] * 30 * (missedCallRate[0] / 100);
   const potentialRecoveredCalls = monthlyMissedCalls * (conversionRate[0] / 100);
   const monthlyRecoveredRevenue = potentialRecoveredCalls * avgCallValue[0];
   const yearlyRecoveredRevenue = monthlyRecoveredRevenue * 12;
   
-  // Conservative, Expected, Aggressive scenarios
   const scenarios = {
     conservative: yearlyRecoveredRevenue * 0.6,
     expected: yearlyRecoveredRevenue,
     aggressive: yearlyRecoveredRevenue * 1.4
   };
   
-  // Clearway cost range
-  const clearwayCostLow = 18000; // $1,500/mo
-  const clearwayCostMid = 30000; // $2,500/mo
+  const clearwayCostLow = 18000;
 
-  // Quick preset buttons
   const presets = [
     { label: "Solo Practice", calls: 8, value: 300, missed: 25, conversion: 25 },
     { label: "Small Clinic", calls: 20, value: 450, missed: 35, conversion: 30 },
@@ -51,18 +46,39 @@ const CostCalculator = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             <Calculator className="w-4 h-4" />
             ROI Estimator
           </div>
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-foreground">
-            Estimate Your <span className="gradient-text">Potential Recovery</span> From Missed Calls
+            How Much Revenue Are You <span className="gradient-text">Leaving on the Table?</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Adjust the sliders to match your business. We show conservative, expected, and aggressive scenarios.
+            See what missed calls are actually costing your business.
           </p>
+        </motion.div>
+
+        {/* 1-2-3 Explainer */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto mb-8"
+        >
+          <div className="grid grid-cols-3 gap-4 text-center">
+            {[
+              { step: "1", text: "Pick your industry or adjust sliders" },
+              { step: "2", text: "See estimated revenue lost to missed calls" },
+              { step: "3", text: "Compare against the cost of Clearway AI" },
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center gap-2">
+                <span className="w-7 h-7 rounded-full bg-primary/20 text-primary text-xs font-bold flex items-center justify-center">{item.step}</span>
+                <p className="text-xs text-muted-foreground">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
@@ -93,9 +109,7 @@ const CostCalculator = () => {
               {/* Calls per day */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-medium text-foreground">
-                    Calls per day
-                  </label>
+                  <label className="text-sm font-medium text-foreground">Calls per day</label>
                   <div className="flex items-center gap-2">
                     <button 
                       onClick={() => setCallsPerDay([Math.max(1, callsPerDay[0] - 1)])}
@@ -112,92 +126,60 @@ const CostCalculator = () => {
                     </button>
                   </div>
                 </div>
-                <Slider
-                  value={callsPerDay}
-                  onValueChange={setCallsPerDay}
-                  min={1}
-                  max={100}
-                  step={1}
-                  className="w-full"
-                />
+                <Slider value={callsPerDay} onValueChange={setCallsPerDay} min={1} max={100} step={1} className="w-full" />
               </div>
 
-              {/* Estimated missed call rate */}
+              {/* Missed call rate */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-medium text-foreground">
-                    Estimated missed call rate
-                  </label>
+                  <label className="text-sm font-medium text-foreground">Estimated missed call rate</label>
                   <span className="text-lg font-bold text-primary">{missedCallRate[0]}%</span>
                 </div>
-                <Slider
-                  value={missedCallRate}
-                  onValueChange={setMissedCallRate}
-                  min={10}
-                  max={60}
-                  step={5}
-                  className="w-full"
-                />
+                <Slider value={missedCallRate} onValueChange={setMissedCallRate} min={10} max={60} step={5} className="w-full" />
               </div>
 
-              {/* Average value per booking */}
+              {/* Avg value */}
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <label className="text-sm font-medium text-foreground">
-                    Average value per booking
-                  </label>
+                  <label className="text-sm font-medium text-foreground">Average value per booking</label>
                   <span className="text-lg font-bold text-primary">${avgCallValue[0]}</span>
                 </div>
-                <Slider
-                  value={avgCallValue}
-                  onValueChange={setAvgCallValue}
-                  min={100}
-                  max={2000}
-                  step={50}
-                  className="w-full"
-                />
+                <Slider value={avgCallValue} onValueChange={setAvgCallValue} min={100} max={2000} step={50} className="w-full" />
               </div>
 
               {/* Conversion rate */}
               <div>
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-medium text-foreground flex items-center gap-2">
-                    Conversion rate (answered calls → booked)
+                    Conversion rate (answered → booked)
                     <span className="text-xs text-muted-foreground">(default 30%)</span>
                   </label>
                   <span className="text-lg font-bold text-primary">{conversionRate[0]}%</span>
                 </div>
-                <Slider
-                  value={conversionRate}
-                  onValueChange={setConversionRate}
-                  min={10}
-                  max={60}
-                  step={5}
-                  className="w-full"
-                />
+                <Slider value={conversionRate} onValueChange={setConversionRate} min={10} max={60} step={5} className="w-full" />
               </div>
 
-              {/* Results - Scenarios */}
+              {/* Results */}
               <div className="border-t border-border pt-8 mt-8">
-                <h3 className="text-lg font-semibold text-center mb-6 text-foreground">Estimated Annual Recovery</h3>
+                <h3 className="text-lg font-semibold text-center mb-6 text-foreground">Money You Could Recover From Missed Calls</h3>
                 
                 <div className="grid sm:grid-cols-3 gap-4 text-center mb-8">
                   <div className="bg-muted/30 rounded-xl p-4">
                     <p className="text-xs text-muted-foreground mb-1">Conservative</p>
                     <p className="text-2xl font-bold text-foreground">
-                      ~${Math.round(scenarios.conservative).toLocaleString()}
+                      ~${Math.round(scenarios.conservative).toLocaleString()}<span className="text-sm font-normal text-muted-foreground">/yr</span>
                     </p>
                   </div>
                   <div className="bg-primary/10 rounded-xl p-4 border border-primary/30">
                     <p className="text-xs text-primary mb-1">Expected</p>
                     <p className="text-2xl font-bold text-primary">
-                      ~${Math.round(scenarios.expected).toLocaleString()}
+                      ~${Math.round(scenarios.expected).toLocaleString()}<span className="text-sm font-normal text-primary/70">/yr</span>
                     </p>
                   </div>
                   <div className="bg-muted/30 rounded-xl p-4">
                     <p className="text-xs text-muted-foreground mb-1">Aggressive</p>
                     <p className="text-2xl font-bold text-foreground">
-                      ~${Math.round(scenarios.aggressive).toLocaleString()}
+                      ~${Math.round(scenarios.aggressive).toLocaleString()}<span className="text-sm font-normal text-muted-foreground">/yr</span>
                     </p>
                   </div>
                 </div>
@@ -213,7 +195,7 @@ const CostCalculator = () => {
                 <div className="flex items-start gap-2 bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 mb-6">
                   <Info className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-muted-foreground">
-                    Estimates are based on your inputs and typical conversion ranges. Actual results vary based on your industry, call quality, and follow-up process.
+                    Estimates are based on your inputs and typical conversion ranges. Actual results vary by industry, call quality, and follow-up process.
                   </p>
                 </div>
 
@@ -221,12 +203,12 @@ const CostCalculator = () => {
                 <div className="text-center">
                   <Button variant="hero" size="xl" className="w-full sm:w-auto min-h-[48px] btn-glow" asChild>
                     <Link to="/contact">
-                      Book a Demo
+                      Book Your Free Demo
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
                   <p className="text-xs text-muted-foreground mt-3">
-                    Get a free call audit • 15 minutes • No obligation
+                    15 minutes • We'll map your call flow • No obligation
                   </p>
                 </div>
               </div>
