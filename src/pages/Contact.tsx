@@ -67,6 +67,23 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate required fields
+    const missing: string[] = [];
+    if (!formData.name.trim()) missing.push("Full Name");
+    if (!formData.email.trim()) missing.push("Email");
+    if (!formData.phone.trim()) missing.push("Phone");
+    if (!formData.businessType) missing.push("Business Type");
+
+    if (missing.length > 0) {
+      toast({
+        title: "Please fill in all required fields",
+        description: missing.join(", "),
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
@@ -272,7 +289,7 @@ const Contact = () => {
                   {/* Phone & Website Row */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone <span className="text-muted-foreground font-normal">(optional)</span></Label>
+                      <Label htmlFor="phone">Phone *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -280,6 +297,7 @@ const Contact = () => {
                         placeholder="+1 (555) 000-0000"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                         maxLength={20}
                         className="bg-muted/50 border-border focus:border-primary h-12"
                       />
