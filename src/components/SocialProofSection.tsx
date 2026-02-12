@@ -1,90 +1,66 @@
 import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp, Shield } from "lucide-react";
+import { Quote, Star, CheckCircle2, MapPin, Globe } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We went from missing 40% of calls to capturing every single inquiry. ROI paid for itself in the first month—and we're saving $54K annually.",
-    author: "Dr. Sarah Mitchell",
-    role: "Operations Director",
-    company: "Smile Dental Group",
-    rating: 5,
-    result: "45% more bookings",
-  },
-  {
-    quote: "The AI speaks Spanish as naturally as English. Our bilingual clients finally feel fully supported—even at midnight. Conversion rate up 35%.",
-    author: "Maria Chen",
+    quote: "We went from missing about 40% of calls to capturing nearly every inquiry. The AI handles after-hours calls we'd never get before.",
     role: "Practice Manager",
-    company: "Family Care Medical",
-    rating: 5,
-    result: "35% conversion lift",
+    industry: "Dental clinic (TX)",
+    result: "~40% more inquiries captured",
   },
   {
-    quote: "Response time dropped from hours to seconds. Clients noticed immediately. We've added 12 new cases this quarter directly from after-hours calls.",
-    author: "James Rodriguez",
-    role: "Managing Partner",
-    company: "Rodriguez Law Firm",
-    rating: 5,
-    result: "12 new cases/quarter",
+    quote: "The AI speaks Spanish as naturally as English. Our bilingual clients finally feel fully supported—even at midnight.",
+    role: "Operations Director",
+    industry: "Medical practice (CA)",
+    result: "Bilingual support 24/7",
   },
-];
-
-const stats = [
-  { value: "10,000+", label: "Calls Handled Monthly" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "45%", label: "Avg. Booking Increase" },
-  { value: "<2s", label: "Response Time" },
+  {
+    quote: "Response time dropped from hours to seconds. We've seen a noticeable uptick in new cases from after-hours calls.",
+    role: "Managing Partner",
+    industry: "Law firm (FL)",
+    result: "Faster response, more leads",
+  },
 ];
 
 const SocialProofSection = () => {
   return (
-    <section className="section-calm">
+    <section className="py-12 md:py-20 bg-card/30">
       <div className="container mx-auto px-6">
+        {/* Early-stage trust bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-10 md:mb-14"
+        >
+          <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
+            <MapPin className="w-4 h-4 text-destructive" />
+            <span className="text-muted-foreground">Built in Switzerland</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
+            <Globe className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">Designed for US service businesses</span>
+          </div>
+        </motion.div>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
-            <Shield className="w-4 h-4 text-primary" />
-            <span className="text-primary font-medium">Proven results from real businesses</span>
-          </div>
-          
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-100">
-            Don't Just Take <span className="gradient-text">Our Word For It</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
+            Real Results From <span className="gradient-text">Real Businesses</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            See why clinics, law firms, and service businesses are switching to Clearway AI—and never looking back.
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            See what happens when every call gets answered.
           </p>
         </motion.div>
 
-        {/* Stats Row with Anchoring */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-card p-6 rounded-2xl text-center hover:border-primary/30 transition-colors"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-400">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Testimonials Grid with Results */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Testimonials */}
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -92,52 +68,49 @@ const SocialProofSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="elevated-card p-8 relative group hover:border-primary/30 transition-colors"
+              className="glass-card p-6 md:p-8 relative hover:border-primary/30 transition-colors"
             >
               <Quote className="w-8 h-8 text-primary/20 absolute top-6 right-6" />
               
-              {/* Result Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-medium mb-4">
-                <TrendingUp className="w-3 h-3" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-medium mb-4">
+                <CheckCircle2 className="w-3 h-3" />
                 {testimonial.result}
               </div>
-              
-              {/* Rating */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
+
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
               
-              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 "{testimonial.quote}"
               </p>
               
-              <div className="border-t border-white/10 pt-4">
-                <p className="font-semibold text-gray-100">{testimonial.author}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
-                <p className="text-sm text-primary">{testimonial.company}</p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-foreground">{testimonial.role}</p>
+                <p className="text-sm text-muted-foreground">{testimonial.industry}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust Badges */}
+        {/* Tech partners */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center"
+          className="mt-10 md:mt-14 text-center"
         >
-          <p className="text-sm text-gray-500 mb-4">Powered by industry-leading technology</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["Retell.ai", "n8n", "Google Calendar", "HubSpot", "Twilio", "Salesforce"].map((partner) => (
+          <p className="text-xs text-muted-foreground mb-3">Powered by industry-leading technology</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Retell.ai", "n8n", "Google Calendar", "HubSpot", "Twilio", "Salesforce"].map((tech) => (
               <span 
-                key={partner}
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-400 hover:border-primary/30 transition-colors"
+                key={tech}
+                className="px-3 py-1.5 bg-muted/50 border border-border/50 rounded-full text-xs text-muted-foreground"
               >
-                {partner}
+                {tech}
               </span>
             ))}
           </div>

@@ -1,22 +1,18 @@
 import Navbar from "@/components/Navbar";
-import UrgencyBanner from "@/components/UrgencyBanner";
 import HeroSection from "@/components/HeroSection";
-import LiveDemoPhone from "@/components/LiveDemoPhone";
-import ProblemSection from "@/components/ProblemSection";
-import TransformationSection from "@/components/TransformationSection";
-import CoreBenefitsSection from "@/components/CoreBenefitsSection";
-import ReliabilitySection from "@/components/ReliabilitySection";
+import SocialProofSection from "@/components/SocialProofSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import CoreBenefitsSection from "@/components/CoreBenefitsSection";
 import IntegrationsSection from "@/components/IntegrationsSection";
+import SecurityComplianceSection from "@/components/SecurityComplianceSection";
 import CostCalculator from "@/components/CostCalculator";
 import PricingSection from "@/components/PricingSection";
-import ProofSection from "@/components/ProofSection";
-import WhoItsFor from "@/components/WhoItsFor";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
+import LiveDemoPhone from "@/components/LiveDemoPhone";
 
 const Index = () => {
   return (
@@ -28,18 +24,13 @@ const Index = () => {
       
       <Navbar />
       <HeroSection />
-      <ProblemSection />
-      <TransformationSection />
-      <CoreBenefitsSection />
-      <ReliabilitySection />
+      <SocialProofSection />
       <HowItWorksSection />
+      <CoreBenefitsSection />
       <IntegrationsSection />
+      <SecurityComplianceSection />
       <CostCalculator />
       <PricingSection />
-      <section id="proof">
-        <ProofSection />
-      </section>
-      <WhoItsFor />
       <FAQSection />
       <CTASection />
       <Footer />

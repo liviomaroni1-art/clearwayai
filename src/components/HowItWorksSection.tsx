@@ -1,29 +1,26 @@
 import { motion } from "framer-motion";
-import { Search, Wrench, BarChart3, Clock, ArrowRight } from "lucide-react";
+import { Phone, Calendar, TrendingUp, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    icon: Search,
+    icon: Phone,
     step: "01",
-    title: "Audit",
-    tagline: "We map your call flow",
-    description: "In a quick call, we map your intake flow, FAQs, booking rules, routing, and integrations.",
+    title: "A client calls you",
+    description: "Your AI receptionist picks up in under 2 seconds—day or night. No hold music, no voicemail, no missed opportunity.",
   },
   {
-    icon: Wrench,
+    icon: Calendar,
     step: "02",
-    title: "Build",
-    tagline: "We configure your AI",
-    description: "We configure the AI receptionist, connect calendars/CRM, test flows, and train it on your approved knowledge.",
+    title: "The AI books them in",
+    description: "It answers their questions, qualifies the lead, and books the appointment directly into your calendar. No back-and-forth.",
   },
   {
-    icon: BarChart3,
+    icon: TrendingUp,
     step: "03",
-    title: "Optimize",
-    tagline: "We improve continuously",
-    description: "We review call outcomes, refine scripts, and improve conversion rates weekly (or monthly depending on plan).",
+    title: "You get a full summary",
+    description: "Call summary, transcript, and CRM entry—ready before you even call back. Your schedule fills itself.",
   },
 ];
 
@@ -44,10 +41,10 @@ const HowItWorksSection = () => {
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Live in <span className="gradient-text">Three Simple Steps</span>
+            Here's What Happens <span className="gradient-text">When Someone Calls</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-            We handle the technical work. You approve and go live.
+            From ring to booked appointment—without you lifting a finger.
           </p>
         </motion.div>
 
@@ -69,8 +66,7 @@ const HowItWorksSection = () => {
                   {step.step}
                 </span>
               </div>
-              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 text-foreground">{step.title}</h3>
-              <p className="text-xs md:text-sm text-primary font-medium mb-2 md:mb-3">{step.tagline}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-foreground">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
@@ -78,12 +74,10 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        {/* Connector line */}
         <div className="hidden md:block max-w-4xl mx-auto mt-8">
           <div className="h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
         
-        {/* Proof line + CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
