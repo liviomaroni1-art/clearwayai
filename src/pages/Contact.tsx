@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,6 +56,7 @@ const timezoneOptions = [
 
 const Contact = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -108,24 +110,8 @@ const Contact = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "You're all set! 🎉",
-        description: "We'll review your info and get back to you within 24–48 hours.",
-      });
       trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "contact" } });
-      
-      setFormData({ 
-        name: "", 
-        businessName: "",
-        email: "", 
-        phone: "", 
-        website: "", 
-        businessType: "", 
-        timezone: "",
-        callVolume: "",
-        preferredContact: "email",
-        message: "" 
-      });
+      navigate("/contact/success");
     } catch (error: any) {
       console.error('Error sending message:', error);
       trackEvent({ event_name: "form_error", event_category: "form", metadata: { form: "contact" } });
