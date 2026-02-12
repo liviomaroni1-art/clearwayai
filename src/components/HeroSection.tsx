@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, CheckCircle2, AlertTriangle, PhoneForwarded, MessageSquare, FileText } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -11,20 +11,14 @@ const HeroSection = () => {
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
-      {/* Floating orbs for visual interest */}
+      {/* Floating orbs */}
       <motion.div
-        animate={{ 
-          y: [0, -20, 0],
-          opacity: [0.3, 0.5, 0.3],
-        }}
+        animate={{ y: [0, -20, 0], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none"
       />
       <motion.div
-        animate={{ 
-          y: [0, 20, 0],
-          opacity: [0.2, 0.4, 0.2],
-        }}
+        animate={{ y: [0, 20, 0], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-primary/8 rounded-full blur-3xl pointer-events-none"
       />
@@ -36,39 +30,58 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
             <span className="text-primary font-medium">Built for clinics, law firms & service businesses</span>
           </motion.div>
 
-          {/* Main Heading */}
+          {/* H1 – specific headline: who + main benefit */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 md:mb-6 text-foreground"
           >
-            Stop Losing Clients
+            Never Lose a Client
             <br />
-            <span className="gradient-text">to Missed Calls</span>
+            <span className="gradient-text">to a Missed Call Again</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Subheadline – one sentence explaining what the AI receptionist does */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed px-2 sm:px-0"
           >
-            An AI receptionist that picks up every call, qualifies leads, and books appointments into your calendar—24/7. Live in ~72 hours.
+            Clearway AI answers every call, qualifies leads, and books appointments directly into your calendar—24/7, in 30+ languages.
           </motion.p>
 
-          {/* CTAs - Single primary */}
+          {/* 3 outcome-focused bullets */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 px-2"
+          >
+            {[
+              "Fewer missed calls, more revenue",
+              "Appointments booked automatically",
+              "No extra staff needed"
+            ].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                {item}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Primary CTA + Secondary CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-4 md:mb-6 px-2 sm:px-0"
           >
             <Button 
@@ -87,57 +100,19 @@ const HeroSection = () => {
               className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[48px]"
             >
               <Phone className="w-4 h-4" />
-              Or try the live demo: {demoNumber}
+              Or hear the AI live: {demoNumber}
             </a>
           </motion.div>
 
-          {/* Microcopy bullets */}
-          <motion.div
+          {/* Trust line */}
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8 md:mb-12 px-2"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-xs text-muted-foreground"
           >
-            {[
-              "15-min setup call",
-              "Live in ~72 hours",
-              "No long-term contract required"
-            ].map((item) => (
-              <span key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="w-4 h-4 text-primary" />
-                {item}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* Safety/Handoff Micro-block */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="max-w-xl mx-auto"
-          >
-            <div className="glass-card border-warning/20 p-6 rounded-2xl bg-warning/5">
-              <div className="flex items-center gap-2 mb-4">
-                <AlertTriangle className="w-5 h-5 text-warning" />
-                <h3 className="font-semibold text-foreground">When it's unsure, it escalates—never guesses.</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <PhoneForwarded className="w-4 h-4 text-primary" />
-                  Transfers to your team with full context
-                </li>
-                <li className="flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-primary" />
-                  Takes a message and sends SMS follow-up
-                </li>
-                <li className="flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-primary" />
-                  Logs call summary and tags in your CRM
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+            Live in ~72 hours · 99.9% uptime target · No long-term contract required
+          </motion.p>
 
           {/* Stats */}
           <motion.div
@@ -147,10 +122,10 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-16 mt-10 md:mt-16 pt-8 md:pt-12 border-t border-border"
           >
             {[
-              { value: "~72h", label: "Go-live after onboarding" },
-              { value: "99.9%", label: "Uptime target" },
+              { value: "<2s", label: "Pickup speed" },
               { value: "24/7", label: "Always answering" },
-              { value: "<2s", label: "Pickup speed (target)" },
+              { value: "30+", label: "Languages" },
+              { value: "~72h", label: "Go-live time" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
