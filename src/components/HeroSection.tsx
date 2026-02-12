@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const HeroSection = () => {
   const demoNumber = "+1 (888) 778-3091";
@@ -90,13 +91,14 @@ const HeroSection = () => {
               className="w-full sm:w-auto min-h-[48px] md:min-h-[56px] text-sm md:text-base btn-glow hover:scale-105 transition-all px-6 md:px-8" 
               asChild
             >
-              <Link to="/contact">
+              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "hero", label: "Book Your Free Demo" } })}>
                 Book Your Free Demo
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <a 
               href={`tel:${demoNumber.replace(/\s/g, '')}`}
+              onClick={() => trackEvent({ event_name: "demo_call_click", event_category: "cta", metadata: { location: "hero" } })}
               className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[48px]"
             >
               <Phone className="w-4 h-4" />

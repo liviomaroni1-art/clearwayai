@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const CTASection = () => {
   const demoNumber = "+1 (888) 778-3091";
@@ -35,7 +36,7 @@ const CTASection = () => {
               className="min-h-[48px] md:min-h-[56px] btn-glow hover:scale-105 transition-all"
               asChild
             >
-              <Link to="/contact">
+              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "bottom_cta", label: "Book Your Free Demo" } })}>
                 Book Your Free Demo
                 <ArrowRight className="w-5 h-5" />
               </Link>

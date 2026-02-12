@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Select,
@@ -98,6 +99,7 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
+    trackEvent({ event_name: "form_submit", event_category: "form", metadata: { form: "contact", businessType: formData.businessType } });
     
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
@@ -110,6 +112,7 @@ const Contact = () => {
         title: "You're all set! 🎉",
         description: "We'll review your info and get back to you within 24–48 hours.",
       });
+      trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "contact" } });
       
       setFormData({ 
         name: "", 
@@ -125,6 +128,7 @@ const Contact = () => {
       });
     } catch (error: any) {
       console.error('Error sending message:', error);
+      trackEvent({ event_name: "form_error", event_category: "form", metadata: { form: "contact" } });
       toast({
         title: "Something went wrong",
         description: "Please try again or email us directly at hello@clearwayai.co",
