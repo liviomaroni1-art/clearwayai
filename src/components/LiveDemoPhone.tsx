@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 
@@ -5,7 +6,7 @@ interface LiveDemoPhoneProps {
   variant?: "hero" | "floating" | "compact";
 }
 
-const LiveDemoPhone = ({ variant = "hero" }: LiveDemoPhoneProps) => {
+const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ variant = "hero" }, ref) => {
   const demoNumber = "+1 (888) 778-3091";
   
   if (variant === "floating") {
@@ -50,6 +51,8 @@ const LiveDemoPhone = ({ variant = "hero" }: LiveDemoPhoneProps) => {
       </a>
     </div>
   );
-};
+});
+
+LiveDemoPhone.displayName = "LiveDemoPhone";
 
 export default LiveDemoPhone;
