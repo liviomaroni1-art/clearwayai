@@ -199,7 +199,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     console.log("Sales notification email sent:", salesEmailResponse);
 
     // Send confirmation email to the customer
-    const logoUrl = "https://clearwayai.lovable.app/email-logo.jpg";
+    const logoUrl = "https://clearwayai.co/email-logo.jpg";
     
     const confirmationEmailResponse = await resend.emails.send({
       from: "Clearway AI <hello@clearwayai.co>",
