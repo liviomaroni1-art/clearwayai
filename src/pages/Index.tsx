@@ -1,18 +1,20 @@
+import React, { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import SocialProofSection from "@/components/SocialProofSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import CoreBenefitsSection from "@/components/CoreBenefitsSection";
-import IntegrationsSection from "@/components/IntegrationsSection";
-import SecurityComplianceSection from "@/components/SecurityComplianceSection";
-import CostCalculator from "@/components/CostCalculator";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
-import LiveDemoPhone from "@/components/LiveDemoPhone";
+
+const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
+const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
+const CoreBenefitsSection = lazy(() => import("@/components/CoreBenefitsSection"));
+const IntegrationsSection = lazy(() => import("@/components/IntegrationsSection"));
+const SecurityComplianceSection = lazy(() => import("@/components/SecurityComplianceSection"));
+const CostCalculator = lazy(() => import("@/components/CostCalculator"));
+const PricingSection = lazy(() => import("@/components/PricingSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const CTASection = lazy(() => import("@/components/CTASection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const LiveDemoPhone = lazy(() => import("@/components/LiveDemoPhone"));
 
 const Index = () => {
   return (
@@ -24,17 +26,19 @@ const Index = () => {
       
       <Navbar />
       <HeroSection />
-      <SocialProofSection />
-      <HowItWorksSection />
-      <CoreBenefitsSection />
-      <IntegrationsSection />
-      <SecurityComplianceSection />
-      <CostCalculator />
-      <PricingSection />
-      <FAQSection />
-      <CTASection />
-      <Footer />
-      <LiveDemoPhone variant="floating" />
+      <Suspense fallback={null}>
+        <SocialProofSection />
+        <HowItWorksSection />
+        <CoreBenefitsSection />
+        <IntegrationsSection />
+        <SecurityComplianceSection />
+        <CostCalculator />
+        <PricingSection />
+        <FAQSection />
+        <CTASection />
+        <Footer />
+        <LiveDemoPhone variant="floating" />
+      </Suspense>
     </div>
   );
 };
