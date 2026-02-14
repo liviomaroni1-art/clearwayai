@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Clock, Phone, Globe } from "lucide-react";
+import { Send, Mail, Clock, Phone, Shield, CheckCircle2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 import { supabase } from "@/integrations/supabase/client";
@@ -34,6 +35,15 @@ const businessTypes = [
   "Other",
 ];
 
+const callChallenges = [
+  "Missing calls after hours or on weekends",
+  "Front desk overwhelmed during peak times",
+  "Leads going to voicemail and never calling back",
+  "No-shows and last-minute cancellations",
+  "Too much time on repetitive phone questions",
+  "Need multilingual call handling",
+];
+
 const callVolumeOptions = [
   "Under 50",
   "50–150",
@@ -58,6 +68,8 @@ const Contact = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showOptional, setShowOptional] = useState(false);
+  const [selectedChallenges, setSelectedChallenges] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     name: "",
     businessName: "",
@@ -80,16 +92,21 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const toggleChallenge = (challenge: string) => {
+    setSelectedChallenges(prev =>
+      prev.includes(challenge)
+        ? prev.filter(c => c !== challenge)
+        : [...prev, challenge]
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate required fields
     const missing: string[] = [];
     if (!formData.name.trim()) missing.push("Full Name");
-    if (!formData.businessName.trim()) missing.push("Business Name");
     if (!formData.email.trim()) missing.push("Work Email");
     if (!formData.businessType) missing.push("Business Type");
-    if (!formData.timezone) missing.push("Country / Time Zone");
 
     if (missing.length > 0) {
       toast({
@@ -102,10 +119,17 @@ const Contact = () => {
 
     setIsSubmitting(true);
     trackEvent({ event_name: "form_submit", event_category: "form", metadata: { form: "contact", businessType: formData.businessType } });
-    
+
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+      const submitData = {
+        ...formData,
+        message: selectedChallenges.length > 0
+          ? `Challenges: ${selectedChallenges.join("; ")}${formData.message ? `\n\nAdditional context: ${formData.message}` : ""}`
+          : formData.message,
+      };
+
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: submitData
       });
 
       if (error) throw error;
@@ -130,7 +154,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <main className="pt-36 pb-20">
         <div className="container mx-auto px-6">
           {/* Header */}
@@ -138,103 +162,104 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16 max-w-3xl mx-auto"
+            className="text-center mb-12 max-w-2xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
               Get Your Free <span className="gradient-text">Call Flow Review</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
-              15 minutes. No obligation. We'll map your call flow and show you exactly how many leads you're missing — and how to fix it.
+            <p className="text-lg text-muted-foreground">
+              15 minutes. No obligation. We map your call flow and show you exactly where leads are slipping through.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {/* Contact Info Cards */}
+          {/* Mobile trust strip — visible only on mobile, above form */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="flex flex-wrap justify-center gap-4 mb-8 lg:hidden"
+          >
+            {[
+              { icon: Clock, text: "Reply within 24–48h" },
+              { icon: Shield, text: "No spam, no pressure" },
+              { icon: Phone, text: "15-min review, free" },
+            ].map((item) => (
+              <span key={item.text} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <item.icon className="w-3.5 h-3.5 text-primary" />
+                {item.text}
+              </span>
+            ))}
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+            {/* Left Trust Strip — desktop only, slim */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-6"
+              className="hidden lg:flex lg:col-span-4 flex-col gap-5"
             >
-              {/* Email - Primary */}
-              <div className="glass-card border-primary/30 p-6 rounded-2xl bg-primary/5">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Email Us</h3>
-                    <p className="text-xs text-muted-foreground">Fastest way to reach us</p>
-                  </div>
-                </div>
+              {/* Mini testimonial */}
+              <div className="glass-card p-5 rounded-2xl">
+                <p className="text-sm text-foreground leading-relaxed mb-3">
+                  "We booked 12 more appointments in the first month. Setup took less than a day."
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  — Practice Manager, Dental Clinic (Austin, TX)
+                </p>
+              </div>
+
+              {/* Contact card */}
+              <div className="glass-card p-5 rounded-2xl space-y-4">
+                <h3 className="text-sm font-semibold text-foreground">Prefer email?</h3>
                 <a
                   href="mailto:hello@clearwayai.co"
-                  className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-xl font-bold transition-all"
+                  className="flex items-center gap-2 text-sm text-primary hover:underline"
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-4 h-4" />
                   hello@clearwayai.co
                 </a>
-              </div>
-
-              <div className="glass-card p-6 rounded-2xl">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Response Time</h3>
-                    <p className="text-muted-foreground">Within 24–48 hours</p>
-                  </div>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Clock className="w-3.5 h-3.5" />
+                  Reply within 24–48 hours
                 </div>
               </div>
 
-              <div className="glass-card p-6 rounded-2xl">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Location</h3>
-                    <p className="text-muted-foreground">Freienbach, Switzerland</p>
-                    <p className="text-sm text-muted-foreground">Serving US clients</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Optional live demo line */}
-              <div className="glass-card p-6 rounded-2xl">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Optional Live Demo Line</h3>
-                    <p className="text-xs text-muted-foreground">Hear the AI receptionist in action</p>
-                  </div>
-                </div>
+              {/* Live demo line */}
+              <div className="glass-card p-5 rounded-2xl">
+                <h3 className="text-sm font-semibold text-foreground mb-2">Hear the AI live</h3>
                 <a
                   href={`tel:${demoNumber.replace(/\s/g, '')}`}
-                  className="flex items-center justify-center gap-2 border border-primary/30 hover:bg-primary/10 text-foreground px-4 py-3 rounded-xl font-medium transition-all"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4 text-primary" />
                   {demoNumber}
                 </a>
+                <p className="text-xs text-muted-foreground mt-1">Optional — no account needed</p>
+              </div>
+
+              {/* Privacy/security note */}
+              <div className="flex items-start gap-2 px-1">
+                <Shield className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Your data is encrypted and never shared. We're GDPR-compliant and HIPAA-aligned.
+                </p>
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form — main column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="lg:col-span-2"
+              className="lg:col-span-8"
             >
-              <div className="glass-card p-8 md:p-10 rounded-3xl">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Full Name & Business Name */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+              <div className="glass-card p-6 md:p-8 rounded-3xl">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Step 1: Core fields */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="name" className="text-sm">Full Name *</Label>
                       <Input
                         id="name"
                         name="name"
@@ -243,202 +268,245 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         maxLength={100}
-                        className="bg-muted/50 border-border focus:border-primary h-12"
+                        className="bg-muted/50 border-border focus:border-primary h-11"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="businessName">Business Name *</Label>
+                    <div className="space-y-1.5">
+                      <Label htmlFor="email" className="text-sm">Work Email *</Label>
                       <Input
-                        id="businessName"
-                        name="businessName"
-                        placeholder="Smile Dental Clinic"
-                        value={formData.businessName}
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="jane@smileclinic.com"
+                        value={formData.email}
                         onChange={handleChange}
                         required
-                        maxLength={100}
-                        className="bg-muted/50 border-border focus:border-primary h-12"
+                        maxLength={255}
+                        className="bg-muted/50 border-border focus:border-primary h-11"
                       />
+                      <p className="text-[11px] text-muted-foreground">So we can send your personalized review</p>
                     </div>
                   </div>
 
-                  {/* Work Email */}
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Work Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="jane@smileclinic.com"
-                      value={formData.email}
-                      onChange={handleChange}
+                  {/* Business Type — required */}
+                  <div className="space-y-1.5">
+                    <Label className="text-sm">Business Type *</Label>
+                    <Select
+                      value={formData.businessType}
+                      onValueChange={(value) => handleSelectChange("businessType", value)}
                       required
-                      maxLength={255}
-                      className="bg-muted/50 border-border focus:border-primary h-12"
-                    />
+                    >
+                      <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-11">
+                        <SelectValue placeholder="Select your industry" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-background border-border max-h-60">
+                        {businessTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
 
-                  {/* Business Type & Country/Timezone */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label>Business Type *</Label>
-                      <Select
-                        value={formData.businessType}
-                        onValueChange={(value) => handleSelectChange("businessType", value)}
-                        required
-                      >
-                        <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-12">
-                          <SelectValue placeholder="Select your industry" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background border-border max-h-60">
-                          {businessTypes.map((type) => (
-                            <SelectItem key={type} value={type}>
-                              {type}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label>Country / Time Zone *</Label>
-                      <Select
-                        value={formData.timezone}
-                        onValueChange={(value) => handleSelectChange("timezone", value)}
-                        required
-                      >
-                        <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-12">
-                          <SelectValue placeholder="Select your time zone" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-background border-border max-h-60">
-                          {timezoneOptions.map((tz) => (
-                            <SelectItem key={tz} value={tz}>
-                              {tz}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                  {/* Call Challenges — checkboxes instead of textarea */}
+                  <div className="space-y-3">
+                    <Label className="text-sm">What's your biggest challenge? <span className="text-muted-foreground font-normal">(select all that apply)</span></Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {callChallenges.map((challenge) => (
+                        <label
+                          key={challenge}
+                          className={`flex items-start gap-2.5 p-3 rounded-xl border cursor-pointer transition-all text-sm ${
+                            selectedChallenges.includes(challenge)
+                              ? "border-primary/50 bg-primary/5 text-foreground"
+                              : "border-border/50 bg-muted/20 text-muted-foreground hover:border-border hover:text-foreground"
+                          }`}
+                        >
+                          <Checkbox
+                            checked={selectedChallenges.includes(challenge)}
+                            onCheckedChange={() => toggleChallenge(challenge)}
+                            className="mt-0.5 shrink-0"
+                          />
+                          <span className="leading-snug">{challenge}</span>
+                        </label>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Challenge / Open question */}
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Tell us about your call challenges *</Label>
+                  {/* Optional context textarea — always visible but not required */}
+                  <div className="space-y-1.5">
+                    <Label htmlFor="message" className="text-sm">
+                      Anything else we should know? <span className="text-muted-foreground font-normal">(optional)</span>
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="e.g. We miss about 20 calls a week after hours, and our front desk can't keep up during peak times..."
+                      placeholder="e.g. We use Calendly for scheduling and have 3 staff answering calls..."
                       value={formData.message}
                       onChange={handleChange}
-                      required
                       maxLength={1000}
-                      rows={3}
+                      rows={2}
                       className="bg-muted/50 border-border focus:border-primary resize-none"
                     />
-                    <p className="text-xs text-muted-foreground">
-                      What's your biggest challenge with missed calls or call handling?
-                    </p>
                   </div>
 
-                  {/* Divider */}
-                  <div className="border-t border-border/50 pt-6">
-                    <p className="text-sm text-muted-foreground mb-5">Optional — helps us prepare a better demo for you</p>
-                  </div>
-
-                  {/* Website & Phone (optional) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="website">
-                        Website <span className="text-muted-foreground font-normal">(optional)</span>
-                      </Label>
-                      <Input
-                        id="website"
-                        name="website"
-                        type="url"
-                        placeholder="https://yourwebsite.com"
-                        value={formData.website}
-                        onChange={handleChange}
-                        maxLength={255}
-                        className="bg-muted/50 border-border focus:border-primary h-12"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">
-                        Phone <span className="text-muted-foreground font-normal">(optional)</span>
-                      </Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+1 (555) 000-0000"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        maxLength={20}
-                        className="bg-muted/50 border-border focus:border-primary h-12"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Call volume (radio buttons) */}
-                  <div className="space-y-3">
-                    <Label>
-                      Estimated calls per month <span className="text-muted-foreground font-normal">(optional)</span>
-                    </Label>
-                    <RadioGroup
-                      value={formData.callVolume}
-                      onValueChange={(value) => handleSelectChange("callVolume", value)}
-                      className="flex flex-wrap gap-3"
+                  {/* Progressive Disclosure: Optional fields */}
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setShowOptional(!showOptional)}
+                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      {callVolumeOptions.map((option) => (
-                        <div key={option} className="flex items-center">
-                          <RadioGroupItem value={option} id={`vol-${option}`} className="peer sr-only" />
-                          <Label
-                            htmlFor={`vol-${option}`}
-                            className="cursor-pointer px-4 py-2 rounded-lg border border-border bg-muted/30 text-sm font-normal text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-foreground"
-                          >
-                            {option}
-                          </Label>
+                      <ChevronDown className={`w-4 h-4 transition-transform ${showOptional ? "rotate-180" : ""}`} />
+                      Add more details for a better demo
+                    </button>
+
+                    {showOptional && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-4 space-y-4"
+                      >
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <Label htmlFor="businessName" className="text-sm">
+                              Business Name <span className="text-muted-foreground font-normal">(optional)</span>
+                            </Label>
+                            <Input
+                              id="businessName"
+                              name="businessName"
+                              placeholder="Smile Dental Clinic"
+                              value={formData.businessName}
+                              onChange={handleChange}
+                              maxLength={100}
+                              className="bg-muted/50 border-border focus:border-primary h-11"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label className="text-sm">
+                              Time Zone <span className="text-muted-foreground font-normal">(optional)</span>
+                            </Label>
+                            <Select
+                              value={formData.timezone}
+                              onValueChange={(value) => handleSelectChange("timezone", value)}
+                            >
+                              <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-11">
+                                <SelectValue placeholder="Auto-detected if blank" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-background border-border max-h-60">
+                                {timezoneOptions.map((tz) => (
+                                  <SelectItem key={tz} value={tz}>
+                                    {tz}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </div>
-                      ))}
-                    </RadioGroup>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <Label htmlFor="website" className="text-sm">
+                              Website <span className="text-muted-foreground font-normal">(optional)</span>
+                            </Label>
+                            <Input
+                              id="website"
+                              name="website"
+                              type="url"
+                              placeholder="https://yourwebsite.com"
+                              value={formData.website}
+                              onChange={handleChange}
+                              maxLength={255}
+                              className="bg-muted/50 border-border focus:border-primary h-11"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label htmlFor="phone" className="text-sm">
+                              Phone <span className="text-muted-foreground font-normal">(optional)</span>
+                            </Label>
+                            <Input
+                              id="phone"
+                              name="phone"
+                              type="tel"
+                              placeholder="+1 (555) 000-0000"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              maxLength={20}
+                              className="bg-muted/50 border-border focus:border-primary h-11"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Call volume chips */}
+                        <div className="space-y-2">
+                          <Label className="text-sm">
+                            Estimated calls per month <span className="text-muted-foreground font-normal">(optional)</span>
+                          </Label>
+                          <RadioGroup
+                            value={formData.callVolume}
+                            onValueChange={(value) => handleSelectChange("callVolume", value)}
+                            className="flex flex-wrap gap-2"
+                          >
+                            {callVolumeOptions.map((option) => (
+                              <div key={option} className="flex items-center">
+                                <RadioGroupItem value={option} id={`vol-${option}`} className="peer sr-only" />
+                                <Label
+                                  htmlFor={`vol-${option}`}
+                                  className="cursor-pointer px-3.5 py-1.5 rounded-lg border border-border bg-muted/30 text-xs font-normal text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-foreground"
+                                >
+                                  {option}
+                                </Label>
+                              </div>
+                            ))}
+                          </RadioGroup>
+                        </div>
+                      </motion.div>
+                    )}
                   </div>
 
-                  {/* Preferred Contact Method */}
-                  <div className="space-y-3">
-                    <Label>How should we reach you?</Label>
-                    <RadioGroup
-                      value={formData.preferredContact}
-                      onValueChange={(value) => handleSelectChange("preferredContact", value)}
-                      className="flex flex-col sm:flex-row gap-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="email" id="contact-email" />
-                        <Label htmlFor="contact-email" className="font-normal cursor-pointer">
-                          📧 Email <span className="text-muted-foreground">(recommended)</span>
-                        </Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="phone" id="contact-phone" />
-                        <Label htmlFor="contact-phone" className="font-normal cursor-pointer text-muted-foreground">
-                          📞 Only if you prefer a quick call
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="space-y-4 pt-4">
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg py-7 rounded-2xl"
+                  {/* CTA + What happens next */}
+                  <div className="space-y-4 pt-2">
+                    <Button
+                      type="submit"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base py-6 rounded-2xl btn-glow"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Get My 15-Minute Call Flow Review"}
+                      {isSubmitting ? "Sending..." : "Get My Free Call Flow Review"}
                       <Send className="w-5 h-5 ml-2" />
                     </Button>
-                    <p className="text-sm text-muted-foreground text-center">
-                      We reply within 24–48 hours. No spam, no sales pressure — just a quick walkthrough.
+                    <p className="text-xs text-muted-foreground text-center">
+                      No spam · No sales pressure · Reply within 24–48h
                     </p>
                   </div>
+
+                  {/* What happens next — inline */}
+                  <div className="border-t border-border/40 pt-5 mt-2">
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">What happens next</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      {[
+                        { step: "1", text: "We review your call flow and identify gaps" },
+                        { step: "2", text: "You get a 15-min personalized walkthrough" },
+                        { step: "3", text: "Go live in ~72 hours — no tech work on your end" },
+                      ].map((item) => (
+                        <div key={item.step} className="flex items-start gap-2">
+                          <div className="w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-0.5">
+                            <span className="text-[10px] font-bold text-primary">{item.step}</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground leading-relaxed">{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </form>
+              </div>
+
+              {/* Mobile-only: Privacy note below form */}
+              <div className="flex items-start gap-2 mt-4 px-1 lg:hidden">
+                <Shield className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Your data is encrypted and never shared. GDPR-compliant and HIPAA-aligned.
+                </p>
               </div>
             </motion.div>
           </div>
