@@ -10,17 +10,17 @@ const Terms = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-32 pb-20">
-        <div className="container mx-auto px-6 max-w-4xl">
+      <main className="pt-24 pb-12">
+        <div className="container mx-auto px-4 max-w-4xl">
           {/* Back Button */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="mb-8"
+            className="mb-6"
           >
-            <Button variant="ghost" asChild>
-              <Link to="/" className="flex items-center gap-2">
-                <ArrowLeft className="w-4 h-4" />
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/" className="flex items-center gap-1.5 text-xs">
+                <ArrowLeft className="w-3.5 h-3.5" />
                 Back to Home
               </Link>
             </Button>
@@ -30,13 +30,13 @@ const Terms = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-12"
+            className="mb-8"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <FileText className="w-8 h-8 text-primary" />
-              <h1 className="text-4xl md:text-5xl font-bold">Terms of Service</h1>
+            <div className="flex items-center gap-2 mb-3">
+              <FileText className="w-6 h-6 text-primary" />
+              <h1 className="text-3xl md:text-4xl font-bold">Terms of Service</h1>
             </div>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-sm">
               Last updated: January 18, 2026
             </p>
           </motion.div>
@@ -46,27 +46,27 @@ const Terms = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="prose prose-invert max-w-none space-y-8"
+            className="prose prose-invert max-w-none space-y-5"
           >
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <Scale className="w-6 h-6 text-primary" />
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                <Scale className="w-4 h-4 text-primary" />
                 Agreement to Terms
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 By subscribing to Clearway AI's services, you agree to these Terms of Service. Clearway AI is operated from Freienbach, Switzerland, and provides AI receptionist services primarily to businesses in the United States.
               </p>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <DollarSign className="w-6 h-6 text-primary" />
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                <DollarSign className="w-4 h-4 text-primary" />
                 Pricing & Payment Terms
               </h2>
-              <div className="space-y-4 text-muted-foreground">
+              <div className="space-y-3 text-xs text-muted-foreground">
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Subscription Plans</h3>
-                  <ul className="list-disc list-inside space-y-1">
+                  <h3 className="text-sm font-semibold text-foreground mb-1.5">Subscription Plans</h3>
+                  <ul className="list-disc list-inside space-y-0.5">
                     <li><strong>Solo Launch:</strong> $1,500/month (1,000 minutes included)</li>
                     <li><strong>Pro Practice:</strong> $2,500/month (2,000 minutes included)</li>
                     <li><strong>Team Pro:</strong> $3,500/month (3,000 minutes included)</li>
@@ -74,8 +74,8 @@ const Terms = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Setup Fees</h3>
-                  <ul className="list-disc list-inside space-y-1">
+                  <h3 className="text-sm font-semibold text-foreground mb-1.5">Setup Fees</h3>
+                  <ul className="list-disc list-inside space-y-0.5">
                     <li>Solo Launch: $1,000 one-time setup</li>
                     <li>Pro Practice: $1,500 one-time setup</li>
                     <li>Team Pro: $2,000 one-time setup</li>
@@ -84,18 +84,18 @@ const Terms = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Billing</h3>
+                  <h3 className="text-sm font-semibold text-foreground mb-1.5">Billing</h3>
                   <p>All subscriptions are billed monthly in advance. Payment is due within 7 days of invoice date. We accept major credit cards and ACH transfers.</p>
                 </div>
               </div>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <Clock className="w-6 h-6 text-primary" />
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-primary" />
                 Service Level Agreement
               </h2>
-              <div className="space-y-4 text-muted-foreground">
+              <div className="space-y-3 text-xs text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Uptime Target:</strong> We target 99.9% uptime for our AI receptionist service, excluding scheduled maintenance windows. Service credits may be issued at our discretion for extended outages.
                 </p>
@@ -108,7 +108,7 @@ const Terms = () => {
                 <p>
                   <strong className="text-foreground">Response Times:</strong>
                 </p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
+                <ul className="list-disc list-inside space-y-0.5 ml-4">
                   <li>Critical issues (service down): 1 hour</li>
                   <li>High priority: 4 business hours</li>
                   <li>Normal requests: 24 business hours</li>
@@ -116,12 +116,12 @@ const Terms = () => {
               </div>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <AlertTriangle className="w-6 h-6 text-primary" />
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-primary" />
                 Limitations of Liability
               </h2>
-              <div className="space-y-4 text-muted-foreground">
+              <div className="space-y-3 text-xs text-muted-foreground">
                 <p>
                   Clearway AI provides AI-powered call handling but is not a substitute for human judgment in critical situations. Our AI will attempt to route urgent matters appropriately but cannot guarantee perfect handling of all scenarios.
                 </p>
@@ -131,7 +131,7 @@ const Terms = () => {
                 <p>
                   <strong className="text-foreground">Not Responsible For:</strong>
                 </p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
+                <ul className="list-disc list-inside space-y-0.5 ml-4">
                   <li>Third-party integration failures (CRM, calendar systems)</li>
                   <li>Phone carrier outages</li>
                   <li>Misinterpretation of ambiguous caller requests</li>
@@ -140,9 +140,9 @@ const Terms = () => {
               </div>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Cancellation Policy</h2>
-              <div className="space-y-4 text-muted-foreground">
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3">Cancellation Policy</h2>
+              <div className="space-y-3 text-xs text-muted-foreground">
                 <p>
                   <strong className="text-foreground">Monthly Plans:</strong> Cancellation requires 3 months written notice. No refunds for partial months.
                 </p>
@@ -155,19 +155,19 @@ const Terms = () => {
               </div>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Governing Law</h2>
-              <p className="text-muted-foreground leading-relaxed">
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3">Governing Law</h2>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 These terms are governed by the laws of Switzerland. For U.S. clients, disputes may be resolved through binding arbitration in the State of Delaware under AAA Commercial Arbitration Rules.
               </p>
             </section>
 
-            <section className="glass-card p-8 rounded-2xl">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Contact</h2>
-              <p className="text-muted-foreground mb-4">
+            <section className="glass-card p-5 rounded-xl">
+              <h2 className="text-lg font-bold text-foreground mb-3">Contact</h2>
+              <p className="text-xs text-muted-foreground mb-3">
                 For questions about these terms:
               </p>
-              <div className="space-y-2 text-muted-foreground">
+              <div className="space-y-1.5 text-xs text-muted-foreground">
                 <p><strong className="text-foreground">Email:</strong> hello@clearwayai.co</p>
                 <p><strong className="text-foreground">Address:</strong> Clearway AI, Freienbach, Switzerland</p>
               </div>
