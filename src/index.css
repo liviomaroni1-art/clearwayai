@@ -6,105 +6,111 @@
 
 @layer base {
   :root {
-    /* Dark mode as default — deep navy, enterprise neutral */
-    --background: 216 40% 8%;
-    --foreground: 216 20% 92%;
+    /* Base: #050B11 → very dark blue-grey */
+    --background: 214 50% 5%;
+    --foreground: 210 25% 93%;
 
-    --card: 216 35% 12%;
-    --card-foreground: 216 20% 92%;
+    /* Surface/Card: #0E1720 */
+    --card: 212 35% 9%;
+    --card-foreground: 210 25% 93%;
 
-    --popover: 216 35% 12%;
-    --popover-foreground: 216 20% 92%;
+    --popover: 212 35% 9%;
+    --popover-foreground: 210 25% 93%;
 
-    /* Teal accent — desaturated, calm */
-    --primary: 174 60% 40%;
-    --primary-foreground: 216 40% 8%;
+    /* Primary: clean teal #14B8A6, vivid but not neon */
+    --primary: 173 78% 40%;
+    --primary-foreground: 214 50% 5%;
 
-    --secondary: 216 25% 15%;
-    --secondary-foreground: 216 15% 80%;
+    /* Secondary: desaturated slate-blue #64748B */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 210 25% 93%;
 
-    --muted: 216 20% 16%;
-    --muted-foreground: 216 15% 55%;
+    /* Muted: #121C28 */
+    --muted: 213 35% 11%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 216 25% 18%;
-    --accent-foreground: 216 20% 92%;
+    /* Accent: #162030 */
+    --accent: 213 35% 14%;
+    --accent-foreground: 210 25% 93%;
 
-    --destructive: 0 72% 55%;
+    /* Feedback */
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
+    --success: 152 69% 41%;
+    --warning: 36 93% 52%;
+    --info: 210 60% 55%;
 
-    --success: 160 84% 39%;
-    --warning: 38 92% 50%;
-
-    --border: 216 20% 18%;
-    --input: 216 20% 18%;
-    --ring: 174 60% 40%;
+    /* Border: rgba(255,255,255,0.07) ≈ subtle */
+    --border: 214 20% 14%;
+    --input: 214 20% 14%;
+    --ring: 173 78% 40%;
 
     --radius: 0.625rem;
 
-    /* Neutral shadows — no teal glow on surfaces */
-    --gradient-primary: linear-gradient(135deg, hsl(174 60% 40%) 0%, hsl(174 45% 30%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(216 40% 8%) 0%, hsl(216 35% 10%) 100%);
-    --shadow-glow: 0 0 30px -8px hsl(174 60% 40% / 0.25);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
-    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
+    /* Neutral shadows only */
+    --gradient-primary: linear-gradient(135deg, hsl(173 78% 40%) 0%, hsl(173 60% 30%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(214 50% 5%) 0%, hsl(213 40% 7%) 100%);
+    --shadow-glow: 0 0 24px -8px hsl(173 78% 40% / 0.18);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.55);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.65);
 
-    --sidebar-background: 216 40% 8%;
-    --sidebar-foreground: 216 20% 92%;
-    --sidebar-primary: 174 60% 40%;
-    --sidebar-primary-foreground: 216 40% 8%;
-    --sidebar-accent: 216 25% 15%;
-    --sidebar-accent-foreground: 216 15% 80%;
-    --sidebar-border: 216 20% 18%;
-    --sidebar-ring: 174 60% 40%;
+    --sidebar-background: 214 50% 5%;
+    --sidebar-foreground: 210 25% 93%;
+    --sidebar-primary: 173 78% 40%;
+    --sidebar-primary-foreground: 214 50% 5%;
+    --sidebar-accent: 213 35% 14%;
+    --sidebar-accent-foreground: 210 25% 93%;
+    --sidebar-border: 214 20% 14%;
+    --sidebar-ring: 173 78% 40%;
   }
 
   /* Dark mode - same as root for this theme */
   .dark {
-    --background: 216 40% 6%;
-    --foreground: 216 20% 92%;
+    --background: 214 50% 4%;
+    --foreground: 210 25% 93%;
 
-    --card: 216 35% 10%;
-    --card-foreground: 216 20% 92%;
+    --card: 212 35% 8%;
+    --card-foreground: 210 25% 93%;
 
-    --popover: 216 35% 10%;
-    --popover-foreground: 216 20% 92%;
+    --popover: 212 35% 8%;
+    --popover-foreground: 210 25% 93%;
 
-    --primary: 174 60% 40%;
-    --primary-foreground: 216 40% 8%;
+    --primary: 173 78% 40%;
+    --primary-foreground: 214 50% 5%;
 
-    --secondary: 216 25% 15%;
-    --secondary-foreground: 216 15% 80%;
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 210 25% 93%;
 
-    --muted: 216 20% 14%;
-    --muted-foreground: 216 15% 55%;
+    --muted: 213 35% 10%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 216 25% 16%;
-    --accent-foreground: 216 20% 92%;
+    --accent: 213 35% 13%;
+    --accent-foreground: 210 25% 93%;
 
-    --destructive: 0 72% 55%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 160 84% 39%;
-    --warning: 38 92% 50%;
+    --success: 152 69% 41%;
+    --warning: 36 93% 52%;
 
-    --border: 216 20% 16%;
-    --input: 216 20% 16%;
-    --ring: 174 60% 40%;
+    --border: 214 20% 13%;
+    --input: 214 20% 13%;
+    --ring: 173 78% 40%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(174 60% 40%) 0%, hsl(174 45% 30%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(216 40% 6%) 0%, hsl(216 35% 9%) 100%);
-    --shadow-glow: 0 0 30px -8px hsl(174 60% 40% / 0.25);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
-    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
+    --gradient-primary: linear-gradient(135deg, hsl(173 78% 40%) 0%, hsl(173 60% 30%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(214 50% 4%) 0%, hsl(213 40% 6%) 100%);
+    --shadow-glow: 0 0 24px -8px hsl(173 78% 40% / 0.18);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.55);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.65);
 
-    --sidebar-background: 216 40% 6%;
-    --sidebar-foreground: 216 20% 92%;
-    --sidebar-primary: 174 60% 40%;
-    --sidebar-primary-foreground: 216 40% 8%;
-    --sidebar-accent: 216 25% 15%;
-    --sidebar-accent-foreground: 216 15% 80%;
-    --sidebar-border: 216 20% 16%;
-    --sidebar-ring: 174 60% 40%;
+    --sidebar-background: 214 50% 4%;
+    --sidebar-foreground: 210 25% 93%;
+    --sidebar-primary: 173 78% 40%;
+    --sidebar-primary-foreground: 214 50% 5%;
+    --sidebar-accent: 213 35% 13%;
+    --sidebar-accent-foreground: 210 25% 93%;
+    --sidebar-border: 214 20% 13%;
+    --sidebar-ring: 173 78% 40%;
   }
 }
 
@@ -156,11 +162,11 @@
   /* Teal glow button effect */
   .btn-glow {
     @apply relative overflow-hidden;
-    box-shadow: 0 0 20px -6px hsl(174 60% 40% / 0.2);
+    box-shadow: 0 0 20px -6px hsl(173 78% 40% / 0.15);
   }
   
   .btn-glow:hover {
-    box-shadow: 0 0 28px -4px hsl(174 60% 40% / 0.3);
+    box-shadow: 0 0 24px -4px hsl(173 78% 40% / 0.22);
   }
 }
 
