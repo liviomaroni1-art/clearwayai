@@ -123,6 +123,15 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
     cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Re-enable text cursor & selection for actual inputs */
+  input, textarea, [contenteditable="true"] {
+    cursor: text;
+    -webkit-user-select: text;
+    user-select: text;
   }
 
   h1, h2, h3, h4, h5, h6 {
