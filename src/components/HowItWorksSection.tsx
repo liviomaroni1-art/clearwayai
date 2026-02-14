@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Calendar, TrendingUp, Clock, ArrowRight } from "lucide-react";
+import { Phone, Calendar, TrendingUp, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -7,85 +7,88 @@ const steps = [
   {
     icon: Phone,
     step: "01",
-    title: "A client calls you",
-    description: "Your AI receptionist picks up in under 2 seconds—day or night. No hold music, no voicemail, no missed opportunity.",
+    title: "Client calls you",
+    description: "AI picks up in under 2 seconds — day or night. No hold music, no voicemail.",
   },
   {
     icon: Calendar,
     step: "02",
-    title: "The AI books them in",
-    description: "It answers their questions, qualifies the lead, and books the appointment directly into your calendar. No back-and-forth.",
+    title: "AI books them in",
+    description: "Answers questions, qualifies the lead, books directly into your calendar.",
   },
   {
     icon: TrendingUp,
     step: "03",
     title: "You get a full summary",
-    description: "Call summary, transcript, and CRM entry—ready before you even call back. Your schedule fills itself.",
+    description: "Call summary, transcript, and CRM entry — ready before you call back.",
   },
 ];
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-12 md:py-20 bg-card/30">
+    <section id="how-it-works" className="py-16 md:py-24 bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10 md:mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-6">
-            <Clock className="w-4 h-4 text-primary" />
-            <span className="text-primary font-medium">Done-for-you setup</span>
-          </div>
-          
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-foreground">
-            Here's What Happens <span className="gradient-text">When Someone Calls</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            How It <span className="gradient-text">Works</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-            From ring to booked appointment—without you lifting a finger.
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
+            From ring to booked appointment — without you lifting a finger.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.step}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card p-5 md:p-8 text-center hover:border-primary/30 transition-colors group"
-            >
-              <div className="relative inline-block mb-4 md:mb-6">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <step.icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
-                </div>
-                <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 text-xs font-bold text-primary-foreground bg-primary rounded-full w-5 h-5 md:w-7 md:h-7 flex items-center justify-center">
-                  {step.step}
-                </span>
-              </div>
-              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-foreground">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Stepper layout */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Vertical line (desktop) */}
+            <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
+            
+            <div className="space-y-8 md:space-y-12">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
+                  className="flex gap-5 md:gap-8 items-start"
+                >
+                  {/* Step number */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <step.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    </div>
+                    <span className="absolute -top-1.5 -right-1.5 text-[10px] font-bold text-primary-foreground bg-primary rounded-full w-5 h-5 flex items-center justify-center">
+                      {index + 1}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="pt-1 md:pt-3">
+                    <h3 className="text-lg md:text-xl font-semibold mb-1.5 text-foreground">{step.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="hidden md:block max-w-4xl mx-auto mt-8">
-          <div className="h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        </div>
-        
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-8"
+          className="text-center mt-10 md:mt-14"
         >
-          <p className="text-muted-foreground mb-6">
-            💡 Most clients go live ~72 hours after onboarding is completed.
+          <p className="text-sm text-muted-foreground mb-5">
+            Most clients go live ~72 hours after onboarding.
           </p>
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">

@@ -1,68 +1,107 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-const integrations = [
-  { name: "Google Calendar", category: "Scheduling", native: true },
-  { name: "Outlook", category: "Scheduling", native: true },
-  { name: "Calendly", category: "Scheduling", native: false },
-  { name: "Cal.com", category: "Scheduling", native: false },
-  { name: "HubSpot", category: "CRM", native: true },
-  { name: "Salesforce", category: "CRM", native: true },
-  { name: "Pipedrive", category: "CRM", native: true },
-  { name: "SimplePractice", category: "CRM", native: true },
-  { name: "Twilio", category: "Telephony", native: true },
-  { name: "Retell.ai", category: "Voice AI", native: true },
-  { name: "Zapier", category: "Automation", native: false },
-  { name: "n8n", category: "Automation", native: false },
+const categories = [
+  {
+    name: "Scheduling",
+    integrations: [
+      { name: "Google Calendar", native: true },
+      { name: "Outlook", native: true },
+      { name: "Calendly", native: false },
+      { name: "Cal.com", native: false },
+    ],
+  },
+  {
+    name: "CRM",
+    integrations: [
+      { name: "HubSpot", native: true },
+      { name: "Salesforce", native: true },
+      { name: "Pipedrive", native: true },
+      { name: "SimplePractice", native: true },
+    ],
+  },
+  {
+    name: "Telephony & AI",
+    integrations: [
+      { name: "Twilio", native: true },
+      { name: "Retell.ai", native: true },
+    ],
+  },
+  {
+    name: "Automation",
+    integrations: [
+      { name: "Zapier", native: false },
+      { name: "n8n", native: false },
+    ],
+  },
 ];
 
 const IntegrationsSection = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
-    <section className="py-20">
+    <section className="py-16 md:py-24 bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
             Works With Your <span className="gradient-text">Existing Tools</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
             Native integrations + Zapier/n8n. We set it all up for you.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {integrations.map((integration, index) => (
-              <motion.div
-                key={integration.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="glass-card p-4 rounded-xl text-center hover:border-primary/50 transition-colors"
+        <div className="max-w-3xl mx-auto">
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {categories.map((cat, i) => (
+              <button
+                key={cat.name}
+                onClick={() => setActiveTab(i)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeTab === i
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted/50 text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
               >
-                <p className="font-medium text-foreground">{integration.name}</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {integration.category}
-                  {integration.native && (
-                    <span className="text-primary ml-1">• Native</span>
-                  )}
-                </p>
-              </motion.div>
+                {cat.name}
+              </button>
             ))}
           </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center text-sm text-muted-foreground mt-8"
+          {/* Integration list */}
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3"
           >
-            Don't see yours? We can integrate via API. Enterprise plans include custom integrations.
-          </motion.p>
+            {categories[activeTab].integrations.map((integration) => (
+              <div
+                key={integration.name}
+                className="glass-card p-4 rounded-xl text-center hover:border-primary/30 transition-colors"
+              >
+                <p className="font-medium text-sm text-foreground">{integration.name}</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {integration.native ? (
+                    <span className="text-primary">Native</span>
+                  ) : (
+                    "via Zapier/n8n"
+                  )}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+
+          <p className="text-center text-xs text-muted-foreground mt-6">
+            Don't see yours? API + custom integrations available on Enterprise plans.
+          </p>
         </div>
       </div>
     </section>
