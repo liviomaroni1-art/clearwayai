@@ -6,30 +6,28 @@
 
 @layer base {
   :root {
-    /* Dark mode as default - premium dark theme */
-    --background: 200 25% 7%;
-    --foreground: 180 10% 92%;
+    /* Dark mode as default — deep navy, enterprise neutral */
+    --background: 216 40% 8%;
+    --foreground: 216 20% 92%;
 
-    --card: 200 25% 9%;
-    --card-foreground: 180 10% 92%;
+    --card: 216 35% 12%;
+    --card-foreground: 216 20% 92%;
 
-    --popover: 200 25% 9%;
-    --popover-foreground: 180 10% 92%;
+    --popover: 216 35% 12%;
+    --popover-foreground: 216 20% 92%;
 
-    /* Teal/Cyan - CTAs, links, primary actions */
-    --primary: 174 72% 50%;
-    --primary-foreground: 200 25% 7%;
+    /* Teal accent — desaturated, calm */
+    --primary: 174 60% 40%;
+    --primary-foreground: 216 40% 8%;
 
-    /* Muted teal for secondary elements */
-    --secondary: 180 20% 12%;
-    --secondary-foreground: 180 10% 85%;
+    --secondary: 216 25% 15%;
+    --secondary-foreground: 216 15% 80%;
 
-    --muted: 200 20% 12%;
-    --muted-foreground: 200 10% 55%;
+    --muted: 216 20% 16%;
+    --muted-foreground: 216 15% 55%;
 
-    /* Subtle teal accent for cards/hover */
-    --accent: 174 40% 15%;
-    --accent-foreground: 180 10% 92%;
+    --accent: 216 25% 18%;
+    --accent-foreground: 216 20% 92%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -37,52 +35,51 @@
     --success: 160 84% 39%;
     --warning: 38 92% 50%;
 
-    --border: 200 20% 16%;
-    --input: 200 20% 16%;
-    --ring: 174 72% 50%;
+    --border: 216 20% 18%;
+    --input: 216 20% 18%;
+    --ring: 174 60% 40%;
 
     --radius: 0.625rem;
 
-    /* Premium teal-accented tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 50%) 0%, hsl(180 50% 30%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(200 25% 7%) 0%, hsl(200 25% 10%) 100%);
-    --shadow-glow: 0 0 40px -8px hsl(174 72% 50% / 0.35);
+    /* Neutral shadows — no teal glow on surfaces */
+    --gradient-primary: linear-gradient(135deg, hsl(174 60% 40%) 0%, hsl(174 45% 30%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(216 40% 8%) 0%, hsl(216 35% 10%) 100%);
+    --shadow-glow: 0 0 30px -8px hsl(174 60% 40% / 0.25);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
     --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
 
-    --sidebar-background: 200 25% 7%;
-    --sidebar-foreground: 180 10% 92%;
-    --sidebar-primary: 174 72% 50%;
-    --sidebar-primary-foreground: 200 25% 7%;
-    --sidebar-accent: 180 20% 12%;
-    --sidebar-accent-foreground: 180 10% 85%;
-    --sidebar-border: 200 20% 16%;
-    --sidebar-ring: 174 72% 50%;
+    --sidebar-background: 216 40% 8%;
+    --sidebar-foreground: 216 20% 92%;
+    --sidebar-primary: 174 60% 40%;
+    --sidebar-primary-foreground: 216 40% 8%;
+    --sidebar-accent: 216 25% 15%;
+    --sidebar-accent-foreground: 216 15% 80%;
+    --sidebar-border: 216 20% 18%;
+    --sidebar-ring: 174 60% 40%;
   }
 
   /* Dark mode - same as root for this theme */
   .dark {
-    --background: 200 25% 5%;
-    --foreground: 180 10% 92%;
+    --background: 216 40% 6%;
+    --foreground: 216 20% 92%;
 
-    --card: 200 25% 8%;
-    --card-foreground: 180 10% 92%;
+    --card: 216 35% 10%;
+    --card-foreground: 216 20% 92%;
 
-    --popover: 200 25% 8%;
-    --popover-foreground: 180 10% 92%;
+    --popover: 216 35% 10%;
+    --popover-foreground: 216 20% 92%;
 
-    /* Teal/Cyan - CTAs, links, primary actions */
-    --primary: 174 72% 50%;
-    --primary-foreground: 200 25% 7%;
+    --primary: 174 60% 40%;
+    --primary-foreground: 216 40% 8%;
 
-    --secondary: 180 20% 12%;
-    --secondary-foreground: 180 10% 85%;
+    --secondary: 216 25% 15%;
+    --secondary-foreground: 216 15% 80%;
 
-    --muted: 200 20% 12%;
-    --muted-foreground: 200 10% 55%;
+    --muted: 216 20% 14%;
+    --muted-foreground: 216 15% 55%;
 
-    --accent: 174 40% 15%;
-    --accent-foreground: 180 10% 92%;
+    --accent: 216 25% 16%;
+    --accent-foreground: 216 20% 92%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -90,25 +87,24 @@
     --success: 160 84% 39%;
     --warning: 38 92% 50%;
 
-    --border: 200 20% 16%;
-    --input: 200 20% 16%;
-    --ring: 174 72% 50%;
+    --border: 216 20% 16%;
+    --input: 216 20% 16%;
+    --ring: 174 60% 40%;
 
-    /* Premium teal-accented tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 50%) 0%, hsl(180 50% 30%) 100%);
-    --gradient-page: linear-gradient(180deg, hsl(200 25% 5%) 0%, hsl(200 25% 8%) 100%);
-    --shadow-glow: 0 0 40px -8px hsl(174 72% 50% / 0.35);
+    --gradient-primary: linear-gradient(135deg, hsl(174 60% 40%) 0%, hsl(174 45% 30%) 100%);
+    --gradient-page: linear-gradient(180deg, hsl(216 40% 6%) 0%, hsl(216 35% 9%) 100%);
+    --shadow-glow: 0 0 30px -8px hsl(174 60% 40% / 0.25);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
     --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.6);
 
-    --sidebar-background: 200 25% 5%;
-    --sidebar-foreground: 180 10% 92%;
-    --sidebar-primary: 174 72% 50%;
-    --sidebar-primary-foreground: 200 25% 7%;
-    --sidebar-accent: 180 20% 12%;
-    --sidebar-accent-foreground: 180 10% 85%;
-    --sidebar-border: 200 20% 16%;
-    --sidebar-ring: 174 72% 50%;
+    --sidebar-background: 216 40% 6%;
+    --sidebar-foreground: 216 20% 92%;
+    --sidebar-primary: 174 60% 40%;
+    --sidebar-primary-foreground: 216 40% 8%;
+    --sidebar-accent: 216 25% 15%;
+    --sidebar-accent-foreground: 216 15% 80%;
+    --sidebar-border: 216 20% 16%;
+    --sidebar-ring: 174 60% 40%;
   }
 }
 
@@ -160,11 +156,11 @@
   /* Teal glow button effect */
   .btn-glow {
     @apply relative overflow-hidden;
-    box-shadow: 0 0 24px -4px hsl(174 72% 50% / 0.35);
+    box-shadow: 0 0 20px -6px hsl(174 60% 40% / 0.2);
   }
   
   .btn-glow:hover {
-    box-shadow: 0 0 32px -2px hsl(174 72% 50% / 0.5);
+    box-shadow: 0 0 28px -4px hsl(174 60% 40% / 0.3);
   }
 }
 
