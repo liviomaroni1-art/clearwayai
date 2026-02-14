@@ -60,7 +60,7 @@ const HowItWorksSection = () => {
                 >
                   {/* Step number */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-card border border-primary/20 flex items-center justify-center relative z-10">
                       <step.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
                     <span className="absolute -top-1.5 -right-1.5 text-[10px] font-bold text-primary-foreground bg-primary rounded-full w-5 h-5 flex items-center justify-center">
