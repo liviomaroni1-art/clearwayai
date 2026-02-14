@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import PricingCard from "@/components/pricing/PricingCard";
 import PricingFootnotes from "@/components/pricing/PricingFootnotes";
 import HowToChoose from "@/components/pricing/HowToChoose";
 import LongTermSavings from "@/components/pricing/LongTermSavings";
+import ComparisonTable from "@/components/pricing/ComparisonTable";
 import { Link } from "react-router-dom";
 
 import { plans, billingRules } from "@/components/pricing/PricingData";
@@ -30,15 +30,15 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-foreground">
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 md:mb-6">
-            Pick a plan. Scale anytime. No hidden fees.
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-5">
+            Pick a plan that fits your call volume. Scale anytime.
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2 mb-6">
+          <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2 mb-5">
             <button
               onClick={() => setIsAnnual(false)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
@@ -68,20 +68,19 @@ const PricingSection = () => {
             </button>
           </div>
 
-          {/* Add-ons Link - Prominent placement */}
           <div className="flex items-center justify-center gap-2">
-            <span className="text-sm text-muted-foreground">Need additional services?</span>
+            <span className="text-xs text-muted-foreground">Need additional services?</span>
             <Link 
               to="/add-ons" 
-              className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-4 transition-colors"
+              className="text-xs text-primary hover:text-primary/80 font-medium underline underline-offset-4 transition-colors"
             >
-              View Add-On Services →
+              View Add-Ons →
             </Link>
           </div>
         </motion.div>
 
         {/* Core Plans */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-6">
           {plans.map((plan, index) => (
             <PricingCard
               key={plan.name}
@@ -106,6 +105,9 @@ const PricingSection = () => {
           ))}
         </div>
 
+        {/* Comparison Table */}
+        <ComparisonTable />
+
         {/* How to Choose */}
         <HowToChoose />
 
@@ -114,7 +116,6 @@ const PricingSection = () => {
 
         {/* 36-Month Savings */}
         <LongTermSavings />
-
       </div>
     </section>
   );

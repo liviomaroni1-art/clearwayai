@@ -6,6 +6,7 @@ import StructuredData from "@/components/StructuredData";
 
 const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
+const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
 const CoreBenefitsSection = lazy(() => import("@/components/CoreBenefitsSection"));
 const IntegrationsSection = lazy(() => import("@/components/IntegrationsSection"));
 const SecurityComplianceSection = lazy(() => import("@/components/SecurityComplianceSection"));
@@ -15,6 +16,7 @@ const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const LiveDemoPhone = lazy(() => import("@/components/LiveDemoPhone"));
+const StickyCTA = lazy(() => import("@/components/StickyCTA"));
 
 const Index = () => {
   return (
@@ -29,6 +31,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <SocialProofSection />
         <HowItWorksSection />
+        <CaseStudiesSection />
         <CoreBenefitsSection />
         <IntegrationsSection />
         <SecurityComplianceSection />
@@ -38,6 +41,7 @@ const Index = () => {
         <CTASection />
         <Footer />
         <LiveDemoPhone variant="floating" />
+        <StickyCTA />
       </Suspense>
     </div>
   );
