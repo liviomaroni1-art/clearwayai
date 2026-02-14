@@ -245,7 +245,7 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className={`
-        group relative bg-card border border-border/60 rounded-2xl p-6 
+        group relative bg-card border border-border/60 rounded-xl p-4 
         flex flex-col h-full
         hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 
         hover:-translate-y-0.5 transition-all duration-300
@@ -253,54 +253,54 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
       `}
     >
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-            <addon.icon className="w-5 h-5 text-primary" />
+      <div className="flex items-start justify-between gap-2 mb-2">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <addon.icon className="w-4 h-4 text-primary" />
           </div>
-          <h3 className="font-semibold text-foreground text-[17px] leading-tight">
+          <h3 className="font-semibold text-foreground text-sm leading-tight">
             {addon.name}
           </h3>
         </div>
         
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-1.5 flex-shrink-0">
           {addon.popular && (
-            <span className="px-2 py-1 text-[10px] font-medium uppercase tracking-wide bg-primary/20 text-primary rounded-full">
+            <span className="px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wide bg-primary/20 text-primary rounded-full">
               Popular
             </span>
           )}
           {addon.premium && (
-            <span className="px-2 py-1 text-[10px] font-medium uppercase tracking-wide bg-amber-500/20 text-amber-400 rounded-full">
+            <span className="px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wide bg-amber-500/20 text-amber-400 rounded-full">
               Premium
             </span>
           )}
-          <span className="px-2 py-1 text-[10px] font-medium uppercase tracking-wide bg-muted text-muted-foreground rounded-full">
+          <span className="px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-wide bg-muted text-muted-foreground rounded-full">
             {getCategoryLabel(addon.category)}
           </span>
         </div>
       </div>
 
       {/* Value Statement */}
-      <p className="text-[13px] text-muted-foreground mb-4 leading-relaxed">
+      <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
         {addon.description}
       </p>
 
       {/* Pricing Block */}
-      <div className="bg-muted/40 border border-border/50 rounded-xl p-3 mb-4">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="bg-muted/40 border border-border/50 rounded-lg p-2.5 mb-3">
+        <div className="grid grid-cols-2 gap-3">
           <div className="text-center">
-            <p className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Setup fee</p>
-            <p className="text-lg font-bold text-foreground">{addon.setup}</p>
+            <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5">Setup fee</p>
+            <p className="text-base font-bold text-foreground">{addon.setup}</p>
           </div>
           <div className="text-center border-l border-border/50">
-            <p className="text-[10px] uppercase tracking-wide text-muted-foreground mb-1">Monthly</p>
+            <p className="text-[9px] uppercase tracking-wide text-muted-foreground mb-0.5">Monthly</p>
             <div className="flex items-center justify-center gap-1">
-              <p className="text-lg font-bold text-primary">{addon.monthly}<span className="text-xs font-normal text-muted-foreground">/mo</span></p>
+              <p className="text-base font-bold text-primary">{addon.monthly}<span className="text-[10px] font-normal text-muted-foreground">/mo</span></p>
               {addon.usageBased && (
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      <span className="text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded">+ usage</span>
+                      <span className="text-[9px] text-muted-foreground bg-muted px-1 py-0.5 rounded">+ usage</span>
                     </TooltipTrigger>
                     <TooltipContent className="bg-card border-border">
                       <p className="text-xs">{addon.usageNote}</p>
@@ -315,19 +315,18 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
 
       {/* Benefits */}
       <div className="flex-grow">
-        <ul className="space-y-2 mb-3">
+        <ul className="space-y-1.5 mb-2">
           {addon.shortBenefits.map((benefit, i) => (
-            <li key={i} className="flex items-center gap-2 text-[13px] text-muted-foreground">
-              <Check className="w-4 h-4 text-primary flex-shrink-0" />
+            <li key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
               <span>{benefit}</span>
             </li>
           ))}
         </ul>
         
-        {/* Expandable Details */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors mb-4"
+          className="flex items-center gap-1 text-[11px] text-primary hover:text-primary/80 transition-colors mb-3"
         >
           {expanded ? (
             <>
@@ -349,10 +348,10 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="space-y-1.5 mb-4 overflow-hidden"
+              className="space-y-1 mb-3 overflow-hidden"
             >
               {addon.allFeatures.slice(3).map((feature, i) => (
-                <li key={i} className="flex items-center gap-2 text-[12px] text-muted-foreground/80">
+                <li key={i} className="flex items-center gap-1.5 text-[11px] text-muted-foreground/80">
                   <Check className="w-3 h-3 text-primary/60 flex-shrink-0" />
                   <span>{feature}</span>
                 </li>
@@ -363,11 +362,11 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
       </div>
 
       {/* CTAs */}
-      <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border/50">
+      <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border/50">
         <Button 
           variant="outline" 
           size="sm"
-          className="flex-1 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+          className="flex-1 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all text-xs h-8"
           asChild
         >
           <Link to="/contact">
@@ -376,7 +375,7 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
         </Button>
         <Link 
           to="/contact" 
-          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+          className="text-[11px] text-muted-foreground hover:text-primary transition-colors"
         >
           Talk to us
         </Link>
@@ -413,19 +412,19 @@ const AddOns = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <main className="pt-36 pb-24">
-        <div className="container mx-auto px-6">
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-10 max-w-2xl mx-auto"
+            className="text-center mb-8 max-w-2xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               Optional <span className="gradient-text">Add-Ons</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               Enhance your core plan only if needed. Bundle 2+ add-ons to save 15%.
             </p>
           </motion.div>
@@ -435,15 +434,15 @@ const AddOns = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="max-w-4xl mx-auto mb-10"
+            className="max-w-4xl mx-auto mb-8"
           >
-            <div className="bg-primary/5 border border-primary/20 rounded-xl px-5 py-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Gift className="w-5 h-5 text-primary" />
+            <div className="bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Gift className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <p className="font-medium text-foreground text-sm">Bundle & Save 15%</p>
-                <p className="text-xs text-muted-foreground">Add 2 or more services to your plan and save 15% on all monthly fees.</p>
+                <p className="font-medium text-foreground text-xs">Bundle & Save 15%</p>
+                <p className="text-[11px] text-muted-foreground">Add 2 or more services to your plan and save 15% on all monthly fees.</p>
               </div>
             </div>
           </motion.div>
@@ -453,7 +452,7 @@ const AddOns = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="max-w-6xl mx-auto mb-8"
+            className="max-w-6xl mx-auto mb-6"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               {/* Category Filters */}
@@ -493,8 +492,8 @@ const AddOns = () => {
           </motion.div>
 
           {/* Add-Ons Grid */}
-          <div className="max-w-6xl mx-auto mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="max-w-6xl mx-auto mb-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {regularCards.map((addon, index) => (
                 <AddOnCard key={addon.name} addon={addon} index={index} />
               ))}
@@ -502,7 +501,7 @@ const AddOns = () => {
 
             {/* Premium Card - Full Width */}
             {premiumCard && (
-              <div className="mt-5">
+              <div className="mt-4">
                 <AddOnCard addon={premiumCard} index={regularCards.length} />
               </div>
             )}
@@ -515,13 +514,13 @@ const AddOns = () => {
             viewport={{ once: true }}
             className="text-center max-w-xl mx-auto"
           >
-            <p className="text-muted-foreground mb-6">
+            <p className="text-sm text-muted-foreground mb-4">
               Not sure which add-ons you need? We'll help you decide during your demo.
             </p>
-            <Button variant="hero" size="lg" className="btn-glow" asChild>
+            <Button variant="hero" size="default" className="btn-glow" asChild>
               <Link to="/contact">
                 Book a Demo
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </motion.div>
