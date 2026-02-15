@@ -17,7 +17,7 @@ const Navbar = () => {
     { name: "Pricing", href: isHomePage ? "#pricing" : "/#pricing" },
     { name: "Security", href: "/security" },
     { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
-    { name: "Contact", href: "/contact" },
+    { name: "Request Access", href: "/request" },
   ];
 
   return (
@@ -79,14 +79,12 @@ const Navbar = () => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <a
-                    href="https://hub-clearwayai.com/login"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/login"
                     className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
                   >
                     Client Login
-                  </a>
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>For existing customers</p>
@@ -99,7 +97,7 @@ const Navbar = () => {
               className="btn-glow hover:scale-105 transition-transform" 
               asChild
             >
-              <Link to="/contact">Book a Demo</Link>
+              <Link to="/request">Request Access</Link>
             </Button>
           </div>
         </div>
@@ -136,18 +134,16 @@ const Navbar = () => {
                     </a>
                   )
                 ))}
-                <a
-                  href="https://hub-clearwayai.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/login"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm"
                   onClick={() => setIsOpen(false)}
                 >
-                  Client Login <span className="text-xs text-muted-foreground/70">(existing customers)</span>
-                </a>
+                  Client Login
+                </Link>
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book a Demo
+                  <Link to="/request" onClick={() => setIsOpen(false)}>
+                    Request Access
                   </Link>
                 </Button>
               </div>

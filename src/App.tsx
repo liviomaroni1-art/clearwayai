@@ -6,8 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
-import Contact from "./pages/Contact";
-import ContactSuccess from "./pages/ContactSuccess";
+import Login from "./pages/Login";
+import Request from "./pages/Request";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Security from "./pages/Security";
@@ -31,8 +31,9 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/contact/success" element={<ContactSuccess />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/request" element={<Request />} />
+              <Route path="/contact" element={<Request />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/security" element={<Security />} />
