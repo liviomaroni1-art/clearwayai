@@ -255,11 +255,11 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:col-span-8 order-1 lg:order-2"
             >
-              <div className="elevated-card p-6 md:p-8 rounded-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/[0.03] rounded-full blur-[80px] pointer-events-none" />
+              <div className="elevated-card p-5 md:p-6 rounded-2xl relative overflow-hidden border border-border/40 bg-card/80 backdrop-blur-sm">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/[0.04] rounded-full blur-[60px] pointer-events-none" />
 
                 <div className="relative">
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Name + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
@@ -272,7 +272,7 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           maxLength={100}
-                          className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                           className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
                         />
                       </div>
                       <div className="space-y-1.5">
@@ -286,9 +286,9 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           maxLength={255}
-                          className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
-                        />
-                        <p className="text-[10px] text-muted-foreground/50">So we can send your personalized review</p>
+                           className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
+                         />
+                         <p className="text-[10px] text-muted-foreground/50">So we can send your personalized review</p>
                       </div>
                     </div>
 
@@ -299,7 +299,7 @@ const Contact = () => {
                         value={formData.businessType}
                         onValueChange={(value) => setFormData((prev) => ({ ...prev, businessType: value }))}
                       >
-                        <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                         <SelectTrigger className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm">
                           <SelectValue placeholder="Select your industry" />
                         </SelectTrigger>
                         <SelectContent className="bg-background border-border max-h-60">
@@ -311,12 +311,12 @@ const Contact = () => {
                     </div>
 
                     {/* Challenges */}
-                    <div className="space-y-2.5">
-                      <Label className="text-xs font-medium text-foreground/80">
-                        What's your biggest challenge?{" "}
-                        <span className="text-muted-foreground/50 font-normal">(select all that apply)</span>
-                      </Label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                     <div className="space-y-2">
+                       <Label className="text-xs font-medium text-foreground/80">
+                         What's your biggest challenge?{" "}
+                         <span className="text-muted-foreground/50 font-normal">(select all that apply)</span>
+                       </Label>
+                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                         {challenges.map((challenge) => {
                           const isSelected = selectedChallenges.includes(challenge);
                           return (
@@ -324,7 +324,7 @@ const Contact = () => {
                               key={challenge}
                               type="button"
                               onClick={() => toggleChallenge(challenge)}
-                              className={`flex items-center gap-2.5 p-3 rounded-lg border text-left text-[12px] transition-all duration-200 ${
+                              className={`flex items-center gap-2 p-2.5 rounded-lg border text-left text-[11px] transition-all duration-200 ${
                                 isSelected
                                   ? "border-primary/50 bg-primary/5 text-foreground"
                                   : "border-border/40 bg-muted/20 text-muted-foreground/70 hover:border-border/60 hover:text-foreground/80"
@@ -360,7 +360,7 @@ const Contact = () => {
                         onChange={handleChange}
                         maxLength={1000}
                         rows={3}
-                        className="bg-muted/40 border-border/60 focus:border-primary resize-none text-sm"
+                        className="bg-muted/60 border-border/50 focus:border-primary resize-none text-sm"
                       />
                     </div>
 
@@ -393,7 +393,7 @@ const Contact = () => {
                                 value={formData.businessName}
                                 onChange={handleChange}
                                 maxLength={100}
-                                className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
                               />
                             </div>
                             <div className="space-y-1.5">
@@ -406,7 +406,7 @@ const Contact = () => {
                                 value={formData.website}
                                 onChange={handleChange}
                                 maxLength={255}
-                                className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
                               />
                             </div>
                           </div>
@@ -421,7 +421,7 @@ const Contact = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 maxLength={20}
-                                className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
                               />
                             </div>
                             <div className="space-y-1.5">
@@ -430,7 +430,7 @@ const Contact = () => {
                                 value={formData.timezone}
                                 onValueChange={(value) => setFormData((prev) => ({ ...prev, timezone: value }))}
                               >
-                                <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                <SelectTrigger className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm">
                                   <SelectValue placeholder="Auto-detected if blank" />
                                 </SelectTrigger>
                                 <SelectContent className="bg-background border-border max-h-60">
@@ -450,18 +450,18 @@ const Contact = () => {
                               value={formData.callVolume}
                               onChange={handleChange}
                               maxLength={50}
-                              className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                              className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
                             />
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
 
-                    {/* Submit */}
-                    <div className="space-y-3 pt-2">
-                      <Button
-                        type="submit"
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-5 rounded-xl btn-glow"
+                     {/* Submit */}
+                     <div className="space-y-2.5 pt-1">
+                       <Button
+                         type="submit"
+                         className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-4 rounded-xl btn-glow"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? "Sending..." : "Get My Free Call Flow Review"}
