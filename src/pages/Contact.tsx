@@ -74,6 +74,7 @@ const Contact = () => {
     name: "",
     businessName: "",
     email: "",
+    password: "",
     phone: "",
     website: "",
     businessType: "",
@@ -106,6 +107,7 @@ const Contact = () => {
     const missing: string[] = [];
     if (!formData.name.trim()) missing.push("Full Name");
     if (!formData.email.trim()) missing.push("Work Email");
+    if (!formData.password || formData.password.length < 6) missing.push("Password (min. 6 characters)");
     if (!formData.businessType) missing.push("Business Type");
 
     if (missing.length > 0) {
@@ -121,6 +123,28 @@ const Contact = () => {
     trackEvent({ event_name: "form_submit", event_category: "form", metadata: { form: "contact", businessType: formData.businessType } });
 
     try {
+      // 1. Create user account
+      const { error: signUpError } = await supabase.auth.signUp({
+        email: formData.email.trim(),
+        password: formData.password,
+        options: {
+          emailRedirectTo: window.location.origin,
+          data: {
+            full_name: formData.name.trim(),
+            business_type: formData.businessType,
+            business_name: formData.businessName || undefined,
+          },
+        },
+      });
+
+      if (signUpError) {
+        // If user already exists, still send the contact email
+        if (!signUpError.message.includes("already registered")) {
+          throw signUpError;
+        }
+      }
+
+      // 2. Send contact email as before
       const submitData = {
         ...formData,
         message: selectedChallenges.length > 0
@@ -285,6 +309,22 @@ const Contact = () => {
                         className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
                       />
                       <p className="text-[10px] text-muted-foreground">So we can send your personalized review</p>
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="password" className="text-xs">Create Password *</Label>
+                      <Input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Min. 6 characters"
+                        value={formData.password}
+                        onChange={handleChange}
+                        required
+                        minLength={6}
+                        maxLength={72}
+                        className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
+                      />
+                      <p className="text-[10px] text-muted-foreground">For your client portal access once approved</p>
                     </div>
                   </div>
 
