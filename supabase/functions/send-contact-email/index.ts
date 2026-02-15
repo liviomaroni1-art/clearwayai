@@ -380,7 +380,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              ...(n8nSecret ? { "Authorization": `Bearer ${n8nSecret}` } : {}),
+              ...(n8nSecret ? { "user creation": n8nSecret } : {}),
             },
             body: JSON.stringify(webhookPayload),
             signal: abortController.signal,
