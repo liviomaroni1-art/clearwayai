@@ -99,7 +99,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                Freienbach, Switzerland
+                🇨🇭 Freienbach, Switzerland
               </li>
             </ul>
           </div>

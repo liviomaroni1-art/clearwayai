@@ -13,7 +13,7 @@ const SwissTrustBar = () => {
     >
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
         <MapPin className="w-4 h-4 text-red-500" />
-        <span className="text-muted-foreground">Based in Freienbach, Switzerland</span>
+        <span className="text-muted-foreground">🇨🇭 Based in Freienbach, Switzerland</span>
       </div>
       
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
