@@ -375,7 +375,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         const abortController = new AbortController();
         const timeoutId = setTimeout(() => abortController.abort(), 5000);
         try {
-          const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook/approval-request", {
+          const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook-test/approval-request-for-new-users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(webhookPayload),
