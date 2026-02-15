@@ -372,12 +372,21 @@ Deno.serve(async (req: Request): Promise<Response> => {
           submitted_at: new Date().toISOString(),
         };
 
-        const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook/approval-request", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(webhookPayload),
-        });
-        console.log("n8n webhook response:", webhookResponse.status);
+        const abortController = new AbortController();
+        const timeoutId = setTimeout(() => abortController.abort(), 5000);
+        try {
+          const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook/approval-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(webhookPayload),
+            signal: abortController.signal,
+          });
+          console.log("n8n webhook response:", webhookResponse.status);
+        } catch (fetchErr) {
+          console.warn("n8n webhook timed out or failed (non-blocking):", fetchErr);
+        } finally {
+          clearTimeout(timeoutId);
+        }
       } catch (webhookError) {
         console.error("Error sending to n8n webhook:", webhookError);
         // Don't fail the whole request if webhook fails
