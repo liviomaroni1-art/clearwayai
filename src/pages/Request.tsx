@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Send,
   Mail,
   Phone,
   ChevronDown,
   ChevronUp,
-  Quote,
+  LogIn,
   MessageSquare,
-  PhoneCall,
+  Info,
   ClipboardCheck,
   MailCheck,
   ArrowRight,
-  Shield,
+  RotateCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -53,6 +53,9 @@ const industryOptions = [
   "Other",
 ];
 
+const supportTopics = ["Billing", "Portal", "Calls", "Integrations", "Other"];
+const questionTopics = ["Pricing", "Setup", "Features", "Security & Privacy", "Other"];
+
 const timezoneOptions = [
   "United States – Eastern (ET)",
   "United States – Central (CT)",
@@ -65,29 +68,45 @@ const timezoneOptions = [
   "Other",
 ];
 
+const initialFormData = {
+  name: "",
+  email: "",
+  reason: "",
+  message: "",
+  businessName: "",
+  businessType: "",
+  website: "",
+  phone: "",
+  timezone: "",
+  supportTopic: "",
+  questionTopic: "",
+  preferredContact: "email",
+};
+
 const Request = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    reason: "",
-    message: "",
-    businessName: "",
-    businessType: "",
-    website: "",
-    phone: "",
-    timezone: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleReset = () => {
+    setFormData(initialFormData);
+    setShowDetails(false);
+    setSubmitted(false);
+  };
+
+  const conditionalFields = useMemo(() => {
+    if (formData.reason === "Request Client Hub access") return "access";
+    if (formData.reason === "Support request") return "support";
+    if (formData.reason === "I have a question") return "question";
+    return null;
+  }, [formData.reason]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,24 +116,18 @@ const Request = () => {
     if (!formData.email.trim()) missing.push("Work Email");
     if (!formData.reason) missing.push("Reason");
     if (!formData.message.trim()) missing.push("Message");
+    if (conditionalFields === "access" && !formData.businessName.trim()) missing.push("Business Name");
 
     if (missing.length > 0) {
-      toast({
-        title: "Please complete the required fields",
-        description: missing.join(", "),
-        variant: "destructive",
-      });
+      toast({ title: "Please complete the required fields", description: missing.join(", "), variant: "destructive" });
       return;
     }
 
     setIsSubmitting(true);
-    trackEvent({
-      event_name: "form_submit",
-      event_category: "form",
-      metadata: { form: "request" },
-    });
+    trackEvent({ event_name: "form_submit", event_category: "form", metadata: { form: "request" } });
 
     try {
+      const topicInfo = formData.supportTopic || formData.questionTopic;
       const submitData = {
         name: formData.name.trim(),
         email: formData.email.trim(),
@@ -124,32 +137,17 @@ const Request = () => {
         website: formData.website.trim(),
         timezone: formData.timezone,
         callVolume: "",
-        preferredContact: "email",
-        message: `[${formData.reason}] ${formData.message.trim()}`,
+        preferredContact: formData.preferredContact,
+        message: `[${formData.reason}]${topicInfo ? ` [${topicInfo}]` : ""} ${formData.message.trim()}`,
       };
 
-      await supabase.functions.invoke("send-contact-email", {
-        body: submitData,
-      });
-
-      trackEvent({
-        event_name: "form_success",
-        event_category: "form",
-        metadata: { form: "request" },
-      });
+      await supabase.functions.invoke("send-contact-email", { body: submitData });
+      trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "request" } });
       setSubmitted(true);
     } catch (error: any) {
       console.error("Request error:", error);
-      trackEvent({
-        event_name: "form_error",
-        event_category: "form",
-        metadata: { form: "request" },
-      });
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or email us at hello@clearwayai.co",
-        variant: "destructive",
-      });
+      trackEvent({ event_name: "form_error", event_category: "form", metadata: { form: "request" } });
+      toast({ title: "Something went wrong", description: "Please try again or email us at hello@clearwayai.co", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -160,7 +158,7 @@ const Request = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <main className="pt-24 pb-16">
+        <main className="pt-28 pb-20">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -168,33 +166,31 @@ const Request = () => {
               transition={{ duration: 0.4 }}
               className="max-w-lg mx-auto text-center"
             >
-              <div className="glass-card p-8 rounded-2xl">
-                <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <MailCheck className="w-6 h-6 text-primary" />
+              <div className="elevated-card p-8 md:p-10 rounded-2xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+                <div className="relative">
+                  <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <MailCheck className="w-6 h-6 text-primary" />
+                  </div>
+                  <h1 className="text-2xl font-bold text-foreground mb-2">Request received</h1>
+                  <p className="text-sm text-muted-foreground mb-8">
+                    Thanks — we'll follow up by email.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button variant="hero" size="default" className="flex-1 btn-glow" asChild>
+                      <Link to="/login">Back to Sign in</Link>
+                    </Button>
+                    <Button variant="outline" size="default" className="flex-1 gap-2" onClick={handleReset}>
+                      <RotateCcw className="w-3.5 h-3.5" />
+                      Send another request
+                    </Button>
+                  </div>
                 </div>
-                <h1 className="text-2xl font-bold text-foreground mb-2">
-                  Thanks — we received your request.
-                </h1>
-                <p className="text-sm text-muted-foreground mb-6">
-                  We'll reply by email.
-                </p>
-                <Link to="/login">
-                  <Button
-                    variant="outline"
-                    size="default"
-                    className="w-full"
-                  >
-                    Go to Client Login
-                  </Button>
-                </Link>
               </div>
 
               <div className="mt-5 flex items-center justify-center gap-1.5">
                 <Mail className="w-3 h-3 text-muted-foreground" />
-                <a
-                  href="mailto:hello@clearwayai.co"
-                  className="text-[11px] text-primary hover:underline"
-                >
+                <a href="mailto:hello@clearwayai.co" className="text-[11px] text-primary hover:underline">
                   hello@clearwayai.co
                 </a>
               </div>
@@ -208,28 +204,54 @@ const Request = () => {
 
   // ── Main page ──
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Subtle radial glow behind content */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
       <Navbar />
 
-      <main className="pt-24 pb-16">
+      <main className="pt-28 pb-16 relative">
         <div className="container mx-auto px-4">
           {/* ── Hero ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-2xl mx-auto mb-10"
+            className="text-center max-w-2xl mx-auto mb-8"
           >
-            <p className="text-[10px] font-semibold text-primary uppercase tracking-widest mb-3">
+            <p className="text-[10px] font-semibold text-primary uppercase tracking-[0.2em] mb-3">
               Client Hub Access
             </p>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">
               Request Access or{" "}
               <span className="gradient-text">Ask a Question</span>
             </h1>
-            <p className="text-sm md:text-base text-muted-foreground">
-              Send us a message and we'll respond by email.
+            <p className="text-sm md:text-base text-muted-foreground/80">
+              Send a message and we'll follow up by email.
             </p>
+          </motion.div>
+
+          {/* ── What Happens Next (inline under hero) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="max-w-2xl mx-auto mb-12"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { icon: ClipboardCheck, label: "We review your request" },
+                { icon: MailCheck, label: "We follow up by email" },
+                { icon: ArrowRight, label: "If access is needed, we send next steps" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2.5 justify-center sm:justify-start">
+                  <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
+                    <item.icon className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <span className="text-[11px] text-muted-foreground/70 leading-snug">{item.label}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* ── 2-Column Layout ── */}
@@ -238,66 +260,71 @@ const Request = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="lg:col-span-4 flex flex-col gap-4"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="lg:col-span-4 flex flex-col gap-4 order-2 lg:order-1"
             >
-              {/* Testimonial card */}
+              {/* Existing clients */}
               <div className="glass-card p-5 rounded-xl">
-                <Quote className="w-5 h-5 text-primary/60 mb-3" />
-                <p className="text-sm text-foreground leading-relaxed italic mb-3">
-                  "Clearway helped us organize inbound calls and follow-up."
+                <div className="flex items-center gap-2 mb-2.5">
+                  <LogIn className="w-4 h-4 text-primary" />
+                  <h3 className="text-xs font-semibold text-foreground">For existing clients</h3>
+                </div>
+                <p className="text-[12px] text-muted-foreground/70 mb-3">
+                  Already have an account?
                 </p>
-                <p className="text-[11px] text-muted-foreground">
-                  — Operations Lead, Service Business{" "}
-                  <span className="text-muted-foreground/50">(example)</span>
-                </p>
+                <Button variant="outline" size="sm" className="w-full gap-2" asChild>
+                  <Link to="/login">
+                    Sign in
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </Button>
               </div>
 
-              {/* Email card */}
+              {/* Contact */}
               <div className="glass-card p-5 rounded-xl">
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-3">
                   <MessageSquare className="w-4 h-4 text-primary" />
-                  <h3 className="text-xs font-semibold text-foreground">
-                    Prefer email?
-                  </h3>
+                  <h3 className="text-xs font-semibold text-foreground">Contact</h3>
                 </div>
-                <a
-                  href="mailto:hello@clearwayai.co"
-                  className="text-sm text-primary hover:underline font-medium"
-                >
-                  hello@clearwayai.co
-                </a>
-                <p className="text-[11px] text-muted-foreground mt-1">
-                  We'll reply by email.
+                <div className="space-y-2.5">
+                  <a
+                    href="mailto:hello@clearwayai.co"
+                    className="flex items-center gap-2 text-[12px] text-primary hover:underline font-medium"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    hello@clearwayai.co
+                  </a>
+                  <a
+                    href="tel:+18887783091"
+                    className="flex items-center gap-2 text-[12px] text-foreground/80 hover:text-primary transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-primary" />
+                    +1 (888) 778-3091
+                  </a>
+                </div>
+                <p className="text-[10px] text-muted-foreground/50 mt-3">
+                  If you prefer email or a quick call.
                 </p>
               </div>
 
-              {/* Phone card */}
+              {/* About this form */}
               <div className="glass-card p-5 rounded-xl">
-                <div className="flex items-center gap-2 mb-2">
-                  <PhoneCall className="w-4 h-4 text-primary" />
-                  <h3 className="text-xs font-semibold text-foreground">
-                    Talk to our team
-                  </h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <Info className="w-4 h-4 text-primary" />
+                  <h3 className="text-xs font-semibold text-foreground">About this form</h3>
                 </div>
-                <a
-                  href="tel:+18887783091"
-                  className="text-sm text-foreground hover:text-primary transition-colors font-medium"
-                >
-                  +1 (888) 778-3091
-                </a>
-                <p className="text-[11px] text-muted-foreground mt-1">
-                  If you'd rather speak with someone.
-                </p>
-              </div>
-
-              {/* Privacy note */}
-              <div className="flex items-start gap-2 px-1">
-                <Shield className="w-3.5 h-3.5 text-muted-foreground/50 mt-0.5 shrink-0" />
-                <p className="text-[10px] text-muted-foreground/60 leading-relaxed">
-                  We use your details to respond and, if requested, to set up
-                  access.
-                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Use this to request portal access or ask a question.",
+                    "Details help us route your message to the right person.",
+                    "Access can be issued by invitation where applicable.",
+                  ].map((text) => (
+                    <li key={text} className="flex items-start gap-2">
+                      <div className="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <span className="text-[11px] text-muted-foreground/70 leading-relaxed">{text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
 
@@ -306,302 +333,294 @@ const Request = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="lg:col-span-8"
+              className="lg:col-span-8 order-1 lg:order-2"
             >
-              <div className="glass-card p-5 md:p-7 rounded-2xl">
-                <div className="mb-5">
-                  <h2 className="text-lg font-bold text-foreground mb-0.5">
-                    Client Hub Access & Questions
-                  </h2>
-                  <p className="text-xs text-muted-foreground">
-                    Fill in the form below and we'll get back to you.
-                  </p>
-                </div>
+              <div className="elevated-card p-6 md:p-8 rounded-2xl relative overflow-hidden">
+                {/* Subtle gradient accent */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/[0.03] rounded-full blur-[80px] pointer-events-none" />
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Name + Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="space-y-1">
-                      <Label htmlFor="name" className="text-xs">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Jane Smith"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        maxLength={100}
-                        className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <Label htmlFor="email" className="text-xs">
-                        Work Email *
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="jane@company.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        maxLength={255}
-                        className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
-                      />
-                    </div>
+                <div className="relative">
+                  <div className="mb-6">
+                    <h2 className="text-lg md:text-xl font-bold text-foreground mb-1">
+                      Send a Request
+                    </h2>
+                    <p className="text-xs text-muted-foreground/70">
+                      Choose a reason so we can route you correctly.
+                    </p>
                   </div>
 
-                  {/* Reason */}
-                  <div className="space-y-1">
-                    <Label className="text-xs">Reason *</Label>
-                    <Select
-                      value={formData.reason}
-                      onValueChange={(value) =>
-                        setFormData((prev) => ({ ...prev, reason: value }))
-                      }
-                    >
-                      <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-9 text-sm">
-                        <SelectValue placeholder="Select a reason" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-background border-border">
-                        {reasonOptions.map((r) => (
-                          <SelectItem key={r} value={r}>
-                            {r}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Message */}
-                  <div className="space-y-1">
-                    <Label htmlFor="message" className="text-xs">
-                      Message *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us how we can help..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      maxLength={1000}
-                      rows={4}
-                      className="bg-muted/50 border-border focus:border-primary resize-none text-sm"
-                    />
-                  </div>
-
-                  {/* Optional details accordion */}
-                  <button
-                    type="button"
-                    onClick={() => setShowDetails(!showDetails)}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {showDetails ? (
-                      <ChevronUp className="w-3.5 h-3.5" />
-                    ) : (
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    )}
-                    Add more details (optional)
-                  </button>
-
-                  {showDetails && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      transition={{ duration: 0.2 }}
-                      className="space-y-3 pt-1"
-                    >
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div className="space-y-1">
-                          <Label htmlFor="businessName" className="text-xs">
-                            Business Name
-                          </Label>
-                          <Input
-                            id="businessName"
-                            name="businessName"
-                            placeholder="Acme Corp"
-                            value={formData.businessName}
-                            onChange={handleChange}
-                            maxLength={100}
-                            className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <Label className="text-xs">Industry</Label>
-                          <Select
-                            value={formData.businessType}
-                            onValueChange={(value) =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                businessType: value,
-                              }))
-                            }
-                          >
-                            <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-9 text-sm">
-                              <SelectValue placeholder="Select industry" />
-                            </SelectTrigger>
-                            <SelectContent className="bg-background border-border max-h-60">
-                              {industryOptions.map((type) => (
-                                <SelectItem key={type} value={type}>
-                                  {type}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Name + Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="name" className="text-xs font-medium text-foreground/80">Full Name *</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          placeholder="Jane Smith"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          maxLength={100}
+                          className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                        />
                       </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div className="space-y-1">
-                          <Label htmlFor="website" className="text-xs">
-                            Website
-                          </Label>
-                          <Input
-                            id="website"
-                            name="website"
-                            type="url"
-                            placeholder="https://yoursite.com"
-                            value={formData.website}
-                            onChange={handleChange}
-                            maxLength={255}
-                            className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
-                          />
-                        </div>
-                        <div className="space-y-1">
-                          <Label htmlFor="phone" className="text-xs">
-                            Phone
-                          </Label>
-                          <Input
-                            id="phone"
-                            name="phone"
-                            type="tel"
-                            placeholder="+1 (555) 000-0000"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            maxLength={20}
-                            className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
-                          />
-                        </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="email" className="text-xs font-medium text-foreground/80">Work Email *</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="jane@company.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          maxLength={255}
+                          className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                        />
                       </div>
+                    </div>
 
-                      <div className="space-y-1">
-                        <Label className="text-xs">Time Zone</Label>
-                        <Select
-                          value={formData.timezone}
-                          onValueChange={(value) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              timezone: value,
-                            }))
-                          }
+                    {/* Reason */}
+                    <div className="space-y-1.5">
+                      <Label className="text-xs font-medium text-foreground/80">Reason *</Label>
+                      <Select
+                        value={formData.reason}
+                        onValueChange={(value) => setFormData((prev) => ({ ...prev, reason: value, supportTopic: "", questionTopic: "" }))}
+                      >
+                        <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                          <SelectValue placeholder="Select a reason" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background border-border">
+                          {reasonOptions.map((r) => (
+                            <SelectItem key={r} value={r}>{r}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Conditional fields */}
+                    <AnimatePresence mode="wait">
+                      {conditionalFields === "access" && (
+                        <motion.div
+                          key="access"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="space-y-4"
                         >
-                          <SelectTrigger className="bg-muted/50 border-border focus:border-primary h-9 text-sm">
-                            <SelectValue placeholder="Auto-detected if blank" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-background border-border max-h-60">
-                            {timezoneOptions.map((tz) => (
-                              <SelectItem key={tz} value={tz}>
-                                {tz}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </motion.div>
-                  )}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                              <Label htmlFor="businessName" className="text-xs font-medium text-foreground/80">Business Name *</Label>
+                              <Input
+                                id="businessName"
+                                name="businessName"
+                                placeholder="Acme Corp"
+                                value={formData.businessName}
+                                onChange={handleChange}
+                                required
+                                maxLength={100}
+                                className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                              />
+                            </div>
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Industry</Label>
+                              <Select
+                                value={formData.businessType}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, businessType: value }))}
+                              >
+                                <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                  <SelectValue placeholder="Select industry" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {industryOptions.map((type) => (
+                                    <SelectItem key={type} value={type}>{type}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label htmlFor="website" className="text-xs font-medium text-foreground/80">Website</Label>
+                            <Input
+                              id="website"
+                              name="website"
+                              type="url"
+                              placeholder="https://yoursite.com"
+                              value={formData.website}
+                              onChange={handleChange}
+                              maxLength={255}
+                              className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                            />
+                          </div>
+                        </motion.div>
+                      )}
 
-                  {/* Submit */}
-                  <div className="space-y-3 pt-1">
-                    <Button
-                      type="submit"
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-5 rounded-xl btn-glow"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? "Sending..." : "Send Request"}
-                      {!isSubmitting && <Send className="w-4 h-4 ml-2" />}
-                    </Button>
-                    <div className="text-center space-y-0.5">
-                      <p className="text-[10px] text-muted-foreground">
-                        We'll email you a confirmation.
-                      </p>
-                      <p className="text-[10px] text-muted-foreground">
-                        No spam.
-                      </p>
+                      {conditionalFields === "support" && (
+                        <motion.div
+                          key="support"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <div className="space-y-1.5">
+                            <Label className="text-xs font-medium text-foreground/80">What do you need help with?</Label>
+                            <Select
+                              value={formData.supportTopic}
+                              onValueChange={(value) => setFormData((prev) => ({ ...prev, supportTopic: value }))}
+                            >
+                              <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                <SelectValue placeholder="Select topic" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-background border-border">
+                                {supportTopics.map((t) => (
+                                  <SelectItem key={t} value={t}>{t}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </motion.div>
+                      )}
+
+                      {conditionalFields === "question" && (
+                        <motion.div
+                          key="question"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <div className="space-y-1.5">
+                            <Label className="text-xs font-medium text-foreground/80">Topic</Label>
+                            <Select
+                              value={formData.questionTopic}
+                              onValueChange={(value) => setFormData((prev) => ({ ...prev, questionTopic: value }))}
+                            >
+                              <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                <SelectValue placeholder="Select topic" />
+                              </SelectTrigger>
+                              <SelectContent className="bg-background border-border">
+                                {questionTopics.map((t) => (
+                                  <SelectItem key={t} value={t}>{t}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Message */}
+                    <div className="space-y-1.5">
+                      <Label htmlFor="message" className="text-xs font-medium text-foreground/80">Message *</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us what you're trying to achieve and any relevant context…"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        maxLength={1000}
+                        rows={4}
+                        className="bg-muted/40 border-border/60 focus:border-primary resize-none text-sm"
+                      />
                     </div>
-                  </div>
-                </form>
 
-                {/* Login link */}
-                <div className="mt-5 pt-4 border-t border-border/40 text-center">
-                  <p className="text-xs text-muted-foreground">
-                    Already have an account?{" "}
-                    <Link
-                      to="/login"
-                      className="text-primary hover:underline font-medium"
+                    {/* Optional details accordion */}
+                    <button
+                      type="button"
+                      onClick={() => setShowDetails(!showDetails)}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground/70 hover:text-foreground transition-colors"
                     >
-                      Sign in
-                    </Link>
-                  </p>
+                      {showDetails ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      Add details (optional)
+                    </button>
+
+                    <AnimatePresence>
+                      {showDetails && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="space-y-4"
+                        >
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                              <Label htmlFor="phone" className="text-xs font-medium text-foreground/80">Phone</Label>
+                              <Input
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                placeholder="+1 (555) 000-0000"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                maxLength={20}
+                                className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm"
+                              />
+                            </div>
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Time Zone</Label>
+                              <Select
+                                value={formData.timezone}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, timezone: value }))}
+                              >
+                                <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                  <SelectValue placeholder="Auto-detected if blank" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {timezoneOptions.map((tz) => (
+                                    <SelectItem key={tz} value={tz}>{tz}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label className="text-xs font-medium text-foreground/80">Preferred contact method</Label>
+                            <Select
+                              value={formData.preferredContact}
+                              onValueChange={(value) => setFormData((prev) => ({ ...prev, preferredContact: value }))}
+                            >
+                              <SelectTrigger className="bg-muted/40 border-border/60 focus:border-primary h-10 text-sm">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent className="bg-background border-border">
+                                <SelectItem value="email">Email</SelectItem>
+                                <SelectItem value="phone">Phone</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Submit */}
+                    <div className="space-y-3 pt-2">
+                      <Button
+                        type="submit"
+                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-5 rounded-xl btn-glow"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Sending..." : "Send Request"}
+                        {!isSubmitting && <Send className="w-4 h-4 ml-2" />}
+                      </Button>
+                      <div className="text-center space-y-0.5">
+                        <p className="text-[10px] text-muted-foreground/60">
+                          You'll receive an email confirmation.
+                        </p>
+                        <p className="text-[10px] text-muted-foreground/60">
+                          No marketing promises — just a reply to your request.
+                        </p>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </motion.div>
           </div>
-
-          {/* ── What Happens Next ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-5xl mx-auto mt-10"
-          >
-            <div className="glass-card p-5 md:p-6 rounded-2xl">
-              <h3 className="text-xs font-semibold text-foreground mb-5 text-center uppercase tracking-wider">
-                What happens next
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  {
-                    icon: ClipboardCheck,
-                    step: "1",
-                    title: "We review your request",
-                    desc: "Our team looks over your message and any details you've shared.",
-                  },
-                  {
-                    icon: MailCheck,
-                    step: "2",
-                    title: "We follow up by email",
-                    desc: "You'll hear back from us with answers or next steps.",
-                  },
-                  {
-                    icon: ArrowRight,
-                    step: "3",
-                    title: "If access is needed, we'll send next steps",
-                    desc: "We'll provide instructions to get started with Client Hub.",
-                  },
-                ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                      <span className="text-xs font-bold text-primary">
-                        {item.step}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-foreground mb-0.5">
-                        {item.title}
-                      </h4>
-                      <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </div>
       </main>
 
