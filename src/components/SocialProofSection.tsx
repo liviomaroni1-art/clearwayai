@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import flagCH from "@/assets/flag-ch.png";
+import flagUS from "@/assets/flag-us.png";
 
 const SocialProofSection = () => {
   return (
@@ -13,11 +14,11 @@ const SocialProofSection = () => {
           className="flex flex-wrap items-center justify-center gap-3 md:gap-6 mb-6"
         >
           <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
-            <span className="text-base">🇨🇭</span>
+            <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
             <span className="text-muted-foreground">Built in Switzerland</span>
           </div>
           <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
-            <span className="text-base">🇺🇸</span>
+            <img src={flagUS} alt="US flag" className="h-[1em] w-auto" />
             <span className="text-muted-foreground">Designed for US service businesses</span>
           </div>
         </motion.div>
