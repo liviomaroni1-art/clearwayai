@@ -120,6 +120,13 @@
   }
 
   html {
+    font-size: 15px;
+  }
+
+  /* Keep these sections at original 12px scale */
+  #calculator,
+  #services,
+  #pricing .comparison-table-wrapper {
     font-size: 12px;
   }
 
