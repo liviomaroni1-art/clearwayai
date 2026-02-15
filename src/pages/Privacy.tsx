@@ -109,10 +109,10 @@ const Privacy = () => {
                   <strong className="text-foreground">Location:</strong> Data is processed through secure servers in the United States. Our company is headquartered in Switzerland, subject to Swiss data protection laws.
                 </p>
                 <p>
-                  <strong className="text-foreground">Retention Period:</strong> Call recordings are retained for 90 days unless otherwise specified in your service agreement. Transcriptions and summaries are retained for 1 year.
+                  <strong className="text-foreground">Retention Period:</strong> By default, call recordings are retained for up to 90 days (longer retention may apply if agreed in your service contract). Transcriptions and summaries are retained for up to 1 year.
                 </p>
                 <p>
-                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your data at any time by contacting hello@clearwayai.co.
+                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your data at any time by contacting hello@clearwayai.co. We will delete or anonymize your personal data unless we are legally required or permitted to retain it.
                 </p>
               </div>
             </section>
