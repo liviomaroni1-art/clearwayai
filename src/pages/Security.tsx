@@ -103,7 +103,7 @@ const Security = () => {
               </div>
             </motion.section>
 
-            {/* Encryption */}
+            {/* Security & Access Controls */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -115,25 +115,30 @@ const Security = () => {
                   <Lock className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Encryption & Access Control</h2>
-                  <p className="text-xs text-muted-foreground">Industry-standard protection</p>
+                  <h2 className="text-lg font-bold text-foreground mb-1">Security & Access Controls</h2>
+                  <p className="text-xs text-muted-foreground">Built to help you manage access and protect sensitive information</p>
                 </div>
               </div>
               <div className="space-y-3 text-xs text-muted-foreground">
                 <ul className="space-y-1.5 ml-4">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">In transit:</strong> TLS 1.3 encryption for all API calls and data transfers</span>
+                    <span><strong className="text-foreground">Secure connections:</strong> Data is transmitted over encrypted HTTPS connections</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">At rest:</strong> AES-256 encryption for stored data</span>
+                    <span><strong className="text-foreground">Storage protections:</strong> Data storage protections are applied based on your plan and configuration</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Access control:</strong> Role-based permissions, audit logging</span>
+                    <span><strong className="text-foreground">Access controls:</strong> Manage user access with configurable permissions</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-foreground">Activity visibility:</strong> Administrative activity history may be available to support oversight</span>
                   </li>
                 </ul>
+                <p className="text-[11px] text-muted-foreground/70 italic mt-2">Note: Available security features can vary by plan, configuration, and deployment.</p>
               </div>
             </motion.section>
 
