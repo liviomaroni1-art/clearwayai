@@ -336,6 +336,54 @@ Deno.serve(async (req: Request): Promise<Response> => {
     });
     console.log("Confirmation email sent:", confirmationEmailResponse);
 
+    // If signup, notify n8n webhook for approval and ban user until approved
+    if (formType === "signup") {
+      try {
+        const { createClient } = await import("https://esm.sh/@supabase/supabase-js@2");
+        const supabaseAdmin = createClient(
+          Deno.env.get("SUPABASE_URL")!,
+          Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+        );
+
+        // Find the user by email and ban them until approved
+        const { data: userList } = await supabaseAdmin.auth.admin.listUsers();
+        const targetUser = userList?.users?.find((u: any) => u.email === formData.email);
+        if (targetUser) {
+          await supabaseAdmin.auth.admin.updateUserById(targetUser.id, {
+            ban_duration: "876000h", // ~100 years, effectively permanent until approved
+          });
+          console.log("User banned pending approval:", targetUser.id);
+        }
+
+        // Send user info to n8n webhook for approval
+        const webhookPayload = {
+          user_id: targetUser?.id || "unknown",
+          name: formData.name,
+          email: formData.email,
+          businessName: formData.businessName || formData.company || "",
+          businessType: formData.businessType || "",
+          phone: formData.phone || "",
+          timezone: formData.timezone || "",
+          service: formData.service || "",
+          plan: formData.plan || "",
+          term: formData.term || "",
+          callVolume: formData.callVolume || "",
+          message: formData.message || "",
+          submitted_at: new Date().toISOString(),
+        };
+
+        const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook/approval-request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(webhookPayload),
+        });
+        console.log("n8n webhook response:", webhookResponse.status);
+      } catch (webhookError) {
+        console.error("Error sending to n8n webhook:", webhookError);
+        // Don't fail the whole request if webhook fails
+      }
+    }
+
     return new Response(
       JSON.stringify({ success: true, message: "Emails sent successfully" }),
       { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }

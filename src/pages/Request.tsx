@@ -256,28 +256,35 @@ const Request = () => {
                   <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
                     <MailCheck className="w-6 h-6 text-primary" />
                   </div>
-                  <h1 className="text-2xl font-bold text-foreground mb-2">Check your email</h1>
-                  <p className="text-sm text-muted-foreground mb-8">
-                    We sent a verification link to <span className="text-foreground font-medium">{formData.email}</span> to complete setup.
+                  <h1 className="text-2xl font-bold text-foreground mb-2">Application Received</h1>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    Your account request for <span className="text-foreground font-medium">{formData.email}</span> is now under review.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="hero" size="default" className="flex-1 btn-glow" asChild>
-                      <a href="https://hub-clearwayai.com/login" target="_blank" rel="noopener noreferrer">
-                        Back to Sign in
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="default"
-                      className="flex-1 gap-2"
-                      onClick={() => {
-                        toast({ title: "Verification email resent", description: "Check your inbox and spam folder." });
-                      }}
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                      Resend email
-                    </Button>
+                  
+                  <div className="text-left mb-6 space-y-3">
+                    {[
+                      { step: "1", title: "Application Review", desc: "Our team reviews your request (typically 24–48 hours)." },
+                      { step: "2", title: "Approval Notification", desc: "You'll receive an email once your account is approved." },
+                      { step: "3", title: "Sign In & Get Started", desc: "Log in to your Client Hub and start using Clearway AI." },
+                    ].map((item) => (
+                      <div key={item.step} className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-[10px] font-bold text-primary">{item.step}</span>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold text-foreground">{item.title}</p>
+                          <p className="text-[11px] text-muted-foreground">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
+
+                  <Button variant="outline" size="default" className="w-full gap-2" asChild>
+                    <a href="mailto:hello@clearwayai.co">
+                      <Mail className="w-3.5 h-3.5" />
+                      Questions? Contact us
+                    </a>
+                  </Button>
                 </div>
               </div>
               <div className="mt-5 flex items-center justify-center gap-1.5">
