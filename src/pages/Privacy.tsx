@@ -66,9 +66,8 @@ const Privacy = () => {
               <div className="space-y-3 text-xs text-muted-foreground">
                 <div>
                   <h3 className="text-sm font-semibold text-foreground mb-1.5">Call Data</h3>
-                  <ul className="list-disc list-inside space-y-0.5">
+                   <ul className="list-disc list-inside space-y-0.5">
                     <li>Phone numbers of callers (with consent)</li>
-                    <li>Call recordings (where legally permitted and disclosed)</li>
                     <li>Call transcriptions and summaries</li>
                     <li>Appointment booking information</li>
                   </ul>
@@ -87,16 +86,11 @@ const Privacy = () => {
             <section className="glass-card p-5 rounded-xl">
               <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
                 <Users className="w-4 h-4 text-primary" />
-                Call Recording Consent
+                Call Summaries &amp; Transcripts
               </h2>
-              <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-                <strong className="text-foreground">Important:</strong> Call recording laws vary by U.S. state. Our AI receptionist announces that "calls may be recorded for quality assurance" at the start of each call to ensure compliance with both one-party and two-party consent states.
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Our AI receptionist generates post-call summaries and transcripts to help you manage follow-ups and client communications. No audio recordings are stored. Summaries are delivered to your preferred channel (email, CRM, or dashboard) and are subject to the retention periods described below.
               </p>
-              <div className="bg-primary/10 border border-primary/30 p-3 rounded-lg">
-                <p className="text-[11px] text-primary">
-                  <strong>Two-Party Consent States:</strong> California, Connecticut, Delaware, Florida, Illinois, Maryland, Massachusetts, Michigan, Montana, Nevada, New Hampshire, Oregon, Pennsylvania, Vermont, Washington, and Hawaii require all parties to consent.
-                </p>
-              </div>
             </section>
 
             <section className="glass-card p-5 rounded-xl">
@@ -109,10 +103,10 @@ const Privacy = () => {
                   <strong className="text-foreground">Location:</strong> Data is processed through secure servers in the United States. Our company is headquartered in Switzerland, subject to Swiss data protection laws.
                 </p>
                 <p>
-                  <strong className="text-foreground">Retention Period:</strong> By default, call recordings are retained for up to 90 days (longer retention may apply if agreed in your service contract). Transcriptions and summaries are retained for up to 1 year.
+                  <strong className="text-foreground">Retention Period:</strong> By default, call summaries and transcripts are retained for up to 1 year (longer retention may apply if agreed in your service contract).
                 </p>
                 <p>
-                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your data at any time by contacting hello@clearwayai.co. We will delete or anonymize your personal data unless we are legally required or permitted to retain it.
+                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your call summaries and related personal data at any time by contacting hello@clearwayai.co. We will delete or anonymize this data unless we are legally required or permitted to retain it.
                 </p>
               </div>
             </section>
