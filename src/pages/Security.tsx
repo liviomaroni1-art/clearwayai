@@ -68,7 +68,7 @@ const Security = () => {
               </div>
             </motion.section>
 
-            {/* Call Recordings */}
+            {/* Call Summaries */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -80,24 +80,24 @@ const Security = () => {
                   <Eye className="w-4 h-4 text-amber-400" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Call Recordings</h2>
-                  <p className="text-xs text-muted-foreground">Your choice, your control</p>
+                  <h2 className="text-lg font-bold text-foreground mb-1">Call Summaries</h2>
+                  <p className="text-xs text-muted-foreground">Actionable insights from every call</p>
                 </div>
               </div>
               <div className="space-y-3 text-xs text-muted-foreground">
-                <p>Call recording is <strong className="text-foreground">optional</strong> and can be enabled or disabled per your preference:</p>
+                <p>After every call, you receive a <strong className="text-foreground">detailed summary</strong> including key details, action items, and caller intent:</p>
                 <ul className="space-y-1.5 ml-4">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Consent:</strong> AI announces recording when enabled (configurable message)</span>
+                    <span><strong className="text-foreground">Instant delivery:</strong> Summaries sent to your email or CRM within seconds</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Retention:</strong> Recordings retained for 90 days by default (configurable)</span>
+                    <span><strong className="text-foreground">Retention:</strong> Summaries retained for 1 year by default (configurable)</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Access:</strong> Only your authorized team members can access recordings</span>
+                    <span><strong className="text-foreground">Access:</strong> Only your authorized team members can view summaries</span>
                   </li>
                 </ul>
               </div>
