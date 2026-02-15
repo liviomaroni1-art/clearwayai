@@ -10,7 +10,7 @@ const caseStudies = [
     role: "Practice Owner",
     quote: "We stopped losing new patients to voicemail. The AI handles after-hours calls we'd never get before.",
     metrics: [
-      { label: "Missed calls", before: "42%", after: "3%", icon: TrendingDown, positive: true },
+      { label: "Calls answered", before: "58%", after: "99%", icon: TrendingUp, positive: true },
       { label: "Monthly bookings", before: "—", after: "+38%", icon: TrendingUp, positive: true },
       { label: "Staff hours saved", before: "—", after: "15h/week", icon: Clock, positive: true },
     ],
