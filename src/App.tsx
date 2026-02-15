@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
-import Login from "./pages/Login";
 import Request from "./pages/Request";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -31,7 +30,7 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/request" element={<Request />} />
               <Route path="/request" element={<Request />} />
               <Route path="/contact" element={<Request />} />
               <Route path="/privacy" element={<Privacy />} />

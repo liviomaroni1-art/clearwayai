@@ -178,7 +178,7 @@ const Request = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button variant="hero" size="default" className="flex-1 btn-glow" asChild>
-                      <Link to="/login">Back to Sign in</Link>
+                      <a href="https://hub-clearwayai.com/login" target="_blank" rel="noopener noreferrer">Back to Sign in</a>
                     </Button>
                     <Button variant="outline" size="default" className="flex-1 gap-2" onClick={handleReset}>
                       <RotateCcw className="w-3.5 h-3.5" />
@@ -273,10 +273,10 @@ const Request = () => {
                   Already have an account?
                 </p>
                 <Button variant="outline" size="sm" className="w-full gap-2" asChild>
-                  <Link to="/login">
+                  <a href="https://hub-clearwayai.com/login" target="_blank" rel="noopener noreferrer">
                     Sign in
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
 

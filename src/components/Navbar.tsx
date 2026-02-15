@@ -79,12 +79,14 @@ const Navbar = () => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    to="/login"
+                  <a
+                    href="https://hub-clearwayai.com/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
                   >
                     Client Login
-                  </Link>
+                  </a>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>For existing customers</p>
@@ -134,13 +136,15 @@ const Navbar = () => {
                     </a>
                   )
                 ))}
-                <Link
-                  to="/login"
+                <a
+                  href="https://hub-clearwayai.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   Client Login
-                </Link>
+                </a>
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/request" onClick={() => setIsOpen(false)}>
                     Request Access
