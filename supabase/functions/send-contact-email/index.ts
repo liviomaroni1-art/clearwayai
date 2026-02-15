@@ -373,14 +373,14 @@ Deno.serve(async (req: Request): Promise<Response> => {
         };
 
         const abortController = new AbortController();
-        const timeoutId = setTimeout(() => abortController.abort(), 5000);
+        const timeoutId = setTimeout(() => abortController.abort(), 15000);
         try {
           const n8nSecret = Deno.env.get("N8N_WEBHOOK_SECRET");
           const webhookResponse = await fetch("https://livio2895.app.n8n.cloud/webhook/approval-request-for-new-users", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              ...(n8nSecret ? { "user creation": n8nSecret } : {}),
+              ...(n8nSecret ? { "X-Webhook-Secret": n8nSecret } : {}),
             },
             body: JSON.stringify(webhookPayload),
             signal: abortController.signal,
