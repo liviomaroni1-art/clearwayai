@@ -58,14 +58,14 @@ const HowItWorksSection = () => {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="flex gap-5 md:gap-8 items-start"
                 >
-                  {/* Step number & icon */}
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shadow-md shadow-primary/30">
-                      {index + 1}
-                    </div>
-                    <div className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-card border border-primary/20 flex items-center justify-center">
+                  {/* Step number */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-card border border-primary/20 flex items-center justify-center relative z-10">
                       <step.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
+                    <span className="absolute -top-1.5 -right-1.5 z-20 text-[11px] font-bold text-primary-foreground bg-primary rounded-full w-6 h-6 flex items-center justify-center ring-2 ring-background">
+                      {index + 1}
+                    </span>
                   </div>
 
                   {/* Content */}
