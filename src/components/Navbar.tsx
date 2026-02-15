@@ -17,7 +17,7 @@ const Navbar = () => {
     { name: "Pricing", href: isHomePage ? "#pricing" : "/#pricing" },
     { name: "Security", href: "/security" },
     { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
-    { name: "Request Access", href: "/request" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -99,7 +99,7 @@ const Navbar = () => {
               className="btn-glow hover:scale-105 transition-transform" 
               asChild
             >
-              <Link to="/request">Request Access</Link>
+              <Link to="/contact">Book a Demo</Link>
             </Button>
           </div>
         </div>
@@ -146,8 +146,8 @@ const Navbar = () => {
                   Client Login
                 </a>
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
-                  <Link to="/request" onClick={() => setIsOpen(false)}>
-                    Request Access
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    Book a Demo
                   </Link>
                 </Button>
               </div>
