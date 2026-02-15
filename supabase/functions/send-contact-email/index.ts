@@ -204,17 +204,24 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const confirmationEmailResponse = await resend.emails.send({
       from: "Clearway AI <hello@clearwayai.co>",
       to: [formData.email],
-      subject: "Your Call Flow Review – Clearway AI",
+      subject: "Application Received – Clearway AI",
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hey ${escapeHtml(formData.name.split(' ')[0])},</p>
           
           <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Thank you for requesting a call flow review. We've received your details and a member of our team will follow up with you within 24–48 hours on weekdays.
+            Thank you for applying to Clearway AI. We've received your application and it is now <strong>under review</strong>.
           </p>
-          
-          <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            We appreciate your trust and look forward to showing you how Clearway AI can help.
+
+          <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: #1a1a1a;">Here's what happens next:</p>
+          <ol style="margin: 0 0 20px 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: #333;">
+            <li><strong>Application review</strong> — Our team reviews your business profile within 24–48 hours.</li>
+            <li><strong>Acceptance notification</strong> — Once approved, you'll receive an email with access to your client portal.</li>
+            <li><strong>Onboarding & go-live</strong> — We'll schedule your setup call and have your AI receptionist live within ~72 hours.</li>
+          </ol>
+
+          <p style="margin: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #555;">
+            We work with a select number of businesses at a time to ensure every setup is tailored to your specific workflows and industry needs. We appreciate your patience.
           </p>
           
           <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
