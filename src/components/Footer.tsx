@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, ArrowRight } from "lucide-react";
+import flagCH from "@/assets/flag-ch.png";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -98,7 +99,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="text-base">🇨🇭</span>
+                <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
                 Freienbach, Switzerland
               </li>
             </ul>
@@ -122,7 +123,7 @@ const Footer = () => {
               )}
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="text-lg">🇨🇭</span>
+              <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
               <span>Swiss precision. Built for US service businesses.</span>
             </div>
           </div>

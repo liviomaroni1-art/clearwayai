@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Clock } from "lucide-react";
+import flagCH from "@/assets/flag-ch.png";
 
 const FounderSection = () => {
   return (
@@ -20,7 +21,7 @@ const FounderSection = () => {
                   <span className="text-4xl font-bold text-primary/50">G</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="text-xl">🇨🇭</span>
+                  <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
                   <span className="text-muted-foreground">Swiss Engineering</span>
                 </div>
               </div>
@@ -40,7 +41,7 @@ const FounderSection = () => {
 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-gray-400 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-base">🇨🇭</span>
+                    <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
                     <span>Freienbach, Switzerland</span>
                   </div>
                   <div className="flex items-center gap-2">
