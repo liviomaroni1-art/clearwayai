@@ -2,7 +2,6 @@ import { Resend } from "https://esm.sh/resend@2.0.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-// Validate allowed origins
 const ALLOWED_ORIGINS = [
   'https://clearwayai.co',
   'https://www.clearwayai.co',
@@ -21,19 +20,14 @@ function isAllowedOrigin(origin: string | null): boolean {
 function getCorsHeaders(origin: string | null) {
   return {
     "Access-Control-Allow-Origin": isAllowedOrigin(origin) ? origin! : ALLOWED_ORIGINS[0],
-    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
   };
 }
 
-// HTML escape function to prevent XSS in emails
 const escapeHtml = (text: string): string => {
   if (!text) return '';
   const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
   };
   return text.replace(/[&<>"']/g, m => map[m]);
 };
@@ -49,14 +43,13 @@ interface ContactFormData {
   callVolume: string;
   preferredContact: string;
   message: string;
-  // Legacy fields for backward compatibility
+  formType?: "demo" | "signup"; // NEW: differentiates the two forms
   company?: string;
   estimatedLoss?: string;
   service?: string;
   term?: string;
 }
 
-// Simple in-memory rate limiting (resets on function restart)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW_MS = 60000;
 const RATE_LIMIT_MAX_REQUESTS = 3;
@@ -64,19 +57,158 @@ const RATE_LIMIT_MAX_REQUESTS = 3;
 function checkRateLimit(clientIp: string): boolean {
   const now = Date.now();
   const record = rateLimitMap.get(clientIp);
-  
   if (!record || now > record.resetTime) {
     rateLimitMap.set(clientIp, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
     return true;
   }
-  
-  if (record.count >= RATE_LIMIT_MAX_REQUESTS) {
-    return false;
-  }
-  
+  if (record.count >= RATE_LIMIT_MAX_REQUESTS) return false;
   record.count++;
   return true;
 }
+
+// ── Email templates ──
+
+function buildDemoSalesEmail(s: Record<string, string>) {
+  return {
+    subject: `New Demo Request: ${s.name} – ${s.businessName || s.businessType}`,
+    html: `
+      <h2>New Demo Request</h2>
+      <h3>Contact Details</h3>
+      <ul>
+        <li><strong>Name:</strong> ${s.name}</li>
+        <li><strong>Business:</strong> ${s.businessName || "Not provided"}</li>
+        <li><strong>Email:</strong> ${s.email}</li>
+        <li><strong>Phone:</strong> ${s.phone || "Not provided"}</li>
+        <li><strong>Website:</strong> ${s.website || "Not provided"}</li>
+      </ul>
+      <h3>Business Information</h3>
+      <ul>
+        <li><strong>Industry:</strong> ${s.businessType}</li>
+        <li><strong>Country / Time Zone:</strong> ${s.timezone || "Not provided"}</li>
+        <li><strong>Est. Calls/Month:</strong> ${s.callVolume || "Not provided"}</li>
+        <li><strong>Preferred Contact:</strong> ${s.preferredContact === "phone" ? "📞 Phone" : "📧 Email"}</li>
+      </ul>
+      <h3>Call Challenges</h3>
+      <p>${s.message}</p>
+      <hr>
+      <p><em>Submitted via the Clearway AI demo request form.</em></p>
+    `,
+  };
+}
+
+function buildSignupSalesEmail(s: Record<string, string>) {
+  return {
+    subject: `New Account Signup: ${s.name} – ${s.email}`,
+    html: `
+      <h2>New Account Signup</h2>
+      <h3>Account Details</h3>
+      <ul>
+        <li><strong>Name:</strong> ${s.name}</li>
+        <li><strong>Email:</strong> ${s.email}</li>
+        <li><strong>Business:</strong> ${s.businessName || "Not provided"}</li>
+        <li><strong>Industry:</strong> ${s.businessType || "Not provided"}</li>
+        <li><strong>Phone:</strong> ${s.phone || "Not provided"}</li>
+        <li><strong>Time Zone:</strong> ${s.timezone || "Not provided"}</li>
+      </ul>
+      <h3>Notes</h3>
+      <p>${s.message || "No additional notes"}</p>
+      <hr>
+      <p><em>Submitted via the Clearway AI account signup form.</em></p>
+    `,
+  };
+}
+
+function buildDemoConfirmationEmail(firstName: string, logoUrl: string) {
+  return {
+    subject: "Your Demo Request – Clearway AI",
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hey ${firstName},</p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
+          Thank you for requesting a demo of Clearway AI. We've received your details and will be in touch soon.
+        </p>
+
+        <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: #1a1a1a;">Here's what happens next:</p>
+        <ol style="margin: 0 0 20px 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: #333;">
+          <li><strong>Call flow review</strong> — We review your current call setup and identify gaps.</li>
+          <li><strong>15-minute walkthrough</strong> — You get a personalized demo tailored to your business.</li>
+          <li><strong>Go live in ~72 hours</strong> — No tech work on your end.</li>
+        </ol>
+
+        <p style="margin: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #555;">
+          In the meantime, you can call our AI live at <strong>+1 (888) 778-3091</strong> to hear it in action — no account needed.
+        </p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
+          This message was composed by Clearways AI Support Agent.
+        </p>
+        
+        <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
+          --<br>
+          <strong>Livio</strong><br>
+          <strong>Clearway AI</strong><br>
+          <em style="color: #666;">AI Receptionists That Never Miss a Call</em>
+        </p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
+          +41 76 471 46 78 (CH)<br>
+          <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
+          <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
+        </p>
+        
+        <img src="${logoUrl}" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 16px;" />
+      </div>
+    `,
+  };
+}
+
+function buildSignupConfirmationEmail(firstName: string, logoUrl: string) {
+  return {
+    subject: "Welcome to Clearway AI – Verify Your Email",
+    html: `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hey ${firstName},</p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
+          Welcome to Clearway AI! Your account has been created and is pending email verification.
+        </p>
+
+        <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: #1a1a1a;">Here's what happens next:</p>
+        <ol style="margin: 0 0 20px 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: #333;">
+          <li><strong>Verify your email</strong> — Check your inbox for a separate verification link.</li>
+          <li><strong>Access your portal</strong> — Once verified, sign in to your Client Hub dashboard.</li>
+          <li><strong>Get started</strong> — Explore your tools, settings, and call management features.</li>
+        </ol>
+
+        <p style="margin: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #555;">
+          If you have any questions or need help getting set up, don't hesitate to reach out.
+        </p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
+          This message was composed by Clearways AI Support Agent.
+        </p>
+        
+        <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
+          --<br>
+          <strong>Livio</strong><br>
+          <strong>Clearway AI</strong><br>
+          <em style="color: #666;">AI Receptionists That Never Miss a Call</em>
+        </p>
+        
+        <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
+          +41 76 471 46 78 (CH)<br>
+          <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
+          <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
+        </p>
+        
+        <img src="${logoUrl}" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 16px;" />
+      </div>
+    `,
+  };
+}
+
+// ── Main handler ──
 
 Deno.serve(async (req: Request): Promise<Response> => {
   const origin = req.headers.get('origin');
@@ -96,8 +228,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
 
     const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
-                     req.headers.get('x-real-ip') || 
-                     'unknown';
+                     req.headers.get('x-real-ip') || 'unknown';
     
     if (!checkRateLimit(clientIp)) {
       console.warn(`Rate limit exceeded for IP: ${clientIp}`);
@@ -108,9 +239,10 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
 
     const formData: ContactFormData = await req.json();
+    const formType = formData.formType || "demo"; // Default to demo for backward compat
 
     // Validate required fields
-    if (!formData.name || !formData.email || !formData.businessType || !formData.message) {
+    if (!formData.name || !formData.email) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
@@ -121,7 +253,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
     if (formData.name.length > 100 || 
         formData.email.length > 255 || 
         (formData.phone && formData.phone.length > 20) ||
-        formData.message.length > 1000 ||
+        (formData.message && formData.message.length > 1000) ||
         (formData.businessName && formData.businessName.length > 100) ||
         (formData.website && formData.website.length > 255)) {
       return new Response(
@@ -141,9 +273,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     // Validate website URL if provided
     if (formData.website) {
-      try {
-        new URL(formData.website);
-      } catch {
+      try { new URL(formData.website); } catch {
         return new Response(
           JSON.stringify({ error: "Invalid website URL" }),
           { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
@@ -152,120 +282,58 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
 
     // Escape all user inputs
-    const safeName = escapeHtml(formData.name);
-    const safeBusinessName = escapeHtml(formData.businessName || formData.company || "");
-    const safeEmail = escapeHtml(formData.email);
-    const safePhone = escapeHtml(formData.phone);
-    const safeWebsite = escapeHtml(formData.website);
-    const safeBusinessType = escapeHtml(formData.businessType);
-    const safeTimezone = escapeHtml(formData.timezone || "");
-    const safeCallVolume = escapeHtml(formData.callVolume || formData.estimatedLoss || "");
-    const safePreferredContact = escapeHtml(formData.preferredContact || "email");
-    const safeMessage = escapeHtml(formData.message).replace(/\n/g, "<br>");
+    const safe: Record<string, string> = {
+      name: escapeHtml(formData.name),
+      businessName: escapeHtml(formData.businessName || formData.company || ""),
+      email: escapeHtml(formData.email),
+      phone: escapeHtml(formData.phone || ""),
+      website: escapeHtml(formData.website || ""),
+      businessType: escapeHtml(formData.businessType || ""),
+      timezone: escapeHtml(formData.timezone || ""),
+      callVolume: escapeHtml(formData.callVolume || formData.estimatedLoss || ""),
+      preferredContact: escapeHtml(formData.preferredContact || "email"),
+      message: escapeHtml(formData.message || "").replace(/\n/g, "<br>"),
+    };
 
-    // Send notification email to sales team
+    const logoUrl = "https://clearwayai.co/email-logo.jpg";
+    const firstName = escapeHtml(formData.name.split(' ')[0]);
+
+    // Build emails based on form type
+    const salesEmail = formType === "signup"
+      ? buildSignupSalesEmail(safe)
+      : buildDemoSalesEmail(safe);
+
+    const confirmationEmail = formType === "signup"
+      ? buildSignupConfirmationEmail(firstName, logoUrl)
+      : buildDemoConfirmationEmail(firstName, logoUrl);
+
+    // Send sales notification
     const salesEmailResponse = await resend.emails.send({
       from: "Clearway AI <hello@clearwayai.co>",
       to: ["hello@clearwayai.co"],
-      subject: `New Demo Request: ${safeName} – ${safeBusinessName || safeBusinessType}`,
-      html: `
-        <h2>New Demo Request</h2>
-        
-        <h3>Contact Details</h3>
-        <ul>
-          <li><strong>Name:</strong> ${safeName}</li>
-          <li><strong>Business:</strong> ${safeBusinessName || "Not provided"}</li>
-          <li><strong>Email:</strong> ${safeEmail}</li>
-          <li><strong>Phone:</strong> ${safePhone || "Not provided"}</li>
-          <li><strong>Website:</strong> ${safeWebsite || "Not provided"}</li>
-        </ul>
-        
-        <h3>Business Information</h3>
-        <ul>
-          <li><strong>Industry:</strong> ${safeBusinessType}</li>
-          <li><strong>Country / Time Zone:</strong> ${safeTimezone || "Not provided"}</li>
-          <li><strong>Est. Calls/Month:</strong> ${safeCallVolume || "Not provided"}</li>
-          <li><strong>Preferred Contact:</strong> ${safePreferredContact === "phone" ? "📞 Phone" : "📧 Email"}</li>
-        </ul>
-        
-        <h3>Call Challenges</h3>
-        <p>${safeMessage}</p>
-        
-        <hr>
-        <p><em>Submitted via the Clearway AI demo request form.</em></p>
-      `,
+      subject: salesEmail.subject,
+      html: salesEmail.html,
     });
-
     console.log("Sales notification email sent:", salesEmailResponse);
 
-    // Send confirmation email to the customer
-    const logoUrl = "https://clearwayai.co/email-logo.jpg";
-    
+    // Send confirmation to customer
     const confirmationEmailResponse = await resend.emails.send({
       from: "Clearway AI <hello@clearwayai.co>",
       to: [formData.email],
-      subject: "Application Received – Clearway AI",
-      html: `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <p style="margin: 0 0 16px 0; font-size: 15px; color: #1a1a1a;">Hey ${escapeHtml(formData.name.split(' ')[0])},</p>
-          
-          <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            Thank you for applying to Clearway AI. We've received your application and it is now <strong>under review</strong>.
-          </p>
-
-          <p style="margin: 0 0 8px 0; font-size: 14px; font-weight: 600; color: #1a1a1a;">Here's what happens next:</p>
-          <ol style="margin: 0 0 20px 0; padding-left: 20px; font-size: 14px; line-height: 1.8; color: #333;">
-            <li><strong>Application review</strong> — Our team reviews your business profile within 24–48 hours.</li>
-            <li><strong>Acceptance notification</strong> — Once approved, you'll receive an email with access to your client portal.</li>
-            <li><strong>Onboarding & go-live</strong> — We'll schedule your setup call and have your AI receptionist live within ~72 hours.</li>
-          </ol>
-
-          <p style="margin: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #555;">
-            We work with a select number of businesses at a time to ensure every setup is tailored to your specific workflows and industry needs. We appreciate your patience.
-          </p>
-          
-          <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
-            This message was composed by Clearways AI Support Agent.
-          </p>
-          
-          <p style="margin: 0 0 24px 0; font-size: 15px; line-height: 1.6; color: #1a1a1a;">
-            --<br>
-            <strong>Livio</strong><br>
-            <strong>Clearway AI</strong><br>
-            <em style="color: #666;">AI Receptionists That Never Miss a Call</em>
-          </p>
-          
-          <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
-            +41 76 471 46 78 (CH)<br>
-            <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
-            <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
-          </p>
-          
-          <img src="${logoUrl}" alt="Clearway AI" style="height: 50px; width: auto; margin-top: 16px;" />
-        </div>
-      `,
+      subject: confirmationEmail.subject,
+      html: confirmationEmail.html,
     });
-
     console.log("Confirmation email sent:", confirmationEmailResponse);
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        message: "Emails sent successfully" 
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      JSON.stringify({ success: true, message: "Emails sent successfully" }),
+      { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
       JSON.stringify({ error: "Unable to send message. Please try again or contact us directly at hello@clearwayai.co" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 });

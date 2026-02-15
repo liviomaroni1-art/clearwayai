@@ -173,6 +173,7 @@ const Request = () => {
           callVolume: "",
           preferredContact: "email",
           message: `[Account Signup] ${formData.notes.trim() || "No additional notes"}`,
+          formType: "signup" as const,
         },
       });
 

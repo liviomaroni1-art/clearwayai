@@ -124,6 +124,7 @@ const Contact = () => {
         callVolume: formData.callVolume.trim(),
         preferredContact: "email",
         message: messageText,
+        formType: "demo" as const,
       };
 
       await supabase.functions.invoke("send-contact-email", { body: submitData });
