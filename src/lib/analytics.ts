@@ -6,6 +6,7 @@ type EventName =
   | "form_success"
   | "form_error"
   | "signup_step1_complete"
+  | "signup_step2_complete"
   | "demo_call_click"
   | "pricing_view"
   | "faq_expand"

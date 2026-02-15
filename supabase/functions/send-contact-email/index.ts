@@ -43,11 +43,12 @@ interface ContactFormData {
   callVolume: string;
   preferredContact: string;
   message: string;
-  formType?: "demo" | "signup"; // NEW: differentiates the two forms
+  formType?: "demo" | "signup";
   company?: string;
   estimatedLoss?: string;
   service?: string;
   term?: string;
+  plan?: string;
 }
 
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -109,6 +110,13 @@ function buildSignupSalesEmail(s: Record<string, string>) {
         <li><strong>Industry:</strong> ${s.businessType || "Not provided"}</li>
         <li><strong>Phone:</strong> ${s.phone || "Not provided"}</li>
         <li><strong>Time Zone:</strong> ${s.timezone || "Not provided"}</li>
+      </ul>
+      <h3>Service Preferences</h3>
+      <ul>
+        <li><strong>Service Interest:</strong> ${s.service || "Not selected"}</li>
+        <li><strong>Preferred Plan:</strong> ${s.plan || "Not selected"}</li>
+        <li><strong>Commitment Term:</strong> ${s.term || "Not selected"}</li>
+        <li><strong>Daily Call Volume:</strong> ${s.callVolume || "Not provided"}</li>
       </ul>
       <h3>Notes</h3>
       <p>${s.message || "No additional notes"}</p>
@@ -293,6 +301,9 @@ Deno.serve(async (req: Request): Promise<Response> => {
       callVolume: escapeHtml(formData.callVolume || formData.estimatedLoss || ""),
       preferredContact: escapeHtml(formData.preferredContact || "email"),
       message: escapeHtml(formData.message || "").replace(/\n/g, "<br>"),
+      service: escapeHtml(formData.service || ""),
+      plan: escapeHtml(formData.plan || ""),
+      term: escapeHtml(formData.term || ""),
     };
 
     const logoUrl = "https://clearwayai.co/email-logo.jpg";
