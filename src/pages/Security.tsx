@@ -142,7 +142,7 @@ const Security = () => {
               </div>
             </motion.section>
 
-            {/* Subprocessors */}
+            {/* Subprocessors & Vendors */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,30 +155,30 @@ const Security = () => {
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-foreground mb-1">Subprocessors & Vendors</h2>
-                  <p className="text-xs text-muted-foreground">Trusted partners we work with</p>
+                  <p className="text-xs text-muted-foreground">Third-party services that may support Clearway AI</p>
                 </div>
               </div>
               <div className="space-y-3 text-xs text-muted-foreground">
-                <p>We use carefully vetted vendors for specific functions:</p>
+                <p>We may use select third-party providers to help deliver specific functionality, such as:</p>
                 <ul className="space-y-1.5 ml-4">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Twilio:</strong> Telephony infrastructure (call routing, SMS)</span>
+                    <span><strong className="text-foreground">Telephony & messaging:</strong> providers like Twilio (call routing, SMS)</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Retell.ai:</strong> AI voice technology</span>
+                    <span><strong className="text-foreground">Voice AI:</strong> providers like Retell AI (voice/assistant capabilities)</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
-                    <span><strong className="text-foreground">Cloud providers:</strong> AWS/GCP for secure hosting</span>
+                    <span><strong className="text-foreground">Infrastructure:</strong> cloud providers such as AWS or Google Cloud (hosting and system operations)</span>
                   </li>
                 </ul>
-                <p className="text-[11px]">Full subprocessor list available upon request during onboarding.</p>
+                <p className="text-[11px]">The specific vendors used can vary by plan, region, and configuration. An up-to-date list can be provided upon request.</p>
               </div>
             </motion.section>
 
-            {/* Compliance */}
+            {/* Compliance Considerations */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -190,16 +190,23 @@ const Security = () => {
                   <Key className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-foreground mb-1">Compliance Positioning</h2>
-                  <p className="text-xs text-muted-foreground">Healthcare and regulated industries</p>
+                  <h2 className="text-lg font-bold text-foreground mb-1">Compliance Considerations</h2>
+                  <p className="text-xs text-muted-foreground">For regulated and healthcare use cases</p>
                 </div>
               </div>
               <div className="space-y-3 text-xs text-muted-foreground">
-                <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                  <p className="font-medium text-foreground mb-1">HIPAA / BAA</p>
-                  <p>Business Associate Agreements (BAA) are available on Enterprise plans. HIPAA-aligned workflows can be configured during onboarding based on your specific requirements.</p>
-                </div>
-                <p>For other compliance requirements (state-specific regulations, industry standards), we review your needs during the onboarding process and configure accordingly.</p>
+                <p>Requirements vary by industry and jurisdiction, and depend on how the product is configured and used.</p>
+                <ul className="space-y-1.5 ml-4">
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-foreground">Contract options:</strong> certain agreements (such as a BAA) may be available on specific plans, subject to review and mutual agreement</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-foreground">Configuration matters:</strong> workflows, routing, recording, and retention settings can be configured to support your internal requirements</span>
+                  </li>
+                </ul>
+                <p className="text-[11px] text-muted-foreground/70 italic mt-2">Customers are responsible for evaluating whether Clearway AI is appropriate for their compliance needs and for using the product in accordance with applicable laws and policies.</p>
               </div>
             </motion.section>
 
@@ -216,27 +223,26 @@ const Security = () => {
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-foreground mb-1">Customer Responsibilities</h2>
-                  <p className="text-xs text-muted-foreground">Shared security model</p>
+                  <p className="text-xs text-muted-foreground">Shared responsibility model</p>
                 </div>
               </div>
               <div className="space-y-3 text-xs text-muted-foreground">
-                <p>Security is a shared responsibility. Customers are responsible for:</p>
                 <ul className="space-y-1.5 ml-4">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <span>Obtaining appropriate consent for call recording (if enabled)</span>
+                    <span>Obtain required notices/consents (e.g., call recording where enabled)</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <span>Managing access credentials and team permissions</span>
+                    <span>Manage access credentials and team permissions</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <span>Configuring appropriate data retention policies</span>
+                    <span>Configure retention/recording preferences (where permitted)</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <span>Ensuring CRM/calendar integrations are properly secured</span>
+                    <span>Secure CRM/calendar integrations and connected accounts</span>
                   </li>
                 </ul>
               </div>
