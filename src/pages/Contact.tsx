@@ -75,6 +75,7 @@ const Contact = () => {
     businessName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     phone: "",
     website: "",
     businessType: "",
@@ -83,6 +84,17 @@ const Contact = () => {
     preferredContact: "email",
     message: "",
   });
+
+  const passwordChecks = [
+    { label: "At least 8 characters", test: (p: string) => p.length >= 8 },
+    { label: "One uppercase letter", test: (p: string) => /[A-Z]/.test(p) },
+    { label: "One lowercase letter", test: (p: string) => /[a-z]/.test(p) },
+    { label: "One number", test: (p: string) => /[0-9]/.test(p) },
+    { label: "One special character (@, !, #, etc.)", test: (p: string) => /[^A-Za-z0-9]/.test(p) },
+  ];
+
+  const allPasswordChecksPassed = passwordChecks.every(c => c.test(formData.password));
+  const passwordsMatch = formData.password === formData.confirmPassword && formData.confirmPassword.length > 0;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -107,7 +119,8 @@ const Contact = () => {
     const missing: string[] = [];
     if (!formData.name.trim()) missing.push("Full Name");
     if (!formData.email.trim()) missing.push("Work Email");
-    if (!formData.password || formData.password.length < 6) missing.push("Password (min. 6 characters)");
+    if (!allPasswordChecksPassed) missing.push("Password (must meet all requirements)");
+    if (!passwordsMatch) missing.push("Passwords must match");
     if (!formData.businessType) missing.push("Business Type");
 
     if (missing.length > 0) {
@@ -316,15 +329,46 @@ const Contact = () => {
                         id="password"
                         name="password"
                         type="password"
-                        placeholder="Min. 6 characters"
+                        placeholder="Min. 8 characters"
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        minLength={6}
+                        minLength={8}
                         maxLength={72}
                         className="bg-muted/50 border-border focus:border-primary h-9 text-sm"
                       />
-                      <p className="text-[10px] text-muted-foreground">For your client portal access once approved</p>
+                      {formData.password.length > 0 && (
+                        <ul className="mt-1.5 space-y-0.5">
+                          {passwordChecks.map((check) => (
+                            <li key={check.label} className={`flex items-center gap-1 text-[10px] ${check.test(formData.password) ? "text-primary" : "text-muted-foreground"}`}>
+                              <CheckCircle2 className={`w-3 h-3 ${check.test(formData.password) ? "text-primary" : "text-muted-foreground/40"}`} />
+                              {check.label}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="confirmPassword" className="text-xs">Confirm Password *</Label>
+                      <Input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        placeholder="Re-enter your password"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        required
+                        maxLength={72}
+                        className={`bg-muted/50 border-border focus:border-primary h-9 text-sm ${formData.confirmPassword.length > 0 ? (passwordsMatch ? "border-primary" : "border-destructive") : ""}`}
+                      />
+                      {formData.confirmPassword.length > 0 && !passwordsMatch && (
+                        <p className="text-[10px] text-destructive">Passwords don't match</p>
+                      )}
+                      {passwordsMatch && (
+                        <p className="text-[10px] text-primary flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" /> Passwords match
+                        </p>
+                      )}
                     </div>
                   </div>
 
