@@ -202,7 +202,8 @@ const Request = () => {
 
       if (signUpError) throw signUpError;
 
-      await supabase.functions.invoke("send-contact-email", {
+      // Fire-and-forget: don't block the UI waiting for emails/webhooks
+      supabase.functions.invoke("send-contact-email", {
         body: {
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -218,7 +219,7 @@ const Request = () => {
           service: formData.service,
           term: formData.commitment,
         },
-      });
+      }).catch((err) => console.warn("[signup] email/webhook failed (non-blocking):", err));
 
       trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "request" } });
       setSubmitted(true);
