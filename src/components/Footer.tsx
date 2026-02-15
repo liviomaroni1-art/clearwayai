@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Phone, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -98,8 +98,8 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                🇨🇭 Freienbach, Switzerland
+                <span className="text-base">🇨🇭</span>
+                Freienbach, Switzerland
               </li>
             </ul>
           </div>
