@@ -241,59 +241,127 @@ const Request = () => {
   // ── Success state ──
   if (submitted) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
         <Navbar />
-        <main className="pt-28 pb-20">
+        <main className="pt-28 pb-24 relative">
           <div className="container mx-auto px-4">
+            {/* Animated checkmark */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-lg mx-auto text-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-8"
             >
-              <div className="elevated-card p-8 md:p-10 rounded-2xl relative overflow-hidden border border-border/40 bg-card/80">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
+                className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center"
+              >
+                <CheckCircle2 className="w-10 h-10 text-primary" />
+              </motion.div>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+                Application <span className="gradient-text">Received</span>
+              </h1>
+              <p className="text-base text-muted-foreground max-w-md mx-auto">
+                Your account request for{" "}
+                <span className="text-foreground font-semibold">{formData.email}</span>{" "}
+                is now under review.
+              </p>
+            </motion.div>
+
+            {/* Timeline card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="max-w-2xl mx-auto"
+            >
+              <div className="elevated-card p-8 md:p-10 rounded-2xl relative overflow-hidden border border-border/40 bg-card/80 backdrop-blur-sm">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/[0.04] rounded-full blur-[60px] pointer-events-none" />
                 <div className="relative">
-                  <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                    <MailCheck className="w-6 h-6 text-primary" />
-                  </div>
-                  <h1 className="text-2xl font-bold text-foreground mb-2">Application Received</h1>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Your account request for <span className="text-foreground font-medium">{formData.email}</span> is now under review.
+                  <p className="text-[10px] font-semibold text-primary uppercase tracking-[0.2em] mb-6 text-center">
+                    What happens next
                   </p>
-                  
-                  <div className="text-left mb-6 space-y-3">
+
+                  <div className="space-y-0">
                     {[
-                      { step: "1", title: "Application Review", desc: "Our team reviews your request (typically 24–48 hours)." },
-                      { step: "2", title: "Approval Notification", desc: "You'll receive an email once your account is approved." },
-                      { step: "3", title: "Sign In & Get Started", desc: "Log in to your Client Hub and start using Clearway AI." },
-                    ].map((item) => (
-                      <div key={item.step} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                          <span className="text-[10px] font-bold text-primary">{item.step}</span>
+                      {
+                        step: "1",
+                        title: "Application Review",
+                        desc: "Our team reviews your request and verifies your business details. This typically takes 24–48 hours.",
+                        icon: Shield,
+                        active: true,
+                      },
+                      {
+                        step: "2",
+                        title: "Approval Notification",
+                        desc: "You'll receive an email once your account is approved and ready to access.",
+                        icon: MailCheck,
+                        active: false,
+                      },
+                      {
+                        step: "3",
+                        title: "Sign In & Get Started",
+                        desc: "Log in to your Client Hub, configure your AI receptionist, and start capturing every call.",
+                        icon: ArrowRight,
+                        active: false,
+                      },
+                    ].map((item, i) => (
+                      <div key={item.step} className="flex gap-4">
+                        {/* Vertical line + circle */}
+                        <div className="flex flex-col items-center">
+                          <div
+                            className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                              item.active
+                                ? "bg-primary/15 border-2 border-primary/40"
+                                : "bg-muted/40 border border-border/50"
+                            }`}
+                          >
+                            <item.icon
+                              className={`w-4 h-4 ${item.active ? "text-primary" : "text-muted-foreground/60"}`}
+                            />
+                          </div>
+                          {i < 2 && (
+                            <div className="w-px h-8 bg-border/40 my-1" />
+                          )}
                         </div>
-                        <div>
-                          <p className="text-xs font-semibold text-foreground">{item.title}</p>
-                          <p className="text-[11px] text-muted-foreground">{item.desc}</p>
+                        {/* Content */}
+                        <div className="pt-2 pb-4">
+                          <p className={`text-sm font-semibold mb-1 ${item.active ? "text-foreground" : "text-foreground/70"}`}>
+                            {item.title}
+                          </p>
+                          <p className="text-xs text-muted-foreground/80 leading-relaxed max-w-sm">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
                     ))}
                   </div>
-
-                  <Button variant="outline" size="default" className="w-full gap-2" asChild>
-                    <a href="mailto:hello@clearwayai.co">
-                      <Mail className="w-3.5 h-3.5" />
-                      Questions? Contact us
-                    </a>
-                  </Button>
                 </div>
               </div>
-              <div className="mt-5 flex items-center justify-center gap-1.5">
-                <Mail className="w-3 h-3 text-muted-foreground" />
-                <a href="mailto:hello@clearwayai.co" className="text-[11px] text-primary hover:underline">
-                  hello@clearwayai.co
-                </a>
-              </div>
+
+              {/* Bottom actions */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3"
+              >
+                <Button variant="outline" size="default" className="gap-2" asChild>
+                  <a href="mailto:hello@clearwayai.co">
+                    <Mail className="w-3.5 h-3.5" />
+                    Questions? Contact us
+                  </a>
+                </Button>
+                <Button variant="ghost" size="default" className="gap-2 text-muted-foreground" asChild>
+                  <a href="/">
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    Back to homepage
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
         </main>
