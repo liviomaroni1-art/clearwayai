@@ -202,9 +202,15 @@ const Request = () => {
 
       if (signUpError) throw signUpError;
 
-      // Fire-and-forget: don't block the UI waiting for emails/webhooks
-      supabase.functions.invoke("send-contact-email", {
-        body: {
+      // Fire-and-forget: direct fetch to edge function (more reliable than supabase.functions.invoke)
+      const edgeFnUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
+      fetch(edgeFnUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+        },
+        body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
           businessName: formData.businessName.trim(),
@@ -218,8 +224,10 @@ const Request = () => {
           formType: "signup" as const,
           service: formData.service,
           term: formData.commitment,
-        },
-      }).catch((err) => console.warn("[signup] email/webhook failed (non-blocking):", err));
+        }),
+      })
+        .then(res => console.log("[signup] edge function response:", res.status))
+        .catch((err) => console.warn("[signup] email/webhook failed (non-blocking):", err));
 
       trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "request" } });
       setSubmitted(true);

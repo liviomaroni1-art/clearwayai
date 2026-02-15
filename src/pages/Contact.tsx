@@ -127,7 +127,15 @@ const Contact = () => {
         formType: "demo" as const,
       };
 
-      await supabase.functions.invoke("send-contact-email", { body: submitData });
+      const edgeFnUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
+      await fetch(edgeFnUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+        },
+        body: JSON.stringify(submitData),
+      });
       trackEvent({ event_name: "form_success", event_category: "form", metadata: { form: "demo" } });
       setSubmitted(true);
     } catch (error: any) {
