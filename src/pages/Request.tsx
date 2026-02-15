@@ -14,8 +14,7 @@ import {
   ArrowRight,
   ArrowLeft,
   RotateCcw,
-  ChevronDown,
-  ChevronUp,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,6 +60,37 @@ const timezoneOptions = [
   "Other",
 ];
 
+const planOptions = [
+  "Solo Launch – $1,500/mo",
+  "Pro Practice – $2,500/mo",
+  "Team Pro – $3,500/mo",
+  "Concierge AI – $5,000+/mo",
+  "Not sure yet",
+];
+
+const serviceOptions = [
+  "AI Receptionist (24/7 phone answering)",
+  "Email Automation (Lead-to-deal)",
+  "Both",
+  "Not sure yet",
+];
+
+const commitmentOptions = [
+  "Monthly",
+  "1 Year (10% discount)",
+  "36 Months (20% discount)",
+  "Not sure yet",
+];
+
+const callVolumeOptions = [
+  "1–10 calls/day",
+  "11–30 calls/day",
+  "31–50 calls/day",
+  "51–100 calls/day",
+  "100+ calls/day",
+  "Not sure",
+];
+
 type PasswordStrength = "weak" | "ok" | "strong";
 
 const getPasswordStrength = (pw: string): PasswordStrength => {
@@ -82,7 +112,7 @@ const strengthConfig: Record<PasswordStrength, { label: string; color: string; w
 
 const Request = () => {
   const { toast } = useToast();
-  const [step, setStep] = useState<1 | 2>(1);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -98,6 +128,10 @@ const Request = () => {
     timezone: "",
     phone: "",
     notes: "",
+    plan: "",
+    service: "",
+    commitment: "",
+    callVolume: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -136,13 +170,17 @@ const Request = () => {
     setStep(2);
   }, [formData, toast]);
 
+  const handleStep2 = useCallback(() => {
+    trackEvent({ event_name: "signup_step2_complete", event_category: "form", metadata: { form: "request" } });
+    setStep(3);
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     trackEvent({ event_name: "form_submit", event_category: "form", metadata: { form: "request" } });
 
     try {
-      // Sign up user
       const { error: signUpError } = await supabase.auth.signUp({
         email: formData.email.trim(),
         password: formData.password,
@@ -154,13 +192,16 @@ const Request = () => {
             industry: formData.businessType,
             timezone: formData.timezone,
             phone: formData.phone.trim(),
+            plan: formData.plan,
+            service: formData.service,
+            commitment: formData.commitment,
+            call_volume: formData.callVolume,
           },
         },
       });
 
       if (signUpError) throw signUpError;
 
-      // Also send notification email to team
       await supabase.functions.invoke("send-contact-email", {
         body: {
           name: formData.name.trim(),
@@ -170,10 +211,12 @@ const Request = () => {
           phone: formData.phone.trim(),
           website: "",
           timezone: formData.timezone,
-          callVolume: "",
+          callVolume: formData.callVolume,
           preferredContact: "email",
-          message: `[Account Signup] ${formData.notes.trim() || "No additional notes"}`,
+          message: `[Account Signup]\nPlan: ${formData.plan || "Not selected"}\nService: ${formData.service || "Not selected"}\nCommitment: ${formData.commitment || "Not selected"}\nCall Volume: ${formData.callVolume || "Not provided"}\nNotes: ${formData.notes.trim() || "None"}`,
           formType: "signup" as const,
+          service: formData.service,
+          term: formData.commitment,
         },
       });
 
@@ -412,35 +455,31 @@ const Request = () => {
 
                   {/* Step indicator */}
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
-                          step === 1
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-primary/15 text-primary"
-                        }`}
-                      >
-                        {step > 1 ? <CheckCircle2 className="w-3.5 h-3.5" /> : "1"}
-                      </div>
-                      <span className={`text-xs font-medium ${step === 1 ? "text-foreground" : "text-muted-foreground/60"}`}>
-                        Account
-                      </span>
-                    </div>
-                    <div className="flex-1 h-px bg-border/40" />
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
-                          step === 2
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted/40 text-muted-foreground/50"
-                        }`}
-                      >
-                        2
-                      </div>
-                      <span className={`text-xs font-medium ${step === 2 ? "text-foreground" : "text-muted-foreground/50"}`}>
-                        Business details
-                      </span>
-                    </div>
+                    {[
+                      { num: 1, label: "Account" },
+                      { num: 2, label: "Business details" },
+                      { num: 3, label: "Service preferences" },
+                    ].map((s, i) => (
+                      <React.Fragment key={s.num}>
+                        {i > 0 && <div className="flex-1 h-px bg-border/40" />}
+                        <div className="flex items-center gap-2">
+                          <div
+                            className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                              step === s.num
+                                ? "bg-primary text-primary-foreground"
+                                : step > s.num
+                                ? "bg-primary/15 text-primary"
+                                : "bg-muted/40 text-muted-foreground/50"
+                            }`}
+                          >
+                            {step > s.num ? <CheckCircle2 className="w-3.5 h-3.5" /> : s.num}
+                          </div>
+                          <span className={`text-xs font-medium hidden sm:inline ${step === s.num ? "text-foreground" : "text-muted-foreground/50"}`}>
+                            {s.label}
+                          </span>
+                        </div>
+                      </React.Fragment>
+                    ))}
                   </div>
 
                   <form onSubmit={handleSubmit}>
@@ -508,7 +547,6 @@ const Request = () => {
                                 {showPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                               </button>
                             </div>
-                            {/* Strength bar */}
                             {formData.password && passwordStrength && (
                               <div className="space-y-1">
                                 <div className="h-1 bg-muted/60 rounded-full overflow-hidden">
@@ -679,6 +717,115 @@ const Request = () => {
                           {/* Buttons */}
                           <div className="flex flex-col gap-3 pt-1">
                             <Button
+                              type="button"
+                              onClick={handleStep2}
+                              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-4 rounded-xl btn-glow"
+                            >
+                              Continue
+                              <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="sm"
+                              className="gap-2 text-muted-foreground/60 hover:text-foreground"
+                              onClick={() => setStep(1)}
+                            >
+                              <ArrowLeft className="w-3.5 h-3.5" />
+                              Back to account details
+                            </Button>
+                          </div>
+                        </motion.div>
+                      )}
+
+                      {step === 3 && (
+                        <motion.div
+                          key="step3"
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 20 }}
+                          transition={{ duration: 0.2 }}
+                          className="space-y-4"
+                        >
+                          <p className="text-[11px] text-muted-foreground/60 -mt-1 mb-1">
+                            Optional — helps us recommend the right setup for you.
+                          </p>
+
+                          {/* Service + Plan */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Service Interest</Label>
+                              <Select
+                                value={formData.service}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, service: value }))}
+                              >
+                                <SelectTrigger className={inputClass}>
+                                  <SelectValue placeholder="Select service" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {serviceOptions.map((s) => (
+                                    <SelectItem key={s} value={s}>{s}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Preferred Plan</Label>
+                              <Select
+                                value={formData.plan}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, plan: value }))}
+                              >
+                                <SelectTrigger className={inputClass}>
+                                  <SelectValue placeholder="Select plan" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {planOptions.map((p) => (
+                                    <SelectItem key={p} value={p}>{p}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+
+                          {/* Commitment + Call Volume */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Commitment Term</Label>
+                              <Select
+                                value={formData.commitment}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, commitment: value }))}
+                              >
+                                <SelectTrigger className={inputClass}>
+                                  <SelectValue placeholder="Select term" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {commitmentOptions.map((c) => (
+                                    <SelectItem key={c} value={c}>{c}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div className="space-y-1.5">
+                              <Label className="text-xs font-medium text-foreground/80">Daily Call Volume</Label>
+                              <Select
+                                value={formData.callVolume}
+                                onValueChange={(value) => setFormData((prev) => ({ ...prev, callVolume: value }))}
+                              >
+                                <SelectTrigger className={inputClass}>
+                                  <SelectValue placeholder="Estimated calls/day" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-background border-border max-h-60">
+                                  {callVolumeOptions.map((v) => (
+                                    <SelectItem key={v} value={v}>{v}</SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+
+                          {/* Buttons */}
+                          <div className="flex flex-col gap-3 pt-1">
+                            <Button
                               type="submit"
                               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-sm py-4 rounded-xl btn-glow"
                               disabled={isSubmitting}
@@ -691,10 +838,10 @@ const Request = () => {
                               variant="ghost"
                               size="sm"
                               className="gap-2 text-muted-foreground/60 hover:text-foreground"
-                              onClick={() => setStep(1)}
+                              onClick={() => setStep(2)}
                             >
                               <ArrowLeft className="w-3.5 h-3.5" />
-                              Back to account details
+                              Back to business details
                             </Button>
                           </div>
 
