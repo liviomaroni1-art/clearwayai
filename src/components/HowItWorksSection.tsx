@@ -60,10 +60,10 @@ const HowItWorksSection = () => {
                 >
                   {/* Step number */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-card border border-primary/20 flex items-center justify-center relative z-10">
-                      <step.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    <div className="w-14 h-14 md:w-18 md:h-18 rounded-2xl bg-card border border-primary/20 flex items-center justify-center relative z-10 shadow-lg shadow-primary/5">
+                      <step.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                     </div>
-                    <span className="absolute -top-1.5 -right-1.5 text-[10px] font-bold text-primary-foreground bg-primary rounded-full w-5 h-5 flex items-center justify-center">
+                    <span className="absolute -top-2 -right-2 text-xs font-bold text-primary-foreground bg-primary rounded-full w-7 h-7 flex items-center justify-center shadow-md shadow-primary/30 ring-2 ring-background">
                       {index + 1}
                     </span>
                   </div>
