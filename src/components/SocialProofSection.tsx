@@ -14,11 +14,11 @@ const SocialProofSection = () => {
         >
           <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
             <MapPin className="w-3.5 h-3.5 text-destructive" />
-            <span className="text-muted-foreground">Built in Switzerland</span>
+            <span className="text-muted-foreground">🇨🇭 Built in Switzerland</span>
           </div>
           <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
             <Globe className="w-3.5 h-3.5 text-primary" />
-            <span className="text-muted-foreground">Designed for US service businesses</span>
+            <span className="text-muted-foreground">🇺🇸 Designed for US service businesses</span>
           </div>
         </motion.div>
 
