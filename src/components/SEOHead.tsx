@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "AI-Powered Business Automation | 24/7 AI Receptionist | Clearway AI",
-  description = "Never miss another call. Clearway AI's AI receptionist answers 24/7, books appointments, and updates your CRM. Built for clinics, law firms & service businesses. Typically live ~72h after onboarding.",
+  title = "Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering",
+  description = "Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -26,7 +26,7 @@ const SEOHead = ({
       <link rel="canonical" href={canonical} />
       
       {/* Keywords for SEO */}
-      <meta name="keywords" content="AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, call answering service" />
+      <meta name="keywords" content="Clearway AI, AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, AI phone answering" />
       
       {/* Robots */}
       {noIndex ? (

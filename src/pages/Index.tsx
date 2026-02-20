@@ -21,7 +21,10 @@ const StickyCTA = lazy(() => import("@/components/StickyCTA"));
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead />
+      <SEOHead 
+        title="Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering"
+        description="Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours."
+      />
       <StructuredData type="organization" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
