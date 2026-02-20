@@ -27,7 +27,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Brand name for SEO — visually blends with background */}
-          <span className="block text-[0px] leading-[0] text-background select-none" aria-hidden="true">Clearway AI</span>
+          <span className="sr-only">Clearway AI</span>
 
           {/* H1 */}
           <motion.h1
