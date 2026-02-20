@@ -27,6 +27,7 @@ const Index = () => {
       />
       <StructuredData type="website" />
       <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
       
