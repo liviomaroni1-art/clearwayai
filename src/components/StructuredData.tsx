@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "AI receptionist service that answers calls 24/7, books appointments, and syncs with your CRM. Swiss-built for US businesses.",
+  "description": "Clearway AI is an AI receptionist service that answers calls 24/7, books appointments, and syncs with your CRM. Swiss-built for US businesses.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
@@ -23,7 +23,9 @@ const organizationSchema = {
     "availableLanguage": ["English", "German", "French", "Spanish"]
   },
   "sameAs": [
-    "https://linkedin.com/company/clearwayai"
+    "https://linkedin.com/company/clearwayai",
+    "https://x.com/clearwayai",
+    "https://youtube.com/@clearwayai"
   ]
 };
 

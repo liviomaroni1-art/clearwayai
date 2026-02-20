@@ -33,7 +33,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-5 md:mb-6 text-foreground"
           >
-            Every Call Answered.
+            Clearway AI: Every Call Answered.
             <br />
             <span className="gradient-text">Every Lead Captured.</span>
           </motion.h1>

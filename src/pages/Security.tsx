@@ -4,10 +4,16 @@ import { motion } from "framer-motion";
 import { Shield, Lock, Server, Users, Mail, Database, Eye, Key, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import SEOHead from "@/components/SEOHead";
 
 const Security = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Security & Compliance — Clearway AI"
+        description="How Clearway AI protects your business data. SOC 2 compliant infrastructure, encryption in transit and at rest, Swiss data standards."
+        canonical="https://clearwayai.co/security"
+      />
       <Navbar />
       
       <main className="pt-24 pb-12">

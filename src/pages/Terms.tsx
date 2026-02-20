@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Terms of Service — Clearway AI"
+        description="Read the terms of service for Clearway AI's AI receptionist platform. Clear, fair terms for businesses."
+        canonical="https://clearwayai.co/terms"
+      />
       <Navbar />
       
       <main className="pt-24 pb-12">

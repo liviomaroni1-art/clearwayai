@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Privacy Policy — Clearway AI"
+        description="Learn how Clearway AI protects your data. No audio stored, summaries and transcripts only. Swiss-based privacy standards."
+        canonical="https://clearwayai.co/privacy"
+      />
       <Navbar />
       
       <main className="pt-24 pb-12">

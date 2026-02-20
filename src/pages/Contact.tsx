@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Send,
@@ -192,6 +193,11 @@ const Contact = () => {
   // ── Main page ──
   return (
     <div className="min-h-screen bg-background relative">
+      <SEOHead 
+        title="Contact Clearway AI — Book a Free Demo Call"
+        description="Get in touch with Clearway AI. Book a free 15-minute call flow review and see how our AI receptionist can answer your calls 24/7."
+        canonical="https://clearwayai.co/contact"
+      />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <Navbar />
 
