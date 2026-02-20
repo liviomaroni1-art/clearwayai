@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import StructuredData from "@/components/StructuredData";
 
 interface IndustryData {
   title: string;
@@ -15,6 +17,8 @@ interface IndustryData {
   roi: { metric: string; value: string }[];
   testimonial?: { quote: string; name: string; role: string };
   cta: string;
+  seoTitle: string;
+  seoDescription: string;
 }
 
 const industryData: Record<string, IndustryData> = {
@@ -45,7 +49,9 @@ const industryData: Record<string, IndustryData> = {
       name: "Dr. Sarah M.",
       role: "General Dentist, Texas"
     },
-    cta: "See How It Works for Dental"
+    cta: "See How It Works for Dental",
+    seoTitle: "AI Receptionist for Dental Practices",
+    seoDescription: "Clearway AI answers every dental patient call 24/7, books appointments, and confirms insurance automatically. Stop losing new patients to voicemail."
   },
   legal: {
     title: "AI Receptionist for Law Firms",
@@ -74,7 +80,9 @@ const industryData: Record<string, IndustryData> = {
       name: "James K.",
       role: "Managing Partner, PI Firm"
     },
-    cta: "See How It Works for Legal"
+    cta: "See How It Works for Legal",
+    seoTitle: "AI Receptionist for Law Firms",
+    seoDescription: "Clearway AI answers law firm calls 24/7, qualifies leads, and books consultations automatically. Never lose a client to voicemail again."
   },
   "home-services": {
     title: "AI Receptionist for Home Services",
@@ -103,7 +111,9 @@ const industryData: Record<string, IndustryData> = {
       name: "Mike R.",
       role: "Owner, HVAC Company"
     },
-    cta: "See How It Works for Home Services"
+    cta: "See How It Works for Home Services",
+    seoTitle: "AI Receptionist for Home Services & Contractors",
+    seoDescription: "Clearway AI answers plumbing, HVAC, and home service calls 24/7—even from the job site. Capture every emergency lead automatically."
   },
   medical: {
     title: "AI Receptionist for Medical Practices",
@@ -132,7 +142,9 @@ const industryData: Record<string, IndustryData> = {
       name: "Dr. Linda P.",
       role: "Family Medicine, Florida"
     },
-    cta: "See How It Works for Medical"
+    cta: "See How It Works for Medical",
+    seoTitle: "AI Receptionist for Medical Practices",
+    seoDescription: "Clearway AI answers patient calls 24/7, books appointments, and routes refill requests automatically. Reduce hold times and staff burnout."
   }
 };
 
@@ -156,6 +168,12 @@ const IndustryTemplate = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${data.seoTitle} | Clearway AI`}
+        description={data.seoDescription}
+        canonical={`https://clearwayai.co/industries/${industry}`}
+      />
+      <StructuredData type="organization" />
       <Navbar />
       
       {/* Hero Section */}
