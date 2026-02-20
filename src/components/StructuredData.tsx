@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 interface StructuredDataProps {
-  type: "organization" | "service" | "faq" | "localBusiness";
+  type: "organization" | "service" | "faq" | "localBusiness" | "website";
 }
 
 const organizationSchema = {
@@ -132,6 +132,20 @@ const localBusinessSchema = {
   }
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Clearway AI",
+  "alternateName": ["ClearwayAI", "Clearway AI Receptionist"],
+  "url": "https://clearwayai.co",
+  "description": "Clearway AI is an AI receptionist that answers business calls 24/7, books appointments, and logs leads to your CRM.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://clearwayai.co/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
 const StructuredData = ({ type }: StructuredDataProps) => {
   const getSchema = () => {
     switch (type) {
@@ -143,6 +157,8 @@ const StructuredData = ({ type }: StructuredDataProps) => {
         return faqSchema;
       case "localBusiness":
         return localBusinessSchema;
+      case "website":
+        return websiteSchema;
       default:
         return organizationSchema;
     }
