@@ -23,7 +23,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
-            <span className="text-primary font-medium">Trusted by clinics, law firms & service businesses</span>
+            <span className="text-primary font-medium">Trusted by plumbing, HVAC, electrical & service businesses</span>
           </motion.div>
 
           {/* Brand name for SEO — visually blends with background */}
@@ -48,7 +48,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
-            AI receptionist that answers calls, qualifies leads, and books appointments into your calendar — 24/7, in 30+ languages. Live in ~72 hours.
+            AI receptionist that answers calls 24/7 — even from the truck. Qualifies leads, triages emergencies, and books jobs into your calendar. Built for plumbing, HVAC & electrical companies. Live in ~72 hours.
           </motion.p>
 
           {/* CTA Block */}

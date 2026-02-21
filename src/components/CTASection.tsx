@@ -27,7 +27,7 @@ const CTASection = () => {
               <span className="gradient-text">Every Call?</span>
             </h2>
             <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-6 md:mb-8">
-              Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI fits your business.
+              Book a free 15-minute call flow review. We'll show you exactly how many leads you're losing — and how to capture every one.
             </p>
             
             <Button 

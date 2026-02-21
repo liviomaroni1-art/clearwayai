@@ -8,6 +8,7 @@ const SocialProofSection = lazy(() => import("@/components/SocialProofSection"))
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
 const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
 const CoreBenefitsSection = lazy(() => import("@/components/CoreBenefitsSection"));
+const HomeServicesCallout = lazy(() => import("@/components/HomeServicesCallout"));
 const IntegrationsSection = lazy(() => import("@/components/IntegrationsSection"));
 const SecurityComplianceSection = lazy(() => import("@/components/SecurityComplianceSection"));
 const CostCalculator = lazy(() => import("@/components/CostCalculator"));
@@ -38,6 +39,7 @@ const Index = () => {
         <HowItWorksSection />
         <CaseStudiesSection />
         <CoreBenefitsSection />
+        <HomeServicesCallout />
         <IntegrationsSection />
         <SecurityComplianceSection />
         <CostCalculator />

@@ -14,7 +14,7 @@ const steps = [
     icon: Calendar,
     step: "02",
     title: "AI books them in",
-    description: "Answers questions, qualifies the lead, books directly into your calendar.",
+    description: "Answers questions, triages emergencies, qualifies the lead, and books directly into your calendar.",
   },
   {
     icon: TrendingUp,
