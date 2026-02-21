@@ -14,24 +14,9 @@ const demoNumber = "+1 (888) 778-3091";
 /* ── DATA ── */
 
 const steps = [
-  {
-    icon: PhoneIncoming,
-    step: "01",
-    title: "Call Comes In",
-    description: "A homeowner calls — emergency or routine. The AI picks up in under 2 seconds, identifies the issue, and confirms they're in your service area.",
-  },
-  {
-    icon: ClipboardCheck,
-    step: "02",
-    title: "Qualified & Triaged",
-    description: "The AI determines urgency (burst pipe vs. quote request), collects address and job details, and routes accordingly.",
-  },
-  {
-    icon: Send,
-    step: "03",
-    title: "Job Booked & Dispatched",
-    description: "The appointment lands in your calendar. You get a text with caller name, address, job type, and urgency — ready to roll.",
-  },
+  { icon: PhoneIncoming, step: "01", title: "Call Comes In", description: "A homeowner calls — emergency or routine. The AI picks up in under 2 seconds, identifies the issue, and confirms they're in your service area." },
+  { icon: ClipboardCheck, step: "02", title: "Qualified & Triaged", description: "The AI determines urgency (burst pipe vs. quote request), collects address and job details, and routes accordingly." },
+  { icon: Send, step: "03", title: "Job Booked & Dispatched", description: "The appointment lands in your calendar. You get a text with caller name, address, job type, and urgency — ready to roll." },
 ];
 
 const benefits = [
@@ -49,10 +34,10 @@ const caseStudy = {
   role: "Mike R., Owner",
   quote: "I was missing 5–6 calls a day on the truck. In the first month with Clearway, we booked 22 more emergency jobs and my guys stopped complaining about the phone ringing during installs.",
   metrics: [
-    { label: "Missed calls/week", before: "28", after: "3", positive: true },
-    { label: "Emergency jobs booked/month", before: "34", after: "56", positive: true },
-    { label: "Front-desk phone hours/week", before: "20h", after: "5h", positive: true },
-    { label: "Monthly revenue from calls", before: "$15,300", after: "$25,200", positive: true },
+    { label: "Missed calls/week", before: "28", after: "3" },
+    { label: "Emergency jobs booked/month", before: "34", after: "56" },
+    { label: "Front-desk phone hours/week", before: "20h", after: "5h" },
+    { label: "Monthly revenue from calls", before: "$15,300", after: "$25,200" },
   ],
 };
 
@@ -94,14 +79,14 @@ const HomeServicesPage = () => {
       <Navbar />
 
       {/* ═══════════ HERO ═══════════ */}
-      <section className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden">
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-14 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs mb-5"
             >
               <span className="text-primary font-medium">Trusted by plumbing, HVAC & electrical companies across the US</span>
             </motion.div>
@@ -110,7 +95,7 @@ const HomeServicesPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-5 text-foreground"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3 text-foreground"
             >
               Every Emergency Call Answered.
               <br />
@@ -121,7 +106,7 @@ const HomeServicesPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-5 leading-relaxed"
             >
               AI receptionist that picks up in under 2 seconds — 24/7 — triages emergencies, and books jobs straight into your calendar. Even when you're on the truck. Live in ~72 hours.
             </motion.p>
@@ -130,22 +115,22 @@ const HomeServicesPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6"
+              className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 justify-center mb-4"
             >
-              <Button variant="hero" size="lg" className="w-full sm:w-auto min-h-[52px] btn-glow hover:scale-[1.03] transition-all px-8" asChild>
+              <Button variant="hero" size="default" className="w-full sm:w-auto min-h-[44px] btn-glow hover:scale-[1.03] transition-all px-6 text-sm" asChild>
                 <Link
                   to="/contact"
                   onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "home-services-hero", label: "Book Your Free Demo" } })}
                 >
                   Book Your Free Demo
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
               <a
                 href={`tel:${demoNumber.replace(/\s/g, "")}`}
-                className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[48px] border border-border/50 rounded-full px-6 hover:border-primary/30"
+                className="inline-flex items-center justify-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors min-h-[40px] border border-border/50 rounded-full px-5 hover:border-primary/30"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 Hear the AI Live: {demoNumber}
               </a>
             </motion.div>
@@ -154,11 +139,11 @@ const HomeServicesPage = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12"
+              className="flex flex-wrap justify-center gap-3 sm:gap-5 mb-8"
             >
               {["Live in ~72 hours", "No long-term contract", "Stop losing emergency calls to competitors"].map((item) => (
-                <span key={item} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                <span key={item} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                  <CheckCircle2 className="w-3 h-3 text-primary" />
                   {item}
                 </span>
               ))}
@@ -168,11 +153,11 @@ const HomeServicesPage = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap justify-center gap-3"
+              className="flex flex-wrap justify-center gap-2"
             >
               {trades.map((trade) => (
-                <div key={trade.name} className="flex items-center gap-2 px-4 py-2 bg-muted/30 rounded-full text-xs text-muted-foreground">
-                  <trade.icon className="w-3.5 h-3.5 text-primary" />
+                <div key={trade.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-muted/30 rounded-full text-[11px] text-muted-foreground">
+                  <trade.icon className="w-3 h-3 text-primary" />
                   {trade.name}
                 </div>
               ))}
@@ -182,20 +167,18 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ HOW IT WORKS ═══════════ */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-10 md:py-14 bg-card/30">
         <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               How It <span className="gradient-text">Works</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">From ring to booked job in under 60 seconds.</p>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">From ring to booked job in under 60 seconds.</p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto relative">
-            {/* Vertical line */}
-            <div className="hidden md:block absolute left-[39px] top-8 bottom-8 w-px bg-border" />
-
-            <div className="space-y-8">
+          <div className="max-w-2xl mx-auto relative">
+            <div className="hidden md:block absolute left-[27px] top-6 bottom-6 w-px bg-border" />
+            <div className="space-y-5">
               {steps.map((step, i) => (
                 <motion.div
                   key={step.step}
@@ -203,17 +186,17 @@ const HomeServicesPage = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15 }}
-                  className="flex gap-5 items-start"
+                  className="flex gap-4 items-start"
                 >
-                  <div className="w-[78px] flex-shrink-0 flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-primary" />
+                  <div className="w-[54px] flex-shrink-0 flex flex-col items-center">
+                    <div className="w-11 h-11 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <step.icon className="w-5 h-5 text-primary" />
                     </div>
                   </div>
-                  <div className="pt-2">
-                    <span className="text-xs text-primary font-semibold tracking-widest uppercase">Step {step.step}</span>
-                    <h3 className="text-lg font-bold text-foreground mt-1">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{step.description}</p>
+                  <div className="pt-1">
+                    <span className="text-[10px] text-primary font-semibold tracking-widest uppercase">Step {step.step}</span>
+                    <h3 className="text-sm font-bold text-foreground mt-0.5">{step.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{step.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -223,16 +206,16 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ BENEFITS ═══════════ */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               What You Actually <span className="gradient-text">Get</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">Your AI dispatcher — always on, never on break.</p>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">Your AI dispatcher — always on, never on break.</p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
             {benefits.map((b, i) => (
               <motion.div
                 key={b.title}
@@ -240,13 +223,13 @@ const HomeServicesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="glass-card p-5 rounded-xl hover:border-primary/30 transition-colors"
+                className="glass-card p-4 rounded-xl hover:border-primary/30 transition-colors"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                  <b.icon className="w-5 h-5 text-primary" />
+                <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+                  <b.icon className="w-4 h-4 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground text-sm mb-1">{b.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{b.description}</p>
+                <h3 className="font-semibold text-foreground text-xs mb-0.5">{b.title}</h3>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">{b.description}</p>
               </motion.div>
             ))}
           </div>
@@ -254,10 +237,10 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ CASE STUDY ═══════════ */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-10 md:py-14 bg-card/30">
         <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               Real <span className="gradient-text">Results</span>
             </h2>
           </motion.div>
@@ -266,36 +249,34 @@ const HomeServicesPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-10"
+            className="max-w-3xl mx-auto glass-card rounded-xl p-5 md:p-8"
           >
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Quote side */}
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
-                  <span className="px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium">{caseStudy.company}</span>
+                <div className="flex items-center gap-2 text-[11px] text-muted-foreground mb-3">
+                  <span className="px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium">{caseStudy.company}</span>
                   <span>· {caseStudy.location}</span>
                 </div>
-                <MessageSquare className="w-5 h-5 text-primary/40 mb-3" />
-                <blockquote className="text-base md:text-lg font-medium text-foreground leading-relaxed mb-4">
+                <MessageSquare className="w-4 h-4 text-primary/40 mb-2" />
+                <blockquote className="text-sm font-medium text-foreground leading-relaxed mb-3">
                   "{caseStudy.quote}"
                 </blockquote>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   <span className="font-semibold text-foreground">{caseStudy.role}</span>
                 </p>
               </div>
 
-              {/* Metrics side */}
-              <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-primary" />
+              <div className="space-y-2.5">
+                <h3 className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                  <BarChart3 className="w-3.5 h-3.5 text-primary" />
                   Key Results
                 </h3>
                 {caseStudy.metrics.map((m) => (
-                  <div key={m.label} className="flex items-center justify-between py-2.5 border-b border-border/50 last:border-0">
-                    <span className="text-sm text-muted-foreground">{m.label}</span>
-                    <div className="flex items-center gap-3 text-sm">
+                  <div key={m.label} className="flex items-center justify-between py-1.5 border-b border-border/50 last:border-0">
+                    <span className="text-xs text-muted-foreground">{m.label}</span>
+                    <div className="flex items-center gap-2 text-xs">
                       <span className="line-through text-muted-foreground/60">{m.before}</span>
-                      <ArrowRight className="w-3 h-3 text-primary" />
+                      <ArrowRight className="w-2.5 h-2.5 text-primary" />
                       <span className="font-semibold text-primary">{m.after}</span>
                     </div>
                   </div>
@@ -307,16 +288,16 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ INTEGRATIONS ═══════════ */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               Works With Your <span className="gradient-text">Existing Tools</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">We plug into what you already use — no rip-and-replace.</p>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">We plug into what you already use — no rip-and-replace.</p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
             {integrations.map((name, i) => (
               <motion.div
                 key={name}
@@ -324,7 +305,7 @@ const HomeServicesPage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="px-5 py-2.5 bg-muted/30 border border-border/50 rounded-full text-sm text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors"
+                className="px-3.5 py-1.5 bg-muted/30 border border-border/50 rounded-full text-xs text-muted-foreground hover:border-primary/30 hover:text-foreground transition-colors"
               >
                 {name}
               </motion.div>
@@ -334,21 +315,21 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ FAQ ═══════════ */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-10 md:py-14 bg-card/30">
         <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-foreground">
               Common <span className="gradient-text">Questions</span>
             </h2>
           </motion.div>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, i) => (
                 <AccordionItem key={i} value={`item-${i}`}>
-                  <AccordionTrigger className="text-left text-sm md:text-base text-foreground hover:text-primary">
+                  <AccordionTrigger className="text-left text-xs md:text-sm text-foreground hover:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground">
+                  <AccordionContent className="text-xs text-muted-foreground">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -359,38 +340,38 @@ const HomeServicesPage = () => {
       </section>
 
       {/* ═══════════ FINAL CTA ═══════════ */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card rounded-3xl p-8 md:p-14 text-center max-w-3xl mx-auto relative overflow-hidden"
+            className="glass-card rounded-2xl p-6 md:p-10 text-center max-w-2xl mx-auto relative overflow-hidden"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-primary/15 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-24 bg-primary/15 rounded-full blur-3xl" />
             <div className="relative z-10">
-              <div className="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                <Clock className="w-7 h-7 text-primary" />
+              <div className="w-11 h-11 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-foreground">
                 Live in ~72 Hours
               </h2>
-              <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              <p className="text-sm text-muted-foreground mb-6 max-w-md mx-auto">
                 Book a free 15-minute call flow review. We'll map how calls hit your business and show you exactly where leads are slipping through.
               </p>
-              <Button variant="hero" size="lg" className="min-h-[48px] md:min-h-[56px] btn-glow hover:scale-105 transition-all" asChild>
+              <Button variant="hero" size="default" className="min-h-[44px] btn-glow hover:scale-105 transition-all text-sm" asChild>
                 <Link
                   to="/contact"
                   onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "home-services-bottom", label: "Book Your Free Demo" } })}
                 >
                   Book Your Free Demo
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <div className="flex flex-wrap gap-3 mt-6 justify-center">
+              <div className="flex flex-wrap gap-3 mt-5 justify-center">
                 {["15 minutes", "No obligation", "We reply within 24–48h"].map((p) => (
-                  <div key={p} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <div key={p} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                     <span>{p}</span>
                   </div>
                 ))}
