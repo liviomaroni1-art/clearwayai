@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+
 import logo from "@/assets/clearway-logo-new.png";
 
 const Navbar = () => {
@@ -76,23 +76,6 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-6">
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a
-                    href="https://hub-clearwayai.com/login"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-                  >
-                    Client Login
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>For existing customers</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
             <Button 
               variant="hero" 
               size="default" 
@@ -136,15 +119,6 @@ const Navbar = () => {
                     </a>
                   )
                 ))}
-                <a
-                  href="https://hub-clearwayai.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium text-sm"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Client Login
-                </a>
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Book a Demo
