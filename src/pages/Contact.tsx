@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Send,
   Mail,
-  Phone,
-  ChevronDown,
-  ChevronUp,
   Quote,
   MessageSquare,
   PhoneCall,
@@ -68,7 +65,7 @@ const timezoneOptions = [
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  
   const [submitted, setSubmitted] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<string[]>([]);
   const [formData, setFormData] = useState({
@@ -379,98 +376,81 @@ const Contact = () => {
                       />
                     </div>
 
-                    {/* Optional details */}
-                    <button
-                      type="button"
-                      onClick={() => setShowDetails(!showDetails)}
-                      className="flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-foreground transition-colors"
-                    >
-                      {showDetails ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                      Add more details for a better demo
-                    </button>
+                    {/* Additional details */}
+                    <div className="space-y-1.5 pt-2">
+                      <p className="text-xs font-medium text-foreground/80">Additional details <span className="text-muted-foreground/50 font-normal">(optional — helps us prepare your demo)</span></p>
+                    </div>
 
-                    <AnimatePresence>
-                      {showDetails && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="space-y-4"
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="businessName" className="text-xs font-medium text-foreground/80">Business Name</Label>
+                        <Input
+                          id="businessName"
+                          name="businessName"
+                          placeholder="Smile Dental Clinic"
+                          value={formData.businessName}
+                          onChange={handleChange}
+                          maxLength={100}
+                          className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="website" className="text-xs font-medium text-foreground/80">Website</Label>
+                        <Input
+                          id="website"
+                          name="website"
+                          type="url"
+                          placeholder="https://yoursite.com"
+                          value={formData.website}
+                          onChange={handleChange}
+                          maxLength={255}
+                          className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="phone" className="text-xs font-medium text-foreground/80">Phone</Label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          placeholder="+1 (555) 000-0000"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          maxLength={20}
+                          className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label className="text-xs font-medium text-foreground/80">Time Zone</Label>
+                        <Select
+                          value={formData.timezone}
+                          onValueChange={(value) => setFormData((prev) => ({ ...prev, timezone: value }))}
                         >
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="space-y-1.5">
-                              <Label htmlFor="businessName" className="text-xs font-medium text-foreground/80">Business Name</Label>
-                              <Input
-                                id="businessName"
-                                name="businessName"
-                                placeholder="Smile Dental Clinic"
-                                value={formData.businessName}
-                                onChange={handleChange}
-                                maxLength={100}
-                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
-                              />
-                            </div>
-                            <div className="space-y-1.5">
-                              <Label htmlFor="website" className="text-xs font-medium text-foreground/80">Website</Label>
-                              <Input
-                                id="website"
-                                name="website"
-                                type="url"
-                                placeholder="https://yoursite.com"
-                                value={formData.website}
-                                onChange={handleChange}
-                                maxLength={255}
-                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
-                              />
-                            </div>
-                          </div>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="space-y-1.5">
-                              <Label htmlFor="phone" className="text-xs font-medium text-foreground/80">Phone</Label>
-                              <Input
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                placeholder="+1 (555) 000-0000"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                maxLength={20}
-                                 className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
-                              />
-                            </div>
-                            <div className="space-y-1.5">
-                              <Label className="text-xs font-medium text-foreground/80">Time Zone</Label>
-                              <Select
-                                value={formData.timezone}
-                                onValueChange={(value) => setFormData((prev) => ({ ...prev, timezone: value }))}
-                              >
-                                <SelectTrigger className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm">
-                                  <SelectValue placeholder="Auto-detected if blank" />
-                                </SelectTrigger>
-                                <SelectContent className="bg-background border-border max-h-60">
-                                  {timezoneOptions.map((tz) => (
-                                    <SelectItem key={tz} value={tz}>{tz}</SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
-                            </div>
-                          </div>
-                          <div className="space-y-1.5">
-                            <Label htmlFor="callVolume" className="text-xs font-medium text-foreground/80">Est. Calls / Month</Label>
-                            <Input
-                              id="callVolume"
-                              name="callVolume"
-                              placeholder="e.g. 200-400"
-                              value={formData.callVolume}
-                              onChange={handleChange}
-                              maxLength={50}
-                              className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
-                            />
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          <SelectTrigger className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm">
+                            <SelectValue placeholder="Auto-detected if blank" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-background border-border max-h-60">
+                            {timezoneOptions.map((tz) => (
+                              <SelectItem key={tz} value={tz}>{tz}</SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    <div className="space-y-1.5">
+                      <Label htmlFor="callVolume" className="text-xs font-medium text-foreground/80">Est. Calls / Month</Label>
+                      <Input
+                        id="callVolume"
+                        name="callVolume"
+                        placeholder="e.g. 200-400"
+                        value={formData.callVolume}
+                        onChange={handleChange}
+                        maxLength={50}
+                        className="bg-muted/60 border-border/50 focus:border-primary h-9 text-sm"
+                      />
+                    </div>
 
                      {/* Submit */}
                      <div className="space-y-2.5 pt-1">
