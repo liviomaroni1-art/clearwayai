@@ -110,7 +110,7 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container mx-auto px-4 md:px-6 py-4 md:py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center text-center gap-2">
             <p className="text-sm text-muted-foreground group">
               © {new Date().getFullYear()} Clearway AI. All rights reserved.
               {isAdmin && (
