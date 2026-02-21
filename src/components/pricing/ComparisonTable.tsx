@@ -36,15 +36,15 @@ const ComparisonTable = () => {
         Compare <span className="gradient-text">Plans</span>
       </h3>
       
-      <div className="overflow-x-auto -mx-4 px-4">
-        <table className="w-full min-w-[500px]">
+      <div className="px-1 md:px-0">
+        <table className="w-full table-fixed">
           <thead>
             <tr className="border-b border-border/50">
-              <th className="text-left text-[11px] md:text-sm font-medium text-muted-foreground py-1 md:py-2.5 pr-2 md:pr-4 w-1/3">Feature</th>
+              <th className="text-left text-[10px] md:text-sm font-medium text-muted-foreground py-1 md:py-2.5 pr-1 md:pr-4 w-[36%] md:w-1/3">Feature</th>
               {plans.map((plan) => (
-                <th key={plan.key} className="text-center text-[11px] md:text-sm font-semibold text-foreground py-1 md:py-2.5 px-1 md:px-2">
-                  <div>{plan.name}</div>
-                  <div className="text-[9px] md:text-xs font-normal text-muted-foreground">{plan.price}/mo</div>
+                <th key={plan.key} className="text-center text-[10px] md:text-sm font-semibold text-foreground py-1 md:py-2.5 px-0.5 md:px-2">
+                  <div className="truncate">{plan.name}</div>
+                  <div className="text-[8px] md:text-xs font-normal text-muted-foreground truncate">{plan.price}</div>
                 </th>
               ))}
             </tr>
@@ -52,9 +52,9 @@ const ComparisonTable = () => {
           <tbody>
             {features.map((feature, index) => (
               <tr key={feature.name} className={`border-b border-border/20 ${index % 2 === 0 ? 'bg-muted/5' : ''}`}>
-                <td className="text-[11px] md:text-sm text-muted-foreground py-px md:py-2 pr-2 md:pr-4 leading-tight">{feature.name}</td>
+                <td className="text-[10px] md:text-sm text-muted-foreground py-px md:py-2 pr-1 md:pr-4 leading-tight">{feature.name}</td>
                 {(["solo", "pro", "team", "concierge"] as const).map((planKey) => (
-                  <td key={planKey} className="text-center py-px md:py-2 px-1 md:px-2">
+                  <td key={planKey} className="text-center py-px md:py-2 px-0.5 md:px-2">
                     {feature[planKey] ? (
                       <Check className="w-3 h-3 md:w-4 md:h-4 text-primary mx-auto" />
                     ) : (
