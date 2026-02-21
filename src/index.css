@@ -120,7 +120,7 @@
   }
 
   html {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   /* Keep these sections at original 12px scale */
@@ -172,7 +172,7 @@
 
   /* Calm section spacing */
   .section-calm {
-    @apply py-24 md:py-32;
+    @apply py-16 md:py-24;
   }
 
   /* Empathetic text transitions */
