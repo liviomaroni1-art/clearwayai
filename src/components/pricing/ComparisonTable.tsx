@@ -30,9 +30,9 @@ const ComparisonTable = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="max-w-4xl mx-auto mt-2 md:mt-4 comparison-table-wrapper"
+      className="max-w-4xl mx-auto mt-2 md:mt-8 comparison-table-wrapper"
     >
-      <h3 className="text-base md:text-lg font-bold text-center mb-1 text-foreground">
+      <h3 className="text-base md:text-xl font-bold text-center mb-1 md:mb-4 text-foreground">
         Compare <span className="gradient-text">Plans</span>
       </h3>
       
@@ -40,11 +40,11 @@ const ComparisonTable = () => {
         <table className="w-full min-w-[500px]">
           <thead>
             <tr className="border-b border-border/50">
-              <th className="text-left text-[11px] font-medium text-muted-foreground py-1 pr-2 w-1/3">Feature</th>
+              <th className="text-left text-[11px] md:text-sm font-medium text-muted-foreground py-1 md:py-2.5 pr-2 md:pr-4 w-1/3">Feature</th>
               {plans.map((plan) => (
-                <th key={plan.key} className="text-center text-[11px] font-semibold text-foreground py-1 px-1">
+                <th key={plan.key} className="text-center text-[11px] md:text-sm font-semibold text-foreground py-1 md:py-2.5 px-1 md:px-2">
                   <div>{plan.name}</div>
-                  <div className="text-[9px] font-normal text-muted-foreground">{plan.price}/mo</div>
+                  <div className="text-[9px] md:text-xs font-normal text-muted-foreground">{plan.price}/mo</div>
                 </th>
               ))}
             </tr>
@@ -52,13 +52,13 @@ const ComparisonTable = () => {
           <tbody>
             {features.map((feature, index) => (
               <tr key={feature.name} className={`border-b border-border/20 ${index % 2 === 0 ? 'bg-muted/5' : ''}`}>
-                <td className="text-[11px] text-muted-foreground py-px pr-2 leading-tight">{feature.name}</td>
+                <td className="text-[11px] md:text-sm text-muted-foreground py-px md:py-2 pr-2 md:pr-4 leading-tight">{feature.name}</td>
                 {(["solo", "pro", "team", "concierge"] as const).map((planKey) => (
-                  <td key={planKey} className="text-center py-px px-1">
+                  <td key={planKey} className="text-center py-px md:py-2 px-1 md:px-2">
                     {feature[planKey] ? (
-                      <Check className="w-3 h-3 text-primary mx-auto" />
+                      <Check className="w-3 h-3 md:w-4 md:h-4 text-primary mx-auto" />
                     ) : (
-                      <Minus className="w-3 h-3 text-muted-foreground/30 mx-auto" />
+                      <Minus className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground/30 mx-auto" />
                     )}
                   </td>
                 ))}

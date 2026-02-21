@@ -9,8 +9,8 @@ const HowToChoose: React.FC = () => {
       viewport={{ once: true }}
       className="max-w-3xl mx-auto text-center mb-12"
     >
-      <h3 className="text-xl font-bold text-foreground mb-4">How to Choose</h3>
-      <div className="text-left bg-card/50 border border-border rounded-2xl px-6 py-5 space-y-2 text-sm text-muted-foreground">
+      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">How to Choose</h3>
+      <div className="text-left bg-card/50 border border-border rounded-2xl px-6 py-5 space-y-2 md:space-y-3 text-sm md:text-base text-muted-foreground">
         <p>
           → <strong className="text-foreground">Solo Launch</strong> if you're a solo provider or small business that needs reliable 24/7 call coverage.
         </p>
