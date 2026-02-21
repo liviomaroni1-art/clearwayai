@@ -30,9 +30,9 @@ const ComparisonTable = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="max-w-4xl mx-auto mt-6 md:mt-10 comparison-table-wrapper"
+      className="max-w-4xl mx-auto mt-2 md:mt-4 comparison-table-wrapper"
     >
-      <h3 className="text-base md:text-lg font-bold text-center mb-2 text-foreground">
+      <h3 className="text-base md:text-lg font-bold text-center mb-1 text-foreground">
         Compare <span className="gradient-text">Plans</span>
       </h3>
       
@@ -52,9 +52,9 @@ const ComparisonTable = () => {
           <tbody>
             {features.map((feature, index) => (
               <tr key={feature.name} className={`border-b border-border/20 ${index % 2 === 0 ? 'bg-muted/5' : ''}`}>
-                <td className="text-[11px] text-muted-foreground py-0.5 pr-2">{feature.name}</td>
+                <td className="text-[11px] text-muted-foreground py-px pr-2 leading-tight">{feature.name}</td>
                 {(["solo", "pro", "team", "concierge"] as const).map((planKey) => (
-                  <td key={planKey} className="text-center py-0.5 px-1">
+                  <td key={planKey} className="text-center py-px px-1">
                     {feature[planKey] ? (
                       <Check className="w-3 h-3 text-primary mx-auto" />
                     ) : (
