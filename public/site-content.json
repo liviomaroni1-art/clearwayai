@@ -1,0 +1,547 @@
+{
+  "brand": {
+    "name": "Clearway AI",
+    "tagline": "AI-powered phone reception that captures every lead, 24/7",
+    "description": "Swiss precision, built for US service businesses",
+    "website": "https://clearwayai.co",
+    "email": "hello@clearwayai.co",
+    "phone": "+1 (888) 778-3091",
+    "location": "Freienbach, Switzerland",
+    "clientHub": "https://hub-clearwayai.com/login"
+  },
+
+  "pages": {
+    "home": {
+      "path": "/",
+      "seo": {
+        "title": "Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering",
+        "description": "Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours.",
+        "canonical": "https://clearwayai.co",
+        "keywords": "Clearway AI, AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, AI phone answering"
+      },
+      "sections": {
+        "hero": {
+          "trustBadge": "Trusted by clinics, law firms & service businesses",
+          "headline": "Every Call Answered. Every Lead Captured.",
+          "subheadline": "AI receptionist that answers calls, qualifies leads, and books appointments into your calendar — 24/7, in 30+ languages. Live in ~72 hours.",
+          "cta": {
+            "primary": "Book Your Free Demo",
+            "secondary": "Hear the AI live: +1 (888) 778-3091"
+          },
+          "trustMicrocopy": [
+            "15-min demo, no obligation",
+            "Live in ~72 hours",
+            "No long-term contract"
+          ],
+          "stats": [
+            { "value": "<2s", "label": "Average pickup" },
+            { "value": "24/7", "label": "Always answering" },
+            { "value": "30+", "label": "Languages" },
+            { "value": "99.9%", "label": "Uptime target" }
+          ]
+        },
+
+        "socialProof": {
+          "badges": [
+            "Built in Switzerland",
+            "Designed for US service businesses"
+          ],
+          "poweredBy": ["Retell.ai", "Twilio", "Google Calendar", "HubSpot", "Salesforce", "n8n"]
+        },
+
+        "howItWorks": {
+          "heading": "How It Works",
+          "subheading": "From ring to booked appointment — without you lifting a finger.",
+          "steps": [
+            {
+              "step": 1,
+              "title": "Client calls you",
+              "description": "AI picks up in under 2 seconds — day or night. No hold music, no voicemail."
+            },
+            {
+              "step": 2,
+              "title": "AI books them in",
+              "description": "Answers questions, qualifies the lead, books directly into your calendar."
+            },
+            {
+              "step": 3,
+              "title": "You get a full summary",
+              "description": "Call summary, transcript, and CRM entry — ready before you call back."
+            }
+          ],
+          "footnote": "Most clients go live ~72 hours after onboarding."
+        },
+
+        "caseStudies": {
+          "heading": "Real Results From Real Businesses",
+          "subheading": "See what happens when every call gets answered.",
+          "studies": [
+            {
+              "industry": "Dental Practice",
+              "location": "Austin, TX",
+              "role": "Practice Owner",
+              "quote": "We stopped losing new patients to voicemail. The AI handles after-hours calls we'd never get before.",
+              "metrics": [
+                { "label": "Calls answered", "before": "58%", "after": "99%" },
+                { "label": "Monthly bookings", "before": "—", "after": "+38%" },
+                { "label": "Staff hours saved", "before": "—", "after": "15h/week" }
+              ]
+            },
+            {
+              "industry": "Immigration Law Firm",
+              "location": "Miami, FL",
+              "role": "Managing Partner",
+              "quote": "Our intake process runs itself now. After-hours leads that used to go to competitors are ours.",
+              "metrics": [
+                { "label": "After-hours leads", "before": "—", "after": "+62%" },
+                { "label": "Response time", "before": "4h avg", "after": "<2s" },
+                { "label": "Intake automated", "before": "—", "after": "80%" }
+              ]
+            }
+          ]
+        },
+
+        "coreBenefits": {
+          "heading": "What You Actually Get",
+          "subheading": "Less admin, more revenue, zero extra headcount.",
+          "benefits": [
+            {
+              "title": "Stop losing callers to voicemail",
+              "description": "Every call answered in under 2 seconds — day, night, weekends, holidays."
+            },
+            {
+              "title": "Your calendar fills itself",
+              "description": "AI books appointments into Google Calendar or Outlook. No back-and-forth."
+            },
+            {
+              "title": "Only talk to qualified leads",
+              "description": "AI asks your screening questions and scores intent before you call back."
+            },
+            {
+              "title": "Every call logged automatically",
+              "description": "Summaries, transcripts, and tags pushed to HubSpot, Salesforce, or Pipedrive."
+            },
+            {
+              "title": "Save 15+ hours per week",
+              "description": "No more voicemail callbacks, manual CRM entries, or scheduling ping-pong."
+            },
+            {
+              "title": "30+ languages, naturally",
+              "description": "Your AI speaks Spanish, French, German, and more — fluently and naturally."
+            }
+          ]
+        },
+
+        "integrations": {
+          "heading": "Works With Your Existing Tools",
+          "subheading": "Native integrations + Zapier/n8n. We set it all up for you.",
+          "categories": [
+            {
+              "name": "Scheduling",
+              "integrations": [
+                { "name": "Google Calendar", "native": true },
+                { "name": "Outlook", "native": true },
+                { "name": "Calendly", "native": false },
+                { "name": "Cal.com", "native": false }
+              ]
+            },
+            {
+              "name": "CRM",
+              "integrations": [
+                { "name": "HubSpot", "native": true },
+                { "name": "Salesforce", "native": true },
+                { "name": "Pipedrive", "native": true },
+                { "name": "SimplePractice", "native": true }
+              ]
+            },
+            {
+              "name": "Telephony & AI",
+              "integrations": [
+                { "name": "Twilio", "native": true },
+                { "name": "Retell.ai", "native": true }
+              ]
+            },
+            {
+              "name": "Automation",
+              "integrations": [
+                { "name": "Zapier", "native": false },
+                { "name": "n8n", "native": false }
+              ]
+            }
+          ],
+          "footnote": "Don't see yours? API + custom integrations available on Enterprise plans."
+        },
+
+        "securityCompliance": {
+          "heading": "Enterprise-Grade Security",
+          "subheading": "Your patients' and clients' data deserves the same protection as a Fortune 500 company — even if you're a 3-person practice.",
+          "badges": [
+            "AES-256 Encryption",
+            "HIPAA-aligned",
+            "GDPR-ready",
+            "EU & US Hosting",
+            "Role-based Access",
+            "BAA Available"
+          ],
+          "keyPoints": [
+            "End-to-end encryption: TLS 1.3 in transit, AES-256 at rest.",
+            "BAA available for healthcare and regulated practices.",
+            "Call recordings optional and fully configurable.",
+            "You own your data — export or delete anytime."
+          ]
+        },
+
+        "costCalculator": {
+          "heading": "How Much Revenue Are You Leaving on the Table?",
+          "subheading": "See what missed calls are actually costing your business.",
+          "presets": [
+            { "label": "Solo Practice", "calls": 8, "value": 300, "missed": 25, "conversion": 25 },
+            { "label": "Small Clinic", "calls": 20, "value": 450, "missed": 35, "conversion": 30 },
+            { "label": "Law Firm", "calls": 15, "value": 800, "missed": 30, "conversion": 35 },
+            { "label": "Agency", "calls": 30, "value": 350, "missed": 40, "conversion": 25 }
+          ],
+          "clearwayCostPerYear": 18000,
+          "disclaimer": "Estimates are based on your inputs and typical conversion ranges. Actual results vary by industry, call quality, and follow-up process."
+        },
+
+        "pricing": {
+          "heading": "Simple, Transparent Pricing",
+          "subheading": "Pick a plan that fits your call volume. Scale anytime.",
+          "annualDiscount": "20%",
+          "overageRate": "$0.50/min",
+          "plans": [
+            {
+              "name": "Solo Launch",
+              "monthlyPrice": "$1,500",
+              "annualPrice": "$1,200",
+              "setupFee": "$1,000",
+              "tagline": "24/7 AI call coverage for solo providers.",
+              "idealFor": "Solo practitioners who need every call answered.",
+              "minutesIncluded": "1,000 minutes/month",
+              "features": [
+                "24/7 AI call answering (<2s pickup target)",
+                "Google Calendar or Outlook sync",
+                "Call summaries via email",
+                "1 dedicated business number",
+                "Email support (24h response)"
+              ],
+              "setupIncludes": [
+                "AI receptionist configuration",
+                "Custom call flow design",
+                "Voice & tone personalization",
+                "Calendar integration setup",
+                "Testing & go-live support"
+              ]
+            },
+            {
+              "name": "Pro Practice",
+              "monthlyPrice": "$2,500",
+              "annualPrice": "$2,000",
+              "setupFee": "$1,500",
+              "tagline": "Capture every lead with CRM sync and reminders.",
+              "idealFor": "Growing practices that need CRM + automated follow-ups.",
+              "minutesIncluded": "2,000 minutes/month",
+              "popular": true,
+              "features": [
+                "Everything in Solo Launch, plus:",
+                "CRM integration (HubSpot, Salesforce, Pipedrive)",
+                "Automated SMS & email reminders",
+                "Lead capture & booking analytics",
+                "2 dedicated business numbers",
+                "Email + chat support (8h response)"
+              ],
+              "setupIncludes": [
+                "Everything in Solo Launch setup",
+                "CRM integration & field mapping",
+                "Reminder automation setup",
+                "Lead routing configuration",
+                "30-min training session"
+              ]
+            },
+            {
+              "name": "Team Pro",
+              "monthlyPrice": "$3,500",
+              "annualPrice": "$2,800",
+              "setupFee": "$2,000",
+              "tagline": "Smart routing for multi-staff offices.",
+              "idealFor": "Teams of 3+ with multiple calendars and departments.",
+              "minutesIncluded": "3,000 minutes/month",
+              "features": [
+                "Everything in Pro Practice, plus:",
+                "Smart call routing by staff/department",
+                "Multi-calendar team scheduling",
+                "Custom IVR menus & call flows",
+                "5 dedicated business numbers",
+                "Phone + chat support (4h response)"
+              ],
+              "setupIncludes": [
+                "Everything in Pro Practice setup",
+                "Multi-staff routing configuration",
+                "IVR menu design & setup",
+                "Team calendar integration",
+                "1-hour team training session"
+              ]
+            },
+            {
+              "name": "Concierge AI",
+              "label": "Enterprise",
+              "monthlyPrice": "$5,000+",
+              "annualPrice": "$4,000+",
+              "setupFee": "$3,000",
+              "tagline": "White-glove service for multi-location organizations.",
+              "idealFor": "Multi-location or compliance-focused businesses.",
+              "minutesIncluded": "8,000+ minutes (custom volume available)",
+              "features": [
+                "Everything in Team Pro, plus:",
+                "Dedicated account manager",
+                "Custom voice cloning for brand",
+                "Unlimited business numbers",
+                "Priority 24/7 support (1h response)",
+                "Custom integrations & API access"
+              ],
+              "setupIncludes": [
+                "Everything in Team Pro setup",
+                "Custom integration development",
+                "Voice cloning & brand alignment",
+                "Dedicated onboarding manager",
+                "Full team training sessions"
+              ],
+              "notes": [
+                "BAA available for HIPAA-aligned workflows.",
+                "EHR integration quoted separately."
+              ]
+            }
+          ],
+          "billingRules": {
+            "overageRate": "$0.50",
+            "usageWarning": "80%",
+            "annualDiscount": "20%",
+            "bundleDiscount": "15%",
+            "bundleMinimum": 2,
+            "cancellationNotice": "90 days",
+            "longTermCommitment": {
+              "months": 36,
+              "discount": "20%",
+              "setupWaived": true
+            }
+          }
+        },
+
+        "faq": {
+          "heading": "Common Questions",
+          "subheading": "Straight answers to what you're probably wondering.",
+          "questions": [
+            {
+              "question": "How is pricing determined?",
+              "answer": "Plans are based on included minutes, features, and support level. Overages cost $0.50/min. Book a demo and we'll quote your exact setup."
+            },
+            {
+              "question": "How long does setup take?",
+              "answer": "About 30 minutes of your time for the onboarding call. We handle all technical work and typically go live within ~72 hours after that."
+            },
+            {
+              "question": "What happens if the AI can't handle a call?",
+              "answer": "It never guesses. If unsure, it transfers the caller to your staff, takes a voicemail, or sends an SMS follow-up. You get an instant notification with full call details."
+            },
+            {
+              "question": "Is my data secure?",
+              "answer": "Yes. TLS 1.3 in transit, AES-256 at rest, role-based access controls. BAA available for healthcare practices. See our Security page for details."
+            },
+            {
+              "question": "Can I keep my existing phone number?",
+              "answer": "Yes. We set up call forwarding from your current number. Your clients won't notice anything different — calls just get answered faster."
+            },
+            {
+              "question": "Do you record calls?",
+              "answer": "Recording is optional. When enabled, the AI announces it. Recordings are kept 90 days by default (configurable)."
+            },
+            {
+              "question": "What about wrong bookings or misinformation?",
+              "answer": "The AI only says what you've approved — your services, pricing, FAQs, and booking rules. When uncertain, it escalates to a human. We refine responses weekly."
+            },
+            {
+              "question": "Which integrations are included?",
+              "answer": "Native: Google Calendar, Outlook, HubSpot, Salesforce, Pipedrive, SimplePractice. Others via Zapier or n8n. Enterprise plans include custom API integrations."
+            }
+          ]
+        },
+
+        "cta": {
+          "heading": "Ready to Capture Every Call?",
+          "subheading": "Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI fits your business.",
+          "microcopy": ["15 minutes", "No obligation", "We reply within 24–48h"],
+          "demoLine": "+1 (888) 778-3091"
+        }
+      }
+    },
+
+    "contact": {
+      "path": "/contact",
+      "seo": {
+        "title": "Contact Clearway AI — Book a Free Demo Call",
+        "description": "Get in touch with Clearway AI. Book a free 15-minute call flow review and see how our AI receptionist can answer your calls 24/7.",
+        "canonical": "https://clearwayai.co/contact"
+      },
+      "heading": "Get Your Free Call Flow Review",
+      "subheading": "15 minutes. No obligation. We map your call flow and show you exactly where leads are slipping through.",
+      "testimonial": {
+        "quote": "We booked 12 more appointments in the first month. Setup took less than a day.",
+        "attribution": "Practice Manager, Dental Clinic (Austin, TX)"
+      },
+      "industryOptions": [
+        "Dental Practice", "Medical Practice", "Law Firm",
+        "Home Services (Plumbing, HVAC, etc.)", "Real Estate",
+        "Salon / Spa", "Insurance Agency", "Accounting / Tax Services",
+        "Auto Shop / Mechanic", "Consulting / Agency", "Other"
+      ],
+      "challenges": [
+        "Missing calls after hours or on weekends",
+        "Front desk overwhelmed during peak times",
+        "Leads going to voicemail and never calling back",
+        "No-shows and last-minute cancellations",
+        "Too much time on repetitive phone questions",
+        "Need multilingual call handling"
+      ]
+    },
+
+    "security": {
+      "path": "/security",
+      "seo": {
+        "title": "Security & Compliance — Clearway AI",
+        "description": "How Clearway AI protects your business data. SOC 2 compliant infrastructure, encryption in transit and at rest, Swiss data standards.",
+        "canonical": "https://clearwayai.co/security"
+      },
+      "heading": "Your Data, Protected",
+      "sections": [
+        {
+          "title": "Data Handling Overview",
+          "details": [
+            "Call metadata: Caller ID, call duration, timestamp",
+            "Conversation content: Transcripts and summaries for CRM logging",
+            "Booking information: Appointment details synced to your calendar",
+            "Data is processed in the US and stored on secure cloud infrastructure."
+          ]
+        },
+        {
+          "title": "Call Summaries",
+          "details": [
+            "Instant delivery: Summaries sent to your email or CRM within seconds",
+            "Retention: Summaries retained for 1 year by default (configurable)",
+            "Access: Only your authorized team members can view summaries"
+          ]
+        },
+        {
+          "title": "Security & Access Controls",
+          "details": [
+            "Secure connections: Data is transmitted over encrypted HTTPS connections",
+            "Storage protections applied based on your plan and configuration",
+            "Manage user access with configurable permissions",
+            "Administrative activity history may be available to support oversight"
+          ]
+        },
+        {
+          "title": "Subprocessors & Vendors",
+          "details": [
+            "Telephony & messaging: providers like Twilio (call routing, SMS)",
+            "Voice AI: providers like Retell AI (voice/assistant capabilities)",
+            "Infrastructure: cloud providers such as AWS or Google Cloud"
+          ]
+        },
+        {
+          "title": "Compliance Considerations",
+          "details": [
+            "Contract options: certain agreements (such as a BAA) may be available on specific plans",
+            "Configuration matters: workflows, routing, recording, and retention settings can be configured to support your internal requirements"
+          ]
+        },
+        {
+          "title": "Customer Responsibilities",
+          "details": [
+            "Obtain required notices/consents (e.g., call recording where enabled)",
+            "Manage access credentials and team permissions",
+            "Configure retention/recording preferences (where permitted)",
+            "Secure CRM/calendar integrations and connected accounts"
+          ]
+        }
+      ]
+    },
+
+    "industries": {
+      "dental": {
+        "path": "/industries/dental",
+        "seoTitle": "AI Receptionist for Dental Practices | Clearway AI",
+        "seoDescription": "Clearway AI answers every dental patient call 24/7, books appointments, and confirms insurance automatically. Stop losing new patients to voicemail."
+      },
+      "legal": {
+        "path": "/industries/legal",
+        "seoTitle": "AI Receptionist for Law Firms | Clearway AI",
+        "seoDescription": "Clearway AI answers law firm calls 24/7, qualifies leads, and books consultations automatically. Never lose a client to voicemail again."
+      },
+      "homeServices": {
+        "path": "/industries/home-services",
+        "seoTitle": "AI Receptionist for Home Services & Contractors | Clearway AI",
+        "seoDescription": "Clearway AI answers plumbing, HVAC, and home service calls 24/7—even from the job site. Capture every emergency lead automatically."
+      },
+      "medical": {
+        "path": "/industries/medical",
+        "seoTitle": "AI Receptionist for Medical Practices | Clearway AI",
+        "seoDescription": "Clearway AI answers patient calls 24/7, books appointments, and routes refill requests automatically. Reduce hold times and staff burnout."
+      }
+    },
+
+    "privacy": { "path": "/privacy" },
+    "terms": { "path": "/terms" },
+    "addOns": { "path": "/add-ons" }
+  },
+
+  "structuredData": {
+    "organization": {
+      "@type": "Organization",
+      "name": "Clearway AI",
+      "url": "https://clearwayai.co",
+      "address": { "addressLocality": "Freienbach", "addressCountry": "CH" },
+      "contactPoint": {
+        "telephone": "+1-888-778-3091",
+        "contactType": "sales",
+        "availableLanguage": ["English", "German", "French", "Spanish"]
+      },
+      "sameAs": [
+        "https://linkedin.com/company/clearwayai",
+        "https://x.com/clearwayai",
+        "https://youtube.com/@clearwayai"
+      ]
+    },
+    "localBusiness": {
+      "@type": "LocalBusiness",
+      "name": "Clearway AI",
+      "telephone": "+1-888-778-3091",
+      "email": "hello@clearwayai.co",
+      "priceRange": "$$$",
+      "openingHours": "Mon-Fri 06:00-18:00 PT"
+    }
+  },
+
+  "navigation": {
+    "main": [
+      { "name": "How It Works", "href": "#how-it-works" },
+      { "name": "Proof", "href": "#proof" },
+      { "name": "Pricing", "href": "#pricing" },
+      { "name": "Security", "href": "/security" },
+      { "name": "FAQ", "href": "#faq" },
+      { "name": "Contact", "href": "/contact" }
+    ],
+    "footer": {
+      "quickLinks": [
+        { "label": "How It Works", "href": "#how-it-works" },
+        { "label": "Pricing", "href": "#pricing" },
+        { "label": "FAQ", "href": "#faq" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "legal": [
+        { "label": "Security", "href": "/security" },
+        { "label": "Privacy Policy", "href": "/privacy" },
+        { "label": "Terms of Service", "href": "/terms" }
+      ]
+    }
+  }
+}
