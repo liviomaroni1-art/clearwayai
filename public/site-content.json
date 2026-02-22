@@ -5,7 +5,7 @@
     "description": "Swiss precision, built for US service businesses",
     "website": "https://clearwayai.co",
     "email": "hello@clearwayai.co",
-    "phone": "+1 (888) 778-3091",
+    "phone": "+1 (888) 560-2165",
     "location": "Freienbach, Switzerland",
     "clientHub": "https://hub-clearwayai.com/login"
   },
@@ -26,7 +26,7 @@
           "subheadline": "AI receptionist that answers calls, qualifies leads, and books appointments into your calendar — 24/7, in 30+ languages. Live in ~72 hours.",
           "cta": {
             "primary": "Book Your Free Demo",
-            "secondary": "Hear the AI live: +1 (888) 778-3091"
+            "secondary": "Hear the AI live: +1 (888) 560-2165"
           },
           "trustMicrocopy": [
             "15-min demo, no obligation",
@@ -370,7 +370,7 @@
           "heading": "Ready to Capture Every Call?",
           "subheading": "Book a free 15-minute demo. We'll map your call flow and show you exactly how Clearway AI fits your business.",
           "microcopy": ["15 minutes", "No obligation", "We reply within 24–48h"],
-          "demoLine": "+1 (888) 778-3091"
+          "demoLine": "+1 (888) 560-2165"
         }
       }
     },
@@ -501,7 +501,7 @@
       "url": "https://clearwayai.co",
       "address": { "addressLocality": "Freienbach", "addressCountry": "CH" },
       "contactPoint": {
-        "telephone": "+1-888-778-3091",
+        "telephone": "+1-888-560-2165",
         "contactType": "sales",
         "availableLanguage": ["English", "German", "French", "Spanish"]
       },
@@ -514,7 +514,7 @@
     "localBusiness": {
       "@type": "LocalBusiness",
       "name": "Clearway AI",
-      "telephone": "+1-888-778-3091",
+      "telephone": "+1-888-560-2165",
       "email": "hello@clearwayai.co",
       "priceRange": "$$$",
       "openingHours": "Mon-Fri 06:00-18:00 PT"

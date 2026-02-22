@@ -151,7 +151,7 @@ const industryData: Record<string, IndustryData> = {
 const IndustryTemplate = () => {
   const { industry } = useParams<{ industry: string }>();
   const data = industryData[industry || "dental"];
-  const demoNumber = "+1 (888) 778-3091";
+  const demoNumber = "+1 (888) 560-2165";
 
   if (!data) {
     return (

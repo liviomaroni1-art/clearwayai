@@ -9,7 +9,7 @@ import StructuredData from "@/components/StructuredData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
 
-const demoNumber = "+1 (888) 778-3091";
+const demoNumber = "+1 (888) 560-2165";
 
 /* ── DATA ── */
 

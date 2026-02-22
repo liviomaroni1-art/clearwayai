@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, PhoneForwarded, MessageSquare, Bell, FileText, Users, Phone } from "lucide-react";
 
 const ReliabilitySection = () => {
-  const demoNumber = "+1 (888) 778-3091";
+  const demoNumber = "+1 (888) 560-2165";
   
   const features = [
     {

@@ -3,7 +3,7 @@ import { Shield, Phone, Globe } from "lucide-react";
 import flagCH from "@/assets/flag-ch.png";
 
 const SwissTrustBar = () => {
-  const demoNumber = "+1 (888) 778-3091";
+  const demoNumber = "+1 (888) 560-2165";
   
   return (
     <motion.div
