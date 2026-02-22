@@ -16,12 +16,14 @@ const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ va
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center gap-2 md:gap-3 bg-muted/80 backdrop-blur-sm border border-border/50 text-foreground px-3 py-2.5 md:px-4 md:py-3 rounded-full shadow-lg hover:border-primary/50 hover:scale-105 transition-all"
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center gap-3 bg-primary text-primary-foreground px-5 py-3.5 md:px-6 md:py-4 rounded-full shadow-2xl hover:scale-105 transition-all ring-2 ring-primary/30 ring-offset-2 ring-offset-background"
       >
-        <Phone className="w-4 h-4 text-primary" />
-        <div className="text-left hidden sm:block">
-          <div className="text-[10px] text-muted-foreground">Optional live demo</div>
-          <div className="text-xs font-medium">{demoNumber}</div>
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary-foreground/20 flex items-center justify-center animate-pulse">
+          <Phone className="w-5 h-5 md:w-6 md:h-6" />
+        </div>
+        <div className="text-left">
+          <div className="text-xs md:text-sm font-medium opacity-90">Try the AI live</div>
+          <div className="text-sm md:text-base font-bold">{demoNumber}</div>
         </div>
       </motion.a>
     );
