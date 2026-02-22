@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 const HeroSection = () => {
-  const demoNumber = "+1 (888) 778-3091";
+  const demoNumber = "+1 (888) 560-2165";
   
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">

@@ -18,7 +18,7 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-888-778-3091",
+    "telephone": "+1-888-560-2165",
     "contactType": "sales",
     "availableLanguage": ["English", "German", "French", "Spanish"]
   },
@@ -88,7 +88,7 @@ const faqSchema = {
       "name": "Does the AI sound robotic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Our AI uses advanced voice synthesis that sounds natural and professional. You can call our demo line at +1 (888) 778-3091 to hear it yourself."
+        "text": "No. Our AI uses advanced voice synthesis that sounds natural and professional. You can call our demo line at +1 (888) 560-2165 to hear it yourself."
       }
     },
     {
@@ -115,7 +115,7 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
-  "telephone": "+1-888-778-3091",
+  "telephone": "+1-888-560-2165",
   "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",

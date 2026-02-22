@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 
 const Footer = () => {
   const { isAdmin } = useAuth();
-  const demoNumber = "+1 (888) 778-3091";
+  const demoNumber = "+1 (888) 560-2165";
   
   const quickLinks = [
     { label: "How It Works", href: "#how-it-works" },
