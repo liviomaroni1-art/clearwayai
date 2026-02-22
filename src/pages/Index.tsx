@@ -16,7 +16,7 @@ const PricingSection = lazy(() => import("@/components/PricingSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
-
+const LiveDemoPhone = lazy(() => import("@/components/LiveDemoPhone"));
 const StickyCTA = lazy(() => import("@/components/StickyCTA"));
 
 const Index = () => {
@@ -47,7 +47,7 @@ const Index = () => {
         <FAQSection />
         <CTASection />
         <Footer />
-        
+        <LiveDemoPhone variant="floating" />
         <StickyCTA />
       </Suspense>
     </div>
