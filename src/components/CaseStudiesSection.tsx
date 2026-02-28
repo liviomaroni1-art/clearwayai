@@ -90,8 +90,8 @@ const CaseStudiesSection = () => {
                         <div className="flex items-center gap-2">
                           {metric.before !== "—" && (
                             <>
-                              <span className="text-sm text-muted-foreground/60 line-through">{metric.before}</span>
-                              <span className="text-muted-foreground/40">→</span>
+                              <span className="text-sm text-muted-foreground line-through">{metric.before}</span>
+                              <span className="text-muted-foreground">→</span>
                             </>
                           )}
                           <span className="text-sm font-bold text-primary">{metric.after}</span>
