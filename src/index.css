@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Font loaded via index.html preload for performance */
 
 @layer base {
   :root {
@@ -27,7 +27,7 @@
 
     /* Muted: #121C28 */
     --muted: 213 35% 11%;
-    --muted-foreground: 215 15% 50%;
+    --muted-foreground: 215 15% 58%;
 
     /* Accent: #162030 */
     --accent: 213 35% 14%;
@@ -82,7 +82,7 @@
     --secondary-foreground: 210 25% 93%;
 
     --muted: 213 35% 10%;
-    --muted-foreground: 215 15% 50%;
+    --muted-foreground: 215 15% 58%;
 
     --accent: 213 35% 13%;
     --accent-foreground: 210 25% 93%;

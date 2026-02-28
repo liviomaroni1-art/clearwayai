@@ -100,7 +100,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
-                <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
+                <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
                 Freienbach, Switzerland
               </li>
             </ul>
@@ -124,7 +124,7 @@ const Footer = () => {
               )}
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
+              <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
               <span>Swiss precision. Built for US service businesses.</span>
             </div>
           </div>

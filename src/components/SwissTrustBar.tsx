@@ -13,7 +13,7 @@ const SwissTrustBar = () => {
       className="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4"
     >
       <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
-        <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
+        <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
         <span className="text-muted-foreground">Based in Freienbach, Switzerland</span>
       </div>
       

@@ -13,6 +13,7 @@ const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ va
     return (
       <motion.a
         href={`tel:${demoNumber.replace(/\s/g, '')}`}
+        aria-label={`Call AI demo at ${demoNumber}`}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
