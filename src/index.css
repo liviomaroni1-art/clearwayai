@@ -120,14 +120,22 @@
   }
 
   html {
-    font-size: 13px;
+    font-size: 16px;
   }
 
-  /* Keep these sections at original 12px scale */
-  #calculator,
-  #services,
-  #pricing .comparison-table-wrapper {
-    font-size: 12px;
+  @media (min-width: 768px) {
+    html {
+      font-size: 13px;
+    }
+  }
+
+  /* Keep these sections at original 12px scale on desktop */
+  @media (min-width: 768px) {
+    #calculator,
+    #services,
+    #pricing .comparison-table-wrapper {
+      font-size: 12px;
+    }
   }
 
   body {
