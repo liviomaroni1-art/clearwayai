@@ -147,7 +147,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 {features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-1.5 text-[11px]">
                     <Check className={`w-3 h-3 ${colors.text} flex-shrink-0 mt-0.5`} />
-                    <span className={`${feature.italic ? 'italic text-muted-foreground/80' : 'text-muted-foreground'} ${feature.bold ? 'font-medium text-foreground' : ''}`}>
+                    <span className={`${feature.italic ? 'italic text-muted-foreground' : 'text-muted-foreground'} ${feature.bold ? 'font-medium text-foreground' : ''}`}>
                       {feature.text}
                     </span>
                   </li>
@@ -213,7 +213,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-1.5 text-xs">
               <Check className={`w-3 h-3 ${colors.text} flex-shrink-0 mt-0.5`} />
-              <span className={`${feature.italic ? 'italic text-muted-foreground/80' : 'text-muted-foreground'} ${feature.bold ? 'font-medium text-foreground' : ''}`}>
+              <span className={`${feature.italic ? 'italic text-muted-foreground' : 'text-muted-foreground'} ${feature.bold ? 'font-medium text-foreground' : ''}`}>
                 {feature.text}
               </span>
             </li>

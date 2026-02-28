@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
@@ -20,9 +20,16 @@ const LiveDemoPhone = lazy(() => import("@/components/LiveDemoPhone"));
 const StickyCTA = lazy(() => import("@/components/StickyCTA"));
 
 const Index = () => {
+  const [showDeferredContent, setShowDeferredContent] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowDeferredContent(true), 450);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
+      <SEOHead
         title="Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering"
         description="Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours."
       />
@@ -31,25 +38,31 @@ const Index = () => {
       <StructuredData type="localBusiness" />
       <StructuredData type="service" />
       <StructuredData type="faq" />
-      
+
       <Navbar />
       <HeroSection />
+
       <Suspense fallback={null}>
-        <SocialProofSection />
-        <HowItWorksSection />
-        <CaseStudiesSection />
-        <CoreBenefitsSection />
-        <HomeServicesCallout />
-        <IntegrationsSection />
-        <SecurityComplianceSection />
-        <CostCalculator />
-        <PricingSection />
-        <FAQSection />
-        <CTASection />
-        <Footer />
         <LiveDemoPhone variant="floating" />
         <StickyCTA />
       </Suspense>
+
+      {showDeferredContent && (
+        <Suspense fallback={null}>
+          <SocialProofSection />
+          <HowItWorksSection />
+          <CaseStudiesSection />
+          <CoreBenefitsSection />
+          <HomeServicesCallout />
+          <IntegrationsSection />
+          <SecurityComplianceSection />
+          <CostCalculator />
+          <PricingSection />
+          <FAQSection />
+          <CTASection />
+          <Footer />
+        </Suspense>
+      )}
     </div>
   );
 };

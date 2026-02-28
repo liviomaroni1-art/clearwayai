@@ -47,7 +47,7 @@ const AdminLogin = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <img src={logo} alt="ClearWay AI" className="h-10" />
+            <img src={logo} alt="ClearWay AI" width="160" height="40" className="h-10 w-auto" />
           </div>
           <CardTitle className="flex items-center justify-center gap-2">
             <Shield className="h-5 w-5 text-primary" />

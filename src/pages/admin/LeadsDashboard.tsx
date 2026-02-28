@@ -142,7 +142,7 @@ const LeadsDashboard = () => {
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="ClearWay AI" className="h-8" />
+            <img src={logo} alt="ClearWay AI" width="128" height="32" className="h-8 w-auto" />
             <span className="text-muted-foreground">|</span>
             <span className="font-semibold">Admin Dashboard</span>
           </div>
