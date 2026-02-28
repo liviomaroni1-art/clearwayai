@@ -113,6 +113,7 @@ const CostCalculator = () => {
                   <div className="flex items-center gap-2">
                     <button 
                       onClick={() => setCallsPerDay([Math.max(1, callsPerDay[0] - 1)])}
+                      aria-label="Decrease calls per day"
                       className="w-8 h-8 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80"
                     >
                       <Minus className="w-4 h-4" />
@@ -120,13 +121,14 @@ const CostCalculator = () => {
                     <span className="text-lg font-bold text-primary w-12 text-center">{callsPerDay[0]}</span>
                     <button 
                       onClick={() => setCallsPerDay([Math.min(100, callsPerDay[0] + 1)])}
+                      aria-label="Increase calls per day"
                       className="w-8 h-8 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
-                <Slider value={callsPerDay} onValueChange={setCallsPerDay} min={1} max={100} step={1} className="w-full" />
+                <Slider value={callsPerDay} onValueChange={setCallsPerDay} min={1} max={100} step={1} className="w-full" aria-label="Calls per day" />
               </div>
 
               {/* Missed call rate */}
@@ -135,7 +137,7 @@ const CostCalculator = () => {
                   <label className="text-sm font-medium text-foreground">Estimated missed call rate</label>
                   <span className="text-lg font-bold text-primary">{missedCallRate[0]}%</span>
                 </div>
-                <Slider value={missedCallRate} onValueChange={setMissedCallRate} min={10} max={60} step={5} className="w-full" />
+                <Slider value={missedCallRate} onValueChange={setMissedCallRate} min={10} max={60} step={5} className="w-full" aria-label="Missed call rate" />
               </div>
 
               {/* Avg value */}
@@ -144,7 +146,7 @@ const CostCalculator = () => {
                   <label className="text-sm font-medium text-foreground">Average value per booking</label>
                   <span className="text-lg font-bold text-primary">${avgCallValue[0]}</span>
                 </div>
-                <Slider value={avgCallValue} onValueChange={setAvgCallValue} min={100} max={2000} step={50} className="w-full" />
+                <Slider value={avgCallValue} onValueChange={setAvgCallValue} min={100} max={2000} step={50} className="w-full" aria-label="Average value per booking" />
               </div>
 
               {/* Conversion rate */}
@@ -156,7 +158,7 @@ const CostCalculator = () => {
                   </label>
                   <span className="text-lg font-bold text-primary">{conversionRate[0]}%</span>
                 </div>
-                <Slider value={conversionRate} onValueChange={setConversionRate} min={10} max={60} step={5} className="w-full" />
+                <Slider value={conversionRate} onValueChange={setConversionRate} min={10} max={60} step={5} className="w-full" aria-label="Conversion rate" />
               </div>
 
               {/* Results */}
