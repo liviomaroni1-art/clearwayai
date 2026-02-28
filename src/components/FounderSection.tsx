@@ -21,27 +21,27 @@ const FounderSection = () => {
                   <span className="text-4xl font-bold text-primary/50">G</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                  <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
+                  <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
                   <span className="text-muted-foreground">Swiss Engineering</span>
                 </div>
               </div>
 
               {/* Content */}
               <div className="md:col-span-2 text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-100">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                   Built in Switzerland, <span className="gradient-text">for US teams</span>
                 </h2>
                 
                 {/* Founder quote */}
-                <blockquote className="text-lg text-gray-400 mb-6 leading-relaxed border-l-4 border-primary/40 pl-4 italic">
+                <blockquote className="text-lg text-muted-foreground mb-6 leading-relaxed border-l-4 border-primary/40 pl-4 italic">
                   "We built Clearway AI to help teams focus on what matters—not the noise. 
                   After years in automation, I saw too many practices lose clients simply 
                   because no one could answer the phone. That ends now."
                 </blockquote>
 
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-gray-400 mb-6">
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground mb-6">
                   <div className="flex items-center gap-2">
-                    <img src={flagCH} alt="Swiss flag" className="h-[1em] w-auto" />
+                    <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
                     <span>Freienbach, Switzerland</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -57,8 +57,8 @@ const FounderSection = () => {
                   </a>
                 </div>
 
-                <div className="pt-6 border-t border-white/10">
-                  <p className="text-sm text-gray-500">
+                <div className="pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground">
                     Precision engineering meets American service standards. Your AI receptionist 
                     never takes a day off—and neither does our support.
                   </p>

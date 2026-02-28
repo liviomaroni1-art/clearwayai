@@ -41,7 +41,6 @@ const FeaturesBreakdown = () => {
   return (
     <section className="section-calm bg-card/30">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,15 +48,14 @@ const FeaturesBreakdown = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-100">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             Everything You Need to <span className="gradient-text">Scale</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             One AI system that handles calls, books appointments, and keeps your CRM updated—so you can focus on growth.
           </p>
         </motion.div>
 
-        {/* Features Grid - Side by side layout */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {features.map((feature, index) => (
             <motion.div
@@ -71,8 +69,8 @@ const FeaturesBreakdown = () => {
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <feature.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-100 mb-2">{feature.title}</h3>
-              <p className="text-gray-400 mb-4 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">{feature.description}</p>
               <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
                 {feature.highlight}
               </span>
@@ -80,7 +78,6 @@ const FeaturesBreakdown = () => {
           ))}
         </div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
