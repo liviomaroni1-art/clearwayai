@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,19 +6,20 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
-import Index from "./pages/Index";
-import Contact from "./pages/Contact";
-import Request from "./pages/Request";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import Security from "./pages/Security";
-import AddOns from "./pages/AddOns";
-import HomeServicesPage from "./pages/industries/HomeServicesPage";
-import IndustryTemplate from "./pages/industries/IndustryTemplate";
-import AdminLogin from "./pages/AdminLogin";
-import LeadsDashboard from "./pages/admin/LeadsDashboard";
-import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+
+const Index = lazy(() => import("./pages/Index"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Request = lazy(() => import("./pages/Request"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Security = lazy(() => import("./pages/Security"));
+const AddOns = lazy(() => import("./pages/AddOns"));
+const HomeServicesPage = lazy(() => import("./pages/industries/HomeServicesPage"));
+const IndustryTemplate = lazy(() => import("./pages/industries/IndustryTemplate"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const LeadsDashboard = lazy(() => import("./pages/admin/LeadsDashboard"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -30,21 +32,22 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/request" element={<Request />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/security" element={<Security />} />
-              <Route path="/add-ons" element={<AddOns />} />
-              <Route path="/industries/home-services" element={<HomeServicesPage />} />
-              <Route path="/industries/:industry" element={<IndustryTemplate />} />
-              <Route path="/admin" element={<AdminLogin />} />
-              <Route path="/admin/leads" element={<LeadsDashboard />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={null}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/request" element={<Request />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/add-ons" element={<AddOns />} />
+                <Route path="/industries/home-services" element={<HomeServicesPage />} />
+                <Route path="/industries/:industry" element={<IndustryTemplate />} />
+                <Route path="/admin" element={<AdminLogin />} />
+                <Route path="/admin/leads" element={<LeadsDashboard />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </BrowserRouter>
         </AuthProvider>
       </TooltipProvider>

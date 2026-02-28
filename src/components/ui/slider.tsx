@@ -9,6 +9,7 @@ const Slider = React.forwardRef<
 >(({ className, "aria-label": ariaLabel, ...props }, ref) => (
   <SliderPrimitive.Root
     ref={ref}
+    aria-label={ariaLabel}
     className={cn("relative flex w-full touch-none select-none items-center", className)}
     {...props}
   >

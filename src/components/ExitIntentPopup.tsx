@@ -169,7 +169,12 @@ const ExitIntentPopup = () => {
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  <label htmlFor="exit-intent-email" className="sr-only">
+                    Email address
+                  </label>
                   <Input
+                    id="exit-intent-email"
+                    aria-label="Email address"
                     type="email"
                     placeholder="Enter your email address"
                     value={email}
