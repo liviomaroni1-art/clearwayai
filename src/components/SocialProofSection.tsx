@@ -13,12 +13,12 @@ const SocialProofSection = () => {
           viewport={{ once: true }}
           className="flex flex-wrap items-center justify-center gap-3 md:gap-6 mb-6"
         >
-          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
-            <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
+          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-sm">
+            <img src={flagCH} alt="Swiss flag" width="16" height="12" loading="lazy" className="h-[1em] w-auto" />
             <span className="text-muted-foreground">Built in Switzerland</span>
           </div>
-          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-xs md:text-sm">
-            <img src={flagUS} alt="US flag" width="16" height="12" className="h-[1em] w-auto" />
+          <div className="flex items-center gap-2 px-3 py-2 bg-muted/30 rounded-full text-sm">
+            <img src={flagUS} alt="US flag" width="16" height="12" loading="lazy" className="h-[1em] w-auto" />
             <span className="text-muted-foreground">Designed for US service businesses</span>
           </div>
         </motion.div>

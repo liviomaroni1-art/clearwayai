@@ -45,15 +45,15 @@ const Footer = () => {
           <div className="flex gap-12 lg:contents">
             <div>
               <h4 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">Quick Links</h4>
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-1">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith('/') ? (
-                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
                         {link.label}
                       </a>
                     )}
@@ -64,10 +64,10 @@ const Footer = () => {
 
             <div>
               <h4 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">Legal</h4>
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-1">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
                       {link.label}
                     </Link>
                   </li>
@@ -83,9 +83,9 @@ const Footer = () => {
               <li>
                 <a 
                   href={`tel:${demoNumber.replace(/\s/g, '').replace(/[()]/g, '')}`}
-                  className="flex items-center justify-center lg:justify-start gap-2 text-sm md:text-base text-primary hover:text-primary/80 transition-colors font-medium"
+                  className="flex items-center justify-center lg:justify-start gap-2 text-sm md:text-base text-primary hover:text-primary/80 transition-colors font-medium min-h-[44px] py-2"
                 >
-                  <Phone className="w-3 h-3 md:w-4 md:h-4" />
+                  <Phone className="w-4 h-4" />
                   {demoNumber}
                 </a>
                 <p className="text-xs text-muted-foreground mt-1">Call to experience the AI—24/7</p>
@@ -93,9 +93,9 @@ const Footer = () => {
               <li>
                 <a 
                   href="mailto:hello@clearwayai.co"
-                  className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] py-2"
                 >
-                  <Mail className="w-3 h-3 md:w-4 md:h-4" />
+                  <Mail className="w-4 h-4" />
                   hello@clearwayai.co
                 </a>
               </li>

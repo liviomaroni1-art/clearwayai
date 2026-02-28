@@ -87,8 +87,8 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 md:mb-14"
           >
             {["15-min demo, no obligation", "Live in ~72 hours", "No long-term contract"].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+              <span key={item} className="flex items-center gap-1.5 text-xs md:text-xs text-muted-foreground py-1">
+                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                 {item}
               </span>
             ))}

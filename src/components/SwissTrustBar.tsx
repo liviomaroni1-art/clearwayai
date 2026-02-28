@@ -12,19 +12,19 @@ const SwissTrustBar = () => {
       viewport={{ once: true }}
       className="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4"
     >
-      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
+      <div className="flex items-center gap-2 px-3 py-2.5 bg-muted/50 rounded-full text-sm">
         <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
-        <span className="text-muted-foreground">Based in Freienbach, Switzerland</span>
+        <span className="text-muted-foreground">Based in Switzerland</span>
       </div>
       
-      <div className="flex items-center gap-2 px-3 py-2 bg-muted/50 rounded-full text-xs md:text-sm">
+      <div className="flex items-center gap-2 px-3 py-2.5 bg-muted/50 rounded-full text-sm">
         <Globe className="w-4 h-4 text-primary" />
         <span className="text-muted-foreground">30+ Languages</span>
       </div>
       
       <a 
         href={`tel:${demoNumber.replace(/\s/g, '')}`}
-        className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs md:text-sm hover:bg-emerald-500/30 transition-colors"
+        className="flex items-center gap-2 px-4 py-2.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm hover:bg-emerald-500/30 transition-colors min-h-[44px]"
       >
         <Phone className="w-4 h-4 text-emerald-400" />
         <span className="text-emerald-400 font-medium">Live Demo: {demoNumber}</span>
