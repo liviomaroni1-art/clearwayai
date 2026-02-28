@@ -23,7 +23,7 @@ const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ va
           <Phone className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <div className="text-left">
-          <div className="text-xs md:text-sm font-medium opacity-90">Try the AI live</div>
+          <div className="text-xs md:text-sm font-medium">Try the AI live</div>
           <div className="text-sm md:text-base font-bold">{demoNumber}</div>
         </div>
       </motion.a>
