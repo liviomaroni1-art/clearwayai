@@ -6,25 +6,25 @@ const audiences = [
     icon: Wrench,
     title: "Home Service Companies",
     trades: "HVAC, plumbing, electrical, roofing, landscaping, cleaning",
-    reality: "Always on jobs, missing calls from the truck, old estimates going cold, no time to follow up.",
+    reality: "You're on a job site when the phone rings. By the time you call back, the lead already hired someone else. Old estimates sit in your CRM untouched. Past customers never hear from you again.",
   },
   {
     icon: Stethoscope,
     title: "Clinics & Dental Practices",
     trades: "Dental, chiropractic, physiotherapy, veterinary",
-    reality: "Front desk overwhelmed, after-hours calls lost, no-shows eating revenue, patients not returning.",
+    reality: "The front desk is juggling patients and phones. After-hours calls go to voicemail. No-shows eat into your revenue. Patients who haven't been in for months just drift away.",
   },
   {
     icon: Scale,
     title: "Law Firms & Consultants",
     trades: "Immigration, family law, personal injury, financial advisory",
-    reality: "High-value leads calling once and never again, intake bottlenecks, no follow-up system.",
+    reality: "A high-value prospect calls once, gets voicemail, and moves on. Intake is a bottleneck. There's no systematic follow-up for leads who don't convert immediately.",
   },
   {
     icon: Building2,
     title: "Appointment-Based Local Businesses",
     trades: "Salons, auto repair, property management, fitness studios",
-    reality: "Spending hours on the phone instead of serving clients, losing repeat business to silence.",
+    reality: "Hours spent answering calls and managing schedules instead of serving clients. Repeat customers don't come back because nobody reminded them to.",
   },
 ];
 
@@ -39,10 +39,10 @@ const WhoItsFor = () => {
           className="text-center mb-10 md:mb-14"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            Built for Businesses That <span className="gradient-text">Run on Appointments</span>
+            Built for Businesses That <span className="gradient-text">Can't Afford to Miss a Lead</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            If your revenue depends on picking up the phone and filling a calendar, this system was designed for you.
+            If your revenue depends on answering calls, filling a calendar, and keeping customers coming back — this system was built for exactly that.
           </p>
         </motion.div>
 

@@ -6,33 +6,33 @@ import { Button } from "@/components/ui/button";
 const benefits = [
   {
     icon: PhoneCall,
-    title: "Every inquiry answered in seconds",
-    description: "Calls, web chats, and form submissions — answered day or night, so no lead slips through.",
+    title: "Every lead gets a fast, professional response",
+    description: "Calls, web chats, and form submissions answered in seconds — day or night. No lead sits in voicemail.",
   },
   {
     icon: CalendarCheck,
-    title: "Your calendar fills itself",
-    description: "Qualified jobs and appointments booked automatically — no phone tag, no back-and-forth.",
+    title: "More jobs booked from the same ad spend",
+    description: "Leads that used to slip through now get qualified and booked automatically. Same traffic, more revenue.",
   },
   {
     icon: UserCheck,
-    title: "Old customers come back",
-    description: "Smart follow-ups bring back past customers with reactivation campaigns and nurture sequences.",
+    title: "Old customers come back without chasing",
+    description: "Automated reactivation campaigns bring back past customers who haven't called in months — no manual follow-up needed.",
   },
   {
     icon: Bell,
-    title: "Fewer no-shows and cancellations",
-    description: "Automatic reminders via SMS and email keep your schedule full and your revenue predictable.",
+    title: "Fewer no-shows, less scheduling chaos",
+    description: "SMS and email reminders keep your calendar full and your day predictable. Cancellations drop, revenue stays.",
   },
   {
     icon: Star,
-    title: "5-star reputation grows on autopilot",
-    description: "Post-job review requests and feedback loops build your online reputation without lifting a finger.",
+    title: "Your reputation grows while you work",
+    description: "Post-job review requests go out automatically. Happy customers leave 5-star reviews; unhappy ones get flagged to you privately first.",
   },
   {
     icon: Database,
-    title: "Everything logged automatically",
-    description: "Call summaries, lead details, and follow-up history — all synced to your CRM and tools.",
+    title: "All activity logged into your existing tools",
+    description: "Call summaries, lead details, follow-up history — everything syncs to your CRM, calendar, and tools automatically.",
   },
 ];
 
@@ -47,10 +47,10 @@ const CoreBenefitsSection = () => {
           className="text-center mb-10 md:mb-14"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            What You Actually <span className="gradient-text">Get</span>
+            What Changes When You <span className="gradient-text">Install the System</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            Outcomes, not features. Here's what changes when you install the growth system.
+            More revenue from the leads and customers you already have — with zero extra manual work.
           </p>
         </motion.div>
 

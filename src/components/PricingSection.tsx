@@ -33,10 +33,10 @@ const PricingSection = () => {
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-3">
-            Flat monthly fee for the full AI growth system. No hidden costs, no long-term lock-in. ROI-focused from day one.
+            One flat monthly fee covers the full system: lead capture, follow-ups, reactivation, reminders, and reviews. No hidden costs, no lock-in.
           </p>
           <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-5">
-            For select clients, we also offer a performance model: no setup fee, and we take a small percentage of the extra revenue we generate.{" "}
+            For qualifying businesses, we also offer a performance-based model where we share in the extra revenue we generate — no setup fee required.{" "}
             <Link to="/contact" className="text-primary hover:underline">Ask us about it.</Link>
           </p>
 

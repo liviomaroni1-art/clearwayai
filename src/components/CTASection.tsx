@@ -21,12 +21,12 @@ const CTASection = () => {
 
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-              Ready to Stop Losing
+              More Leads Captured. More Jobs Closed.
               <br />
-              <span className="gradient-text">Revenue to Missed Calls?</span>
+              <span className="gradient-text">More Customers Coming Back.</span>
             </h2>
             <p className="text-muted-foreground text-base md:text-lg max-w-lg mx-auto mb-6 md:mb-8">
-              Book a free 15-minute growth audit. We'll show you exactly how many leads you're losing, how many old customers you could reactivate, and how to turn it all into booked jobs.
+              Book a free 15-minute growth audit. We'll map exactly where leads are falling through, which old customers you could reactivate, and how to turn it all into booked jobs — without hiring extra staff.
             </p>
             
             <Button 
