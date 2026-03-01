@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "Clearway AI",
-    "tagline": "AI-powered phone reception that captures every lead, 24/7",
+    "tagline": "AI growth system that captures, follows up, and retains customers",
     "description": "Swiss precision, built for US service businesses",
     "website": "https://clearwayai.co",
     "email": "hello@clearwayai.co",
@@ -14,10 +14,10 @@
     "home": {
       "path": "/",
       "seo": {
-        "title": "Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering",
-        "description": "Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours.",
+        "title": "Clearway AI — AI Growth System for Service Businesses | Capture, Follow Up, Retain",
+        "description": "Clearway AI helps service businesses grow with AI that captures every lead, follows up automatically, reactivates old customers, and brings in more 5-star reviews.",
         "canonical": "https://clearwayai.co",
-        "keywords": "Clearway AI, AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, AI phone answering"
+        "keywords": "Clearway AI, AI growth system, lead capture, automated follow-up, customer reactivation, review automation, service business automation"
       },
       "sections": {
         "hero": {
