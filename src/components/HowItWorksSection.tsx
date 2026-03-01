@@ -8,22 +8,22 @@ const pillars = [
     icon: Phone,
     step: "01",
     title: "Lead Capture & Qualification",
-    description: "AI answers every call and web inquiry in seconds — 24/7. Qualifies leads with smart questions and books directly into your calendar or creates a detailed lead summary.",
-    highlights: ["24/7 call & chat answering", "Smart lead qualification", "Instant calendar booking"],
+    description: "Every call, web chat, and form submission gets a fast, professional response — 24/7. The AI qualifies leads, answers their questions, and books directly into your calendar or creates a detailed summary for your team. No more missed calls turning into lost jobs.",
+    highlights: ["Calls, chat & forms — all covered", "Smart qualification questions", "Instant calendar booking"],
   },
   {
     icon: MailCheck,
     step: "02",
     title: "Automated Follow-Up & Reactivation",
-    description: "Missed-call and unbooked-estimate follow-ups via SMS and email. Reactivation campaigns for inactive customers who haven't visited in 6–12 months. Turns 'maybe later' into actual bookings.",
-    highlights: ["Missed-call follow-up", "Old customer reactivation", "Nurture sequences"],
+    description: "Missed a call? Sent a quote that went cold? Have customers who haven't come back in months? The system follows up via SMS and email automatically — turning dead leads and forgotten customers into real, paying jobs.",
+    highlights: ["Missed-call & cold-quote follow-up", "Inactive customer reactivation", "'Maybe later' nurture sequences"],
   },
   {
     icon: Star,
     step: "03",
-    title: "Retention, Reminders & Reviews",
-    description: "Automatic appointment reminders cut no-shows. Post-job follow-ups request reviews and gather feedback. Catch unhappy clients early, turn happy ones into 5-star reviews.",
-    highlights: ["SMS/email reminders", "Review requests", "Feedback loops"],
+    title: "Reminders, Reviews & Feedback",
+    description: "Appointment reminders reduce no-shows. Post-job messages request Google reviews from happy customers and privately flag issues from unhappy ones — so your reputation grows and problems get caught early.",
+    highlights: ["SMS/email job reminders", "Automated review requests", "Private feedback capture"],
   },
 ];
 
@@ -38,10 +38,10 @@ const HowItWorksSection = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            The 3-Pillar <span className="gradient-text">Growth System</span>
+            What We <span className="gradient-text">Actually Do</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            More than call answering — a complete system to capture, convert, and keep customers.
+            AI answering the phone is just one channel. The real value is a complete system that captures leads, follows up, and brings customers back.
           </p>
         </motion.div>
 

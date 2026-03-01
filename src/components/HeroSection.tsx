@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 const HeroSection = () => {
-  const demoNumber = "+1 (888) 560-2165";
+    const demoNumber = "+1 (888) 560-2165";
   
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">
@@ -21,7 +21,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
-            <span className="text-primary font-medium">The AI growth system for service businesses</span>
+            <span className="text-primary font-medium">The AI-powered lead capture & growth system for service businesses</span>
           </motion.div>
 
           <span className="sr-only">Clearway AI</span>
@@ -33,9 +33,9 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-5 md:mb-6 text-foreground"
           >
-            Turn Missed Calls & Old Customers
+            Turn Missed Calls & Forgotten Leads
             <br />
-            <span className="gradient-text">Into New Revenue.</span>
+            <span className="gradient-text">Into Booked Jobs on Autopilot.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -45,20 +45,21 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
-            AI that answers every call, follows up on missed leads, and reactivates past customers — so you book more jobs without hiring more staff. Built for HVAC, plumbing, electrical & service businesses.
+            We install an AI-powered system that captures every lead, follows up automatically, reactivates past customers, and brings in more 5-star reviews — so you close more jobs without hiring more staff.
           </motion.p>
 
-          {/* 3 Bullet benefits */}
+          {/* 4 Bullet benefits */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mb-8 md:mb-10"
+            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 mb-8 md:mb-10"
           >
             {[
-              "Capture every lead, 24/7",
-              "Automated follow-ups & reactivation",
-              "More 5-star reviews on autopilot",
+              "More booked jobs from the same traffic",
+              "Old customers come back automatically",
+              "Fewer no-shows & less admin",
+              "5-star reviews on autopilot",
             ].map((item) => (
               <span key={item} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
@@ -121,7 +122,7 @@ const HeroSection = () => {
               { value: "24/7", label: "Lead capture" },
               { value: "<2s", label: "Response time" },
               { value: "3x", label: "More repeat business" },
-              { value: "30+", label: "Languages" },
+              { value: "72h", label: "Average go-live" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
