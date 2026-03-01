@@ -9,36 +9,44 @@ import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "How is pricing determined?",
-    answer: "Plans are based on included minutes, features, and support level. Overages cost $0.50/min. Book a demo and we'll quote your exact setup.",
+    question: "Are you replacing my staff?",
+    answer: "No. We handle the calls, follow-ups, and reminders your team doesn't have time for — so they can focus on delivering great service. Think of it as a tireless assistant, not a replacement.",
   },
   {
-    question: "How long does setup take?",
-    answer: "About 30 minutes of your time for the onboarding call. We handle all technical work and typically go live within ~72 hours after that.",
+    question: "How fast can we go live?",
+    answer: "Most businesses are live within ~72 hours after completing a short onboarding call. We handle all setup, integrations, and testing.",
   },
   {
-    question: "What happens if the AI can't handle a call?",
-    answer: "It never guesses. If unsure, it transfers the caller to your staff, takes a voicemail, or sends an SMS follow-up. You get an instant notification with full call details.",
+    question: "Does this work with my existing phone number and CRM?",
+    answer: "Yes. We integrate with your current number, calendar, and CRM — including Google Calendar, Outlook, HubSpot, ServiceTitan, Housecall Pro, and more. No need to change your workflow.",
+  },
+  {
+    question: "What if a caller needs a human?",
+    answer: "The AI knows when to escalate. Complex or sensitive inquiries are transferred to your team via live call transfer, SMS, or email — so nothing falls through the cracks.",
+  },
+  {
+    question: "Can you handle emergencies or out-of-hours calls?",
+    answer: "Absolutely. The AI triages urgency levels, handles emergency routing, and ensures critical calls reach the right person immediately — even at 2 AM.",
+  },
+  {
+    question: "What if the AI makes a mistake?",
+    answer: "Built-in guardrails prevent the AI from making promises it can't keep. Every interaction is logged and reviewable, and we continuously refine the system based on real call data.",
+  },
+  {
+    question: "How do follow-ups and reactivation work?",
+    answer: "After a missed call or unbooked estimate, the system automatically sends a friendly SMS or email follow-up. For inactive customers, we run targeted reactivation campaigns to bring them back.",
+  },
+  {
+    question: "How does the review request system work?",
+    answer: "After a completed job or appointment, the system sends a short follow-up asking for a review. Happy clients get directed to Google or your preferred platform. Unhappy ones get routed to you privately first.",
+  },
+  {
+    question: "Is there a long-term contract?",
+    answer: "No. We offer month-to-month plans with no long-term lock-in. We earn your business every month.",
   },
   {
     question: "Is my data secure?",
-    answer: "Yes. TLS 1.3 in transit, AES-256 at rest, role-based access controls. BAA available for healthcare practices. See our Security page for details.",
-  },
-  {
-    question: "Can I keep my existing phone number?",
-    answer: "Yes. We set up call forwarding from your current number. Your clients won't notice anything different — calls just get answered faster.",
-  },
-  {
-    question: "Do you record calls?",
-    answer: "Recording is optional. When enabled, the AI announces it. Recordings are kept 90 days by default (configurable).",
-  },
-  {
-    question: "What about wrong bookings or misinformation?",
-    answer: "The AI only says what you've approved — your services, pricing, FAQs, and booking rules. When uncertain, it escalates to a human. We refine responses weekly.",
-  },
-  {
-    question: "Which integrations are included?",
-    answer: "Native: Google Calendar, Outlook, HubSpot, Salesforce, Pipedrive, SimplePractice. Others via Zapier or n8n. Enterprise plans include custom API integrations.",
+    answer: "Yes. All data is encrypted in transit and at rest. We use enterprise-grade infrastructure and offer BAAs for healthcare practices. See our security page for details.",
   },
 ];
 
@@ -56,7 +64,7 @@ const FAQSection = () => {
             Common <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Straight answers to what you're probably wondering.
+            Everything you need to know before getting started.
           </p>
         </motion.div>
 
@@ -89,11 +97,11 @@ const FAQSection = () => {
         >
           <p className="text-sm text-muted-foreground">
             Still have questions?{" "}
-            <Link to="/contact" className="text-primary hover:underline font-medium">Book a demo</Link>
+            <Link to="/contact" className="text-primary hover:underline font-medium">Book a free growth audit</Link>
             {" · "}
             <Link to="/security" className="text-primary hover:underline">Security</Link>
             {" · "}
-            <Link to="#pricing" className="text-primary hover:underline">Pricing</Link>
+            <a href="#pricing" className="text-primary hover:underline">Pricing</a>
           </p>
         </motion.div>
       </div>

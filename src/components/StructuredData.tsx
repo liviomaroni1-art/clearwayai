@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "Clearway AI is an AI receptionist service that answers calls 24/7, books appointments, and syncs with your CRM. Swiss-built for US businesses.",
+  "description": "Clearway AI is an AI growth system for service businesses — capturing leads, automating follow-ups, reactivating customers, and driving 5-star reviews. Swiss-built for US businesses.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
@@ -32,13 +32,13 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "AI Receptionist",
+  "serviceType": "AI Growth System",
   "provider": {
     "@type": "Organization",
     "name": "Clearway AI"
   },
-  "name": "AI Phone Receptionist",
-  "description": "24/7 AI-powered phone answering service that books appointments, routes calls, and integrates with your CRM.",
+  "name": "AI Growth System for Service Businesses",
+  "description": "AI-powered system that captures every lead 24/7, automates follow-ups, reactivates past customers, and generates 5-star reviews for service businesses.",
   "areaServed": {
     "@type": "Country",
     "name": "United States"
@@ -46,7 +46,7 @@ const serviceSchema = {
   "offers": [
     {
       "@type": "Offer",
-      "name": "Signature Plan",
+      "name": "Pro Practice Plan",
       "price": "2500",
       "priceCurrency": "USD",
       "priceSpecification": {
@@ -58,7 +58,7 @@ const serviceSchema = {
     },
     {
       "@type": "Offer",
-      "name": "Elite Plan",
+      "name": "Team Pro Plan",
       "price": "3500",
       "priceCurrency": "USD",
       "priceSpecification": {
@@ -77,26 +77,26 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How quickly can the AI receptionist be set up?",
+      "name": "Are you replacing my staff?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most businesses are live ~72 hours after onboarding is completed. Onboarding includes submitting your call flow answers and providing required access (phone, calendar, CRM). Our team handles the complete setup including voice customization and integrations."
+        "text": "No. We handle the calls, follow-ups, and reminders your team doesn't have time for — so they can focus on delivering great service."
       }
     },
     {
       "@type": "Question",
-      "name": "Does the AI sound robotic?",
+      "name": "How fast can we go live?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Our AI uses advanced voice synthesis that sounds natural and professional. You can call our demo line at +1 (888) 560-2165 to hear it yourself."
+        "text": "Most businesses are live within ~72 hours after completing a short onboarding call. We handle all setup, integrations, and testing."
       }
     },
     {
       "@type": "Question",
-      "name": "What happens if the AI can't answer a question?",
+      "name": "What if a caller needs a human?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The AI gracefully transfers complex inquiries to your team via call transfer, email notification, or SMS—ensuring no lead falls through the cracks."
+        "text": "The AI knows when to escalate. Complex or sensitive inquiries are transferred to your team via live call transfer, SMS, or email."
       }
     },
     {
@@ -104,7 +104,7 @@ const faqSchema = {
       "name": "Is my data secure?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. All calls are encrypted in transit and at rest. We use SOC 2 compliant infrastructure and are headquartered in Switzerland with strict data protection standards."
+        "text": "Yes. All data is encrypted in transit and at rest. We use enterprise-grade infrastructure and offer BAAs for healthcare practices."
       }
     }
   ]
@@ -136,9 +136,9 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Clearway AI",
-  "alternateName": ["ClearwayAI", "Clearway AI Receptionist"],
+  "alternateName": ["ClearwayAI", "Clearway AI Growth System"],
   "url": "https://clearwayai.co",
-  "description": "Clearway AI is an AI receptionist that answers business calls 24/7, books appointments, and logs leads to your CRM.",
+  "description": "Clearway AI is an AI growth system that helps service businesses capture leads, automate follow-ups, reactivate customers, and grow 5-star reviews.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://clearwayai.co/?q={search_term_string}",

@@ -23,7 +23,6 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-16 md:py-24 px-4 md:px-6">
       <div className="max-w-[1400px] mx-auto">
-        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,11 +32,14 @@ const PricingSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-foreground">
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-5">
-            Pick a plan that fits your call volume. Scale anytime.
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-3">
+            Flat monthly fee for the full AI growth system. No hidden costs, no long-term lock-in. ROI-focused from day one.
+          </p>
+          <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-5">
+            For select clients, we also offer a performance model: no setup fee, and we take a small percentage of the extra revenue we generate.{" "}
+            <Link to="/contact" className="text-primary hover:underline">Ask us about it.</Link>
           </p>
 
-          {/* Billing Toggle */}
           <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2 mb-5">
             <button
               onClick={() => setIsAnnual(false)}
@@ -79,7 +81,6 @@ const PricingSection = () => {
           </div>
         </motion.div>
 
-        {/* Core Plans */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-2">
           {plans.map((plan, index) => (
             <PricingCard
@@ -105,16 +106,9 @@ const PricingSection = () => {
           ))}
         </div>
 
-        {/* Comparison Table */}
         <ComparisonTable />
-
-        {/* How to Choose */}
         <HowToChoose />
-
-        {/* Footnotes */}
         <PricingFootnotes />
-
-        {/* 36-Month Savings */}
         <LongTermSavings />
       </div>
     </section>

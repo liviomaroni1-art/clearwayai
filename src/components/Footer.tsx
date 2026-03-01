@@ -23,25 +23,22 @@ const Footer = () => {
   
   return (
     <footer className="bg-card/50 border-t border-border">
-      {/* Main Footer Content */}
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:grid lg:grid-cols-4 gap-8 lg:gap-8">
           
-          {/* Brand & CTA Column */}
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4">Clearway AI</h3>
             <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">
-              AI-powered phone reception that captures every lead, 24/7. Swiss precision, built for US service businesses.
+              The AI growth system that captures leads, follows up automatically, and reactivates old customers. Swiss precision, built for US service businesses.
             </p>
             <Button variant="hero" size="sm" className="btn-glow" asChild>
               <Link to="/contact">
-                Book a Demo
+                Book a Growth Audit
                 <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
               </Link>
             </Button>
           </div>
 
-          {/* Quick Links & Legal side by side on mobile */}
           <div className="flex gap-12 lg:contents">
             <div>
               <h4 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">Quick Links</h4>
@@ -76,7 +73,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-xs md:text-sm font-semibold text-foreground uppercase tracking-wider mb-3 md:mb-4">Get In Touch</h4>
             <ul className="space-y-3 md:space-y-4">
@@ -88,7 +84,7 @@ const Footer = () => {
                   <Phone className="w-4 h-4" />
                   {demoNumber}
                 </a>
-                <p className="text-xs text-muted-foreground mt-1">Call to experience the AI—24/7</p>
+                <p className="text-xs text-muted-foreground mt-1">Call to experience the AI — 24/7</p>
               </li>
               <li>
                 <a 
@@ -108,7 +104,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-border">
         <div className="container mx-auto px-4 md:px-6 py-4 md:py-6">
           <div className="flex flex-col items-center text-center gap-2">

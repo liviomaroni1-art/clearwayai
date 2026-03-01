@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
-    { name: "Proof", href: isHomePage ? "#proof" : "/#proof" },
+    { name: "Results", href: isHomePage ? "#proof" : "/#proof" },
     { name: "Pricing", href: isHomePage ? "#pricing" : "/#pricing" },
     { name: "Security", href: "/security" },
     { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
@@ -29,7 +29,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -45,7 +44,6 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               link.href.startsWith('/') ? (
@@ -68,7 +66,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-foreground p-3 min-w-[48px] min-h-[48px] flex items-center justify-center"
             onClick={() => setIsOpen(!isOpen)}
@@ -77,7 +74,6 @@ const Navbar = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-6">
             <Button 
               variant="hero" 
@@ -85,12 +81,11 @@ const Navbar = () => {
               className="btn-glow hover:scale-105 transition-transform" 
               asChild
             >
-              <Link to="/contact">Book a Demo</Link>
+              <Link to="/contact">Book a Growth Audit</Link>
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -124,7 +119,7 @@ const Navbar = () => {
                 ))}
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book a Demo
+                    Book a Growth Audit
                   </Link>
                 </Button>
               </div>

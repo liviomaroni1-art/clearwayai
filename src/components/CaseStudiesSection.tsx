@@ -1,36 +1,35 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingDown, TrendingUp, Clock, Phone } from "lucide-react";
+import { ArrowRight, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const caseStudies = [
+const testimonials = [
   {
-    industry: "Dental Practice",
-    location: "Austin, TX",
-    role: "Practice Owner",
-    quote: "We stopped losing new patients to voicemail. The AI handles after-hours calls we'd never get before.",
-    metrics: [
-      { label: "Calls answered", before: "58%", after: "99%", icon: TrendingUp, positive: true },
-      { label: "Monthly bookings", before: "—", after: "+38%", icon: TrendingUp, positive: true },
-      { label: "Staff hours saved", before: "—", after: "15h/week", icon: Clock, positive: true },
-    ],
+    industry: "HVAC Company",
+    location: "Phoenix, AZ",
+    role: "Owner",
+    quote: "We were losing 30–40% of our after-hours calls to voicemail. Now every call gets answered, follow-ups go out automatically, and our repeat business has noticeably increased.",
+    results: ["More booked jobs from existing inquiries", "Fewer missed calls", "Steady increase in 5-star reviews"],
   },
   {
-    industry: "Immigration Law Firm",
-    location: "Miami, FL",
-    role: "Managing Partner",
-    quote: "Our intake process runs itself now. After-hours leads that used to go to competitors are ours.",
-    metrics: [
-      { label: "After-hours leads", before: "—", after: "+62%", icon: TrendingUp, positive: true },
-      { label: "Response time", before: "4h avg", after: "<2s", icon: Clock, positive: true },
-      { label: "Intake automated", before: "—", after: "80%", icon: Phone, positive: true },
-    ],
+    industry: "Plumbing Company",
+    location: "Dallas, TX",
+    role: "Operations Manager",
+    quote: "The reactivation campaigns surprised us. We had hundreds of old customers who just needed a nudge. Within weeks, we were booking jobs from people we hadn't heard from in over a year.",
+    results: ["Old customers reactivated", "Calendar consistently fuller", "Less time on admin"],
+  },
+  {
+    industry: "Dental Practice",
+    location: "Atlanta, GA",
+    role: "Practice Manager",
+    quote: "Our front desk was drowning in calls during peak hours. Now the AI handles overflow and after-hours, books appointments, and sends reminders. No-shows dropped significantly.",
+    results: ["Overflow calls captured", "Fewer no-shows", "More consistent patient flow"],
   },
 ];
 
 const CaseStudiesSection = () => {
   return (
-    <section className="py-16 md:py-24">
+    <section id="proof" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,64 +41,40 @@ const CaseStudiesSection = () => {
             Real Results From <span className="gradient-text">Real Businesses</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            See what happens when every call gets answered.
+            Here's what happens when service businesses install the growth system.
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto space-y-8 md:space-y-12">
-          {caseStudies.map((study, index) => (
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+          {testimonials.map((t, index) => (
             <motion.div
-              key={study.industry}
-              initial={{ opacity: 0, y: 30 }}
+              key={t.industry}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card rounded-2xl overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="glass-card p-5 md:p-6 rounded-xl"
             >
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Left: Quote + context */}
-                <div className="p-6 md:p-10 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      {study.industry}
-                    </span>
-                    <span className="text-xs text-muted-foreground">{study.location}</span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                  {t.industry}
+                </span>
+                <span className="text-xs text-muted-foreground">{t.location}</span>
+              </div>
+              
+              <blockquote className="text-sm text-foreground leading-relaxed mb-4 italic">
+                "{t.quote}"
+              </blockquote>
+              
+              <p className="text-xs text-muted-foreground mb-3">— {t.role}</p>
+              
+              <div className="border-t border-border/50 pt-3 space-y-1.5">
+                {t.results.map((r) => (
+                  <div key={r} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <TrendingUp className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                    {r}
                   </div>
-                  
-                  <blockquote className="text-base md:text-lg text-foreground leading-relaxed mb-4 font-medium">
-                    "{study.quote}"
-                  </blockquote>
-                  
-                  <p className="text-sm text-muted-foreground">
-                    — {study.role}, {study.industry}
-                  </p>
-                </div>
-
-                {/* Right: Metrics */}
-                <div className="bg-muted/20 p-6 md:p-10 border-t md:border-t-0 md:border-l border-border/30">
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-5">Key Results</p>
-                  <div className="space-y-5">
-                    {study.metrics.map((metric) => (
-                      <div key={metric.label} className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                            <metric.icon className="w-4 h-4 text-primary" />
-                          </div>
-                          <span className="text-sm text-muted-foreground">{metric.label}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          {metric.before !== "—" && (
-                            <>
-                              <span className="text-sm text-muted-foreground line-through">{metric.before}</span>
-                              <span className="text-muted-foreground">→</span>
-                            </>
-                          )}
-                          <span className="text-sm font-bold text-primary">{metric.after}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </motion.div>
           ))}
@@ -113,7 +88,7 @@ const CaseStudiesSection = () => {
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              See How It Works for You
+              See What We Can Do For You
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

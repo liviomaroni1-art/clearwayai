@@ -1,80 +1,69 @@
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import { Wrench, Stethoscope, Scale, Building2 } from "lucide-react";
+
+const audiences = [
+  {
+    icon: Wrench,
+    title: "Home Service Companies",
+    trades: "HVAC, plumbing, electrical, roofing, landscaping, cleaning",
+    reality: "Always on jobs, missing calls from the truck, old estimates going cold, no time to follow up.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Clinics & Dental Practices",
+    trades: "Dental, chiropractic, physiotherapy, veterinary",
+    reality: "Front desk overwhelmed, after-hours calls lost, no-shows eating revenue, patients not returning.",
+  },
+  {
+    icon: Scale,
+    title: "Law Firms & Consultants",
+    trades: "Immigration, family law, personal injury, financial advisory",
+    reality: "High-value leads calling once and never again, intake bottlenecks, no follow-up system.",
+  },
+  {
+    icon: Building2,
+    title: "Appointment-Based Local Businesses",
+    trades: "Salons, auto repair, property management, fitness studios",
+    reality: "Spending hours on the phone instead of serving clients, losing repeat business to silence.",
+  },
+];
 
 const WhoItsFor = () => {
-  const idealFor = [
-    { text: "You get 20+ calls a day" },
-    { text: "You lose leads during peak hours" },
-    { text: "You want a booked calendar, not voicemails" },
-    { text: "You're ready to invest in growth" },
-  ];
-
-  const notFor = [
-    { text: "Under 10 calls a day" },
-    { text: "Looking for the cheapest option" },
-    { text: "Complex medical triage without enterprise setup" },
-    { text: "Not willing to do a 30-min onboarding call" },
-  ];
-
   return (
-    <section className="py-20 bg-card/30">
+    <section id="who-its-for" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Is Clearway AI <span className="gradient-text">Right For You?</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            Built for Businesses That <span className="gradient-text">Run on Appointments</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We're not for everyone—and that's by design.
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+            If your revenue depends on picking up the phone and filling a calendar, this system was designed for you.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Perfect Fit */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl border-primary/30"
-          >
-            <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
-              <Check className="w-6 h-6" />
-              Perfect Fit
-            </h3>
-            <ul className="space-y-4">
-              {idealFor.map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-foreground font-medium">{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Not For */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl border-muted/50"
-          >
-            <h3 className="text-2xl font-bold text-muted-foreground mb-6 flex items-center gap-2">
-              <X className="w-6 h-6" />
-              Not The Best Fit
-            </h3>
-            <ul className="space-y-4">
-              {notFor.map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <X className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                  <p className="text-foreground/80 font-medium">{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
+          {audiences.map((a, index) => (
+            <motion.div
+              key={a.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="glass-card p-5 md:p-6 rounded-xl hover:border-primary/30 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                <a.icon className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-base font-semibold text-foreground mb-1">{a.title}</h3>
+              <p className="text-xs text-primary font-medium mb-2">{a.trades}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{a.reality}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -12,8 +12,6 @@ const StickyCTA = () => {
       const scrollY = window.scrollY;
       const footer = document.querySelector("footer");
       const footerTop = footer?.getBoundingClientRect().top ?? Infinity;
-      
-      // Show after scrolling past hero, hide when footer visible
       setVisible(scrollY > 600 && footerTop > window.innerHeight);
     };
 
@@ -34,7 +32,7 @@ const StickyCTA = () => {
           <div className="bg-background/95 backdrop-blur-lg border-t border-border/50 px-4 py-3 safe-area-bottom">
             <Button variant="hero" size="lg" className="w-full btn-glow min-h-[48px]" asChild>
               <Link to="/contact">
-                Book Your Free Demo
+                Book a Free Growth Audit
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>

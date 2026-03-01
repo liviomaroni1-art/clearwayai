@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Flame, PhoneIncoming, Clock } from "lucide-react";
+import { ArrowRight, Flame, PhoneIncoming, Clock, MailCheck, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -13,8 +13,12 @@ const bullets = [
     text: "After-hours and on-the-truck calls captured automatically, so you never lose a $500 job to voicemail.",
   },
   {
-    icon: Flame,
-    text: "AI triages urgency, books jobs into your calendar, and texts you a summary — before you call back.",
+    icon: MailCheck,
+    text: "Missed-call follow-ups and old-estimate reactivation bring back leads your competitors forgot about.",
+  },
+  {
+    icon: Star,
+    text: "Post-job review requests grow your 5-star reputation — automatically, after every completed job.",
   },
 ];
 
@@ -45,7 +49,7 @@ const HomeServicesCallout = () => {
               Built for <span className="gradient-text">Home Services</span>
             </h2>
             <p className="text-sm text-muted-foreground max-w-lg mb-6">
-              Plumbing, HVAC & electrical companies lose thousands every month to missed calls. We fix that.
+              HVAC, plumbing, electrical & roofing companies lose thousands every month to missed calls and forgotten customers. The growth system fixes that.
             </p>
 
             <div className="space-y-3 mb-8">
@@ -68,7 +72,7 @@ const HomeServicesCallout = () => {
 
             <Button variant="hero" size="default" className="btn-glow hover:scale-[1.03] transition-all text-sm" asChild>
               <Link to="/industries/home-services">
-                See How It Works for Home Services
+                See the Full Home Services System
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
