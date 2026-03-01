@@ -8,34 +8,34 @@ const HeroSection = () => {
     const demoNumber = "+1 (888) 560-2165";
   
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-0">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           
           {/* Trust Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-10 md:mb-12"
           >
-            <span className="text-primary font-medium">The AI-powered lead capture & growth system for service businesses</span>
+            <span className="text-primary font-medium">AI-powered lead capture for service businesses</span>
           </motion.div>
 
           <span className="sr-only">Clearway AI</span>
 
-          {/* H1 */}
+          {/* H1 — two lines max */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-5 md:mb-6 text-foreground"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 md:mb-8 text-foreground"
           >
-            Turn Missed Calls & Forgotten Leads
+            Turn Missed Calls Into Booked Jobs.
             <br />
-            <span className="gradient-text">Into Booked Jobs on Autopilot.</span>
+            <span className="gradient-text">On Autopilot.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -43,23 +43,22 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10 md:mb-12 leading-relaxed"
           >
-            We install an AI-powered system that captures every lead, follows up automatically, reactivates past customers, and brings in more 5-star reviews — so you close more jobs without hiring more staff.
+            AI that captures every lead, follows up automatically, and brings back old customers — for home-service and local businesses.
           </motion.p>
 
-          {/* 4 Bullet benefits */}
+          {/* 3 Bullets */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-6 mb-8 md:mb-10"
+            className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 mb-10 md:mb-14"
           >
             {[
-              "More booked jobs from the same traffic",
-              "Old customers come back automatically",
-              "Fewer no-shows & less admin",
-              "5-star reviews on autopilot",
+              "More booked jobs, same traffic",
+              "Old customers come back",
+              "Fewer no-shows, less admin",
             ].map((item) => (
               <span key={item} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
@@ -73,7 +72,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-4 md:mb-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-8"
           >
             <Button 
               variant="hero" 
@@ -101,7 +100,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 md:mb-14"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6"
           >
             {["15-min audit, no obligation", "Live in ~72 hours", "No long-term contract"].map((item) => (
               <span key={item} className="flex items-center gap-1.5 text-xs text-muted-foreground py-1">
@@ -110,34 +109,33 @@ const HeroSection = () => {
               </span>
             ))}
           </motion.div>
+        </div>
+      </div>
 
-          {/* Proof Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto pt-8 md:pt-10 border-t border-border/50"
-          >
+      {/* Stats band — separate from hero content */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="w-full mt-14 md:mt-20 py-10 md:py-14 border-t border-border/50 bg-card/30"
+      >
+        <div className="container mx-auto px-6">
+          <p className="text-xs text-muted-foreground text-center mb-6 uppercase tracking-widest">What you get</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
             {[
               { value: "24/7", label: "Lead capture" },
               { value: "<2s", label: "Response time" },
               { value: "3x", label: "More repeat business" },
               { value: "72h", label: "Average go-live" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                className="text-center"
-              >
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
                 <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
