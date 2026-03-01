@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-import logo from "@/assets/clearway-logo.png";
+import logo from "@/assets/clearway-logo-new.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
