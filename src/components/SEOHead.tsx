@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering",
-  description = "Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours.",
+  title = "Clearway AI — AI Growth System for Service Businesses | Capture, Follow Up, Retain",
+  description = "Clearway AI helps service businesses grow with AI that captures every lead, follows up automatically, reactivates old customers, and brings in more 5-star reviews. Built for HVAC, plumbing, electrical & more.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -19,23 +19,19 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       
-      {/* Keywords for SEO */}
-      <meta name="keywords" content="Clearway AI, AI receptionist, virtual receptionist, 24/7 answering service, appointment booking AI, CRM automation, business automation, AI phone answering" />
+      <meta name="keywords" content="Clearway AI, AI growth system, AI receptionist, lead capture, customer reactivation, automated follow-up, review requests, service business automation, HVAC AI, plumbing AI, 24/7 answering" />
       
-      {/* Robots */}
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
       
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={title} />
@@ -44,20 +40,17 @@ const SEOHead = ({
       <meta property="og:site_name" content="Clearway AI" />
       <meta property="og:locale" content="en_US" />
       
-      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonical} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
-      {/* Additional SEO */}
       <meta name="author" content="Clearway AI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
       <meta name="theme-color" content="#00E0FF" />
       
-      {/* Structured breadcrumb support */}
       <meta name="format-detection" content="telephone=no" />
     </Helmet>
   );

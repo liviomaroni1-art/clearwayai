@@ -12,12 +12,14 @@ const categories = [
     ],
   },
   {
-    name: "CRM",
+    name: "CRM & Field Service",
     integrations: [
       { name: "HubSpot", native: true },
       { name: "Salesforce", native: true },
+      { name: "ServiceTitan", native: false },
+      { name: "Housecall Pro", native: false },
+      { name: "Jobber", native: false },
       { name: "Pipedrive", native: true },
-      { name: "SimplePractice", native: true },
     ],
   },
   {
@@ -52,12 +54,11 @@ const IntegrationsSection = () => {
             Works With Your <span className="gradient-text">Existing Tools</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            Native integrations + Zapier/n8n. We set it all up for you.
+            We install and configure everything for you — you don't need to be technical.
           </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {categories.map((cat, i) => (
               <button
@@ -74,13 +75,12 @@ const IntegrationsSection = () => {
             ))}
           </div>
 
-          {/* Integration list */}
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3"
+            className="grid grid-cols-2 md:grid-cols-3 gap-3"
           >
             {categories[activeTab].integrations.map((integration) => (
               <div

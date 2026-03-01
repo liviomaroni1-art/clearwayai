@@ -6,7 +6,6 @@ const SocialProofSection = () => {
   return (
     <section className="py-8 md:py-12">
       <div className="container mx-auto px-6">
-        {/* Trust bar - compact, enterprise feel */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +22,6 @@ const SocialProofSection = () => {
           </div>
         </motion.div>
 
-        {/* Tech stack bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -31,9 +29,9 @@ const SocialProofSection = () => {
           transition={{ delay: 0.1 }}
           className="text-center"
         >
-          <p className="text-xs text-muted-foreground mb-3">Powered by</p>
+          <p className="text-xs text-muted-foreground mb-3">Works with</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {["Retell.ai", "Twilio", "Google Calendar", "HubSpot", "Salesforce", "n8n"].map((tech) => (
+            {["Google Calendar", "HubSpot", "ServiceTitan", "Housecall Pro", "Twilio", "Zapier"].map((tech) => (
               <span 
                 key={tech}
                 className="px-3 py-1.5 bg-muted/20 border border-border/30 rounded-full text-xs text-muted-foreground"

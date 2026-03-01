@@ -5,9 +5,11 @@ import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 
 const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
+const WhoItsFor = lazy(() => import("@/components/WhoItsFor"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
-const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
 const CoreBenefitsSection = lazy(() => import("@/components/CoreBenefitsSection"));
+const GetStartedSteps = lazy(() => import("@/components/GetStartedSteps"));
+const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
 const HomeServicesCallout = lazy(() => import("@/components/HomeServicesCallout"));
 const IntegrationsSection = lazy(() => import("@/components/IntegrationsSection"));
 const SecurityComplianceSection = lazy(() => import("@/components/SecurityComplianceSection"));
@@ -30,8 +32,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Clearway AI — AI Receptionist for Small Businesses | 24/7 Call Answering"
-        description="Clearway AI answers your business calls 24/7, books appointments, and logs leads to your CRM. Built for clinics, law firms & service businesses. Live in ~72 hours."
+        title="Clearway AI — AI Growth System for Service Businesses | Capture, Follow Up, Retain"
+        description="Clearway AI helps service businesses grow with AI that captures every lead, follows up automatically, reactivates old customers, and brings in more 5-star reviews. Built for HVAC, plumbing, electrical & more."
       />
       <StructuredData type="website" />
       <StructuredData type="organization" />
@@ -50,9 +52,11 @@ const Index = () => {
       {showDeferredContent && (
         <Suspense fallback={null}>
           <SocialProofSection />
+          <WhoItsFor />
           <HowItWorksSection />
-          <CaseStudiesSection />
           <CoreBenefitsSection />
+          <GetStartedSteps />
+          <CaseStudiesSection />
           <HomeServicesCallout />
           <IntegrationsSection />
           <SecurityComplianceSection />

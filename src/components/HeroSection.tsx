@@ -9,9 +9,7 @@ const HeroSection = () => {
   
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 pb-12 md:pb-16">
-      {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -23,10 +21,9 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm mb-8"
           >
-            <span className="text-primary font-medium">Trusted by plumbing, HVAC, electrical & service businesses</span>
+            <span className="text-primary font-medium">The AI growth system for service businesses</span>
           </motion.div>
 
-          {/* Brand name for SEO — visually blends with background */}
           <span className="sr-only">Clearway AI</span>
 
           {/* H1 */}
@@ -36,9 +33,9 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-5 md:mb-6 text-foreground"
           >
-            Every Call Answered.
+            Turn Missed Calls & Old Customers
             <br />
-            <span className="gradient-text">Every Lead Captured.</span>
+            <span className="gradient-text">Into New Revenue.</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -48,8 +45,27 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed"
           >
-            AI receptionist that answers calls 24/7 — even from the truck. Qualifies leads, triages emergencies, and books jobs into your calendar. Built for plumbing, HVAC & electrical companies. Live in ~72 hours.
+            AI that answers every call, follows up on missed leads, and reactivates past customers — so you book more jobs without hiring more staff. Built for HVAC, plumbing, electrical & service businesses.
           </motion.p>
+
+          {/* 3 Bullet benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mb-8 md:mb-10"
+          >
+            {[
+              "Capture every lead, 24/7",
+              "Automated follow-ups & reactivation",
+              "More 5-star reviews on autopilot",
+            ].map((item) => (
+              <span key={item} className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                {item}
+              </span>
+            ))}
+          </motion.div>
 
           {/* CTA Block */}
           <motion.div
@@ -64,8 +80,8 @@ const HeroSection = () => {
               className="w-full sm:w-auto min-h-[52px] md:min-h-[56px] text-sm md:text-base btn-glow hover:scale-[1.03] transition-all px-8" 
               asChild
             >
-              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "hero", label: "Book Your Free Demo" } })}>
-                Book Your Free Demo
+              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "hero", label: "Book a Free Growth Audit" } })}>
+                Book a Free Growth Audit
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -86,15 +102,15 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10 md:mb-14"
           >
-            {["15-min demo, no obligation", "Live in ~72 hours", "No long-term contract"].map((item) => (
-              <span key={item} className="flex items-center gap-1.5 text-xs md:text-xs text-muted-foreground py-1">
+            {["15-min audit, no obligation", "Live in ~72 hours", "No long-term contract"].map((item) => (
+              <span key={item} className="flex items-center gap-1.5 text-xs text-muted-foreground py-1">
                 <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                 {item}
               </span>
             ))}
           </motion.div>
 
-          {/* Proof Row — hard numbers */}
+          {/* Proof Row */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,10 +118,10 @@ const HeroSection = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto pt-8 md:pt-10 border-t border-border/50"
           >
             {[
-              { value: "<2s", label: "Average pickup" },
-              { value: "24/7", label: "Always answering" },
+              { value: "24/7", label: "Lead capture" },
+              { value: "<2s", label: "Response time" },
+              { value: "3x", label: "More repeat business" },
               { value: "30+", label: "Languages" },
-              { value: "99.9%", label: "Uptime target" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
