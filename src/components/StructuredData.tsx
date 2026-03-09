@@ -115,7 +115,7 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
-  "telephone": "+1-888-560-2165",
+  "telephone": "+41-76-471-46-78",
   "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",
