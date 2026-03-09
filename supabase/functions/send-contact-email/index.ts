@@ -160,7 +160,7 @@ function buildDemoConfirmationEmail(firstName: string, logoUrl: string) {
         </p>
         
         <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
-          +41 76 471 46 78 (CH)<br>
+          +41 76 471 56 78 (CH)<br>
           <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
           <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
         </p>
