@@ -22,7 +22,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-2xl border-b border-border/50"
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
@@ -75,7 +75,7 @@ const Navbar = () => {
             <Button
               variant="hero"
               size="default"
-              className="btn-glow hover:scale-105 transition-transform"
+              className="btn-glow"
               asChild
             >
               <Link to="/contact">Book a Call</Link>

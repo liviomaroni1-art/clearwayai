@@ -6,50 +6,54 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Bot,
-    title: "AI SDR & Outbound Campaigns",
-    audience: "For teams that need consistent pipeline without hiring SDRs",
-    benefit: "AI-powered prospecting that books meetings on autopilot",
-    metric: "Increase meetings booked by 20–40%",
+    title: "AI SDR & Outbound",
+    audience: "For teams that need pipeline without hiring SDRs",
+    benefit: "AI-powered prospecting that books meetings on autopilot.",
+    metric: "+20–40% meetings booked",
+    accentColor: "primary",
   },
   {
     icon: Mail,
-    title: "Automated Lead Nurture & Follow-Up",
+    title: "Lead Nurture & Follow-Up",
     audience: "For companies with leads going cold in the CRM",
-    benefit: "Multi-touch sequences that re-engage and convert stale leads",
-    metric: "Recover 15–30% of lost pipeline",
+    benefit: "Multi-touch sequences that re-engage and convert stale leads.",
+    metric: "Recover 15–30% lost pipeline",
+    accentColor: "secondary",
   },
   {
     icon: Settings,
     title: "CRM & Pipeline Automation",
-    audience: "For ops teams drowning in manual data entry and handoffs",
-    benefit: "Automated scoring, routing, and lifecycle management",
+    audience: "For ops teams drowning in manual data entry",
+    benefit: "Automated scoring, routing, and lifecycle management.",
     metric: "Cut admin time by 60%+",
+    accentColor: "primary",
   },
   {
     icon: Users,
-    title: "Done-With-You Campaign Strategy",
-    audience: "For founders who want a strategic partner, not just a tool",
-    benefit: "We co-build your outbound playbook and optimize weekly",
+    title: "Campaign Strategy",
+    audience: "For founders who want a strategic partner",
+    benefit: "We co-build your outbound playbook and optimize weekly.",
     metric: "Faster iteration, higher close rates",
+    accentColor: "secondary",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 md:py-24">
-      <div className="container mx-auto px-6">
+    <section id="services" className="section-padding relative ambient-glow">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             What We Build For You
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            End-to-end AI systems designed to turn your existing leads into revenue.
+            End-to-end AI systems that turn your leads into revenue.
           </p>
         </motion.div>
 
@@ -57,20 +61,23 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-card p-6 flex flex-col"
+              className="glass-card p-6 flex flex-col group relative overflow-hidden"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                <service.icon className="w-5 h-5 text-primary" />
+              {/* Subtle top accent line */}
+              <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${service.accentColor === 'primary' ? 'from-transparent via-primary/40 to-transparent' : 'from-transparent via-secondary/40 to-transparent'}`} />
+              
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${service.accentColor === 'primary' ? 'bg-primary/10 border border-primary/20' : 'bg-secondary/10 border border-secondary/20'}`}>
+                <service.icon className={`w-5 h-5 ${service.accentColor === 'primary' ? 'text-primary' : 'text-secondary'}`} />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
-              <p className="text-xs text-primary/70 font-medium mb-3">{service.audience}</p>
-              <p className="text-sm text-muted-foreground mb-4 flex-1">{service.benefit}</p>
-              <div className="pt-3 border-t border-border/30">
-                <span className="text-sm font-semibold text-primary">{service.metric}</span>
+              <h3 className="font-display text-lg font-bold text-foreground mb-1">{service.title}</h3>
+              <p className="text-xs text-muted-foreground mb-3">{service.audience}</p>
+              <p className="text-sm text-foreground/80 mb-4 flex-1">{service.benefit}</p>
+              <div className="pt-3 border-t border-border/20">
+                <span className={`text-sm font-bold ${service.accentColor === 'primary' ? 'text-primary' : 'text-secondary'}`}>{service.metric}</span>
               </div>
             </motion.div>
           ))}
@@ -81,11 +88,11 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-14"
         >
-          <Button variant="hero" size="lg" className="btn-glow hover:scale-[1.03] transition-all" asChild>
+          <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="/contact">
-              Book a Strategy Call
+              See What We'd Build For You
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
