@@ -25,7 +25,7 @@ const StickyCTA = () => {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed bottom-6 left-0 right-0 z-40 flex justify-center md:hidden"
         >
-          <Button variant="hero" size="lg" className="btn-glow shadow-lg px-6" asChild>
+          <Button variant="hero" size="lg" className="shadow-lg px-6" asChild>
             <Link to="/contact">
               Book a Strategy Call
               <ArrowRight className="w-4 h-4" />
