@@ -31,7 +31,7 @@ const FitSection = () => {
             Is This Right For You?
           </h2>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-            We work with a specific type of company. Here's how to know.
+            We work best with businesses that have a proven offer and want more predictable lead flow.
           </p>
         </motion.div>
 
