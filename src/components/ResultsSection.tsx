@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Quote } from "lucide-react";
 
-const caseStudies = [
-  { metric: "+32%", description: "more sales opportunities in 60 days", industry: "B2B SaaS" },
-  { metric: "3x", description: "demo-to-close rate after AI follow-up", industry: "Professional Services" },
-  { metric: "–70%", description: "reduction in manual outreach time", industry: "FinTech" },
+const scenarios = [
+  { metric: "More Leads", description: "Consistent flow of qualified prospects from Meta ads into your pipeline", industry: "Lead Generation" },
+  { metric: "Fewer No-Shows", description: "Automated reminders and confirmations can help reduce missed appointments", industry: "AI Follow-Up" },
+  { metric: "Better Follow-Up", description: "Every lead gets a fast, personalized response — no more leads slipping through", industry: "Nurture System" },
 ];
 
 const testimonials = [
   {
-    quote: "Clearway rebuilt our follow-up engine in two weeks. We went from 8% to 22% lead-to-meeting conversion.",
+    quote: "Before Clearway, we were running ads with no real system behind them. Now leads come in, get followed up instantly, and show up on our calendar.",
     name: "[Client Name]",
     role: "[Role], [Company]",
   },
   {
-    quote: "Thousands of stale leads sitting in HubSpot. Clearway's AI sequences brought 15% of them back to life.",
+    quote: "We went from chasing leads manually to having a full pipeline we can actually manage. The AI follow-up alone has been a game changer.",
     name: "[Client Name]",
     role: "[Role], [Company]",
   },
@@ -32,15 +32,15 @@ const ResultsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Results That Compound
+            What's Possible
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            Real outcomes from companies that stopped leaving revenue in the CRM.
+            Example outcomes from businesses using a structured lead generation and follow-up system. Results depend on your offer, market, and budget.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-16">
-          {caseStudies.map((cs, index) => (
+          {scenarios.map((cs, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 15 }}
@@ -50,7 +50,7 @@ const ResultsSection = () => {
               className="minimal-card p-6 text-center"
             >
               <TrendingUp className="w-4 h-4 text-muted-foreground mx-auto mb-4" />
-              <div className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">{cs.metric}</div>
+              <div className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">{cs.metric}</div>
               <p className="text-sm text-muted-foreground mb-2">{cs.description}</p>
               <span className="text-xs text-muted-foreground/60 uppercase tracking-widest">{cs.industry}</span>
             </motion.div>

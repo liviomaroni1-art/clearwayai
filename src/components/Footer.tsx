@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-lg font-bold text-foreground mb-3">Clearway AI</h3>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              AI-powered systems that turn your existing leads into revenue.
+              Meta ads, funnels, and AI follow-up — designed to help service businesses generate leads and book calls.
             </p>
             <Button variant="hero" size="sm" asChild>
               <Link to="/contact">

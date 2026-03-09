@@ -17,9 +17,9 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 text-foreground"
           >
-            Turn Leads Into Revenue.
+            Meta Ads That Fill
             <br />
-            <span className="text-muted-foreground">On Autopilot.</span>
+            <span className="text-muted-foreground">Your Calendar.</span>
           </motion.h1>
 
           <motion.p
@@ -28,7 +28,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-base md:text-lg text-muted-foreground max-w-md mb-10 leading-relaxed"
           >
-            We install AI outbound & follow-up systems that convert your existing leads into revenue — without more ad spend.
+            We build and manage your entire lead generation system — Meta ad campaigns, high-converting funnels, and AI-powered follow-up — so you can focus on closing.
           </motion.p>
 
           <motion.div
@@ -57,13 +57,10 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Trusted by growth teams</p>
-            <div className="flex items-center gap-6 opacity-30">
-              {["Company A", "Company B", "Company C", "Company D"].map((name) => (
-                <div key={name} className="text-xs font-semibold text-muted-foreground tracking-wide">
-                  {name}
-                </div>
-              ))}
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Choose your model</p>
+            <div className="flex items-center gap-6">
+              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Qualified Leads</div>
+              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Booked Calls</div>
             </div>
           </motion.div>
         </div>

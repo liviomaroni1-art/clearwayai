@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
-import { Bot, Mail, Settings, Users, ArrowRight } from "lucide-react";
+import { Megaphone, Layout, Bot, BarChart3, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
+    icon: Megaphone,
+    title: "Done-for-You Meta Campaigns",
+    audience: "Facebook & Instagram ads managed end-to-end",
+    benefit: "We handle strategy, creative, targeting, and optimization — designed to drive qualified traffic to your funnel.",
+    metric: "Full-service ad management",
+  },
+  {
+    icon: Layout,
+    title: "High-Converting Funnels",
+    audience: "Landing pages built to capture and convert",
+    benefit: "Custom landing pages with lead forms, tracking, and conversion-optimized copy — so your ad spend can work harder.",
+    metric: "Pages designed for action",
+  },
+  {
     icon: Bot,
-    title: "AI SDR & Outbound",
-    audience: "For teams that need pipeline without hiring SDRs",
-    benefit: "AI-powered prospecting that books meetings on autopilot.",
-    metric: "+20–40% meetings booked",
+    title: "AI Lead Capture & Nurture",
+    audience: "Instant follow-up via chat, SMS, and email",
+    benefit: "Every lead gets a fast, personalized response. Our AI qualifies, nurtures, and moves prospects toward a booking.",
+    metric: "Faster response, fewer lost leads",
   },
   {
-    icon: Mail,
-    title: "Lead Nurture & Follow-Up",
-    audience: "For companies with leads going cold in the CRM",
-    benefit: "Multi-touch sequences that re-engage and convert stale leads.",
-    metric: "Recover 15–30% lost pipeline",
-  },
-  {
-    icon: Settings,
-    title: "CRM & Pipeline Automation",
-    audience: "For ops teams drowning in manual data entry",
-    benefit: "Automated scoring, routing, and lifecycle management.",
-    metric: "Cut admin time by 60%+",
-  },
-  {
-    icon: Users,
-    title: "Campaign Strategy",
-    audience: "For founders who want a strategic partner",
-    benefit: "We co-build your outbound playbook and optimize weekly.",
-    metric: "Faster iteration, higher close rates",
+    icon: BarChart3,
+    title: "Pipeline & CRM Integration",
+    audience: "Full visibility into your lead flow",
+    benefit: "See every lead, every stage, and every outcome. We integrate with your calendar and CRM so nothing falls through.",
+    metric: "Clear reporting & handover",
   },
 ];
 
@@ -46,10 +46,10 @@ const ServicesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            What We Build For You
+            What You Get
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            End-to-end AI systems that turn your leads into revenue.
+            Everything you need to turn paid traffic into a predictable pipeline.
           </p>
         </motion.div>
 

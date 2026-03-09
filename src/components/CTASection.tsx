@@ -16,10 +16,10 @@ const CTASection = () => {
           className="max-w-xl mx-auto text-center"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
-            Stop Leaving Revenue in Your CRM.
+            Ready for More Leads?
           </h2>
           <p className="text-muted-foreground mb-8 text-sm">
-            Book a free strategy call. We'll map the gaps in your funnel and show you what we'd build. You decide.
+            Book a free strategy call. We'll review your offer, map out a campaign plan, and show you how the system works. No pressure.
           </p>
           <Button variant="hero" size="lg" asChild>
             <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "bottom_cta", label: "Book Your Strategy Call" } })}>
@@ -28,7 +28,7 @@ const CTASection = () => {
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground mt-5">
-            No hard pitch — just a clear action plan for your pipeline.
+            No commitment — just a clear plan for your lead generation.
           </p>
         </motion.div>
       </div>

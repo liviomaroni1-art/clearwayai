@@ -8,32 +8,32 @@ import {
 
 const faqs = [
   {
-    question: "How long does it take to see results?",
-    answer: "Most clients see their first AI-generated meetings within 2–3 weeks of launch. Full system optimization typically takes 60–90 days as we refine messaging and targeting based on live data.",
+    question: "What's the difference between Leads Only and Booked Calls?",
+    answer: "With Leads Only, we deliver qualified leads directly to your CRM or inbox. With Booked Calls, our AI follow-up system also handles scheduling — so prospects land on your calendar ready to talk. You choose the model that fits your workflow.",
   },
   {
-    question: "What does the engagement cost?",
-    answer: "Our engagements start from CHF 2,500/month depending on scope. We'll give you a clear proposal after the strategy call — no hidden fees, no long lock-in contracts.",
+    question: "How long does it take to launch?",
+    answer: "Most campaigns go live within 7–14 days. That includes strategy, ad creative, funnel build, and AI follow-up setup. From there, we optimize weekly based on real data.",
   },
   {
-    question: "What tech stack do you work with?",
-    answer: "We integrate with your existing CRM (HubSpot, Salesforce, Pipedrive, etc.) and build on top of best-in-class AI and automation tools. No need to replace what's working.",
+    question: "What results can I expect?",
+    answer: "Results depend on your offer, market, and budget. We don't make guarantees — but our system is designed to help you generate a consistent flow of qualified leads and reduce wasted ad spend. We'll set realistic expectations during the strategy call.",
   },
   {
-    question: "Is AI outreach safe? Won't it damage our brand?",
-    answer: "Every sequence is reviewed for quality and compliance. We use controlled sending volumes, proper warm-up, and human-quality personalization. Your brand reputation is our priority.",
+    question: "What platforms do you run ads on?",
+    answer: "We focus on Meta (Facebook & Instagram). These platforms typically offer strong targeting for local and online service businesses, and work well with our funnel and AI follow-up system.",
   },
   {
-    question: "Who runs the campaigns?",
-    answer: "We handle end-to-end: strategy, copywriting, technical setup, monitoring, and optimization. You review and approve — we execute.",
+    question: "Do I need a big ad budget?",
+    answer: "We typically recommend starting with a minimum ad budget that allows for meaningful data and testing. We'll discuss what makes sense for your market during the strategy call.",
   },
   {
-    question: "What KPIs do you focus on?",
-    answer: "Meetings booked, pipeline generated, and lead-to-opportunity conversion rate. We align on metrics during the strategy call and report transparently.",
+    question: "What if I already run ads?",
+    answer: "Great — we can audit what you're doing and identify where the gaps are. Often the issue isn't the ads themselves, but the follow-up system (or lack of one) behind them.",
   },
   {
-    question: "Do you work with companies outside Switzerland?",
-    answer: "Yes. We're based in Switzerland but work with B2B companies across Europe and the US. Our systems are language-agnostic and support multi-market campaigns.",
+    question: "Do you work with businesses outside Switzerland?",
+    answer: "Yes. We're based in Switzerland but work with service businesses across Europe and beyond. Our system supports multiple languages and markets.",
   },
 ];
 
