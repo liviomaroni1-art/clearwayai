@@ -7,7 +7,7 @@ interface LiveDemoPhoneProps {
 }
 
 const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ variant = "hero" }, ref) => {
-  const demoNumber = "+41 76 471 46 78";
+  const demoNumber = "+41 76 471 56 78";
   
   if (variant === "floating") {
     return (
