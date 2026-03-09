@@ -1,104 +1,93 @@
 import { motion } from "framer-motion";
-import { Phone, MailCheck, Star, ArrowRight } from "lucide-react";
+import { Search, Cpu, Rocket, BarChart3, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const pillars = [
+const steps = [
   {
-    icon: Phone,
+    icon: Search,
     step: "01",
-    title: "Lead Capture & Qualification",
-    description: "Every call, web chat, and form submission gets a fast, professional response — 24/7. The AI qualifies leads, answers their questions, and books directly into your calendar or creates a detailed summary for your team. No more missed calls turning into lost jobs.",
-    highlights: ["Calls, chat & forms — all covered", "Smart qualification questions", "Instant calendar booking"],
+    title: "Diagnose Your Funnel",
+    description: "We audit your pipeline, identify where leads drop off, and map the highest-impact conversion points.",
+    outcome: "Clear picture of revenue you're leaving on the table.",
   },
   {
-    icon: MailCheck,
+    icon: Cpu,
     step: "02",
-    title: "Automated Follow-Up & Reactivation",
-    description: "Missed a call? Sent a quote that went cold? Have customers who haven't come back in months? The system follows up via SMS and email automatically — turning dead leads and forgotten customers into real, paying jobs.",
-    highlights: ["Missed-call & cold-quote follow-up", "Inactive customer reactivation", "'Maybe later' nurture sequences"],
+    title: "Build AI Outreach & Follow-Up Systems",
+    description: "We design and deploy AI-driven sequences across email, LinkedIn, and SMS — personalized at scale.",
+    outcome: "Consistent pipeline generation without manual work.",
   },
   {
-    icon: Star,
+    icon: Rocket,
     step: "03",
-    title: "Reminders, Reviews & Feedback",
-    description: "Appointment reminders reduce no-shows. Post-job messages request Google reviews from happy customers and privately flag issues from unhappy ones — so your reputation grows and problems get caught early.",
-    highlights: ["SMS/email job reminders", "Automated review requests", "Private feedback capture"],
+    title: "Launch Multi-Channel Sequences",
+    description: "Your campaigns go live across channels. Every lead gets timely, relevant touchpoints that drive action.",
+    outcome: "More meetings booked, more deals in pipeline.",
+  },
+  {
+    icon: BarChart3,
+    step: "04",
+    title: "Optimize & Scale",
+    description: "We continuously test messaging, timing, and targeting to improve conversion rates and expand what works.",
+    outcome: "Compounding revenue growth from the same lead base.",
   },
 ];
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-card/30">
+    <section id="how-it-works" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            What We <span className="gradient-text">Actually Do</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            How It Works
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            AI answering the phone is just one channel. The real value is a complete system that captures leads, follows up, and brings customers back.
+          <p className="text-muted-foreground max-w-lg mx-auto">
+            A proven 4-step system to turn your existing leads into predictable revenue.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div className="hidden md:block absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
-            
-            <div className="space-y-8 md:space-y-12">
-              {pillars.map((pillar, index) => (
-                <motion.div
-                  key={pillar.step}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className="flex gap-5 md:gap-8 items-start"
-                >
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-card border border-primary/20 flex items-center justify-center relative z-10">
-                      <pillar.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                    </div>
-                    <span className="absolute -top-1.5 -right-1.5 z-20 text-[11px] font-bold text-primary-foreground bg-primary rounded-full w-6 h-6 flex items-center justify-center ring-2 ring-background">
-                      {index + 1}
-                    </span>
-                  </div>
-
-                  <div className="pt-1 md:pt-3">
-                    <h3 className="text-lg md:text-xl font-semibold mb-1.5 text-foreground">{pillar.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed max-w-md mb-3">
-                      {pillar.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {pillar.highlights.map((h) => (
-                        <span key={h} className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium">
-                          {h}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-6">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.step}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="glass-card p-6 flex gap-5"
+            >
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <step.icon className="w-5 h-5 text-primary" />
+                </div>
+              </div>
+              <div>
+                <p className="text-xs text-primary font-semibold uppercase tracking-widest mb-1">Step {step.step}</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground mb-2">{step.description}</p>
+                <p className="text-sm text-primary/80 font-medium">→ {step.outcome}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-10 md:mt-14"
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="text-center mt-12"
         >
-          <p className="text-sm text-muted-foreground mb-5">
-            Most clients go live ~72 hours after onboarding.
-          </p>
-          <Button variant="hero" size="lg" className="btn-glow" asChild>
+          <Button variant="hero" size="lg" className="btn-glow hover:scale-[1.03] transition-all" asChild>
             <Link to="/contact">
-              Book a Free Growth Audit
+              Book a Strategy Call
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

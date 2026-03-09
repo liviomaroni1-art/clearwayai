@@ -13,11 +13,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
-    { name: "Results", href: isHomePage ? "#proof" : "/#proof" },
-    { name: "Pricing", href: isHomePage ? "#pricing" : "/#pricing" },
-    { name: "Security", href: "/security" },
+    { name: "Results", href: isHomePage ? "#results" : "/#results" },
     { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -34,8 +31,8 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center"
           >
-            <img 
-              src={logo} 
+            <img
+              src={logo}
               alt="Clearway AI"
               width="120"
               height="24"
@@ -75,13 +72,13 @@ const Navbar = () => {
           </button>
 
           <div className="hidden md:flex items-center gap-6">
-            <Button 
-              variant="hero" 
-              size="default" 
-              className="btn-glow hover:scale-105 transition-transform" 
+            <Button
+              variant="hero"
+              size="default"
+              className="btn-glow hover:scale-105 transition-transform"
               asChild
             >
-              <Link to="/contact">Book a Growth Audit</Link>
+              <Link to="/contact">Book a Call</Link>
             </Button>
           </div>
         </div>
@@ -119,7 +116,7 @@ const Navbar = () => {
                 ))}
                 <Button variant="hero" size="default" className="w-full btn-glow" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book a Growth Audit
+                    Book a Call
                   </Link>
                 </Button>
               </div>

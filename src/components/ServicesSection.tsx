@@ -1,221 +1,95 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MessageSquare, Globe, FileText, Users, ChevronDown, Check, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { Bot, Mail, Settings, Users, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Phone,
-    title: "AI Receptionist",
-    tagline: "Your 24/7 revenue machine",
-    description:
-      "Capture more leads. Our AI answers calls instantly, books appointments, and routes urgent inquiries—while you focus on what you do best.",
-    isCore: true,
-    benefits: [
-      "Designed to answer calls 24/7—even at 2 AM on holidays",
-      "Potential to cut staffing costs by up to 70%",
-      "Instant lead qualification so you only call back hot prospects",
-      "Books directly into your calendar—no back-and-forth",
-      "Sounds natural, speaks 30+ languages fluently",
-    ],
-    details: "Our AI handles unlimited concurrent calls with human-like conversation. It understands context, answers FAQs, and integrates with your CRM. Perfect for practices that can't afford to miss a single lead.",
+    icon: Bot,
+    title: "AI SDR & Outbound Campaigns",
+    audience: "For teams that need consistent pipeline without hiring SDRs",
+    benefit: "AI-powered prospecting that books meetings on autopilot",
+    metric: "Increase meetings booked by 20–40%",
   },
   {
     icon: Mail,
-    title: "Email Automation",
-    tagline: "Respond in seconds, not hours",
-    description:
-      "Turn inbox chaos into effortless client communication. Our AI writes perfect, on-brand replies in under 60 seconds—24/7.",
-    isCore: true,
-    benefits: [
-      "Reply to emails up to 50x faster than manual responses",
-      "Maintain your exact brand voice across all messages",
-      "Auto-prioritize urgent requests to reduce missed VIPs",
-      "Designed to handle up to 80% of routine inquiries automatically",
-      "Seamless handoff when human expertise is needed",
-    ],
-    details: "Our email AI learns your communication style and handles routine inquiries, follow-ups, and support tickets—freeing your team for high-value work.",
+    title: "Automated Lead Nurture & Follow-Up",
+    audience: "For companies with leads going cold in the CRM",
+    benefit: "Multi-touch sequences that re-engage and convert stale leads",
+    metric: "Recover 15–30% of lost pipeline",
   },
   {
-    icon: MessageSquare,
-    title: "Website Chat",
-    tagline: "Convert visitors while you sleep",
-    description:
-      "Engage every website visitor instantly. Answer questions, capture leads, and book appointments—even at 3 AM.",
-    isCore: false,
-    benefits: [
-      "Potential to boost conversion rates with instant responses",
-      "Capture leads 24/7 (your competition doesn't sleep)",
-      "Handle 100+ conversations simultaneously",
-      "Designed to reduce support ticket volume significantly",
-      "Smart escalation to live agents when needed",
-    ],
-    details: "Deploy intelligent chat that understands your business, answers product questions, and guides visitors through your sales funnel—all automatically.",
-  },
-  {
-    icon: Globe,
-    title: "Conversion Websites",
-    tagline: "Built to capture, not just impress",
-    description:
-      "Get a professional website designed to turn visitors into booked appointments—fully integrated with your AI stack.",
-    isCore: false,
-    benefits: [
-      "Designed for conversion (not just looks)",
-      "AI chat + booking built-in from day one",
-      "Mobile-first, lightning-fast loading",
-      "SEO-optimized to drive organic traffic",
-      "Update content yourself—no developer needed",
-    ],
-    details: "We build modern websites that work as the front door to your AI-powered operations. Every site integrates with your automation—capturing leads, triggering follow-ups, and booking appointments automatically.",
-  },
-  {
-    icon: FileText,
-    title: "Document Processing",
-    tagline: "Eliminate manual data entry",
-    description:
-      "Extract data from invoices, contracts, and forms automatically—with 99%+ accuracy. Hours of work → seconds.",
-    isCore: false,
-    benefits: [
-      "Process documents up to 10x faster than manual entry",
-      "High accuracy on structured data extraction",
-      "Automatic validation helps catch errors early",
-      "Direct integration with your existing systems",
-      "Potential to significantly reduce data entry costs",
-    ],
-    details: "Our document processing AI reads invoices, contracts, applications, and forms—extracting key data and pushing it directly into your systems without human intervention.",
+    icon: Settings,
+    title: "CRM & Pipeline Automation",
+    audience: "For ops teams drowning in manual data entry and handoffs",
+    benefit: "Automated scoring, routing, and lifecycle management",
+    metric: "Cut admin time by 60%+",
   },
   {
     icon: Users,
-    title: "Lead Qualification",
-    tagline: "Focus on buyers, not tire-kickers",
-    description:
-      "Automatically score and prioritize incoming leads so your team only talks to high-intent prospects.",
-    isCore: false,
-    benefits: [
-      "Potential to significantly increase sales efficiency",
-      "Auto-score leads based on real behavior",
-      "Instant follow-up on hot prospects",
-      "Stop wasting time on unqualified leads",
-      "Smarter targeting designed to improve conversion rates",
-    ],
-    details: "Our lead qualification system analyzes prospect behavior, engagement, and fit—automatically scoring and routing leads so your team only talks to ready-to-buy customers.",
+    title: "Done-With-You Campaign Strategy",
+    audience: "For founders who want a strategic partner, not just a tool",
+    benefit: "We co-build your outbound playbook and optimize weekly",
+    metric: "Faster iteration, higher close rates",
   },
 ];
 
 const ServicesSection = () => {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
-
-  const toggleService = (title: string) => {
-    setExpandedService(expandedService === title ? null : title);
-  };
-
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-primary font-medium">Done-for-you automation</span>
-          </div>
-          
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            AI That <span className="gradient-text">Actually Works</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            What We Build For You
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Proven solutions. Real results. Click any service to see exactly how it transforms your business.
+          <p className="text-muted-foreground max-w-lg mx-auto">
+            End-to-end AI systems designed to turn your existing leads into revenue.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group glass-card rounded-2xl transition-all duration-300 cursor-pointer w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] self-start ${
-                service.isCore 
-                  ? "border-primary/40 hover:border-primary/60 ring-1 ring-primary/20" 
-                  : "hover:border-primary/50"
-              } ${expandedService === service.title ? "ring-2 ring-primary/50" : ""}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleService(service.title);
-              }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="glass-card p-6 flex flex-col"
             >
-              <div className="p-8">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    {service.isCore && (
-                      <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full mb-4">
-                        ⭐ Most Popular
-                      </span>
-                    )}
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <service.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-1">{service.title}</h3>
-                    <p className="text-sm text-primary font-medium mb-3">{service.tagline}</p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                  <motion.div
-                    animate={{ rotate: expandedService === service.title ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="ml-4 mt-2"
-                  >
-                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                  </motion.div>
-                </div>
-
-                {/* Expanded Content */}
-                <AnimatePresence>
-                  {expandedService === service.title && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-6 mt-6 border-t border-border/50">
-                        <p className="text-foreground/80 mb-6">
-                          {service.details}
-                        </p>
-                        <h4 className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                          What You Get
-                        </h4>
-                        <ul className="space-y-3">
-                          {service.benefits.map((benefit, i) => (
-                            <motion.li
-                              key={i}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.1 }}
-                              className="flex items-start gap-3 text-muted-foreground"
-                            >
-                              <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
+                <service.icon className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
+              <p className="text-xs text-primary/70 font-medium mb-3">{service.audience}</p>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{service.benefit}</p>
+              <div className="pt-3 border-t border-border/30">
+                <span className="text-sm font-semibold text-primary">{service.metric}</span>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <Button variant="hero" size="lg" className="btn-glow hover:scale-[1.03] transition-all" asChild>
+            <Link to="/contact">
+              Book a Strategy Call
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
