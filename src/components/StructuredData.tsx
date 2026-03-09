@@ -18,7 +18,7 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+41-76-471-46-78",
+    "telephone": "+41-76-471-56-78",
     "contactType": "sales",
     "availableLanguage": ["English", "German", "French", "Spanish"]
   },
