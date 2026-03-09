@@ -166,7 +166,7 @@ const HomeServicesPage = () => {
                 className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] border border-border/50 rounded-full px-6 hover:border-primary/30"
               >
                 <Phone className="w-4 h-4" />
-                Hear the AI Live: {demoNumber}
+                Call Us: {demoNumber}
               </a>
             </motion.div>
 
