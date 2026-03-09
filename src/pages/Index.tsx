@@ -18,8 +18,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Clearway AI — AI Lead Generation Agency | Turn Leads Into Revenue"
-        description="Clearway AI installs AI-powered outbound and follow-up systems that convert your existing leads into revenue on autopilot. Book a free strategy call."
+        title="Clearway AI — Meta Ads & AI Lead Generation for Service Businesses"
+        description="We build and manage Meta ad campaigns, high-converting funnels, and AI-powered follow-up to help service businesses generate qualified leads and booked calls."
       />
       <StructuredData type="website" />
       <StructuredData type="organization" />
