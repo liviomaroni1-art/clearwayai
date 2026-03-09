@@ -5,104 +5,73 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
 
 const faqs = [
   {
-    question: "Is this just an AI receptionist?",
-    answer: "No — answering the phone is only one piece. The real value is what happens after: automated follow-ups for missed calls and cold quotes, reactivation campaigns for old customers, appointment reminders, and review requests. It's a complete lead capture and growth system.",
+    question: "How long does it take to see results?",
+    answer: "Most clients see their first AI-generated meetings within 2–3 weeks of launch. Full system optimization typically takes 60–90 days as we refine messaging and targeting based on live data.",
   },
   {
-    question: "Are you replacing my staff?",
-    answer: "No. We handle the calls, follow-ups, and reminders your team doesn't have time for — so they can focus on the job itself. Think of it as a tireless back-office assistant, not a replacement.",
+    question: "What does the engagement cost?",
+    answer: "Our engagements start from CHF 2,500/month depending on scope. We'll give you a clear proposal after the strategy call — no hidden fees, no long lock-in contracts.",
   },
   {
-    question: "How fast can we go live?",
-    answer: "Most businesses are live within ~72 hours after a short onboarding call. We handle all setup, integrations, and testing — you don't touch a thing.",
+    question: "What tech stack do you work with?",
+    answer: "We integrate with your existing CRM (HubSpot, Salesforce, Pipedrive, etc.) and build on top of best-in-class AI and automation tools. No need to replace what's working.",
   },
   {
-    question: "How do you integrate with my tools?",
-    answer: "We connect with your existing phone number, calendar, CRM, and automation tools — including Google Calendar, Outlook, HubSpot, ServiceTitan, Housecall Pro, Jobber, and more. No need to change your workflow.",
+    question: "Is AI outreach safe? Won't it damage our brand?",
+    answer: "Every sequence is reviewed for quality and compliance. We use controlled sending volumes, proper warm-up, and human-quality personalization. Your brand reputation is our priority.",
   },
   {
-    question: "What if a caller needs a human?",
-    answer: "The AI knows when to escalate. Complex or sensitive calls get transferred to your team via live call transfer, SMS alert, or email — so nothing falls through the cracks.",
+    question: "Who runs the campaigns?",
+    answer: "We handle end-to-end: strategy, copywriting, technical setup, monitoring, and optimization. You review and approve — we execute.",
   },
   {
-    question: "Can you handle emergencies or out-of-hours calls?",
-    answer: "Yes. The AI triages urgency, routes emergencies to the right person immediately, and handles after-hours inquiries — even at 2 AM.",
+    question: "What KPIs do you focus on?",
+    answer: "Meetings booked, pipeline generated, and lead-to-opportunity conversion rate. We align on metrics during the strategy call and report transparently.",
   },
   {
-    question: "What if the AI makes a mistake?",
-    answer: "Built-in guardrails prevent the AI from making promises it can't keep. Every interaction is logged and reviewable, and we continuously improve the system based on real call data.",
-  },
-  {
-    question: "How do the follow-ups and reactivation work?",
-    answer: "After a missed call or unbooked estimate, the system sends a friendly SMS or email automatically. For customers who haven't visited in months, we run targeted reactivation campaigns to bring them back — all hands-free.",
-  },
-  {
-    question: "Is there a long-term contract?",
-    answer: "No. Month-to-month plans, no lock-in. We earn your business every month.",
-  },
-  {
-    question: "Is my data secure?",
-    answer: "Yes. All data is encrypted in transit and at rest. Enterprise-grade infrastructure with optional BAAs for healthcare. See our security page for full details.",
+    question: "Do you work with companies outside Switzerland?",
+    answer: "Yes. We're based in Switzerland but work with B2B companies across Europe and the US. Our systems are language-agnostic and support multi-market campaigns.",
   },
 ];
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-16 md:py-24 bg-card/30">
+    <section id="faq" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-foreground">
-            Common <span className="gradient-text">Questions</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Everything you need to know before getting started.
-          </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="max-w-3xl mx-auto"
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="max-w-2xl mx-auto"
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-sm md:text-base text-foreground hover:text-primary">
+              <AccordionItem key={index} value={`faq-${index}`} className="glass-card px-5 border-none">
+                <AccordionTrigger className="text-sm md:text-base font-medium text-foreground hover:text-primary py-4">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">
+                <AccordionContent className="text-sm text-muted-foreground pb-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-8"
-        >
-          <p className="text-sm text-muted-foreground">
-            Still have questions?{" "}
-            <Link to="/contact" className="text-primary hover:underline font-medium">Book a free growth audit</Link>
-            {" · "}
-            <Link to="/security" className="text-primary hover:underline">Security</Link>
-            {" · "}
-            <a href="#pricing" className="text-primary hover:underline">Pricing</a>
-          </p>
         </motion.div>
       </div>
     </section>
