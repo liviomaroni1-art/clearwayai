@@ -128,7 +128,7 @@ const localBusinessSchema = {
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     "opens": "06:00",
     "closes": "18:00",
-    "timeZone": "America/Los_Angeles"
+    "timeZone": "Europe/Zurich"
   }
 };
 
