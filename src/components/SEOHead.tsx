@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Clearway AI — AI Growth System for Service Businesses | Capture, Follow Up, Retain",
-  description = "Clearway AI helps service businesses grow with AI that captures every lead, follows up automatically, reactivates old customers, and brings in more 5-star reviews. Built for HVAC, plumbing, electrical & more.",
+  title = "Clearway AI — Meta Ads & AI Lead Generation for Service Businesses",
+  description = "Clearway AI builds and manages Meta ad campaigns, high-converting funnels, and AI-powered follow-up to help service businesses generate qualified leads and booked calls.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -24,7 +24,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       
-      <meta name="keywords" content="Clearway AI, AI growth system, AI receptionist, lead capture, customer reactivation, automated follow-up, review requests, service business automation, HVAC AI, plumbing AI, 24/7 answering" />
+      <meta name="keywords" content="Clearway AI, Meta ads agency, lead generation, AI follow-up, Facebook ads, Instagram ads, booked calls, service business marketing, funnel building, AI lead nurture" />
       
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
@@ -49,7 +49,7 @@ const SEOHead = ({
       <meta name="author" content="Clearway AI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
-      <meta name="theme-color" content="#00E0FF" />
+      <meta name="theme-color" content="#050506" />
       
       <meta name="format-detection" content="telephone=no" />
     </Helmet>

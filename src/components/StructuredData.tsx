@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "Clearway AI is an AI growth system for service businesses — capturing leads, automating follow-ups, reactivating customers, and driving 5-star reviews. Swiss-built for US businesses.",
+  "description": "Clearway AI builds and manages Meta ad campaigns, high-converting funnels, and AI-powered follow-up systems designed to help service businesses generate qualified leads and booked calls.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
@@ -32,43 +32,17 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "AI Growth System",
+  "serviceType": "Lead Generation & Appointment Setting",
   "provider": {
     "@type": "Organization",
     "name": "Clearway AI"
   },
-  "name": "AI Growth System for Service Businesses",
-  "description": "AI-powered system that captures every lead 24/7, automates follow-ups, reactivates past customers, and generates 5-star reviews for service businesses.",
+  "name": "Meta Ads & AI Lead Generation for Service Businesses",
+  "description": "Done-for-you Meta ad campaigns, high-converting funnels, and AI-powered follow-up systems that help service businesses generate qualified leads and booked calls.",
   "areaServed": {
     "@type": "Country",
     "name": "Switzerland"
-  },
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Pro Practice Plan",
-      "price": "2500",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "2500",
-        "priceCurrency": "USD",
-        "billingDuration": "P1M"
-      }
-    },
-    {
-      "@type": "Offer",
-      "name": "Team Pro Plan",
-      "price": "3500",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": "3500",
-        "priceCurrency": "USD",
-        "billingDuration": "P1M"
-      }
-    }
-  ]
+  }
 };
 
 const faqSchema = {
@@ -77,34 +51,34 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Are you replacing my staff?",
+      "name": "What's the difference between Leads Only and Booked Calls?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. We handle the calls, follow-ups, and reminders your team doesn't have time for — so they can focus on delivering great service."
+        "text": "With Leads Only, we deliver qualified leads directly to your CRM or inbox. With Booked Calls, our AI follow-up system also handles scheduling — so prospects land on your calendar ready to talk."
       }
     },
     {
       "@type": "Question",
-      "name": "How fast can we go live?",
+      "name": "How long does it take to launch?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most businesses are live within ~72 hours after completing a short onboarding call. We handle all setup, integrations, and testing."
+        "text": "Most campaigns go live within 7–14 days. That includes strategy, ad creative, funnel build, and AI follow-up setup."
       }
     },
     {
       "@type": "Question",
-      "name": "What if a caller needs a human?",
+      "name": "What results can I expect?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The AI knows when to escalate. Complex or sensitive inquiries are transferred to your team via live call transfer, SMS, or email."
+        "text": "Results depend on your offer, market, and budget. We don't make guarantees — but our system is designed to help you generate a consistent flow of qualified leads and reduce wasted ad spend."
       }
     },
     {
       "@type": "Question",
-      "name": "Is my data secure?",
+      "name": "What platforms do you run ads on?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. All data is encrypted in transit and at rest. We use enterprise-grade infrastructure and offer BAAs for healthcare practices."
+        "text": "We focus on Meta (Facebook & Instagram). These platforms typically offer strong targeting for local and online service businesses."
       }
     }
   ]
@@ -136,9 +110,9 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Clearway AI",
-  "alternateName": ["ClearwayAI", "Clearway AI Growth System"],
+  "alternateName": ["ClearwayAI", "Clearway AI Lead Generation"],
   "url": "https://clearwayai.co",
-  "description": "Clearway AI is an AI growth system that helps service businesses capture leads, automate follow-ups, reactivate customers, and grow 5-star reviews.",
+  "description": "Clearway AI builds and manages Meta ad campaigns, funnels, and AI follow-up systems to help service businesses generate qualified leads and booked calls.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://clearwayai.co/?q={search_term_string}",
