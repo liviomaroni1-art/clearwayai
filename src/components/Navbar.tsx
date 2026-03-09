@@ -13,6 +13,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { name: "What You Get", href: isHomePage ? "#services" : "/#services" },
     { name: "Results", href: isHomePage ? "#results" : "/#results" },
     { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
   ];

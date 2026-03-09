@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
 const goodFit = [
-  "You already generate leads but conversion is low",
-  "CRM has untouched or stale leads",
-  "Team too small to hire a full SDR org",
-  "You want a system — not another tool",
-  "Ready to invest in pipeline infrastructure",
+  "You're a service business (clinic, law firm, agency, coach, contractor)",
+  "You have an offer that's working — you just need more leads",
+  "You want a done-for-you system, not another tool to manage",
+  "You're ready to invest in Meta ads to grow predictably",
+  "You want qualified leads or booked calls, not just clicks",
 ];
 
 const notFit = [
-  "Pre-revenue or no leads yet",
-  "Need a full-service marketing agency",
-  "Looking for the cheapest option",
-  "Not willing to share CRM access",
+  "You don't have a clear offer or service to sell yet",
+  "You're looking for organic-only growth with no ad spend",
+  "You want to run campaigns yourself — you just need a course",
+  "You expect guaranteed results regardless of market or budget",
 ];
 
 const FitSection = () => {
@@ -31,7 +31,7 @@ const FitSection = () => {
             Is This Right For You?
           </h2>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-            We work with a specific type of company. Here's how to know.
+            We work best with businesses that have a proven offer and want more predictable lead flow.
           </p>
         </motion.div>
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Cpu, Rocket, BarChart3, ArrowRight } from "lucide-react";
+import { Search, Megaphone, Bot, CalendarCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -7,26 +7,26 @@ const steps = [
   {
     icon: Search,
     step: "01",
-    title: "Diagnose Your Funnel",
-    description: "We audit your pipeline and map the highest-impact conversion points.",
+    title: "Audit & Strategy",
+    description: "We analyze your offer, ideal customer, and positioning to build a campaign strategy designed to attract the right leads.",
   },
   {
-    icon: Cpu,
+    icon: Megaphone,
     step: "02",
-    title: "Build AI Outreach Systems",
-    description: "AI-driven sequences across email, LinkedIn, and SMS — personalized at scale.",
+    title: "Meta Ads & Funnel Build",
+    description: "We create your ad campaigns, landing pages, and lead capture forms — optimized for conversions from day one.",
   },
   {
-    icon: Rocket,
+    icon: Bot,
     step: "03",
-    title: "Launch Multi-Channel Sequences",
-    description: "Campaigns go live. Every lead gets timely touchpoints that drive action.",
+    title: "AI Follow-Up & Nurture",
+    description: "Every new lead gets an instant response via chat, SMS, or email. Our AI qualifies and nurtures so nothing slips through.",
   },
   {
-    icon: BarChart3,
+    icon: CalendarCheck,
     step: "04",
-    title: "Optimize & Scale",
-    description: "We test messaging, timing, and targeting to compound results.",
+    title: "Leads or Calls Delivered",
+    description: "Qualified leads land in your CRM, or calls get booked directly on your calendar. You choose the model that fits.",
   },
 ];
 
@@ -42,10 +42,10 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            From Leaking Pipeline to Revenue Machine
+            From Ad Spend to Booked Calls
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            A proven 4-step system to turn your existing leads into predictable revenue.
+            A done-for-you system that can turn Meta traffic into qualified leads and appointments.
           </p>
         </motion.div>
 

@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { Clock, UserX, TrendingDown, Database, AlertTriangle } from "lucide-react";
 
 const pains = [
-  { icon: TrendingDown, text: "Leads come in but don't convert — no structured follow-up" },
-  { icon: Clock, text: "Response times are too slow — prospects go cold" },
-  { icon: UserX, text: "Founders stuck doing manual outreach instead of closing" },
-  { icon: Database, text: "CRM full of untouched leads — revenue sitting on the table" },
-  { icon: AlertTriangle, text: "No outbound engine — pipeline depends on inbound luck" },
+  { icon: TrendingDown, text: "Running ads but leads aren't converting into paying clients" },
+  { icon: Clock, text: "Leads go cold because no one follows up fast enough" },
+  { icon: UserX, text: "Spending on traffic with no system to capture and qualify it" },
+  { icon: Database, text: "No clear pipeline — leads scattered across inboxes and spreadsheets" },
+  { icon: AlertTriangle, text: "Relying on referrals and word-of-mouth for new business" },
 ];
 
 const ProblemSection = () => {
@@ -22,10 +22,10 @@ const ProblemSection = () => {
             className="text-center mb-14"
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              You Don't Have a Traffic Problem.
+              Ads Without a System
             </h2>
             <p className="text-muted-foreground">
-              You have a conversion problem.
+              Are just expensive brand awareness.
             </p>
           </motion.div>
 
@@ -52,8 +52,8 @@ const ProblemSection = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-center text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl mx-auto"
           >
-            Most B2B companies spend heavily on generating demand — then let it die in the CRM. 
-            The gap isn't attention. It's converting existing demand into revenue.
+            Most businesses spend on Meta ads without a proper funnel or follow-up system.
+            The result? Wasted budget and missed opportunities.
           </motion.p>
         </div>
       </div>
