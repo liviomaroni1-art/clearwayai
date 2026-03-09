@@ -18,7 +18,7 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-888-560-2165",
+    "telephone": "+41-76-471-46-78",
     "contactType": "sales",
     "availableLanguage": ["English", "German", "French", "Spanish"]
   },
@@ -41,7 +41,7 @@ const serviceSchema = {
   "description": "AI-powered system that captures every lead 24/7, automates follow-ups, reactivates past customers, and generates 5-star reviews for service businesses.",
   "areaServed": {
     "@type": "Country",
-    "name": "United States"
+    "name": "Switzerland"
   },
   "offers": [
     {
@@ -115,7 +115,7 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
-  "telephone": "+1-888-560-2165",
+  "telephone": "+41-76-471-46-78",
   "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",
@@ -128,7 +128,7 @@ const localBusinessSchema = {
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     "opens": "06:00",
     "closes": "18:00",
-    "timeZone": "America/Los_Angeles"
+    "timeZone": "Europe/Zurich"
   }
 };
 

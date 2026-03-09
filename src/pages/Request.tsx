@@ -485,11 +485,11 @@ const Request = () => {
                     hello@clearwayai.co
                   </a>
                   <a
-                    href="tel:+18885602165"
+                    href="tel:+41764714678"
                     className="flex items-center gap-2 text-[12px] text-foreground/80 hover:text-primary transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-primary" />
-                    +1 (888) 560-2165
+                    +41 76 471 46 78
                   </a>
                 </div>
                 <p className="text-[10px] text-muted-foreground/50 mt-3">

@@ -253,8 +253,8 @@ const Contact = () => {
                   <PhoneCall className="w-4 h-4 text-primary" />
                   <h3 className="text-xs font-semibold text-foreground">Hear the AI live</h3>
                 </div>
-                <a href="tel:+18885602165" className="text-[13px] text-foreground/80 hover:text-primary transition-colors font-medium">
-                  +1 (888) 560-2165
+                <a href="tel:+41764714678" className="text-[13px] text-foreground/80 hover:text-primary transition-colors font-medium">
+                  +41 76 471 46 78
                 </a>
                 <p className="text-[10px] text-muted-foreground/50 mt-1">Optional — no account needed</p>
               </div>
@@ -415,7 +415,7 @@ const Contact = () => {
                           id="phone"
                           name="phone"
                           type="tel"
-                          placeholder="+1 (555) 000-0000"
+                          placeholder="+41 XX XXX XX XX"
                           value={formData.phone}
                           onChange={handleChange}
                           maxLength={20}

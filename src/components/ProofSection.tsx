@@ -25,7 +25,7 @@ const testimonials = [
 ];
 
 const ProofSection = () => {
-  const demoNumber = "+1 (888) 560-2165";
+  const demoNumber = "+41 76 471 46 78";
 
   return (
     <section className="py-20">
