@@ -75,8 +75,6 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        xl: "1rem",
-        "2xl": "1.25rem",
       },
       keyframes: {
         "accordion-down": {
@@ -87,26 +85,10 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "float": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
-        "pulse-glow": {
-          "0%, 100%": { opacity: "0.3" },
-          "50%": { opacity: "0.7" },
-        },
-        "grid-fade": {
-          "0%": { opacity: "0.03" },
-          "50%": { opacity: "0.06" },
-          "100%": { opacity: "0.03" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
-        "grid-fade": "grid-fade 8s ease-in-out infinite",
       },
     },
   },

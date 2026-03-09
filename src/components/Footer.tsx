@@ -20,16 +20,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card/30 border-t border-border/30">
-      <div className="container mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:grid lg:grid-cols-4 gap-8 lg:gap-8">
-
+    <footer className="border-t border-border">
+      <div className="container mx-auto px-6 py-12 md:py-16">
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:grid lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">Clearway AI</h3>
+            <h3 className="font-display text-lg font-bold text-foreground mb-3">Clearway AI</h3>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              AI-powered outbound and follow-up systems that turn your existing leads into revenue.
+              AI-powered systems that turn your existing leads into revenue.
             </p>
-            <Button variant="hero" size="sm" className="btn-glow" asChild>
+            <Button variant="hero" size="sm" asChild>
               <Link to="/contact">
                 Book a Strategy Call
                 <ArrowRight className="w-3 h-3" />
@@ -39,16 +38,16 @@ const Footer = () => {
 
           <div className="flex gap-12 lg:contents">
             <div>
-              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Quick Links</h4>
+              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Links</h4>
               <ul className="space-y-1">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith('/') ? (
-                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
+                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
+                      <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
                         {link.label}
                       </a>
                     )}
@@ -62,7 +61,7 @@ const Footer = () => {
               <ul className="space-y-1">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center min-h-[44px] py-2">
+                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
                       {link.label}
                     </Link>
                   </li>
@@ -72,12 +71,12 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Get In Touch</h4>
+            <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Contact</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:hello@clearwayai.co"
-                  className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] py-2"
+                  className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-2"
                 >
                   <Mail className="w-4 h-4" />
                   hello@clearwayai.co
@@ -92,25 +91,16 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-border/20">
-        <div className="container mx-auto px-4 md:px-6 py-4 md:py-6">
-          <div className="flex flex-col items-center text-center gap-2">
-            <p className="text-sm text-muted-foreground group">
-              © {new Date().getFullYear()} Clearway AI. All rights reserved.
-              {isAdmin && (
-                <Link
-                  to="/admin/leads"
-                  className="ml-2 opacity-50 hover:opacity-100 transition-opacity duration-300 text-primary"
-                >
-                  Admin
-                </Link>
-              )}
-            </p>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
-              <span>Swiss precision. Built for B2B growth.</span>
-            </div>
-          </div>
+      <div className="border-t border-border">
+        <div className="container mx-auto px-6 py-5">
+          <p className="text-xs text-muted-foreground text-center group">
+            © {new Date().getFullYear()} Clearway AI. All rights reserved.
+            {isAdmin && (
+              <Link to="/admin/leads" className="ml-2 opacity-50 hover:opacity-100 transition-opacity">
+                Admin
+              </Link>
+            )}
+          </p>
         </div>
       </div>
     </footer>

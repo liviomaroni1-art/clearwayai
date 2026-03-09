@@ -22,7 +22,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-2xl border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border"
     >
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
                 >
                   {link.name}
                 </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
                 >
                   {link.name}
                 </a>
@@ -71,13 +71,8 @@ const Navbar = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <div className="hidden md:flex items-center gap-6">
-            <Button
-              variant="hero"
-              size="default"
-              className="btn-glow"
-              asChild
-            >
+          <div className="hidden md:flex items-center">
+            <Button variant="hero" size="default" asChild>
               <Link to="/contact">Book a Call</Link>
             </Button>
           </div>
@@ -98,7 +93,7 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-3 min-h-[48px] flex items-center"
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-3 min-h-[48px] flex items-center"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
@@ -107,14 +102,14 @@ const Navbar = () => {
                     <a
                       key={link.name}
                       href={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium py-3 min-h-[48px] flex items-center"
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-3 min-h-[48px] flex items-center"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
                     </a>
                   )
                 ))}
-                <Button variant="hero" size="default" className="w-full btn-glow" asChild>
+                <Button variant="hero" size="default" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Book a Call
                   </Link>

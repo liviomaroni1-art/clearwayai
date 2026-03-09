@@ -18,7 +18,7 @@ const notFit = [
 
 const FitSection = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding border-t border-border">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,31 +27,30 @@ const FitSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
             Is This Right For You?
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
+          <p className="text-muted-foreground text-sm max-w-lg mx-auto">
             We work with a specific type of company. Here's how to know.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="glass-card p-6 relative overflow-hidden"
+            transition={{ duration: 0.3 }}
+            className="minimal-card p-6"
           >
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-            <h3 className="font-display text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-primary" />
+            <h3 className="font-display text-base font-bold text-foreground mb-5 flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-foreground" />
               Good fit
             </h3>
             <ul className="space-y-3">
               {goodFit.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-foreground/85">
-                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -59,21 +58,20 @@ const FitSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="glass-card p-6 relative overflow-hidden"
+            transition={{ duration: 0.3, delay: 0.08 }}
+            className="minimal-card p-6"
           >
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-destructive/30 to-transparent" />
-            <h3 className="font-display text-lg font-bold text-foreground mb-5 flex items-center gap-2">
-              <XCircle className="w-5 h-5 text-destructive" />
+            <h3 className="font-display text-base font-bold text-foreground mb-5 flex items-center gap-2">
+              <XCircle className="w-4 h-4 text-muted-foreground" />
               Not a fit
             </h3>
             <ul className="space-y-3">
               {notFit.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-foreground/85">
-                  <XCircle className="w-4 h-4 text-destructive/60 flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
+                  <XCircle className="w-3.5 h-3.5 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
