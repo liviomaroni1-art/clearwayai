@@ -235,7 +235,7 @@ const IndustryTemplate = () => {
               <Button variant="heroOutline" size="xl" asChild>
                 <a href={`tel:${demoNumber.replace(/\s/g, '')}`}>
                   <Phone className="w-5 h-5" />
-                  Hear It Live: {demoNumber}
+                  Call Us: {demoNumber}
                 </a>
               </Button>
             </motion.div>

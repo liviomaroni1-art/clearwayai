@@ -417,11 +417,10 @@ const HomeServicesPage = () => {
                 ))}
               </div>
               <p className="text-xs text-muted-foreground mt-6">
-                Or try the AI yourself:{" "}
+                Questions? Call us:{" "}
                 <a href={`tel:${demoNumber.replace(/\s/g, "")}`} className="text-primary hover:underline">
                   {demoNumber}
                 </a>
-                {" "}(live demo line, available 24/7)
               </p>
             </div>
           </motion.div>
