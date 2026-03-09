@@ -41,7 +41,7 @@ const serviceSchema = {
   "description": "AI-powered system that captures every lead 24/7, automates follow-ups, reactivates past customers, and generates 5-star reviews for service businesses.",
   "areaServed": {
     "@type": "Country",
-    "name": "United States"
+    "name": "Switzerland"
   },
   "offers": [
     {
