@@ -78,7 +78,6 @@ const ReliabilitySection = () => {
           ))}
         </div>
 
-        {/* Demoted phone CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,12 +85,12 @@ const ReliabilitySection = () => {
           className="text-center"
         >
           <p className="text-sm text-muted-foreground">
-            Want to hear it in action?{" "}
+            Questions?{" "}
             <a
               href={`tel:${demoNumber.replace(/\s/g, '')}`}
               className="text-primary hover:underline font-medium"
             >
-              Call the optional live demo: {demoNumber}
+              Call us: {demoNumber}
             </a>
           </p>
         </motion.div>

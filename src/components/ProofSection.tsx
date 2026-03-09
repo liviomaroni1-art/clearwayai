@@ -91,9 +91,9 @@ const ProofSection = () => {
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground mt-4">
-            Want to hear it first?{" "}
+            Questions?{" "}
             <a href={`tel:${demoNumber.replace(/\s/g, '')}`} className="text-primary hover:underline">
-              Call the optional live demo: {demoNumber}
+              Call us: {demoNumber}
             </a>
           </p>
         </motion.div>
