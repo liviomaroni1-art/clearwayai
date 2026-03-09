@@ -18,7 +18,7 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+41-76-471-46-78",
+    "telephone": "+41-76-471-56-78",
     "contactType": "sales",
     "availableLanguage": ["English", "German", "French", "Spanish"]
   },
@@ -115,7 +115,7 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
-  "telephone": "+41-76-471-46-78",
+  "telephone": "+41-76-471-56-78",
   "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",

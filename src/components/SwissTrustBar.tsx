@@ -3,7 +3,7 @@ import { Shield, Phone, Globe } from "lucide-react";
 import flagCH from "@/assets/flag-ch.png";
 
 const SwissTrustBar = () => {
-  const demoNumber = "+41 76 471 46 78";
+  const demoNumber = "+41 76 471 56 78";
   
   return (
     <motion.div
@@ -27,7 +27,7 @@ const SwissTrustBar = () => {
         className="flex items-center gap-2 px-4 py-2.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm hover:bg-emerald-500/30 transition-colors min-h-[44px]"
       >
         <Phone className="w-4 h-4 text-emerald-400" />
-        <span className="text-emerald-400 font-medium">Live Demo: {demoNumber}</span>
+        <span className="text-emerald-400 font-medium">Call: {demoNumber}</span>
       </a>
     </motion.div>
   );

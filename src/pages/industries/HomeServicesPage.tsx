@@ -9,7 +9,7 @@ import StructuredData from "@/components/StructuredData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
 
-const demoNumber = "+41 76 471 46 78";
+const demoNumber = "+41 76 471 56 78";
 
 /* ── DATA ── */
 
@@ -166,7 +166,7 @@ const HomeServicesPage = () => {
                 className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors min-h-[44px] border border-border/50 rounded-full px-6 hover:border-primary/30"
               >
                 <Phone className="w-4 h-4" />
-                Hear the AI Live: {demoNumber}
+                Call Us: {demoNumber}
               </a>
             </motion.div>
 
@@ -417,11 +417,10 @@ const HomeServicesPage = () => {
                 ))}
               </div>
               <p className="text-xs text-muted-foreground mt-6">
-                Or try the AI yourself:{" "}
+                Questions? Call us:{" "}
                 <a href={`tel:${demoNumber.replace(/\s/g, "")}`} className="text-primary hover:underline">
                   {demoNumber}
                 </a>
-                {" "}(live demo line, available 24/7)
               </p>
             </div>
           </motion.div>

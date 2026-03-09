@@ -151,7 +151,7 @@ const industryData: Record<string, IndustryData> = {
 const IndustryTemplate = () => {
   const { industry } = useParams<{ industry: string }>();
   const data = industryData[industry || "dental"];
-  const demoNumber = "+41 76 471 46 78";
+  const demoNumber = "+41 76 471 56 78";
 
   if (!data) {
     return (
@@ -235,7 +235,7 @@ const IndustryTemplate = () => {
               <Button variant="heroOutline" size="xl" asChild>
                 <a href={`tel:${demoNumber.replace(/\s/g, '')}`}>
                   <Phone className="w-5 h-5" />
-                  Hear It Live: {demoNumber}
+                  Call Us: {demoNumber}
                 </a>
               </Button>
             </motion.div>

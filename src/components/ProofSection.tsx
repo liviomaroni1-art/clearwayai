@@ -25,7 +25,7 @@ const testimonials = [
 ];
 
 const ProofSection = () => {
-  const demoNumber = "+41 76 471 46 78";
+  const demoNumber = "+41 76 471 56 78";
 
   return (
     <section className="py-20">
@@ -91,9 +91,9 @@ const ProofSection = () => {
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground mt-4">
-            Want to hear it first?{" "}
+            Questions?{" "}
             <a href={`tel:${demoNumber.replace(/\s/g, '')}`} className="text-primary hover:underline">
-              Call the optional live demo: {demoNumber}
+              Call us: {demoNumber}
             </a>
           </p>
         </motion.div>

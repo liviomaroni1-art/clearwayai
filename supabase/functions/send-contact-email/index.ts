@@ -145,7 +145,7 @@ function buildDemoConfirmationEmail(firstName: string, logoUrl: string) {
         </ol>
 
         <p style="margin: 0 0 20px 0; font-size: 14px; line-height: 1.6; color: #555;">
-          In the meantime, you can call our AI live at <strong>+1 (888) 778-3091</strong> to hear it in action — no account needed.
+          In the meantime, feel free to reach us at <strong>+41 76 471 56 78</strong> if you have any questions.
         </p>
         
         <p style="margin: 0 0 16px 0; font-size: 13px; color: #666; font-style: italic;">
@@ -160,7 +160,7 @@ function buildDemoConfirmationEmail(firstName: string, logoUrl: string) {
         </p>
         
         <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
-          +41 76 471 46 78 (CH)<br>
+          +41 76 471 56 78 (CH)<br>
           <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
           <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
         </p>
@@ -205,7 +205,7 @@ function buildSignupConfirmationEmail(firstName: string, logoUrl: string) {
         </p>
         
         <p style="margin: 0 0 16px 0; font-size: 14px; color: #1a1a1a;">
-          +41 76 471 46 78 (CH)<br>
+          +41 76 471 56 78 (CH)<br>
           <a href="mailto:hello@clearwayai.co" style="color: #0F766E;">Hello@clearwayai.co</a><br>
           <a href="https://clearwayai.co" style="color: #0F766E;">Clearway AI</a>
         </p>
