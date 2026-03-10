@@ -126,7 +126,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <Linkedin className="w-4 h-4" />
-                  Founder's LinkedIn
+                  Connect on LinkedIn
                 </a>
                 <Button variant="hero" size="default" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>

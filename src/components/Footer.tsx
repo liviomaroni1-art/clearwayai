@@ -89,7 +89,7 @@ const Footer = () => {
                   className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-2"
                 >
                   <Linkedin className="w-4 h-4" />
-                  Founder's LinkedIn
+                  Connect on LinkedIn
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
