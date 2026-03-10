@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { PhoneCall, TrendingUp, Clock, UserCheck } from "lucide-react";
+import { TrendingUp, CalendarCheck, Clock, UserCheck } from "lucide-react";
 
 const outcomes = [
   {
-    icon: PhoneCall,
-    title: "More Qualified Calls",
-    description: "Your calendar fills up with leads who've already been asked the right questions — budget, timeline, and fit — before they ever talk to your team.",
+    icon: TrendingUp,
+    title: "More Consistent Leads",
+    description: "A system designed to deliver a steady flow of qualified leads from Meta ads — so you're not relying on referrals or cold outreach alone.",
   },
   {
-    icon: TrendingUp,
-    title: "Higher Show-Up Rates",
+    icon: CalendarCheck,
+    title: "Fewer No-Shows",
     description: "Automated reminders and pre-call nurture sequences can help reduce no-shows and keep leads engaged until the meeting happens.",
   },
   {
     icon: Clock,
     title: "Less Manual Follow-Up",
-    description: "No more chasing cold leads by hand. The AI agent handles every touchpoint — from first reply to final booking — without your team lifting a finger.",
+    description: "AI handles every touchpoint — from first response to final booking — without your team chasing leads by hand.",
   },
   {
     icon: UserCheck,
-    title: "Better Lead-to-Close Ratio",
-    description: "When your sales team only speaks with pre-qualified prospects, close rates tend to improve and sales cycles get shorter.",
+    title: "Better Follow-Up on Every Lead",
+    description: "No lead slips through the cracks. Every inquiry gets an instant, personalized response — even nights and weekends.",
   },
 ];
 
@@ -36,10 +36,10 @@ const OutcomesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            What You Can Expect
+            What's Possible
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            Results depend on your offer, market, and volume — but here's what our AI agents are designed to deliver.
+            Results depend on your offer, market, and budget — but here's what our system is designed to deliver.
           </p>
         </motion.div>
 

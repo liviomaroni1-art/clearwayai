@@ -4,18 +4,18 @@ import { Building2, Briefcase, Users } from "lucide-react";
 const audiences = [
   {
     icon: Building2,
-    title: "Agencies",
-    description: "You run ads and funnels for clients but lose leads to slow follow-up. Our AI agents handle instant qualification and booking — so your clients see results faster.",
+    title: "Agencies & Marketers",
+    description: "You run campaigns but lose leads to slow follow-up. We plug into your flow with AI nurture and booking so your clients see real results.",
   },
   {
     icon: Briefcase,
     title: "B2B Service Companies",
-    description: "You generate leads through forms, ads, or referrals but your team can't follow up fast enough. The AI agent ensures every lead gets contacted, qualified, and booked.",
+    description: "You need a predictable pipeline of qualified leads without hiring more SDRs. We build the ads, funnels, and follow-up system for you.",
   },
   {
     icon: Users,
     title: "Coaches & Consultants",
-    description: "You're spending time chasing leads instead of coaching. Our agents qualify inbound interest and fill your calendar with people who are ready to buy.",
+    description: "You have a proven offer but spend too much time chasing leads. We fill your calendar with people who are ready to buy.",
   },
 ];
 
@@ -34,7 +34,7 @@ const WhoItsForSection = () => {
             Who It's For
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            Built for businesses that already generate leads — and want more of them to convert into real sales conversations.
+            Built for businesses that already have an offer — and want more predictable lead flow and bookings.
           </p>
         </motion.div>
 

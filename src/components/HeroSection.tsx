@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
@@ -11,26 +11,15 @@ const HeroSection = () => {
         <div className="max-w-2xl">
           <span className="sr-only">Clearway AI</span>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mb-5"
-          >
-            <span className="text-xs uppercase tracking-widest text-muted-foreground font-mono">
-              AI-Powered Lead Qualification
-            </span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 text-foreground"
           >
-            More Qualified Sales Calls
+            Meta Ads That Fill
             <br />
-            <span className="text-muted-foreground">From Your Existing Leads.</span>
+            <span className="text-muted-foreground">Your Calendar.</span>
           </motion.h1>
 
           <motion.p
@@ -39,7 +28,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="text-base md:text-lg text-muted-foreground max-w-md mb-10 leading-relaxed"
           >
-            Our AI agents plug into your funnels, follow up with every lead via email & SMS, ask the right qualifying questions, and book sales calls directly into your calendar — on autopilot.
+            We build and manage your entire lead generation system — Meta ad campaigns, high-converting funnels, and AI-powered follow-up — so you can focus on closing.
           </motion.p>
 
           <motion.div
@@ -49,8 +38,8 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-3 mb-12"
           >
             <Button variant="hero" size="lg" className="w-full sm:w-auto px-8" asChild>
-              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "hero", label: "Book a Demo" } })}>
-                Book a Demo
+              <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "hero", label: "Book a Strategy Call" } })}>
+                Book a Strategy Call
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -58,8 +47,8 @@ const HeroSection = () => {
               href="#how-it-works"
               className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[48px] border border-border rounded-full px-6"
             >
-              <Play className="w-4 h-4" />
-              See a Live Agent in Action
+              <ArrowDown className="w-4 h-4" />
+              See How It Works
             </a>
           </motion.div>
 
@@ -68,11 +57,10 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Built for</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-3">Choose your model</p>
             <div className="flex items-center gap-6">
-              <div className="text-xs font-semibold text-muted-foreground tracking-wide">B2B Services</div>
-              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Agencies</div>
-              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Coaches</div>
+              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Qualified Leads</div>
+              <div className="text-xs font-semibold text-muted-foreground tracking-wide">Booked Calls</div>
             </div>
           </motion.div>
         </div>
