@@ -77,7 +77,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors p-2"
-              aria-label="Founder's LinkedIn"
+              aria-label="Connect on LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
             </a>
