@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "Clearway AI builds done-for-you AI agents that qualify leads and book sales calls for B2B service businesses, agencies, and coaches.",
+  "description": "Clearway AI runs Meta ad campaigns, builds high-converting funnels, and deploys AI follow-up agents that turn clicks into qualified leads and booked calls for service businesses.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
@@ -30,13 +30,13 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "AI Lead Qualification & Appointment Booking",
+  "serviceType": "Meta Ads & AI Lead Generation",
   "provider": {
     "@type": "Organization",
     "name": "Clearway AI"
   },
-  "name": "AI Lead Qualification & Booking Agents",
-  "description": "Done-for-you AI agents that integrate into existing funnels, qualify leads via email and SMS, and book sales calls directly into your calendar.",
+  "name": "Meta Ads & AI Lead Generation for Service Businesses",
+  "description": "Done-for-you Meta ad campaigns, high-converting funnels, and AI follow-up agents that turn clicks into qualified leads and booked calls.",
   "areaServed": {
     "@type": "Place",
     "name": "Worldwide"
@@ -101,7 +101,7 @@ const websiteSchema = {
   "name": "Clearway AI",
   "alternateName": ["ClearwayAI", "Clearway AI Agents"],
   "url": "https://clearwayai.co",
-  "description": "AI agents that qualify your leads and book sales calls — so your team only talks to ready buyers."
+  "description": "Meta ad campaigns, high-converting funnels, and AI follow-up agents that turn clicks into qualified leads and booked calls for service businesses."
 };
 
 const StructuredData = ({ type }: StructuredDataProps) => {
