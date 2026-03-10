@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -13,9 +13,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
-    { name: "What You Get", href: isHomePage ? "#services" : "/#services" },
-    { name: "Results", href: isHomePage ? "#results" : "/#results" },
-    { name: "FAQ", href: isHomePage ? "#faq" : "/#faq" },
+    { name: "Who It's For", href: isHomePage ? "#who-its-for" : "/#who-its-for" },
+    { name: "Outcomes", href: isHomePage ? "#outcomes" : "/#outcomes" },
   ];
 
   return (
@@ -72,9 +71,18 @@ const Navbar = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://www.linkedin.com/in/your-profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors p-2"
+              aria-label="Founder's LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
             <Button variant="hero" size="default" asChild>
-              <Link to="/contact">Book a Call</Link>
+              <Link to="/contact">Book a Demo</Link>
             </Button>
           </div>
         </div>
@@ -110,9 +118,19 @@ const Navbar = () => {
                     </a>
                   )
                 ))}
+                <a
+                  href="https://www.linkedin.com/in/your-profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-3 min-h-[48px] flex items-center gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Founder's LinkedIn
+                </a>
                 <Button variant="hero" size="default" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book a Call
+                    Book a Demo
                   </Link>
                 </Button>
               </div>
