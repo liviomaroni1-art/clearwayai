@@ -24,7 +24,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       
-      <meta name="keywords" content="Clearway AI, AI lead qualification, AI sales agent, lead follow-up automation, B2B lead generation, AI booking agent, sales call automation, AI SDR, lead nurture" />
+      <meta name="keywords" content="Clearway AI, Meta ads agency, Facebook ads for service businesses, AI lead generation, lead follow-up automation, Meta ad campaigns, AI booking agent, sales call automation, lead nurture" />
       
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />

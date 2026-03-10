@@ -101,7 +101,7 @@ const websiteSchema = {
   "name": "Clearway AI",
   "alternateName": ["ClearwayAI", "Clearway AI Agents"],
   "url": "https://clearwayai.co",
-  "description": "AI agents that qualify your leads and book sales calls — so your team only talks to ready buyers."
+  "description": "Meta ad campaigns, high-converting funnels, and AI follow-up agents that turn clicks into qualified leads and booked calls for service businesses."
 };
 
 const StructuredData = ({ type }: StructuredDataProps) => {
