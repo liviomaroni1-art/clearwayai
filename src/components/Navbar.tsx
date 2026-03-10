@@ -119,7 +119,7 @@ const Navbar = () => {
                   )
                 ))}
                 <a
-                  href="https://www.linkedin.com/in/your-profile"
+                  href="https://www.linkedin.com/company/clearway-ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-3 min-h-[48px] flex items-center gap-2"

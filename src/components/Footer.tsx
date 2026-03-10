@@ -83,7 +83,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/your-profile"
+                  href="https://www.linkedin.com/company/clearway-ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-2"
