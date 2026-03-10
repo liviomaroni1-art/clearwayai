@@ -73,7 +73,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://www.linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/company/clearway-ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors p-2"
