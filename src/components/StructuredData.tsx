@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "Clearway AI builds done-for-you AI agents that qualify leads and book sales calls for B2B service businesses, agencies, and coaches.",
+  "description": "Clearway AI runs Meta ad campaigns, builds high-converting funnels, and deploys AI follow-up agents that turn clicks into qualified leads and booked calls for service businesses.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
