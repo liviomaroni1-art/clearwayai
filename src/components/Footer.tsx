@@ -9,7 +9,7 @@ const Footer = () => {
 
   const quickLinks = [
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Outcomes", href: "#outcomes" },
+    { label: "Results", href: "#outcomes" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -25,11 +25,11 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-lg font-bold text-foreground mb-3">Clearway AI</h3>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              AI agents that qualify your leads and book sales calls — so your team only talks to ready buyers.
+              Meta ads, funnels, and AI follow-up — designed to help service businesses generate leads and book calls.
             </p>
             <Button variant="hero" size="sm" asChild>
               <Link to="/contact">
-                Book a Demo
+                Book a Strategy Call
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </Button>

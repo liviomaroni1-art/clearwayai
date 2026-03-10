@@ -27,7 +27,7 @@ const StickyCTA = () => {
         >
           <Button variant="hero" size="lg" className="shadow-lg px-6" asChild>
             <Link to="/contact">
-              Book a Demo
+              Book a Strategy Call
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>

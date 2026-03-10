@@ -14,7 +14,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "How It Works", href: isHomePage ? "#how-it-works" : "/#how-it-works" },
     { name: "Who It's For", href: isHomePage ? "#who-its-for" : "/#who-its-for" },
-    { name: "Outcomes", href: isHomePage ? "#outcomes" : "/#outcomes" },
+    { name: "Results", href: isHomePage ? "#outcomes" : "/#outcomes" },
   ];
 
   return (
@@ -82,7 +82,7 @@ const Navbar = () => {
               <Linkedin className="w-4 h-4" />
             </a>
             <Button variant="hero" size="default" asChild>
-              <Link to="/contact">Book a Demo</Link>
+              <Link to="/contact">Book a Call</Link>
             </Button>
           </div>
         </div>
@@ -130,7 +130,7 @@ const Navbar = () => {
                 </a>
                 <Button variant="hero" size="default" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Book a Demo
+                    Book a Call
                   </Link>
                 </Button>
               </div>
