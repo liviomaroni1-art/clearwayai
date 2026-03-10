@@ -4,12 +4,9 @@ import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 
-const ProblemSection = lazy(() => import("@/components/ProblemSection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
-const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const ResultsSection = lazy(() => import("@/components/ResultsSection"));
-const FitSection = lazy(() => import("@/components/FitSection"));
-const FAQSection = lazy(() => import("@/components/FAQSection"));
+const WhoItsForSection = lazy(() => import("@/components/WhoItsForSection"));
+const OutcomesSection = lazy(() => import("@/components/OutcomesSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const StickyCTA = lazy(() => import("@/components/StickyCTA"));
@@ -18,8 +15,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Clearway AI — Meta Ads & AI Lead Generation for Service Businesses"
-        description="We build and manage Meta ad campaigns, high-converting funnels, and AI-powered follow-up to help service businesses generate qualified leads and booked calls."
+        title="Clearway AI — AI Lead Qualification & Booking Agents for B2B"
+        description="AI agents that plug into your funnels, qualify every lead via email & SMS, and book sales calls directly into your calendar. More qualified calls, less manual work."
       />
       <StructuredData type="website" />
       <StructuredData type="organization" />
@@ -29,12 +26,9 @@ const Index = () => {
 
       <Suspense fallback={null}>
         <StickyCTA />
-        <ProblemSection />
         <HowItWorksSection />
-        <ServicesSection />
-        <ResultsSection />
-        <FitSection />
-        <FAQSection />
+        <WhoItsForSection />
+        <OutcomesSection />
         <CTASection />
         <Footer />
       </Suspense>

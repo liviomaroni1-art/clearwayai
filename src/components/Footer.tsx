@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Linkedin } from "lucide-react";
 import flagCH from "@/assets/flag-ch.png";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
@@ -9,8 +9,7 @@ const Footer = () => {
 
   const quickLinks = [
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Results", href: "#results" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Outcomes", href: "#outcomes" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -26,11 +25,11 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-lg font-bold text-foreground mb-3">Clearway AI</h3>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              Meta ads, funnels, and AI follow-up — designed to help service businesses generate leads and book calls.
+              AI agents that qualify your leads and book sales calls — so your team only talks to ready buyers.
             </p>
             <Button variant="hero" size="sm" asChild>
               <Link to="/contact">
-                Book a Strategy Call
+                Book a Demo
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </Button>
@@ -80,6 +79,17 @@ const Footer = () => {
                 >
                   <Mail className="w-4 h-4" />
                   hello@clearwayai.co
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/your-profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-2"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  Founder's LinkedIn
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
