@@ -73,11 +73,11 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://www.linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/company/clearway-ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors p-2"
-              aria-label="Founder's LinkedIn"
+              aria-label="Connect on LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
             </a>
@@ -119,14 +119,14 @@ const Navbar = () => {
                   )
                 ))}
                 <a
-                  href="https://www.linkedin.com/in/your-profile"
+                  href="https://www.linkedin.com/company/clearway-ai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors duration-200 py-3 min-h-[48px] flex items-center gap-2"
                   onClick={() => setIsOpen(false)}
                 >
                   <Linkedin className="w-4 h-4" />
-                  Founder's LinkedIn
+                  Connect on LinkedIn
                 </a>
                 <Button variant="hero" size="default" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
