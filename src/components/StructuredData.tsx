@@ -30,13 +30,13 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "AI Lead Qualification & Appointment Booking",
+  "serviceType": "Meta Ads & AI Lead Generation",
   "provider": {
     "@type": "Organization",
     "name": "Clearway AI"
   },
-  "name": "AI Lead Qualification & Booking Agents",
-  "description": "Done-for-you AI agents that integrate into existing funnels, qualify leads via email and SMS, and book sales calls directly into your calendar.",
+  "name": "Meta Ads & AI Lead Generation for Service Businesses",
+  "description": "Done-for-you Meta ad campaigns, high-converting funnels, and AI follow-up agents that turn clicks into qualified leads and booked calls.",
   "areaServed": {
     "@type": "Place",
     "name": "Worldwide"
