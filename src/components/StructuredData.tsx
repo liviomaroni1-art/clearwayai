@@ -10,7 +10,7 @@ const organizationSchema = {
   "name": "Clearway AI",
   "url": "https://clearwayai.co",
   "logo": "https://clearwayai.co/assets/clearway-logo.png",
-  "description": "Clearway AI builds and manages Meta ad campaigns, high-converting funnels, and AI-powered follow-up systems designed to help service businesses generate qualified leads and booked calls.",
+  "description": "Clearway AI builds done-for-you AI agents that qualify leads and book sales calls for B2B service businesses, agencies, and coaches.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Freienbach",
@@ -18,30 +18,28 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+41-76-471-56-78",
+    "email": "hello@clearwayai.co",
     "contactType": "sales",
-    "availableLanguage": ["English", "German", "French", "Spanish"]
+    "availableLanguage": ["English", "German"]
   },
   "sameAs": [
-    "https://linkedin.com/company/clearwayai",
-    "https://x.com/clearwayai",
-    "https://youtube.com/@clearwayai"
+    "https://www.linkedin.com/company/clearway-ai"
   ]
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Lead Generation & Appointment Setting",
+  "serviceType": "AI Lead Qualification & Appointment Booking",
   "provider": {
     "@type": "Organization",
     "name": "Clearway AI"
   },
-  "name": "Meta Ads & AI Lead Generation for Service Businesses",
-  "description": "Done-for-you Meta ad campaigns, high-converting funnels, and AI-powered follow-up systems that help service businesses generate qualified leads and booked calls.",
+  "name": "AI Lead Qualification & Booking Agents",
+  "description": "Done-for-you AI agents that integrate into existing funnels, qualify leads via email and SMS, and book sales calls directly into your calendar.",
   "areaServed": {
-    "@type": "Country",
-    "name": "Switzerland"
+    "@type": "Place",
+    "name": "Worldwide"
   }
 };
 
@@ -51,18 +49,18 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What's the difference between Leads Only and Booked Calls?",
+      "name": "What does the AI agent do?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "With Leads Only, we deliver qualified leads directly to your CRM or inbox. With Booked Calls, our AI follow-up system also handles scheduling — so prospects land on your calendar ready to talk."
+        "text": "The AI agent plugs into your existing funnels and forms, follows up with every new lead via email and SMS, asks qualifying questions (budget, timeline, needs), and books qualified sales calls directly into your calendar."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does it take to launch?",
+      "name": "Who is Clearway AI for?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most campaigns go live within 7–14 days. That includes strategy, ad creative, funnel build, and AI follow-up setup."
+        "text": "Clearway AI is built for B2B service businesses, agencies, and coaches who already generate leads and want to convert more of them into qualified sales conversations — without hiring additional SDRs."
       }
     },
     {
@@ -70,15 +68,7 @@ const faqSchema = {
       "name": "What results can I expect?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Results depend on your offer, market, and budget. We don't make guarantees — but our system is designed to help you generate a consistent flow of qualified leads and reduce wasted ad spend."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What platforms do you run ads on?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We focus on Meta (Facebook & Instagram). These platforms typically offer strong targeting for local and online service businesses."
+        "text": "Results depend on your offer, market, and lead volume. Our AI agents are designed to help you get more qualified calls, reduce manual follow-up, and improve show-up rates."
       }
     }
   ]
@@ -89,7 +79,6 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "name": "Clearway AI",
   "image": "https://clearwayai.co/assets/clearway-logo.png",
-  "telephone": "+41-76-471-56-78",
   "email": "hello@clearwayai.co",
   "address": {
     "@type": "PostalAddress",
@@ -100,7 +89,7 @@ const localBusinessSchema = {
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "06:00",
+    "opens": "08:00",
     "closes": "18:00",
     "timeZone": "Europe/Zurich"
   }
@@ -110,14 +99,9 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Clearway AI",
-  "alternateName": ["ClearwayAI", "Clearway AI Lead Generation"],
+  "alternateName": ["ClearwayAI", "Clearway AI Agents"],
   "url": "https://clearwayai.co",
-  "description": "Clearway AI builds and manages Meta ad campaigns, funnels, and AI follow-up systems to help service businesses generate qualified leads and booked calls.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://clearwayai.co/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "description": "AI agents that qualify your leads and book sales calls — so your team only talks to ready buyers."
 };
 
 const StructuredData = ({ type }: StructuredDataProps) => {
