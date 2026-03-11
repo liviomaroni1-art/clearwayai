@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Clearway AI — Meta Ads & AI Lead Generation for Service Businesses",
-  description = "We run Meta ad campaigns, build high-converting funnels, and deploy AI follow-up agents that turn clicks into qualified leads and booked calls for service businesses.",
+  title = "Clearway AI – AI Lead Generation Agents for B2B",
+  description = "Clearway AI builds AI lead generation and qualification systems that turn B2B leads into booked sales calls on autopilot.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
