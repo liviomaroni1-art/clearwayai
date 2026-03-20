@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
+import { LanguageProvider } from "@/lib/i18n";
 import ScrollToTop from "./components/ScrollToTop";
 
 const Index = lazy(() => import("./pages/Index"));
@@ -28,27 +29,29 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <Suspense fallback={null}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/request" element={<Request />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/security" element={<Security />} />
-                <Route path="/add-ons" element={<AddOns />} />
-                <Route path="/industries/home-services" element={<HomeServicesPage />} />
-                <Route path="/industries/:industry" element={<IndustryTemplate />} />
-                <Route path="/admin" element={<AdminLogin />} />
-                <Route path="/admin/leads" element={<LeadsDashboard />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
+          <LanguageProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <ScrollToTop />
+              <Suspense fallback={null}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/request" element={<Request />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/security" element={<Security />} />
+                  <Route path="/add-ons" element={<AddOns />} />
+                  <Route path="/industries/home-services" element={<HomeServicesPage />} />
+                  <Route path="/industries/:industry" element={<IndustryTemplate />} />
+                  <Route path="/admin" element={<AdminLogin />} />
+                  <Route path="/admin/leads" element={<LeadsDashboard />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </LanguageProvider>
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
