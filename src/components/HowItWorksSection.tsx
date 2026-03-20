@@ -1,32 +1,26 @@
 import { motion } from "framer-motion";
-import { Search, Megaphone, Bot, CalendarCheck, ArrowRight } from "lucide-react";
+import { Megaphone, Target, CalendarCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    icon: Search,
-    step: "01",
-    title: "Audit & Strategy",
-    description: "We analyze your offer, ideal customer, and positioning to build a campaign strategy designed to attract the right leads.",
-  },
-  {
     icon: Megaphone,
-    step: "02",
-    title: "Meta Ads & Funnel Build",
-    description: "We create your ad campaigns, landing pages, and lead capture forms — optimized for conversions from day one.",
+    step: "01",
+    title: "We Launch Your Meta Ads",
+    description: "We build and launch targeted Meta ad campaigns that put your offer in front of the right business owners.",
   },
   {
-    icon: Bot,
-    step: "03",
-    title: "AI Follow-Up & Nurture",
-    description: "Every new lead gets an instant response via chat, SMS, or email. Our AI qualifies and nurtures so nothing slips through.",
+    icon: Target,
+    step: "02",
+    title: "Leads Land in Our Funnel",
+    description: "Interested prospects click through to our high-converting landing page and fill out a short qualification form.",
   },
   {
     icon: CalendarCheck,
-    step: "04",
-    title: "Leads or Calls Delivered",
-    description: "Qualified leads land in your CRM, or calls get booked directly on your calendar. You choose the model that fits.",
+    step: "03",
+    title: "You Get Leads or Booked Calls",
+    description: "We send you the qualified leads directly, or book meetings straight onto your calendar. You just show up and close.",
   },
 ];
 
@@ -42,14 +36,14 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            From Ad Spend to Booked Calls
+            How It Works
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            A done-for-you system that can turn Meta traffic into qualified leads and appointments.
+            A simple, done-for-you system. We handle everything — you just close the deals.
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
+        <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-4">
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
