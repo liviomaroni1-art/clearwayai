@@ -3,19 +3,21 @@ import { Mail, ArrowRight, Linkedin } from "lucide-react";
 import flagCH from "@/assets/flag-ch.png";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
+import { useLanguage } from "@/lib/i18n";
 
 const Footer = () => {
   const { isAdmin } = useAuth();
+  const { t } = useLanguage();
 
   const quickLinks = [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Results", href: "#outcomes" },
-    { label: "Contact", href: "/contact" },
+    { label: t('footer.link.howItWorks'), href: "#how-it-works" },
+    { label: t('footer.link.results'), href: "#outcomes" },
+    { label: t('footer.link.contact'), href: "/contact" },
   ];
 
   const legalLinks = [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
+    { label: t('footer.link.privacy'), href: "/privacy" },
+    { label: t('footer.link.terms'), href: "/terms" },
   ];
 
   return (
@@ -25,11 +27,11 @@ const Footer = () => {
           <div>
             <h3 className="font-display text-lg font-bold text-foreground mb-3">Clearway AI</h3>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              Meta ads, funnels, and AI follow-up — designed to help service businesses generate leads and book calls.
+              {t('footer.desc')}
             </p>
             <Button variant="hero" size="sm" asChild>
               <Link to="/contact">
-                Book a Strategy Call
+                {t('footer.cta')}
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </Button>
@@ -37,16 +39,24 @@ const Footer = () => {
 
           <div className="flex gap-12 lg:contents">
             <div>
-              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Links</h4>
+              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">
+                {t('footer.links')}
+              </h4>
               <ul className="space-y-1">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     {link.href.startsWith('/') ? (
-                      <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2"
+                      >
                         {link.label}
                       </Link>
                     ) : (
-                      <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2"
+                      >
                         {link.label}
                       </a>
                     )}
@@ -56,11 +66,16 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Legal</h4>
+              <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">
+                {t('footer.legal')}
+              </h4>
               <ul className="space-y-1">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2">
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center min-h-[44px] py-2"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -70,7 +85,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">Contact</h4>
+            <h4 className="text-xs font-display font-semibold text-foreground uppercase tracking-wider mb-4">
+              {t('footer.contact')}
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -89,7 +106,7 @@ const Footer = () => {
                   className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] py-2"
                 >
                   <Linkedin className="w-4 h-4" />
-                  Connect on LinkedIn
+                  {t('footer.link.linkedin')}
                 </a>
               </li>
               <li className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground">
@@ -104,7 +121,7 @@ const Footer = () => {
       <div className="border-t border-border">
         <div className="container mx-auto px-6 py-5">
           <p className="text-xs text-muted-foreground text-center group">
-            © {new Date().getFullYear()} Clearway AI. All rights reserved.
+            © {new Date().getFullYear()} Clearway AI. {t('footer.rights')}
             {isAdmin && (
               <Link to="/admin/leads" className="ml-2 opacity-50 hover:opacity-100 transition-opacity">
                 Admin
