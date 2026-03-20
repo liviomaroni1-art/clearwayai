@@ -1,152 +1,169 @@
-import { motion } from "framer-motion";
-import { ArrowLeft, Shield, Lock, Database, Users, Globe, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
 const Privacy = () => {
+  const { language } = useLanguage();
+  const isDE = language === 'de';
+
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
-        title="Privacy Policy — Clearway AI"
-        description="Learn how Clearway AI protects your data. No audio stored, summaries and transcripts only. Swiss-based privacy standards."
+      <SEOHead
+        title={isDE ? "Datenschutzerklärung — Clearway AI" : "Privacy Policy — Clearway AI"}
+        description={isDE ? "Datenschutzerklärung von Clearway AI." : "Privacy policy of Clearway AI."}
         canonical="https://clearwayai.co/privacy"
       />
       <Navbar />
-      
-      <main className="pt-24 pb-12">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Back Button */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="mb-6"
-          >
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/" className="flex items-center gap-1.5 text-xs">
-                <ArrowLeft className="w-3.5 h-3.5" />
-                Back to Home
-              </Link>
-            </Button>
-          </motion.div>
+      <main className="pt-28 pb-20">
+        <div className="container mx-auto px-6 max-w-2xl prose prose-sm dark:prose-invert">
+          {isDE ? (
+            <>
+              <h1>Datenschutzerklärung</h1>
+              <p><strong>Stand:</strong> März 2026</p>
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <Shield className="w-6 h-6 text-primary" />
-              <h1 className="text-3xl md:text-4xl font-bold">Privacy Policy</h1>
-            </div>
-            <p className="text-muted-foreground text-sm">
-              Last updated: January 18, 2026
-            </p>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="prose prose-invert max-w-none space-y-5"
-          >
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <Lock className="w-4 h-4 text-primary" />
-                Introduction
-              </h2>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Clearway AI ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI receptionist services. We are based in Freienbach, Switzerland, and serve businesses primarily in the United States.
+              <h2>1. Verantwortlicher</h2>
+              <p>
+                Clearway AI<br />
+                Freienbach, Schweiz<br />
+                E-Mail: hello@clearwayai.co
               </p>
-            </section>
 
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <Database className="w-4 h-4 text-primary" />
-                Information We Collect
-              </h2>
-              <div className="space-y-3 text-xs text-muted-foreground">
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1.5">Call Data</h3>
-                   <ul className="list-disc list-inside space-y-0.5">
-                    <li>Phone numbers of callers (with consent)</li>
-                    <li>Call transcriptions and summaries</li>
-                    <li>Appointment booking information</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground mb-1.5">Business Information</h3>
-                  <ul className="list-disc list-inside space-y-0.5">
-                    <li>Company name and contact details</li>
-                    <li>Integration credentials (encrypted)</li>
-                    <li>Calendar and CRM data (for scheduling)</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <Users className="w-4 h-4 text-primary" />
-                Call Summaries &amp; Transcripts
-              </h2>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Our AI receptionist generates post-call summaries and transcripts to help you manage follow-ups and client communications. No audio recordings are stored. Summaries are delivered to your preferred channel (email, CRM, or dashboard) and are subject to the retention periods described below.
+              <h2>2. Welche Daten wir erheben</h2>
+              <p>
+                Wenn Sie unser Kontaktformular ausfüllen, erheben wir folgende Daten:
+                Vorname, Nachname, E-Mail-Adresse, Telefonnummer, Unternehmen, Art des Unternehmens,
+                Website (optional) sowie eine kurze Beschreibung Ihrer Herausforderung.
+                Diese Angaben verwenden wir ausschließlich zur Kontaktaufnahme und zur Erstellung
+                eines individuellen Kampagnenplans.
               </p>
-            </section>
 
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <Globe className="w-4 h-4 text-primary" />
-                Data Storage & Retention
-              </h2>
-              <div className="space-y-3 text-xs text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Location:</strong> Data is processed through secure servers in the United States. Our company is headquartered in Switzerland, subject to Swiss data protection laws.
-                </p>
-                <p>
-                  <strong className="text-foreground">Retention Period:</strong> By default, call summaries and transcripts are retained for up to 1 year (longer retention may apply if agreed in your service contract).
-                </p>
-                <p>
-                  <strong className="text-foreground">Deletion:</strong> You may request deletion of your call summaries and related personal data at any time by contacting hello@clearwayai.co. We will delete or anonymize this data unless we are legally required or permitted to retain it.
-                </p>
-              </div>
-            </section>
-
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3">Subprocessors</h2>
-              <p className="text-xs text-muted-foreground mb-3">We use the following third-party services to provide our AI receptionist:</p>
-              <ul className="space-y-1.5 text-xs text-muted-foreground">
-                <li><strong className="text-foreground">Retell.ai</strong> — Voice AI processing</li>
-                <li><strong className="text-foreground">n8n</strong> — Workflow automation</li>
-                <li><strong className="text-foreground">Twilio</strong> — Telephony infrastructure</li>
-                <li><strong className="text-foreground">Google Cloud</strong> — Speech-to-text processing</li>
-                <li><strong className="text-foreground">OpenAI</strong> — Natural language understanding</li>
+              <h2>3. Zweck der Datenverarbeitung</h2>
+              <p>
+                Wir verarbeiten Ihre Daten, um:
+              </p>
+              <ul>
+                <li>Ihre Anfrage zu bearbeiten und Sie zurückzurufen</li>
+                <li>Ihnen einen individuellen Lead-Generierungsplan vorzustellen</li>
+                <li>im Falle einer Zusammenarbeit die vereinbarten Leistungen zu erbringen</li>
               </ul>
-            </section>
-
-            <section className="glass-card p-5 rounded-xl">
-              <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary" />
-                Contact Us
-              </h2>
-              <p className="text-xs text-muted-foreground mb-3">
-                For privacy-related inquiries or data requests:
+              <p>
+                Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw.
+                Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
               </p>
-              <div className="space-y-1.5 text-xs text-muted-foreground">
-                <p><strong className="text-foreground">Email:</strong> hello@clearwayai.co</p>
-                <p><strong className="text-foreground">Address:</strong> Freienbach, Switzerland</p>
-                <p><strong className="text-foreground">Response Time:</strong> Within 24-48 hours</p>
-              </div>
-            </section>
-          </motion.div>
+
+              <h2>4. Weitergabe an Dritte</h2>
+              <p>
+                Wir geben Ihre Daten nur weiter, soweit dies für die Leistungserbringung
+                erforderlich ist. Folgende Unterauftragsverarbeiter setzen wir ein:
+              </p>
+              <ul>
+                <li><strong>Supabase</strong> — Datenbankhosting (USA, SCCs)</li>
+                <li><strong>Meta Platforms</strong> — Werbeanzeigen zur Lead-Generierung (USA, SCCs)</li>
+                <li><strong>OpenAI</strong> — KI-gestützte Kampagnenoptimierung (USA, SCCs)</li>
+              </ul>
+              <p>
+                Eine Weitergabe an sonstige Dritte oder ein Verkauf Ihrer Daten findet nicht statt.
+              </p>
+
+              <h2>5. Speicherdauer</h2>
+              <p>
+                Wir speichern Ihre Daten so lange, wie dies für den jeweiligen Zweck erforderlich
+                ist oder gesetzliche Aufbewahrungspflichten bestehen. Anfragen ohne Vertragsabschluss
+                werden nach spätestens 12 Monaten gelöscht.
+              </p>
+
+              <h2>6. Ihre Rechte</h2>
+              <p>
+                Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der
+                Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit
+                und Widerspruch. Wenden Sie sich dazu an hello@clearwayai.co.
+              </p>
+              <p>
+                Zudem haben Sie das Recht, sich bei der zuständigen Datenschutzbehörde zu beschweren.
+              </p>
+
+              <h2>7. Cookies & Tracking</h2>
+              <p>
+                Unsere Website verwendet keine Drittanbieter-Tracking-Cookies. Wir setzen lediglich
+                technisch notwendige Cookies ein, die für den Betrieb der Website erforderlich sind.
+              </p>
+
+              <h2>8. Kontakt</h2>
+              <p>
+                Bei Fragen zum Datenschutz erreichen Sie uns unter: hello@clearwayai.co
+              </p>
+            </>
+          ) : (
+            <>
+              <h1>Privacy Policy</h1>
+              <p><strong>Last updated:</strong> March 2026</p>
+
+              <h2>1. Controller</h2>
+              <p>
+                Clearway AI<br />
+                Freienbach, Switzerland<br />
+                Email: hello@clearwayai.co
+              </p>
+
+              <h2>2. Data we collect</h2>
+              <p>
+                When you complete our contact form, we collect: first name, last name, email address,
+                phone number, company name, type of business, website (optional), and a brief
+                description of your challenge. We use this information solely to contact you and to
+                prepare a tailored campaign plan.
+              </p>
+
+              <h2>3. Purpose of processing</h2>
+              <p>We process your data in order to:</p>
+              <ul>
+                <li>Handle your enquiry and follow up with you</li>
+                <li>Present you with a personalised lead-generation plan</li>
+                <li>Deliver the agreed services if we work together</li>
+              </ul>
+              <p>
+                The legal basis is Art. 6(1)(b) GDPR (pre-contractual measures) and
+                Art. 6(1)(f) GDPR (legitimate interest).
+              </p>
+
+              <h2>4. Third-party processors</h2>
+              <p>
+                We share your data only to the extent necessary for service delivery.
+                Sub-processors we use:
+              </p>
+              <ul>
+                <li><strong>Supabase</strong> — database hosting (USA, SCCs)</li>
+                <li><strong>Meta Platforms</strong> — advertising for lead generation (USA, SCCs)</li>
+                <li><strong>OpenAI</strong> — AI-powered campaign optimisation (USA, SCCs)</li>
+              </ul>
+              <p>We do not sell your data to third parties.</p>
+
+              <h2>5. Retention</h2>
+              <p>
+                We retain your data for as long as necessary for the stated purpose or as required
+                by law. Enquiries that do not lead to a contract are deleted within 12 months.
+              </p>
+
+              <h2>6. Your rights</h2>
+              <p>
+                You have the right to access, rectify, erase, and restrict the processing of your
+                personal data, as well as rights to data portability and objection. Please contact
+                hello@clearwayai.co to exercise these rights.
+              </p>
+              <p>You also have the right to lodge a complaint with the relevant supervisory authority.</p>
+
+              <h2>7. Cookies & tracking</h2>
+              <p>
+                Our website does not use third-party tracking cookies. We only use technically
+                necessary cookies required for the operation of the website.
+              </p>
+
+              <h2>8. Contact</h2>
+              <p>For privacy-related questions, reach us at: hello@clearwayai.co</p>
+            </>
+          )}
         </div>
       </main>
-
       <Footer />
     </div>
   );
