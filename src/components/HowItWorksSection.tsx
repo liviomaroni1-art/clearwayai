@@ -1,82 +1,48 @@
 import { motion } from "framer-motion";
-import { Megaphone, Target, CalendarCheck, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-
-const steps = [
-  {
-    icon: Megaphone,
-    step: "01",
-    title: "We Launch Your Meta Ads",
-    description: "We build and launch targeted Meta ad campaigns that put your offer in front of the right business owners.",
-  },
-  {
-    icon: Target,
-    step: "02",
-    title: "Leads Land in Our Funnel",
-    description: "Interested prospects click through to our high-converting landing page and fill out a short qualification form.",
-  },
-  {
-    icon: CalendarCheck,
-    step: "03",
-    title: "You Get Leads or Booked Calls",
-    description: "We send you the qualified leads directly, or book meetings straight onto your calendar. You just show up and close.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 const HowItWorksSection = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    { num: "01", title: t('how.step1.title'), desc: t('how.step1.desc') },
+    { num: "02", title: t('how.step2.title'), desc: t('how.step2.desc') },
+    { num: "03", title: t('how.step3.title'), desc: t('how.step3.desc') },
+    { num: "04", title: t('how.step4.title'), desc: t('how.step4.desc') },
+  ];
+
   return (
-    <section id="how-it-works" className="section-padding bg-card/30 border-t border-border">
+    <section id="how-it-works" className="section-padding border-t border-border">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-12 max-w-xl"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            How It Works
+            {t('how.title')}
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto text-sm">
-            A simple, done-for-you system. We handle everything — you just close the deals.
-          </p>
+          <p className="text-muted-foreground text-sm">{t('how.subtitle')}</p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-4">
-          {steps.map((step, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, i) => (
             <motion.div
-              key={step.step}
+              key={step.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.08 }}
-              className="minimal-card p-6"
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="glass-card p-6 rounded-2xl"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs text-muted-foreground font-mono">{step.step}</span>
-                <step.icon className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <h3 className="font-display text-base font-bold text-foreground mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              <div className="text-3xl font-bold text-primary/30 font-display mb-3">{step.num}</div>
+              <h3 className="font-display font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          className="text-center mt-12"
-        >
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
-              Book a Strategy Call
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
