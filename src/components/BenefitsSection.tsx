@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { Clock, TrendingUp, Shield, Zap } from "lucide-react";
+import { Zap, Filter, TrendingUp, Eye } from "lucide-react";
 
 const benefits = [
   {
-    icon: Clock,
-    title: "Reclaim 20+ hours weekly",
+    icon: Zap,
+    title: "Done for you, start to finish",
     description:
-      "Stop juggling calls during appointments. Let AI handle the interruptions.",
+      "We handle the ads, the funnel, and the follow-up. You don't touch a thing — just receive your leads or booked calls.",
+  },
+  {
+    icon: Filter,
+    title: "Only qualified leads reach you",
+    description:
+      "Every lead has shown real interest and filled out our form. No time wasted on people who aren't ready to buy.",
   },
   {
     icon: TrendingUp,
-    title: "Capture 3–5× more leads",
+    title: "Consistent, predictable pipeline",
     description:
-      "Every call answered means every opportunity captured—automatically.",
+      "Stop relying on referrals and cold outreach. Get a steady stream of new business inquiries every single week.",
   },
   {
-    icon: Zap,
-    title: "Respond in under 2 seconds",
+    icon: Eye,
+    title: "Fully transparent, no surprises",
     description:
-      "Clients get instant answers, day or night. No more voicemail limbo.",
-  },
-  {
-    icon: Shield,
-    title: "Enterprise-grade security",
-    description:
-      "HIPAA-ready infrastructure with 99.9% uptime SLA. Your data stays protected.",
+      "You see exactly where every lead came from and what it cost. No black boxes, no guesswork — just clear results.",
   },
 ];
 
@@ -40,27 +40,15 @@ const BenefitsSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-              Clear your path to
+              Stop chasing leads.
               <br />
-              <span className="gradient-text">better decisions</span>
+              <span className="gradient-text">Start closing them.</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Every minute spent answering routine calls is a minute not spent with patients 
-              or clients. Clearway AI removes the noise so you can focus on what you do best.
+              Most business owners waste hours on cold outreach and follow-ups
+              that go nowhere. Clearway AI removes all of that — so you can
+              spend your time on what actually makes money: closing deals.
             </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full bg-secondary border-2 border-background flex items-center justify-center text-xs font-semibold text-muted-foreground"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <span>Trusted by practices across the US</span>
-            </div>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-6">
