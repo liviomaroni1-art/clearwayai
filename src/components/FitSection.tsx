@@ -1,22 +1,25 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
-
-const goodFit = [
-  "You're a service business (clinic, law firm, agency, coach, contractor)",
-  "You have an offer that's working — you just need more leads",
-  "You want a done-for-you system, not another tool to manage",
-  "You're ready to invest in Meta ads to grow predictably",
-  "You want qualified leads or booked calls, not just clicks",
-];
-
-const notFit = [
-  "You don't have a clear offer or service to sell yet",
-  "You're looking for organic-only growth with no ad spend",
-  "You want to run campaigns yourself — you just need a course",
-  "You expect guaranteed results regardless of market or budget",
-];
+import { useLanguage } from "@/lib/i18n";
 
 const FitSection = () => {
+  const { t } = useLanguage();
+
+  const goodFit = [
+    t('fit.good.1'),
+    t('fit.good.2'),
+    t('fit.good.3'),
+    t('fit.good.4'),
+    t('fit.good.5'),
+  ];
+
+  const notFit = [
+    t('fit.bad.1'),
+    t('fit.bad.2'),
+    t('fit.bad.3'),
+    t('fit.bad.4'),
+  ];
+
   return (
     <section className="section-padding border-t border-border">
       <div className="container mx-auto px-6">
@@ -28,10 +31,10 @@ const FitSection = () => {
           className="text-center mb-14"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Is This Right For You?
+            {t('fit.title')}
           </h2>
           <p className="text-muted-foreground text-sm max-w-lg mx-auto">
-            We work best with businesses that have a proven offer and want more predictable lead flow.
+            {t('fit.subtitle')}
           </p>
         </motion.div>
 
@@ -45,7 +48,7 @@ const FitSection = () => {
           >
             <h3 className="font-display text-base font-bold text-foreground mb-5 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-foreground" />
-              Good fit
+              {t('fit.good.heading')}
             </h3>
             <ul className="space-y-3">
               {goodFit.map((item, i) => (
@@ -66,7 +69,7 @@ const FitSection = () => {
           >
             <h3 className="font-display text-base font-bold text-foreground mb-5 flex items-center gap-2">
               <XCircle className="w-4 h-4 text-muted-foreground" />
-              Not a fit
+              {t('fit.notgood.heading')}
             </h3>
             <ul className="space-y-3">
               {notFit.map((item, i) => (
