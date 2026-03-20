@@ -3,8 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
+import { useLanguage } from "@/lib/i18n";
 
 const CTASection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding border-t border-border">
       <div className="container mx-auto px-6">
@@ -16,19 +19,28 @@ const CTASection = () => {
           className="max-w-xl mx-auto text-center"
         >
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
-            Ready for More Leads?
+            {t('cta.title')}
           </h2>
           <p className="text-muted-foreground mb-8 text-sm">
-            Book a free strategy call. We'll review your offer, map out a campaign plan, and show you how the system works. No pressure.
+            {t('cta.subtitle')}
           </p>
           <Button variant="hero" size="lg" asChild>
-            <Link to="/contact" onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "bottom_cta", label: "Book Your Strategy Call" } })}>
-              Book Your Strategy Call
+            <Link
+              to="/contact"
+              onClick={() =>
+                trackEvent({
+                  event_name: "cta_click",
+                  event_category: "cta",
+                  metadata: { location: "bottom_cta", label: t('cta.button') },
+                })
+              }
+            >
+              {t('cta.button')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground mt-5">
-            No commitment — just a clear plan for your lead generation.
+            {t('cta.note')}
           </p>
         </motion.div>
       </div>
