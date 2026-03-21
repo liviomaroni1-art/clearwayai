@@ -10,11 +10,14 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   de: {
+    // Navbar
     'nav.howItWorks': 'Wie es funktioniert',
     'nav.whoItsFor': 'Für wen',
     'nav.results': 'Ergebnisse',
     'nav.bookACall': 'Gespräch buchen',
     'nav.linkedIn': 'Auf LinkedIn verbinden',
+
+    // Hero
     'hero.headline1': 'Wir füllen Ihren Kalender',
     'hero.headline2': 'mit qualifizierten Leads. Sie schließen ab.',
     'hero.subtitle': 'Clearway AI ist ein Done-for-you Lead-Generation-Service. Wir schalten Ihre Meta-Anzeigen, verwalten unseren Funnel und liefern qualifizierte Leads oder gebuchte Verkaufsgespräche – direkt zu Ihnen.',
@@ -23,17 +26,22 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.chooseModel': 'Wählen Sie Ihr Modell',
     'hero.qualifiedLeads': 'Qualifizierte Leads',
     'hero.bookedCalls': 'Gebuchte Gespräche',
-    'hiw.title': 'So funktioniert es',
-    'hiw.subtitle': 'Ein einfaches, done-for-you System. Wir kümmern uns um alles – Sie schließen nur die Deals ab.',
-    'hiw.step1.title': 'Wir starten Ihre Meta-Anzeigen',
-    'hiw.step1.desc': 'Wir erstellen und schalten gezielte Meta-Kampagnen, die Ihr Angebot vor die richtigen Entscheidungsträger bringen.',
-    'hiw.step2.title': 'Leads landen in unserem Funnel',
-    'hiw.step2.desc': 'Interessierte Personen klicken auf unsere hochkonvertierende Landingpage und füllen ein kurzes Qualifikationsformular aus.',
-    'hiw.step3.title': 'Sie erhalten Leads oder gebuchte Gespräche',
-    'hiw.step3.desc': 'Wir senden Ihnen die qualifizierten Leads direkt zu oder buchen Meetings in Ihren Kalender. Sie erscheinen einfach und schließen ab.',
-    'hiw.cta': 'Strategiegespräch buchen',
-    'benefits.title1': 'Hören Sie auf, Leads zu jagen.',
-    'benefits.title2': 'Fangen Sie an, sie abzuschließen.',
+
+    // HowItWorks
+    'how.title': 'So funktioniert es',
+    'how.subtitle': 'Ein einfaches, done-for-you System. Wir kümmern uns um alles – Sie schließen nur die Deals ab.',
+    'how.step1.title': 'Wir starten Ihre Meta-Anzeigen',
+    'how.step1.desc': 'Wir erstellen und schalten gezielte Meta-Kampagnen, die Ihr Angebot vor die richtigen Entscheidungsträger bringen.',
+    'how.step2.title': 'Leads landen in unserem Funnel',
+    'how.step2.desc': 'Interessierte Personen klicken auf unsere hochkonvertierende Landingpage und füllen ein kurzes Qualifikationsformular aus.',
+    'how.step3.title': 'Sie erhalten Leads oder gebuchte Gespräche',
+    'how.step3.desc': 'Wir senden Ihnen die qualifizierten Leads direkt zu oder buchen Meetings in Ihren Kalender. Sie erscheinen einfach und schließen ab.',
+    'how.step4.title': 'Kontinuierliche Optimierung',
+    'how.step4.desc': 'Wir analysieren die Kampagnendaten fortlaufend und optimieren Anzeigen, Zielgruppen und Funnel – damit Ihre Kosten pro Lead sinken.',
+    'how.cta': 'Strategiegespräch buchen',
+
+    // Benefits
+    'benefits.title': 'Hören Sie auf, Leads zu jagen. Fangen Sie an, sie abzuschließen.',
     'benefits.subtitle': 'Die meisten Unternehmer verschwenden Stunden mit Kaltakquise und Follow-ups, die ins Leere laufen. Clearway AI eliminiert all das – damit Sie Ihre Zeit für das einsetzen können, was wirklich zählt: Deals abschließen.',
     'benefits.b1.title': 'Done for you, von A bis Z',
     'benefits.b1.desc': 'Wir kümmern uns um Anzeigen, Funnel und Follow-up. Sie müssen nichts anfassen – empfangen Sie einfach Ihre Leads oder gebuchten Gespräche.',
@@ -43,6 +51,8 @@ const translations: Record<Language, Record<string, string>> = {
     'benefits.b3.desc': 'Schluss mit der Abhängigkeit von Empfehlungen und Kaltakquise. Erhalten Sie einen stetigen Strom neuer Geschäftsanfragen.',
     'benefits.b4.title': 'Vollständig transparent, keine Überraschungen',
     'benefits.b4.desc': 'Sie sehen genau, woher jeder Lead kommt und was er gekostet hat. Keine Black Box, kein Rätselraten – nur klare Ergebnisse.',
+
+    // FitSection
     'fit.title': 'Ist das das Richtige für Sie?',
     'fit.subtitle': 'Wir arbeiten am besten mit Unternehmen, die ein bewährtes Angebot haben und einen zuverlässigeren Lead-Flow wünschen.',
     'fit.good.heading': 'Passt gut zu uns',
@@ -56,10 +66,14 @@ const translations: Record<Language, Record<string, string>> = {
     'fit.bad.2': 'Sie suchen rein organisches Wachstum ohne Werbebudget',
     'fit.bad.3': 'Sie möchten Kampagnen selbst schalten – Sie brauchen nur einen Kurs',
     'fit.bad.4': 'Sie erwarten garantierte Ergebnisse unabhängig von Markt oder Budget',
+
+    // CTA
     'cta.title': 'Bereit für mehr Leads?',
     'cta.subtitle': 'Buchen Sie ein kostenloses Strategiegespräch. Wir analysieren Ihr Angebot, skizzieren einen Kampagnenplan und zeigen Ihnen, wie das System funktioniert. Kein Druck.',
     'cta.button': 'Strategiegespräch buchen',
     'cta.note': 'Keine Verpflichtung – nur ein klarer Plan für Ihre Lead-Generierung.',
+
+    // Footer
     'footer.desc': 'Meta-Anzeigen, Funnels und KI-Follow-up – entwickelt für Dienstleistungsunternehmen im DACH-Raum, die Leads generieren und Gespräche buchen möchten.',
     'footer.cta': 'Strategiegespräch buchen',
     'footer.links': 'Links',
@@ -72,15 +86,17 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.link.terms': 'AGB',
     'footer.link.linkedin': 'Auf LinkedIn verbinden',
     'footer.rights': 'Alle Rechte vorbehalten.',
-    'contact.pageTitle': 'Strategiegespräch buchen',
-    'contact.pageSubtitle': 'Erzählen Sie uns von Ihrem Unternehmen. Wir melden uns innerhalb von 24 Stunden.',
   },
+
   en: {
+    // Navbar
     'nav.howItWorks': 'How It Works',
     'nav.whoItsFor': "Who It's For",
     'nav.results': 'Results',
     'nav.bookACall': 'Book a Call',
     'nav.linkedIn': 'Connect on LinkedIn',
+
+    // Hero
     'hero.headline1': 'We Fill Your Calendar',
     'hero.headline2': 'With Qualified Leads. You Close Them.',
     'hero.subtitle': 'Clearway AI is a done-for-you lead generation service. We run your Meta ads, manage our funnel, and deliver either qualified leads or booked sales calls — directly to you.',
@@ -89,17 +105,22 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.chooseModel': 'Choose your model',
     'hero.qualifiedLeads': 'Qualified Leads',
     'hero.bookedCalls': 'Booked Calls',
-    'hiw.title': 'How It Works',
-    'hiw.subtitle': 'A simple, done-for-you system. We handle everything — you just close the deals.',
-    'hiw.step1.title': 'We Launch Your Meta Ads',
-    'hiw.step1.desc': 'We build and launch targeted Meta ad campaigns that put your offer in front of the right business owners.',
-    'hiw.step2.title': 'Leads Land in Our Funnel',
-    'hiw.step2.desc': 'Interested prospects click through to our high-converting landing page and fill out a short qualification form.',
-    'hiw.step3.title': 'You Get Leads or Booked Calls',
-    'hiw.step3.desc': 'We send you the qualified leads directly, or book meetings straight onto your calendar. You just show up and close.',
-    'hiw.cta': 'Book a Strategy Call',
-    'benefits.title1': 'Stop chasing leads.',
-    'benefits.title2': 'Start closing them.',
+
+    // HowItWorks
+    'how.title': 'How It Works',
+    'how.subtitle': 'A simple, done-for-you system. We handle everything — you just close the deals.',
+    'how.step1.title': 'We Launch Your Meta Ads',
+    'how.step1.desc': 'We build and launch targeted Meta ad campaigns that put your offer in front of the right business owners.',
+    'how.step2.title': 'Leads Land in Our Funnel',
+    'how.step2.desc': 'Interested prospects click through to our high-converting landing page and fill out a short qualification form.',
+    'how.step3.title': 'You Get Leads or Booked Calls',
+    'how.step3.desc': 'We send you the qualified leads directly, or book meetings straight onto your calendar. You just show up and close.',
+    'how.step4.title': 'Continuous Optimisation',
+    'how.step4.desc': 'We continuously analyse campaign data and optimise ads, audiences, and the funnel — so your cost per lead keeps improving.',
+    'how.cta': 'Book a Strategy Call',
+
+    // Benefits
+    'benefits.title': 'Stop chasing leads. Start closing them.',
     'benefits.subtitle': "Most business owners waste hours on cold outreach and follow-ups that go nowhere. Clearway AI removes all of that — so you can spend your time on what actually makes money: closing deals.",
     'benefits.b1.title': 'Done for you, start to finish',
     'benefits.b1.desc': "We handle the ads, the funnel, and the follow-up. You don't touch a thing — just receive your leads or booked calls.",
@@ -109,6 +130,8 @@ const translations: Record<Language, Record<string, string>> = {
     'benefits.b3.desc': 'Stop relying on referrals and cold outreach. Get a steady stream of new business inquiries.',
     'benefits.b4.title': 'Fully transparent, no surprises',
     'benefits.b4.desc': 'You see exactly where every lead came from and what it cost. No black boxes, no guesswork — just clear results.',
+
+    // FitSection
     'fit.title': 'Is This Right For You?',
     'fit.subtitle': 'We work best with businesses that have a proven offer and want more predictable lead flow.',
     'fit.good.heading': 'Good fit',
@@ -122,10 +145,14 @@ const translations: Record<Language, Record<string, string>> = {
     'fit.bad.2': "You're looking for organic-only growth with no ad spend",
     'fit.bad.3': "You want to run campaigns yourself — you just need a course",
     'fit.bad.4': "You expect guaranteed results regardless of market or budget",
+
+    // CTA
     'cta.title': 'Ready for More Leads?',
     'cta.subtitle': "Book a free strategy call. We'll review your offer, map out a campaign plan, and show you how the system works. No pressure.",
     'cta.button': 'Book Your Strategy Call',
     'cta.note': 'No commitment — just a clear plan for your lead generation.',
+
+    // Footer
     'footer.desc': 'Meta ads, funnels, and AI follow-up — designed to help service businesses in the DACH region generate leads and book calls.',
     'footer.cta': 'Book a Strategy Call',
     'footer.links': 'Links',
@@ -138,8 +165,6 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.link.terms': 'Terms of Service',
     'footer.link.linkedin': 'Connect on LinkedIn',
     'footer.rights': 'All rights reserved.',
-    'contact.pageTitle': 'Book a Strategy Call',
-    'contact.pageSubtitle': "Tell us about your business. We'll get back to you within 24 hours.",
   },
 };
 
