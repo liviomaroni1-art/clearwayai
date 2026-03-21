@@ -16,30 +16,35 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-xl mx-auto text-center"
+          className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-5">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5">
             {t('cta.title')}
           </h2>
-          <p className="text-muted-foreground mb-8 text-sm">
+          <p className="text-muted-foreground mb-8 text-base md:text-lg">
             {t('cta.subtitle')}
           </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link
-              to="/contact"
-              onClick={() =>
-                trackEvent({
-                  event_name: "cta_click",
-                  event_category: "cta",
-                  metadata: { location: "bottom_cta", label: t('cta.button') },
-                })
-              }
-            >
-              {t('cta.button')}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
-          <p className="text-xs text-muted-foreground mt-5">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button variant="hero" size="lg" asChild>
+              <Link
+                to="/contact"
+                onClick={() =>
+                  trackEvent({
+                    event_name: "cta_click",
+                    event_category: "cta",
+                    metadata: { location: "bottom_cta", label: t('cta.button') },
+                  })
+                }
+              >
+                {t('cta.button')}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/contact">{t('nav.contact')}</Link>
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground mt-6">
             {t('cta.note')}
           </p>
         </motion.div>

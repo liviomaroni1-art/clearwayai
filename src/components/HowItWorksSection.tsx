@@ -19,15 +19,15 @@ const HowItWorksSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 max-w-xl"
+          className="mb-14 max-w-xl"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             {t('how.title')}
           </h2>
-          <p className="text-muted-foreground text-sm">{t('how.subtitle')}</p>
+          <p className="text-muted-foreground text-base">{t('how.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -35,10 +35,10 @@ const HowItWorksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-card p-6 rounded-2xl"
+              className="relative"
             >
-              <div className="text-3xl font-bold text-primary/30 font-display mb-3">{step.num}</div>
-              <h3 className="font-display font-semibold text-foreground mb-2">{step.title}</h3>
+              <div className="text-4xl font-bold text-border font-display mb-4">{step.num}</div>
+              <h3 className="font-display font-bold text-lg text-foreground mb-2">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}

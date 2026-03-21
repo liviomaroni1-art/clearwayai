@@ -15,6 +15,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.whoItsFor': 'Für wen',
     'nav.results': 'Ergebnisse',
     'nav.bookACall': 'Gespräch buchen',
+    'nav.contact': 'Kontakt',
     'nav.linkedIn': 'Auf LinkedIn verbinden',
 
     // Hero
@@ -26,6 +27,18 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.chooseModel': 'Wählen Sie Ihr Modell',
     'hero.qualifiedLeads': 'Qualifizierte Leads',
     'hero.bookedCalls': 'Gebuchte Gespräche',
+
+    // Trusted By
+    'trusted.title': 'Vertraut von Dienstleistern in der DACH-Region',
+    'trusted.subtitle': 'Von Handwerkern über Kanzleien bis hin zu Coaching-Unternehmen – wir helfen Service-Unternehmen, planbar neue Kunden zu gewinnen.',
+    'trusted.link': 'Ergebnisse ansehen',
+    'trusted.industry1': 'Handwerk',
+    'trusted.industry2': 'Beratung',
+    'trusted.industry3': 'Kanzleien',
+    'trusted.industry4': 'Agenturen',
+    'trusted.industry5': 'Coaching',
+    'trusted.industry6': 'Immobilien',
+    'trusted.industry7': 'IT & Software',
 
     // HowItWorks
     'how.title': 'So funktioniert es',
@@ -67,6 +80,21 @@ const translations: Record<Language, Record<string, string>> = {
     'fit.bad.3': 'Sie möchten Kampagnen selbst schalten – Sie brauchen nur einen Kurs',
     'fit.bad.4': 'Sie erwarten garantierte Ergebnisse unabhängig von Markt oder Budget',
 
+    // FAQ
+    'faq.title': 'Häufig gestellte Fragen',
+    'faq.q1': 'Was ist der Unterschied zwischen Leads und gebuchten Gesprächen?',
+    'faq.a1': 'Bei Leads Only liefern wir qualifizierte Leads direkt in Ihr CRM oder Postfach. Bei Gebuchten Gesprächen übernimmt unser KI-Follow-up-System auch die Terminplanung – Interessenten landen direkt in Ihrem Kalender.',
+    'faq.q2': 'Wie schnell kann die Kampagne starten?',
+    'faq.a2': 'Die meisten Kampagnen gehen innerhalb von 7–14 Tagen live. Das umfasst Strategie, Anzeigenerstellung, Funnel-Aufbau und KI-Follow-up-Setup. Danach optimieren wir wöchentlich auf Basis realer Daten.',
+    'faq.q3': 'Welche Ergebnisse kann ich erwarten?',
+    'faq.a3': 'Ergebnisse hängen von Ihrem Angebot, Markt und Budget ab. Wir geben keine Garantien – aber unser System ist darauf ausgelegt, einen konstanten Strom qualifizierter Leads zu generieren. Wir setzen realistische Erwartungen im Strategiegespräch.',
+    'faq.q4': 'Auf welchen Plattformen schalten Sie Anzeigen?',
+    'faq.a4': 'Wir konzentrieren uns auf Meta (Facebook & Instagram). Diese Plattformen bieten in der Regel ein starkes Targeting für lokale und Online-Dienstleistungsunternehmen und funktionieren gut mit unserem Funnel und KI-Follow-up-System.',
+    'faq.q5': 'Brauche ich ein großes Werbebudget?',
+    'faq.a5': 'Wir empfehlen ein Mindest-Werbebudget, das aussagekräftige Daten und Tests ermöglicht. Was für Ihren Markt sinnvoll ist, besprechen wir im Strategiegespräch.',
+    'faq.q6': 'Was, wenn ich bereits Anzeigen schalte?',
+    'faq.a6': 'Sehr gut – wir können analysieren, was Sie tun, und Lücken identifizieren. Oft liegt das Problem nicht bei den Anzeigen selbst, sondern beim Follow-up-System (oder dessen Fehlen) dahinter.',
+
     // CTA
     'cta.title': 'Bereit für mehr Leads?',
     'cta.subtitle': 'Buchen Sie ein kostenloses Strategiegespräch. Wir analysieren Ihr Angebot, skizzieren einen Kampagnenplan und zeigen Ihnen, wie das System funktioniert. Kein Druck.',
@@ -94,6 +122,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.whoItsFor': "Who It's For",
     'nav.results': 'Results',
     'nav.bookACall': 'Book a Call',
+    'nav.contact': 'Contact Us',
     'nav.linkedIn': 'Connect on LinkedIn',
 
     // Hero
@@ -105,6 +134,18 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.chooseModel': 'Choose your model',
     'hero.qualifiedLeads': 'Qualified Leads',
     'hero.bookedCalls': 'Booked Calls',
+
+    // Trusted By
+    'trusted.title': 'Trusted by service businesses across the DACH region',
+    'trusted.subtitle': 'From contractors to law firms to coaching businesses — we help service companies generate predictable new clients.',
+    'trusted.link': 'Explore results',
+    'trusted.industry1': 'Contractors',
+    'trusted.industry2': 'Consulting',
+    'trusted.industry3': 'Law Firms',
+    'trusted.industry4': 'Agencies',
+    'trusted.industry5': 'Coaching',
+    'trusted.industry6': 'Real Estate',
+    'trusted.industry7': 'IT & Software',
 
     // HowItWorks
     'how.title': 'How It Works',
@@ -145,6 +186,21 @@ const translations: Record<Language, Record<string, string>> = {
     'fit.bad.2': "You're looking for organic-only growth with no ad spend",
     'fit.bad.3': "You want to run campaigns yourself — you just need a course",
     'fit.bad.4': "You expect guaranteed results regardless of market or budget",
+
+    // FAQ
+    'faq.title': 'Frequently asked questions',
+    'faq.q1': 'What\'s the difference between Leads Only and Booked Calls?',
+    'faq.a1': 'With Leads Only, we deliver qualified leads directly to your CRM or inbox. With Booked Calls, our AI follow-up system also handles scheduling — so prospects land on your calendar ready to talk. You choose the model that fits your workflow.',
+    'faq.q2': 'How long does it take to launch?',
+    'faq.a2': 'Most campaigns go live within 7–14 days. That includes strategy, ad creative, funnel build, and AI follow-up setup. From there, we optimize weekly based on real data.',
+    'faq.q3': 'What results can I expect?',
+    'faq.a3': 'Results depend on your offer, market, and budget. We don\'t make guarantees — but our system is designed to help you generate a consistent flow of qualified leads and reduce wasted ad spend. We\'ll set realistic expectations during the strategy call.',
+    'faq.q4': 'What platforms do you run ads on?',
+    'faq.a4': 'We focus on Meta (Facebook & Instagram). These platforms typically offer strong targeting for local and online service businesses, and work well with our funnel and AI follow-up system.',
+    'faq.q5': 'Do I need a big ad budget?',
+    'faq.a5': 'We typically recommend starting with a minimum ad budget that allows for meaningful data and testing. We\'ll discuss what makes sense for your market during the strategy call.',
+    'faq.q6': 'What if I already run ads?',
+    'faq.a6': 'Great — we can audit what you\'re doing and identify where the gaps are. Often the issue isn\'t the ads themselves, but the follow-up system (or lack of one) behind them.',
 
     // CTA
     'cta.title': 'Ready for More Leads?',

@@ -9,15 +9,17 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-12">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* Subtle gradient bar at top like Okta */}
+      <div className="absolute top-[72px] left-0 right-0 h-2 bg-gradient-to-r from-slate-300 via-blue-200 to-slate-200" />
+
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl">
-          <span className="sr-only">Clearway AI</span>
+        <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6 text-foreground"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] mb-6 text-foreground"
           >
             {t('hero.headline1')} <br />
             <span className="text-muted-foreground">{t('hero.headline2')}</span>
@@ -27,7 +29,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-base md:text-lg text-muted-foreground max-w-md mb-10 leading-relaxed"
+            className="text-base md:text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -53,13 +55,12 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-            <a
-              href="#how-it-works"
-              className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[48px] border border-border rounded-full px-6"
-            >
-              <ArrowDown className="w-4 h-4" />
-              {t('hero.seeHow')}
-            </a>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+              <a href="#how-it-works">
+                <ArrowDown className="w-4 h-4" />
+                {t('hero.seeHow')}
+              </a>
+            </Button>
           </motion.div>
 
           <motion.div
