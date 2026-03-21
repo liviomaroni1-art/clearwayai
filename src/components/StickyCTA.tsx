@@ -10,7 +10,9 @@ const StickyCTA = () => {
   const { t } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => setIsVisible(window.scrollY > 600);
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 600);
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -23,14 +25,23 @@ const StickyCTA = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed bottom-6 left-0 right-0 z-40 flex justify-center md:hidden"
+          className="fixed bottom-5 left-0 right-0 z-40 flex justify-center md:hidden px-4"
         >
-          <Button variant="hero" size="lg" className="shadow-lg shadow-primary/25 px-6" asChild>
-            <Link to="/contact">
-              {t('hero.cta')}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
+          {/* Subtle glow behind the button */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-blue-500/30 rounded-full blur-xl scale-110 pointer-events-none" />
+            <Button
+              variant="hero"
+              size="lg"
+              className="relative shadow-2xl px-7 gap-2 text-sm"
+              asChild
+            >
+              <Link to="/contact">
+                {t('hero.cta')}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
