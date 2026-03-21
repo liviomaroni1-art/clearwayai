@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n";
 
 const StickyCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsVisible(window.scrollY > 600);
-    };
+    const handleScroll = () => setIsVisible(window.scrollY > 600);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -25,9 +25,9 @@ const StickyCTA = () => {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed bottom-6 left-0 right-0 z-40 flex justify-center md:hidden"
         >
-          <Button variant="hero" size="lg" className="shadow-lg px-6" asChild>
+          <Button variant="hero" size="lg" className="shadow-lg shadow-primary/25 px-6" asChild>
             <Link to="/contact">
-              Book a Strategy Call
+              {t('hero.cta')}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>

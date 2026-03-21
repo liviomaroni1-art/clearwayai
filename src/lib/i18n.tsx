@@ -103,6 +103,72 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing hint
     'pricing.hint': 'Investition ab 1.500 €/Monat zzgl. Werbebudget (empfohlen ab 1.000 €/Monat).',
 
+    // New nav keys
+    'nav.product': 'Produkt',
+    'nav.solutions': 'Lösungen',
+    'nav.pricing': 'Preise',
+
+    // Hero stats
+    'hero.stats.companies': '50+ Unternehmen',
+    'hero.stats.leads': '2.400+ Leads',
+    'hero.stats.rate': '89% Qualifizierungsrate',
+
+    // Trusted stats
+    'trusted.stat1': '2.400+ generierte Leads',
+    'trusted.stat2': '89% Qualifizierungsrate',
+    'trusted.stat3': '50+ aktive Kunden',
+    'trusted.stat4': 'Ø 4.8★ Bewertung',
+
+    // Features
+    'features.title': 'Alles, was Sie brauchen. Nichts, was Sie nicht brauchen.',
+    'features.subtitle': 'Ein vollständiges System zur Lead-Generierung – von der Anzeige bis zur gebuchten Termin.',
+    'features.f1.title': 'KI-Qualifizierung',
+    'features.f1.desc': 'Unser KI-System qualifiziert jeden Lead automatisch und filtert Interessenten heraus, die noch nicht kaufbereit sind.',
+    'features.f2.title': 'Meta-Ads-Automatisierung',
+    'features.f2.desc': 'Wir erstellen, schalten und optimieren Ihre Meta-Kampagnen kontinuierlich für maximalen ROAS.',
+    'features.f3.title': 'Kalender-Integration',
+    'features.f3.desc': 'Qualifizierte Leads buchen Gespräche direkt in Ihren Kalender – vollautomatisch, ohne manuelle Arbeit.',
+    'features.f4.title': 'Echtzeit-Dashboard',
+    'features.f4.desc': 'Verfolgen Sie Leads, Kosten und Kampagnen-Performance in Echtzeit. Volle Transparenz, immer.',
+    'features.f5.title': 'CRM-Sync',
+    'features.f5.desc': 'Alle Leads werden automatisch in Ihr CRM übertragen. Keine manuelle Dateneingabe mehr.',
+    'features.f6.title': 'Multi-Channel Follow-up',
+    'features.f6.desc': 'Automatisches Follow-up per E-Mail, SMS und WhatsApp – bis der Lead antwortet oder bucht.',
+
+    // Pricing
+    'pricing.title': 'Einfache, transparente Preise',
+    'pricing.subtitle': 'Kein verstecktes Kleingedrucktes. Wählen Sie das Paket, das zu Ihrem Wachstum passt.',
+    'pricing.starter.name': 'Starter',
+    'pricing.starter.price': '497€',
+    'pricing.starter.desc': 'Für Unternehmen, die mit Meta-Ads starten möchten.',
+    'pricing.starter.f1': 'Meta-Ads-Setup & Management',
+    'pricing.starter.f2': 'Qualifizierungs-Funnel',
+    'pricing.starter.f3': 'Automatisches E-Mail Follow-up',
+    'pricing.starter.f4': 'Monatliches Reporting',
+    'pricing.growth.name': 'Growth',
+    'pricing.growth.price': '997€',
+    'pricing.growth.desc': 'Für Unternehmen, die skalieren und ihr System optimieren wollen.',
+    'pricing.growth.badge': 'Beliebteste Wahl',
+    'pricing.growth.f1': 'Alles aus Starter',
+    'pricing.growth.f2': 'KI-Qualifizierung',
+    'pricing.growth.f3': 'Kalender-Integration',
+    'pricing.growth.f4': 'Multi-Channel Follow-up',
+    'pricing.growth.f5': 'Echtzeit-Dashboard',
+    'pricing.growth.f6': 'CRM-Sync',
+    'pricing.enterprise.name': 'Enterprise',
+    'pricing.enterprise.price': 'Individuell',
+    'pricing.enterprise.desc': 'Maßgeschneiderte Lösungen für größere Unternehmen.',
+    'pricing.enterprise.f1': 'Alles aus Growth',
+    'pricing.enterprise.f2': 'Dedizierter Account Manager',
+    'pricing.enterprise.f3': 'Custom Integrationen',
+    'pricing.enterprise.f4': 'SLA & Prioritäts-Support',
+    'pricing.enterprise.f5': 'White-Label Option',
+
+    // Footer tagline
+    'footer.tagline': 'Planbare Leads für Dienstleister im DACH-Raum.',
+    'footer.product': 'Produkt',
+    'footer.company': 'Unternehmen',
+
     // FAQ - 5 Einwand-Fragen
     'faq.title': 'Häufig gestellte Fragen',
     'faq.q1': 'Gibt es eine Mindestlaufzeit?',
@@ -234,6 +300,72 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Pricing hint
     'pricing.hint': 'Investment from €1,500/month plus ad budget (recommended from €1,000/month).',
+
+    // New nav keys
+    'nav.product': 'Product',
+    'nav.solutions': 'Solutions',
+    'nav.pricing': 'Pricing',
+
+    // Hero stats
+    'hero.stats.companies': '50+ Companies',
+    'hero.stats.leads': '2,400+ Leads',
+    'hero.stats.rate': '89% Qualification Rate',
+
+    // Trusted stats
+    'trusted.stat1': '2,400+ Leads Generated',
+    'trusted.stat2': '89% Qualification Rate',
+    'trusted.stat3': '50+ Active Clients',
+    'trusted.stat4': 'Avg. 4.8★ Rating',
+
+    // Features
+    'features.title': 'Everything you need. Nothing you don\'t.',
+    'features.subtitle': 'A complete lead generation system — from ad to booked appointment.',
+    'features.f1.title': 'AI Qualification',
+    'features.f1.desc': 'Our AI system automatically qualifies every lead, filtering out prospects who aren\'t ready to buy.',
+    'features.f2.title': 'Meta Ads Automation',
+    'features.f2.desc': 'We build, launch, and continuously optimise your Meta campaigns for maximum ROAS.',
+    'features.f3.title': 'Calendar Integration',
+    'features.f3.desc': 'Qualified leads book calls directly into your calendar — fully automated, no manual work.',
+    'features.f4.title': 'Real-Time Dashboard',
+    'features.f4.desc': 'Track leads, costs, and campaign performance in real time. Full transparency, always.',
+    'features.f5.title': 'CRM Sync',
+    'features.f5.desc': 'All leads are automatically transferred to your CRM. No more manual data entry.',
+    'features.f6.title': 'Multi-Channel Follow-up',
+    'features.f6.desc': 'Automatic follow-up via email, SMS, and WhatsApp — until the lead responds or books.',
+
+    // Pricing
+    'pricing.title': 'Simple, transparent pricing',
+    'pricing.subtitle': 'No hidden fine print. Choose the plan that fits your growth stage.',
+    'pricing.starter.name': 'Starter',
+    'pricing.starter.price': '€497',
+    'pricing.starter.desc': 'For businesses ready to start generating leads with Meta ads.',
+    'pricing.starter.f1': 'Meta Ads Setup & Management',
+    'pricing.starter.f2': 'Qualification Funnel',
+    'pricing.starter.f3': 'Automated Email Follow-up',
+    'pricing.starter.f4': 'Monthly Reporting',
+    'pricing.growth.name': 'Growth',
+    'pricing.growth.price': '€997',
+    'pricing.growth.desc': 'For businesses ready to scale and optimise their system.',
+    'pricing.growth.badge': 'Most Popular',
+    'pricing.growth.f1': 'Everything in Starter',
+    'pricing.growth.f2': 'AI Qualification',
+    'pricing.growth.f3': 'Calendar Integration',
+    'pricing.growth.f4': 'Multi-Channel Follow-up',
+    'pricing.growth.f5': 'Real-Time Dashboard',
+    'pricing.growth.f6': 'CRM Sync',
+    'pricing.enterprise.name': 'Enterprise',
+    'pricing.enterprise.price': 'Custom',
+    'pricing.enterprise.desc': 'Tailored solutions for larger businesses with complex needs.',
+    'pricing.enterprise.f1': 'Everything in Growth',
+    'pricing.enterprise.f2': 'Dedicated Account Manager',
+    'pricing.enterprise.f3': 'Custom Integrations',
+    'pricing.enterprise.f4': 'SLA & Priority Support',
+    'pricing.enterprise.f5': 'White-Label Option',
+
+    // Footer tagline
+    'footer.tagline': 'Predictable leads for service businesses in the DACH region.',
+    'footer.product': 'Product',
+    'footer.company': 'Company',
 
     // FAQ
     'faq.title': 'Frequently asked questions',

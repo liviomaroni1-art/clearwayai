@@ -49,7 +49,7 @@ const SEOHead = ({
       <meta name="author" content="Clearway AI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#0A0A0A" />
 
       <meta name="format-detection" content="telephone=no" />
     </Helmet>
