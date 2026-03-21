@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/clearway-logo-new.png";
@@ -45,6 +45,11 @@ const Navbar = () => {
               <a key={link.name} href={link.href} className={linkClass}>{link.name}</a>
             )
           ))}
+
+          <a href={`tel:${t('nav.phone').replace(/\s/g, '')}`} className="text-foreground/50 hover:text-foreground transition-colors inline-flex items-center gap-1.5 text-xs">
+            <Phone className="w-3.5 h-3.5" />
+            <span className="hidden xl:inline">{t('nav.phone')}</span>
+          </a>
 
           <div className="flex items-center gap-1 ml-2">
             <button onClick={() => setLanguage('de')} className={`text-xs px-2 py-1 rounded transition-colors uppercase tracking-wide ${language === 'de' ? 'text-foreground font-bold' : 'text-foreground/40 hover:text-foreground/70'}`} aria-label="Deutsch">De</button>

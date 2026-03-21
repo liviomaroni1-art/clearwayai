@@ -47,6 +47,9 @@ const CTASection = () => {
           <p className="text-xs text-muted-foreground mt-8">
             {t('cta.note')}
           </p>
+          <p className="text-xs text-muted-foreground/70 mt-3 border-t border-border pt-4 max-w-md mx-auto">
+            {t('pricing.hint')}
+          </p>
         </motion.div>
       </div>
     </section>

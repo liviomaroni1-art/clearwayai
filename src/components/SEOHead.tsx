@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({
-  title = "Clearway AI – AI Lead Generation Agents for B2B",
-  description = "Clearway AI builds AI lead generation and qualification systems that turn B2B leads into booked sales calls on autopilot.",
+  title = "Clearway AI – Done-for-You Lead-Generierung für Dienstleistungsunternehmen",
+  description = "Wir schalten Ihre Meta-Anzeigen, verwalten den Funnel und liefern qualifizierte Leads oder gebuchte Verkaufsgespräche. Done-for-you Lead-Generierung im DACH-Raum.",
   canonical = "https://clearwayai.co",
   ogImage = "https://clearwayai.co/og-image.png",
   ogType = "website",
@@ -23,34 +23,34 @@ const SEOHead = ({
       <meta name="title" content={title} />
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
-      
-      <meta name="keywords" content="Clearway AI, AI lead generation, B2B lead generation, AI qualification, sales call automation, lead follow-up automation, AI booking agent, lead nurture" />
-      
+
+      <meta name="keywords" content="Clearway AI, Lead-Generierung, B2B Leads, Meta-Anzeigen, Dienstleistungsunternehmen, DACH, qualifizierte Leads, Verkaufsgespräche buchen, Done-for-you Marketing" />
+
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
-      
+
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content="Clearway AI" />
-      <meta property="og:locale" content="en_US" />
-      
+      <meta property="og:locale" content="de_CH" />
+
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonical} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      
+
       <meta name="author" content="Clearway AI" />
       <meta name="geo.region" content="CH" />
       <meta name="geo.placename" content="Freienbach" />
-      <meta name="theme-color" content="#050506" />
-      
+      <meta name="theme-color" content="#ffffff" />
+
       <meta name="format-detection" content="telephone=no" />
     </Helmet>
   );

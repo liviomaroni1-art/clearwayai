@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
@@ -19,6 +19,7 @@ const industries = [
 const HeroSection = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,10 +28,24 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const stepInterval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % 4);
+    }, 2000);
+    return () => clearInterval(stepInterval);
+  }, []);
+
+  const processSteps = [
+    { key: 'hero.process.ad', icon: '📣' },
+    { key: 'hero.process.lead', icon: '👤' },
+    { key: 'hero.process.call', icon: '📞' },
+    { key: 'hero.process.close', icon: '✅' },
+  ];
+
   return (
-    <section className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
+    <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[60vh]">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[55vh]">
           {/* Left side - Content */}
           <div>
             <motion.h1
@@ -79,7 +94,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right side - Scrolling industry names like Assembly */}
+          {/* Right side - Scrolling industry names */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -87,7 +102,6 @@ const HeroSection = () => {
             className="hidden lg:flex flex-col items-start justify-center relative"
           >
             <div className="relative w-full overflow-hidden" style={{ height: '360px' }}>
-              {/* Fade gradient at top and bottom */}
               <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent z-10" />
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
 
@@ -117,6 +131,41 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Animated process flow diagram */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 md:mt-24 pt-12 border-t border-border"
+        >
+          <div className="flex items-center justify-center gap-2 md:gap-4 flex-wrap">
+            {processSteps.map((step, i) => (
+              <div key={step.key} className="flex items-center gap-2 md:gap-4">
+                <motion.div
+                  animate={{
+                    scale: activeStep === i ? 1.05 : 1,
+                    opacity: activeStep === i ? 1 : 0.5,
+                  }}
+                  transition={{ duration: 0.4 }}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full border transition-colors duration-300 ${
+                    activeStep === i
+                      ? 'border-foreground/30 bg-foreground/5'
+                      : 'border-border bg-transparent'
+                  }`}
+                >
+                  <span className="text-base">{step.icon}</span>
+                  <span className="text-xs md:text-sm font-semibold text-foreground whitespace-nowrap">
+                    {t(step.key)}
+                  </span>
+                </motion.div>
+                {i < processSteps.length - 1 && (
+                  <ChevronRight className="w-4 h-4 text-muted-foreground/40 flex-shrink-0" />
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

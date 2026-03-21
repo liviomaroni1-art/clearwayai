@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 
+const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
 const TrustedBySection = lazy(() => import("@/components/TrustedBySection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
@@ -17,8 +18,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Clearway AI — Done-For-You Lead Generation for Service Businesses"
-        description="We run your Meta ads, manage our funnel, and deliver qualified leads or booked sales calls directly to you. Done-for-you B2B lead generation."
+        title="Clearway AI – Done-for-You Lead-Generierung für Dienstleistungsunternehmen"
+        description="Wir schalten Ihre Meta-Anzeigen, verwalten den Funnel und liefern qualifizierte Leads oder gebuchte Verkaufsgespräche – direkt zu Ihnen. Done-for-you Lead-Generierung im DACH-Raum."
       />
       <StructuredData type="website" />
       <StructuredData type="organization" />
@@ -27,6 +28,7 @@ const Index = () => {
       <HeroSection />
 
       <Suspense fallback={null}>
+        <SocialProofSection />
         <StickyCTA />
         <TrustedBySection />
         <HowItWorksSection />

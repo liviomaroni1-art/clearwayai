@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Phone, CalendarCheck } from "lucide-react";
 import flagCH from "@/assets/flag-ch.png";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/lib/i18n";
@@ -10,7 +10,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-slate-800 text-white overflow-hidden">
-      {/* Dark overlay with subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/95 to-slate-900/90" />
 
       <div className="relative z-10">
@@ -26,6 +25,10 @@ const Footer = () => {
                 <a href="mailto:hello@clearwayai.co" className="hover:text-white transition-colors inline-flex items-center gap-2">
                   <Mail className="w-4 h-4" />
                   hello@clearwayai.co
+                </a>
+                <a href={`tel:${t('nav.phone').replace(/\s/g, '')}`} className="hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  {t('nav.phone')}
                 </a>
                 <span className="inline-flex items-center gap-2">
                   <img src={flagCH} alt="Swiss flag" width="16" height="12" className="h-[1em] w-auto" />
@@ -85,8 +88,9 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm text-blue-300/80 hover:text-blue-300 transition-colors">
-                    {t('footer.cta')}
+                  <Link to="/contact" className="text-sm text-blue-300/80 hover:text-blue-300 transition-colors inline-flex items-center gap-2">
+                    <CalendarCheck className="w-4 h-4" />
+                    {t('footer.calendly')}
                   </Link>
                 </li>
                 <li>
@@ -107,7 +111,7 @@ const Footer = () => {
         <div className="border-t border-white/10">
           <div className="container mx-auto px-6 py-5">
             <p className="text-xs text-white/30 text-center">
-              © {new Date().getFullYear()} Clearway AI. {t('footer.rights')}
+              © 2026 Clearway AI. {t('footer.rights')}
               {isAdmin && (
                 <Link to="/admin/leads" className="ml-2 opacity-50 hover:opacity-100 transition-opacity">
                   Admin
