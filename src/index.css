@@ -83,7 +83,7 @@
 
 @layer components {
   .section-padding {
-    @apply py-20 md:py-28;
+    @apply py-24 md:py-36;
   }
 
   .minimal-card {

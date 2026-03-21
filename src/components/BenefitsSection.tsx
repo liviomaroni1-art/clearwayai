@@ -13,19 +13,19 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section id="outcomes" className="section-padding border-t border-border bg-secondary/30">
+    <section id="outcomes" className="py-24 md:py-36 border-t border-border bg-secondary/40">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 max-w-xl"
+          className="mb-16 max-w-xl"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 leading-tight">
             {t('benefits.title')}
           </h2>
-          <p className="text-muted-foreground text-base">{t('benefits.subtitle')}</p>
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{t('benefits.subtitle')}</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -36,10 +36,10 @@ const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-background border border-border rounded-xl p-6 hover:shadow-md transition-shadow duration-200"
+              className="bg-background border border-border rounded-xl p-8 hover:shadow-lg transition-shadow duration-300"
             >
-              <benefit.icon className="w-8 h-8 text-foreground/70 mb-5" />
-              <h3 className="font-display font-bold text-foreground mb-2">{benefit.title}</h3>
+              <benefit.icon className="w-7 h-7 text-foreground/50 mb-6" strokeWidth={1.5} />
+              <h3 className="font-display font-bold text-foreground mb-3 text-lg">{benefit.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{benefit.desc}</p>
             </motion.div>
           ))}

@@ -9,7 +9,7 @@ const CTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding border-t border-border">
+    <section className="py-24 md:py-36 border-t border-border">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,14 +18,14 @@ const CTASection = () => {
           transition={{ duration: 0.5 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
             {t('cta.title')}
           </h2>
-          <p className="text-muted-foreground mb-8 text-base md:text-lg">
+          <p className="text-muted-foreground mb-10 text-base md:text-lg leading-relaxed">
             {t('cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="hero" size="lg" className="uppercase tracking-widest text-sm px-8" asChild>
               <Link
                 to="/contact"
                 onClick={() =>
@@ -37,14 +37,14 @@ const CTASection = () => {
                 }
               >
                 {t('cta.button')}
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/contact">{t('nav.contact')}</Link>
+            <Button variant="heroOutline" size="lg" className="uppercase tracking-widest text-sm px-8" asChild>
+              <a href="#how-it-works">{t('hero.seeHow')}</a>
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground mt-6">
+          <p className="text-xs text-muted-foreground mt-8">
             {t('cta.note')}
           </p>
         </motion.div>
