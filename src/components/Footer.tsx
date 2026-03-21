@@ -116,7 +116,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <Link to="/contact" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
-                    {t('footer.calendly')}
+                    {t('footer.cta')}
                   </Link>
                 </li>
                 <li>
