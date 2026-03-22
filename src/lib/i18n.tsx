@@ -17,6 +17,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.results': 'Ergebnisse',
     'nav.bookACall': 'Gespräch buchen',
     'nav.contact': 'Kontakt',
+    'nav.howItWorks': 'So funktioniert es',
 
     // Hero
     'hero.headline1': 'Leads. Gespräche. Wachstum.',
@@ -193,6 +194,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.results': 'Results',
     'nav.bookACall': 'Book a Call',
     'nav.contact': 'Contact Us',
+    'nav.howItWorks': 'How It Works',
 
     // Hero
     'hero.headline1': 'Leads. Calls. Growth.',
