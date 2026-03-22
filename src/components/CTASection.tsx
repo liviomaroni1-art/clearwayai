@@ -9,11 +9,20 @@ const CTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
+    <section
+      className="py-20 md:py-28 border-t border-[#1E1E2E] relative overflow-hidden"
+      style={{ background: '#0F0F1A' }}
+    >
       {/* Multi-layer glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-[140px]" style={{ background: 'rgba(79, 110, 247, 0.1)' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[80px]" style={{ background: 'rgba(124, 58, 237, 0.06)' }} />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-[140px]"
+          style={{ background: 'rgba(79, 110, 247, 0.1)' }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[80px]"
+          style={{ background: 'rgba(124, 58, 237, 0.06)' }}
+        />
         <div className="bg-dots absolute inset-0 opacity-20" />
       </div>
 
@@ -36,11 +45,9 @@ const CTASection = () => {
           >
             {t('cta.title')}
           </h2>
-
           <p className="mb-10 text-base md:text-lg leading-relaxed" style={{ color: '#8B8BA3' }}>
             {t('cta.subtitle')}
           </p>
-
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               variant="hero"
@@ -71,7 +78,6 @@ const CTASection = () => {
               <a href="#how-it-works">{t('hero.seeHow')}</a>
             </Button>
           </div>
-
           <p className="text-xs mt-8" style={{ color: '#8B8BA3' }}>
             {t('cta.note')}
           </p>
