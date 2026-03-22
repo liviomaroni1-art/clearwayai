@@ -1,115 +1,157 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
-import PricingCard from "@/components/pricing/PricingCard";
-import PricingFootnotes from "@/components/pricing/PricingFootnotes";
-import HowToChoose from "@/components/pricing/HowToChoose";
-import LongTermSavings from "@/components/pricing/LongTermSavings";
-import ComparisonTable from "@/components/pricing/ComparisonTable";
+import { Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
-import { plans, billingRules } from "@/components/pricing/PricingData";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n";
 
 const PricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const { t } = useLanguage();
 
-  const handleCTA = (planName: string, ctaText: string) => {
-    if (ctaText === "Talk to Sales") {
-      window.open('https://calendly.com/clearwayai/enterprise', '_blank');
-    } else {
-      window.location.href = '/contact';
-    }
-  };
+  const plans = [
+    {
+      name: t('pricing.starter.name'),
+      price: t('pricing.starter.price'),
+      desc: t('pricing.starter.desc'),
+      features: [
+        t('pricing.starter.f1'),
+        t('pricing.starter.f2'),
+        t('pricing.starter.f3'),
+        t('pricing.starter.f4'),
+      ],
+      highlighted: false,
+      badge: null,
+      ctaVariant: 'heroOutline' as const,
+    },
+    {
+      name: t('pricing.growth.name'),
+      price: t('pricing.growth.price'),
+      desc: t('pricing.growth.desc'),
+      features: [
+        t('pricing.growth.f1'),
+        t('pricing.growth.f2'),
+        t('pricing.growth.f3'),
+        t('pricing.growth.f4'),
+        t('pricing.growth.f5'),
+        t('pricing.growth.f6'),
+      ],
+      highlighted: true,
+      badge: t('pricing.growth.badge'),
+      ctaVariant: 'hero' as const,
+    },
+    {
+      name: t('pricing.enterprise.name'),
+      price: t('pricing.enterprise.price'),
+      desc: t('pricing.enterprise.desc'),
+      features: [
+        t('pricing.enterprise.f1'),
+        t('pricing.enterprise.f2'),
+        t('pricing.enterprise.f3'),
+        t('pricing.enterprise.f4'),
+        t('pricing.enterprise.f5'),
+      ],
+      highlighted: false,
+      badge: null,
+      ctaVariant: 'heroOutline' as const,
+    },
+  ];
 
   return (
-    <section id="pricing" className="py-16 md:py-24 px-4 md:px-6">
-      <div className="max-w-[1400px] mx-auto">
-        <motion.div 
+    <section id="pricing" className="py-24 md:py-36 border-t border-white/8 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/8 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-10"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16 max-w-2xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-foreground">
-            Simple, Transparent <span className="gradient-text">Pricing</span>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
+            {t('pricing.title')}
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-3">
-            One flat monthly fee covers the full system: lead capture, follow-ups, reactivation, reminders, and reviews. No hidden costs, no lock-in.
+          <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
+            {t('pricing.subtitle')}
           </p>
-          <p className="text-sm text-muted-foreground max-w-lg mx-auto mb-5">
-            For qualifying businesses, we also offer a performance-based model where we share in the extra revenue we generate — no setup fee required.{" "}
-            <Link to="/contact" className="text-primary hover:underline">Ask us about it.</Link>
-          </p>
-
-          <div className="inline-flex items-center gap-3 bg-card/50 border border-border rounded-full px-4 py-2 mb-5">
-            <button
-              onClick={() => setIsAnnual(false)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                !isAnnual 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setIsAnnual(true)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
-                isAnnual 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              Annual
-              <span className={`text-xs px-2 py-0.5 rounded-full ${
-                isAnnual 
-                  ? 'bg-primary-foreground/20' 
-                  : 'bg-primary/20 text-primary'
-              }`}>
-                Save {billingRules.annualDiscount}
-              </span>
-            </button>
-          </div>
-
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-xs text-muted-foreground">Need additional services?</span>
-            <Link 
-              to="/add-ons" 
-              className="text-xs text-primary hover:text-primary/80 font-medium underline underline-offset-4 transition-colors"
-            >
-              View Add-Ons →
-            </Link>
-          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-2">
-          {plans.map((plan, index) => (
-            <PricingCard
-              key={plan.name}
-              name={plan.name}
-              icon={plan.icon}
-              price={plan.price}
-              priceAnnual={plan.priceAnnual}
-              setup={plan.setup}
-              tagline={plan.tagline}
-              idealFor={plan.idealFor}
-              color={plan.color}
-              features={plan.features}
-              setupIncludes={plan.setupIncludes}
-              ctaText={plan.ctaText}
-              ctaAction={() => handleCTA(plan.name, plan.ctaText)}
-              popular={plan.popular}
-              label={'label' in plan ? plan.label : undefined}
-              notes={'notes' in plan ? plan.notes : undefined}
-              index={index}
-              isAnnual={isAnnual}
-            />
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className={`relative rounded-xl p-7 flex flex-col ${
+                plan.highlighted
+                  ? 'bg-blue-600/10 border border-blue-500/30 glow-blue-sm'
+                  : 'glass-card'
+              }`}
+            >
+              {plan.badge && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              <div className="mb-6">
+                <h3 className="font-bold text-xl text-white mb-1">{plan.name}</h3>
+                <p className="text-zinc-500 text-sm">{plan.desc}</p>
+              </div>
+
+              <div className="mb-6">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-bold text-4xl text-white">{plan.price}</span>
+                  {plan.price !== t('pricing.enterprise.price') && (
+                    <span className="text-zinc-500 text-sm">/mo</span>
+                  )}
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                {plan.features.map((feature, j) => (
+                  <li key={j} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <Check
+                      className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
+                        plan.highlighted ? 'text-blue-400' : 'text-zinc-500'
+                      }`}
+                      strokeWidth={2.5}
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <Button
+                variant={plan.ctaVariant}
+                size="default"
+                className="w-full gap-2"
+                asChild
+              >
+                <Link to="/contact">
+                  {plan.highlighted ? t('hero.cta') : t('nav.bookACall')}
+                  {plan.highlighted && <ArrowRight className="w-4 h-4" />}
+                </Link>
+              </Button>
+            </motion.div>
           ))}
         </div>
 
-        <ComparisonTable />
-        <HowToChoose />
-        <PricingFootnotes />
-        <LongTermSavings />
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center text-xs text-zinc-600 mt-8"
+        >
+          {t('pricing.hint')}
+        </motion.p>
       </div>
     </section>
   );
