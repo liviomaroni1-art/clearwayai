@@ -15,10 +15,13 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section id="features" className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
+    <section id="features" className="py-16 md:py-20 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
       {/* Subtle glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] rounded-full blur-[120px]" style={{ background: 'rgba(124, 58, 237, 0.06)' }} />
+        <div
+          className="absolute bottom-0 right-0 w-[600px] h-[400px] rounded-full blur-[120px]"
+          style={{ background: 'rgba(124, 58, 237, 0.06)' }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -27,7 +30,7 @@ const FeaturesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16 max-w-2xl mx-auto"
+          className="text-center mb-12 max-w-2xl mx-auto"
         >
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
             {t('features.title')}
