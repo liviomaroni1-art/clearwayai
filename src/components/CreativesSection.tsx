@@ -19,11 +19,11 @@ const creatives: Creative[] = [
     alt: "Meta Ads auf Autopilot"
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774186044821.png",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
     alt: "Leads kommen von allein"
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/750123a7-3b75-4271-bfd7-f4c9d3e848fa/v1-1774186048932.png",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/750123a7-3b75-4271-bfd7-f4c9d3e848fa/v1-1774185970776.png",
     alt: "Planbare Leads fuer Steuerberater"
   }
 ];
