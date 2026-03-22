@@ -11,8 +11,8 @@ const creatives: Creative[] = [
     alt: "Nie wieder kalte Akquise"
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/472438fc-6636-418b-a404-25b29f59f654/v1-1774186001296.png",
-    alt: "Schluss mit manueller Leadsuche"
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/64fad027-f451-452c-82fa-d8a6d8840339/v1-1774186016674.png",
+    alt: "Wir verstehen Dienstleister"
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
