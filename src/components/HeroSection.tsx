@@ -142,41 +142,37 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="hidden lg:flex flex-col items-start justify-center relative"
           >
-            <div className="relative w-full" style={{ height: '360px' }}>
-              <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
+            <div className="flex flex-col gap-2 items-start justify-center" style={{ height: '360px' }}>
+              {industryKeys.map((key, i) => {
+                const distance = Math.abs(i - currentIndex);
+                const isActive = distance === 0;
+                const opacity = isActive ? 1 : distance === 1 ? 0.25 : 0;
+                const scale = isActive ? 1 : 0.94;
 
-              <div className="flex flex-col gap-2 absolute inset-0 overflow-hidden">
-                {industryKeys.map((key, i) => {
-                  const distance = Math.abs(i - currentIndex);
-                  const opacity = distance === 0 ? 1 : distance === 1 ? 0.3 : 0.12;
-                  const scale = distance === 0 ? 1 : 0.94;
-
-                  return (
-                    <motion.div
-                      key={key}
-                      animate={{
-                        opacity,
-                        scale,
-                        y: -(currentIndex * 58) + 140,
-                      }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="font-bold text-white whitespace-nowrap"
-                      style={{
-                        fontSize: distance === 0 ? '3rem' : '2.5rem',
-                        ...(distance === 0 ? {
-                          background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
-                        } : {}),
-                      }}
-                    >
-                      {t(key)}
-                    </motion.div>
-                  );
-                })}
-              </div>
+                return (
+                  <motion.div
+                    key={key}
+                    animate={{
+                      opacity,
+                      scale,
+                      y: -(currentIndex * 58) + 140,
+                    }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="font-bold text-white whitespace-nowrap"
+                    style={{
+                      fontSize: isActive ? '3rem' : '2.5rem',
+                      ...(isActive ? {
+                        background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      } : {}),
+                    }}
+                  >
+                    {t(key)}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
