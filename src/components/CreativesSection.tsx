@@ -3,28 +3,46 @@ import React, { useState } from "react";
 interface Creative {
   url: string;
   alt: string;
+  industry: string;
+  result: string;
+  metric: string;
 }
 
 const creatives: Creative[] = [
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/838b53e1-7281-4526-9cfa-ec39e5d4044e/v1-1774210293766.png",
     alt: "Mehr Umsatz, weniger Aufwand",
+    industry: "Steuerberatung",
+    result: "37 gebuchte Gespräche in 30 Tagen",
+    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/c08e9f0b-3796-4cfa-83a3-f7f5cdf655de/v1-1774210285926.png",
     alt: "Automatisch zu neuen Kunden",
+    industry: "Coaching",
+    result: "4.2× ROAS nach 60 Tagen",
+    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
     alt: "Meta Ads auf Autopilot",
+    industry: "Handwerk",
+    result: "€23 Kosten pro qualifiziertem Lead",
+    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/adf8ac7a-dd28-496f-8964-4aa8d7674dc6/v1-1774210283040.png",
     alt: "Mehr Umsatz weniger Aufwand Kampagne",
+    industry: "Agenturen",
+    result: "Stabile Lead-Pipeline in 45 Tagen",
+    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
     alt: "Leads kommen von allein",
+    industry: "Immobilien",
+    result: "29 qualifizierte Leads in 3 Wochen",
+    metric: "€4.89 CPL",
   },
 ];
 
@@ -45,18 +63,18 @@ const CreativesSection = () => {
     }
     if (offset === 1 || offset === -(n - 1)) {
       return {
-        transform: "translateX(72%) scale(0.78) translateZ(-120px)",
+        transform: "translateX(65%) scale(0.76) translateZ(-120px)",
         zIndex: 5,
-        opacity: 0.7,
-        filter: "brightness(0.65)",
+        opacity: 0.6,
+        filter: "brightness(0.6)",
       };
     }
     if (offset === -1 || offset === (n - 1)) {
       return {
-        transform: "translateX(-72%) scale(0.78) translateZ(-120px)",
+        transform: "translateX(-65%) scale(0.76) translateZ(-120px)",
         zIndex: 5,
-        opacity: 0.7,
-        filter: "brightness(0.65)",
+        opacity: 0.6,
+        filter: "brightness(0.6)",
       };
     }
     return {
@@ -66,20 +84,41 @@ const CreativesSection = () => {
     };
   };
 
+  const current = creatives[active];
+
   return (
-    <section className="py-20 bg-background overflow-hidden">
+    <section className="py-16 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             So sehen unsere Kampagnen aus
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Beispiel-Anzeigen aus unserer laufenden Arbeit. Kundenkampagnen zeigen
-            wir aus Datenschutzgruenden nicht.
+            Beispiel-Anzeigen aus unserer laufenden Arbeit. Kundenkampagnen zeigen wir aus Datenschutzgruenden nicht.
           </p>
         </div>
 
-        <div className="relative flex items-center justify-center" style={{ height: "520px", perspective: "1000px" }}>
+        {/* Active creative context bar */}
+        <div className="flex items-center justify-center gap-3 mb-8 flex-wrap">
+          <span
+            className="px-3 py-1 rounded-full text-xs font-semibold border"
+            style={{ borderColor: '#4F6EF7', color: '#4F6EF7', background: 'rgba(79,110,247,0.1)' }}
+          >
+            {current.industry}
+          </span>
+          <span className="text-zinc-400 text-sm">{current.result}</span>
+          <span
+            className="px-3 py-1 rounded-full text-xs font-bold"
+            style={{ background: 'rgba(124,58,237,0.15)', color: '#a78bfa' }}
+          >
+            {current.metric}
+          </span>
+        </div>
+
+        <div
+          className="relative flex items-center justify-center"
+          style={{ height: "580px", perspective: "1000px" }}
+        >
           {creatives.map((creative, i) => {
             const offset = ((i - active + n) % n + n) % n;
             const normOffset = offset > n / 2 ? offset - n : offset;
@@ -90,7 +129,7 @@ const CreativesSection = () => {
                 onClick={() => setActive(i)}
                 style={{
                   position: "absolute",
-                  width: "260px",
+                  width: "320px",
                   transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   cursor: normOffset === 0 ? "default" : "pointer",
                   ...style,
@@ -106,27 +145,25 @@ const CreativesSection = () => {
               </div>
             );
           })}
-
           <button
             onClick={prev}
             aria-label="Previous"
-            style={{ position: "absolute", left: "calc(50% - 220px)", zIndex: 20 }}
+            style={{ position: "absolute", left: "calc(50% - 260px)", zIndex: 20 }}
             className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
           >
             &#8592;
           </button>
-
           <button
             onClick={next}
             aria-label="Next"
-            style={{ position: "absolute", right: "calc(50% - 220px)", zIndex: 20 }}
+            style={{ position: "absolute", right: "calc(50% - 260px)", zIndex: 20 }}
             className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
           >
             &#8594;
           </button>
         </div>
 
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex justify-center gap-2 mt-4">
           {creatives.map((_, i) => (
             <button
               key={i}
