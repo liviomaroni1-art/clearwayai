@@ -15,19 +15,18 @@ const Navbar = () => {
   const navLinks = [
     { key: 'nav.product', href: isHomePage ? "#features" : "/#features" },
     { key: 'nav.solutions', href: isHomePage ? "#who-its-for" : "/#who-its-for" },
-
-    { key: 'nav.results', href: isHomePage ? "#outcomes" : "/#outcomes" },
   ];
 
   const linkClass =
-    "text-zinc-400 hover:text-white transition-colors duration-200 text-sm font-medium";
+    "text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors duration-200 text-sm font-medium";
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-white/8"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-[#1E1E2E]"
+      style={{ background: 'rgba(10, 10, 15, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
@@ -70,19 +69,19 @@ const Navbar = () => {
               className={`text-xs px-2 py-1 rounded transition-colors uppercase tracking-wide ${
                 language === 'de'
                   ? 'text-white font-bold'
-                  : 'text-zinc-500 hover:text-zinc-300'
+                  : 'text-[#8B8BA3] hover:text-[#F1F1F5]'
               }`}
               aria-label="Deutsch"
             >
               De
             </button>
-            <span className="text-zinc-700">|</span>
+            <span className="text-[#1E1E2E]">|</span>
             <button
               onClick={() => setLanguage('en')}
               className={`text-xs px-2 py-1 rounded transition-colors uppercase tracking-wide ${
                 language === 'en'
                   ? 'text-white font-bold'
-                  : 'text-zinc-500 hover:text-zinc-300'
+                  : 'text-[#8B8BA3] hover:text-[#F1F1F5]'
               }`}
               aria-label="English"
             >
@@ -90,7 +89,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <Button variant="hero" size="default" className="text-sm px-5" asChild>
+          <Button variant="hero" size="default" className="text-sm px-5 rounded-lg" asChild>
             <Link to="/contact">{t('hero.cta')}</Link>
           </Button>
         </div>
@@ -113,7 +112,8 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden border-t border-white/8 bg-background/95 backdrop-blur-xl"
+            className="md:hidden border-t border-[#1E1E2E]"
+            style={{ background: 'rgba(10, 10, 15, 0.95)', backdropFilter: 'blur(12px)' }}
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-1">
               {navLinks.map((link) =>
@@ -121,7 +121,7 @@ const Navbar = () => {
                   <Link
                     key={link.key}
                     to={link.href}
-                    className="text-zinc-300 hover:text-white transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
+                    className="text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {t(link.key)}
@@ -130,7 +130,7 @@ const Navbar = () => {
                   <a
                     key={link.key}
                     href={link.href}
-                    className="text-zinc-300 hover:text-white transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
+                    className="text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {t(link.key)}
@@ -138,13 +138,13 @@ const Navbar = () => {
                 )
               )}
 
-              <div className="flex items-center gap-3 py-3 border-t border-white/8 mt-2">
+              <div className="flex items-center gap-3 py-3 border-t border-[#1E1E2E] mt-2">
                 <button
                   onClick={() => setLanguage('de')}
                   className={`text-sm px-3 py-1.5 rounded-full border transition-colors uppercase tracking-wide ${
                     language === 'de'
-                      ? 'border-white/30 bg-white/10 text-white font-semibold'
-                      : 'border-white/10 text-zinc-500'
+                      ? 'border-[#4F6EF7]/40 bg-[#4F6EF7]/10 text-white font-semibold'
+                      : 'border-[#1E1E2E] text-[#8B8BA3]'
                   }`}
                 >
                   De
@@ -153,8 +153,8 @@ const Navbar = () => {
                   onClick={() => setLanguage('en')}
                   className={`text-sm px-3 py-1.5 rounded-full border transition-colors uppercase tracking-wide ${
                     language === 'en'
-                      ? 'border-white/30 bg-white/10 text-white font-semibold'
-                      : 'border-white/10 text-zinc-500'
+                      ? 'border-[#4F6EF7]/40 bg-[#4F6EF7]/10 text-white font-semibold'
+                      : 'border-[#1E1E2E] text-[#8B8BA3]'
                   }`}
                 >
                   En

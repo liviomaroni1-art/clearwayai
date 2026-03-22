@@ -146,14 +146,14 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.enterprise.f3': 'Custom Funnel- & Landingpage-Entwicklung',
     'pricing.enterprise.f4': 'Multi-Kampagnen-Management über mehrere Standorte',
     'pricing.enterprise.f5': 'SLA & priorisierter Support',
-    'pricing.hint': 'Investition ab 1.500 €/Monat zzgl. Werbebudget (empfohlen ab 1.000 €/Monat).',
+    'pricing.hint': '',
 
     // FAQ
     'faq.title': 'Häufig gestellte Fragen',
     'faq.q1': 'Gibt es eine Mindestlaufzeit?',
     'faq.a1': 'Wir empfehlen eine Zusammenarbeit von mindestens 3 Monaten, damit wir genügend Daten sammeln und die Kampagnen optimieren können. Es gibt jedoch keine starre Vertragsbindung – Details klären wir im Strategiegespräch.',
     'faq.q2': 'Was kostet ein Lead?',
-    'faq.a2': 'Die Kosten pro Lead hängen von Ihrer Branche, Region und Ihrem Angebot ab. Typische Werte liegen zwischen 15 € und 50 € pro qualifiziertem Lead. Im Strategiegespräch geben wir Ihnen eine realistische Einschätzung für Ihren Markt.',
+    'faq.a2': 'Die Kosten hängen von Ihrer Branche, Region und Ihrem Werbebudget ab. Im kostenlosen Strategiegespräch geben wir Ihnen eine individuelle, realistische Einschätzung.',
     'faq.q3': 'Was passiert, wenn die Kampagne nicht performt?',
     'faq.a3': 'Wir optimieren fortlaufend auf Basis realer Daten – Anzeigen, Zielgruppen und Funnel werden wöchentlich angepasst. Sollte eine Kampagne trotzdem nicht die erwarteten Ergebnisse liefern, besprechen wir transparent die nächsten Schritte. Wir arbeiten ergebnisorientiert, nicht auf Autopilot.',
     'faq.q4': 'Wie schnell sehe ich erste Ergebnisse?',
@@ -322,14 +322,14 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.enterprise.f3': 'Custom funnel & landing page development',
     'pricing.enterprise.f4': 'Multi-campaign management across locations',
     'pricing.enterprise.f5': 'SLA & priority support',
-    'pricing.hint': 'Investment from €1,500/month plus ad budget (recommended from €1,000/month).',
+    'pricing.hint': '',
 
     // FAQ
     'faq.title': 'Frequently Asked Questions',
     'faq.q1': 'Is there a minimum contract term?',
     'faq.a1': 'We recommend a minimum engagement of 3 months so we can collect enough data and optimise campaigns effectively. However, there is no rigid lock-in — we discuss the details in the strategy call.',
     'faq.q2': 'How much does a lead cost?',
-    'faq.a2': "Cost per lead depends on your industry, region, and offer. Typical values range between €15 and €50 per qualified lead. We'll give you a realistic estimate for your market during the strategy call.",
+    'faq.a2': "Costs depend on your industry, region, and ad budget. In the free strategy call, we'll give you a personalised, realistic estimate.",
     'faq.q3': "What happens if the campaign doesn't perform?",
     'faq.a3': "We optimise continuously based on real data — ads, audiences, and the funnel are adjusted weekly. If a campaign doesn't deliver expected results, we transparently discuss next steps. We work results-driven, not on autopilot.",
     'faq.q4': 'How quickly will I see results?',

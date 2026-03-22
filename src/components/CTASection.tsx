@@ -9,12 +9,12 @@ const CTASection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-24 md:py-36 border-t border-white/8 relative overflow-hidden">
-      {/* Multi-layer glow behind the section */}
+    <section className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
+      {/* Multi-layer glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-blue-600/12 rounded-full blur-[130px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-violet-600/8 rounded-full blur-[80px]" />
-        <div className="bg-dots absolute inset-0 opacity-25" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] rounded-full blur-[140px]" style={{ background: 'rgba(79, 110, 247, 0.1)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[80px]" style={{ background: 'rgba(124, 58, 237, 0.06)' }} />
+        <div className="bg-dots absolute inset-0 opacity-20" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -28,7 +28,7 @@ const CTASection = () => {
           <h2
             className="font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight"
             style={{
-              background: 'linear-gradient(135deg, #ffffff 30%, #93c5fd 70%, #c4b5fd 100%)',
+              background: 'linear-gradient(135deg, #ffffff 30%, #4F6EF7 70%, #7C3AED 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -37,7 +37,7 @@ const CTASection = () => {
             {t('cta.title')}
           </h2>
 
-          <p className="text-zinc-400 mb-10 text-base md:text-lg leading-relaxed">
+          <p className="mb-10 text-base md:text-lg leading-relaxed" style={{ color: '#8B8BA3' }}>
             {t('cta.subtitle')}
           </p>
 
@@ -72,11 +72,8 @@ const CTASection = () => {
             </Button>
           </div>
 
-          <p className="text-xs text-zinc-600 mt-8">
+          <p className="text-xs mt-8" style={{ color: '#8B8BA3' }}>
             {t('cta.note')}
-          </p>
-          <p className="text-xs text-zinc-700 mt-3 border-t border-white/8 pt-4 max-w-md mx-auto">
-            {t('pricing.hint')}
           </p>
         </motion.div>
       </div>
