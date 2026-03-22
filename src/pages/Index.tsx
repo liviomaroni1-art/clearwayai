@@ -9,6 +9,7 @@ const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
 const FitSection = lazy(() => import("@/components/FitSection"));
+const CreativesSection = lazy(() => import("@/components/CreativesSection"));
 
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
@@ -35,6 +36,7 @@ const Index = () => {
         <HowItWorksSection />
         <BenefitsSection />
         <FitSection />
+                <CreativesSection />
 
         <FAQSection />
         <CTASection />
