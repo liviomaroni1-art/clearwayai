@@ -35,9 +35,9 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.process.lead': 'Qualifizierter Lead',
     'hero.process.call': 'Gebuchtes Gespräch',
     'hero.process.close': 'Abschluss',
-    'hero.stats.companies': '50+ Unternehmen',
-    'hero.stats.leads': '2.400+ Leads',
-    'hero.stats.rate': '89% Qualifizierungsrate',
+    'hero.stats.companies': 'Done-for-you System',
+    'hero.stats.leads': 'DACH-Region',
+    'hero.stats.rate': 'Für Dienstleister',
 
     // Social Proof
     'proof.heading': 'Ergebnisse aus aktuellen Kampagnen',
@@ -52,13 +52,9 @@ const translations: Record<Language, Record<string, string>> = {
     'proof.r3.label': 'Coaching-Unternehmen, Deutschland',
 
     // Trusted By
-    'trusted.title': 'Vertraut von Dienstleistern in der DACH-Region',
+    'trusted.title': 'Entwickelt für Dienstleister in der DACH-Region',
     'trusted.subtitle': 'Von Handwerkern über Kanzleien bis hin zu Coaching-Unternehmen – wir helfen Service-Unternehmen, planbar neue Kunden zu gewinnen.',
-    'trusted.link': 'Ergebnisse ansehen',
-    'trusted.stat1': '2.400+ generierte Leads',
-    'trusted.stat2': '89% Qualifizierungsrate',
-    'trusted.stat3': '50+ aktive Kunden',
-    'trusted.stat4': 'Ø 4.8★ Bewertung',
+    'trusted.link': 'Mehr erfahren',
     'trusted.industry1': 'Handwerk',
     'trusted.industry2': 'Beratung',
     'trusted.industry3': 'Kanzleien',
@@ -215,9 +211,9 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.process.lead': 'Qualified Lead',
     'hero.process.call': 'Booked Call',
     'hero.process.close': 'Closed Deal',
-    'hero.stats.companies': '50+ Companies',
-    'hero.stats.leads': '2,400+ Leads',
-    'hero.stats.rate': '89% Qualification Rate',
+    'hero.stats.companies': 'Done-for-you System',
+    'hero.stats.leads': 'DACH Region',
+    'hero.stats.rate': 'For Service Businesses',
 
     // Social Proof
     'proof.heading': 'Results from recent campaigns',
@@ -232,13 +228,9 @@ const translations: Record<Language, Record<string, string>> = {
     'proof.r3.label': 'Coaching company, Germany',
 
     // Trusted By
-    'trusted.title': 'Trusted by service businesses across the DACH region',
+    'trusted.title': 'Built for service businesses across the DACH region',
     'trusted.subtitle': 'From contractors to law firms to coaching businesses — we help service companies generate predictable new clients.',
-    'trusted.link': 'Explore results',
-    'trusted.stat1': '2,400+ Leads Generated',
-    'trusted.stat2': '89% Qualification Rate',
-    'trusted.stat3': '50+ Active Clients',
-    'trusted.stat4': 'Avg. 4.8★ Rating',
+    'trusted.link': 'Learn more',
     'trusted.industry1': 'Contractors',
     'trusted.industry2': 'Consulting',
     'trusted.industry3': 'Law Firms',

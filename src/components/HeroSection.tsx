@@ -42,11 +42,7 @@ const HeroSection = () => {
     { key: 'hero.process.close' },
   ];
 
-  const stats = [
-    t('hero.stats.companies'),
-    t('hero.stats.leads'),
-    t('hero.stats.rate'),
-  ];
+
 
   return (
     <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 overflow-hidden">
@@ -146,11 +142,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="hidden lg:flex flex-col items-start justify-center relative"
           >
-            <div className="relative w-full overflow-hidden" style={{ height: '360px' }}>
-              <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent z-10" />
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
+            <div className="relative w-full" style={{ height: '360px' }}>
+              <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[hsl(var(--background))] to-transparent z-10 pointer-events-none" />
 
-              <div className="flex flex-col gap-2 relative">
+              <div className="flex flex-col gap-2 absolute inset-0 overflow-hidden">
                 {industryKeys.map((key, i) => {
                   const distance = Math.abs(i - currentIndex);
                   const opacity = distance === 0 ? 1 : distance === 1 ? 0.3 : 0.12;
@@ -185,32 +181,13 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Social proof stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-14 mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-0"
-        >
-          {stats.map((stat, i) => (
-            <div key={i} className="flex items-center">
-              {i > 0 && (
-                <span className="hidden md:block w-px h-4 bg-white/15 mx-6" />
-              )}
-              {i > 0 && (
-                <span className="md:hidden text-white/20 mx-3">·</span>
-              )}
-              <span className="text-sm text-zinc-300 font-medium">{stat}</span>
-            </div>
-          ))}
-        </motion.div>
 
         {/* Animated process flow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-4 pt-10 border-t border-white/8"
+          className="mt-14 pt-10 border-t border-white/8"
         >
           <div className="flex items-center justify-center gap-2 md:gap-3 flex-wrap">
             {processSteps.map((step, i) => (
