@@ -13,18 +13,20 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section id="outcomes" className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden">
+    <section id="outcomes" className="py-16 md:py-20 border-t border-[#1E1E2E] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/3 left-0 w-[400px] h-[400px] rounded-full blur-[120px]" style={{ background: 'rgba(79, 110, 247, 0.06)' }} />
+        <div
+          className="absolute top-1/3 left-0 w-[400px] h-[400px] rounded-full blur-[120px]"
+          style={{ background: 'rgba(79, 110, 247, 0.06)' }}
+        />
       </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 max-w-xl"
+          className="mb-12 max-w-xl"
         >
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
             {t('benefits.title')}
