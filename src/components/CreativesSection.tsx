@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Creative {
   url: string;
@@ -7,12 +7,12 @@ interface Creative {
 
 const creatives: Creative[] = [
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/835dfbfc-9275-4d99-abe1-48d82e7f39f3/v1-1774185958548.png",
-    alt: "Endlich planbare Umsätze",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/838b53e1-7281-4526-9cfa-ec39e5d4044e/v1-1774210293766.png",
+    alt: "Mehr Umsatz, weniger Aufwand",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/d208e8f1-1644-4626-8ca6-ad521345d0e5/v1-1774185960903.png",
-    alt: "Dominiere deinen Markt",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/c08e9f0b-3796-4cfa-83a3-f7f5cdf655de/v1-1774210285926.png",
+    alt: "Automatisch zu neuen Kunden",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
@@ -23,31 +23,51 @@ const creatives: Creative[] = [
     alt: "Leads kommen von allein",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/750123a7-3b75-4271-bfd7-f4c9d3e848fa/v1-1774185970776.png",
-    alt: "Planbare Leads fuer Steuerberater",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/adf8ac7a-dd28-496f-8964-4aa8d7674dc6/v1-1774210283040.png",
+    alt: "Mehr Umsatz weniger Aufwand Kampagne",
   },
 ];
 
-function CreativeCard({ creative }: { creative: Creative }) {
-  return (
-    <div className="rounded-xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 hover:scale-105 shadow-lg">
-      <img
-        src={creative.url}
-        alt={creative.alt}
-        className="w-full h-auto object-cover"
-        loading="lazy"
-      />
-    </div>
-  );
-}
-
-function renderCreative(creative: Creative, index: number) {
-  return <CreativeCard key={index} creative={creative} />;
-}
-
 const CreativesSection = () => {
+  const [active, setActive] = useState(0);
+  const n = creatives.length;
+  const prev = () => setActive((active - 1 + n) % n);
+  const next = () => setActive((active + 1) % n);
+
+  const getStyle = (offset: number): React.CSSProperties => {
+    if (offset === 0) {
+      return {
+        transform: "translateX(0%) scale(1) translateZ(0px)",
+        zIndex: 10,
+        opacity: 1,
+        filter: "brightness(1)",
+      };
+    }
+    if (offset === 1 || offset === -(n - 1)) {
+      return {
+        transform: "translateX(72%) scale(0.78) translateZ(-120px)",
+        zIndex: 5,
+        opacity: 0.7,
+        filter: "brightness(0.65)",
+      };
+    }
+    if (offset === -1 || offset === (n - 1)) {
+      return {
+        transform: "translateX(-72%) scale(0.78) translateZ(-120px)",
+        zIndex: 5,
+        opacity: 0.7,
+        filter: "brightness(0.65)",
+      };
+    }
+    return {
+      transform: "translateX(0%) scale(0.5) translateZ(-300px)",
+      zIndex: 1,
+      opacity: 0,
+    };
+  };
+
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -58,8 +78,62 @@ const CreativesSection = () => {
             wir aus Datenschutzgruenden nicht.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
-          {creatives.map(renderCreative)}
+
+        <div className="relative flex items-center justify-center" style={{ height: "520px", perspective: "1000px" }}>
+          {creatives.map((creative, i) => {
+            const offset = ((i - active + n) % n + n) % n;
+            const normOffset = offset > n / 2 ? offset - n : offset;
+            const style = getStyle(normOffset);
+            return (
+              <div
+                key={i}
+                onClick={() => setActive(i)}
+                style={{
+                  position: "absolute",
+                  width: "260px",
+                  transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  cursor: normOffset === 0 ? "default" : "pointer",
+                  ...style,
+                }}
+              >
+                <img
+                  src={creative.url}
+                  alt={creative.alt}
+                  className="w-full h-auto rounded-xl shadow-2xl"
+                  loading="lazy"
+                  draggable={false}
+                />
+              </div>
+            );
+          })}
+
+          <button
+            onClick={prev}
+            aria-label="Previous"
+            style={{ position: "absolute", left: "calc(50% - 220px)", zIndex: 20 }}
+            className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
+          >
+            &#8592;
+          </button>
+
+          <button
+            onClick={next}
+            aria-label="Next"
+            style={{ position: "absolute", right: "calc(50% - 220px)", zIndex: 20 }}
+            className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
+          >
+            &#8594;
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-6">
+          {creatives.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-6" : "bg-white/30"}`}
+            />
+          ))}
         </div>
       </div>
     </section>
