@@ -12,16 +12,19 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
+    <section
+      id="how-it-works"
+      className="py-16 md:py-20 border-t border-[#1E1E2E] relative overflow-hidden"
+      style={{ background: '#0F0F1A' }}
+    >
       <div className="absolute inset-0 pointer-events-none bg-dots opacity-20" aria-hidden="true" />
-
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 max-w-xl"
+          className="mb-12 max-w-xl"
         >
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
             {t('how.title')}
@@ -66,15 +69,16 @@ const HowItWorksSection = () => {
                   {step.num}
                 </div>
               </div>
-
               <h3 className="font-bold text-white text-base mb-3 leading-snug">
                 {step.title}
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: '#8B8BA3' }}>
                 {step.desc}
               </p>
-
-              <div className="absolute bottom-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'rgba(79, 110, 247, 0.08)' }} />
+              <div
+                className="absolute bottom-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: 'rgba(79, 110, 247, 0.08)' }}
+              />
             </motion.div>
           ))}
         </div>
