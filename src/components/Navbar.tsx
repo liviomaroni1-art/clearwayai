@@ -15,6 +15,9 @@ const Navbar = () => {
   const navLinks = [
     { key: 'nav.product', href: isHomePage ? "#features" : "/#features" },
     { key: 'nav.solutions', href: isHomePage ? "#who-its-for" : "/#who-its-for" },
+    { key: 'nav.howItWorks', href: isHomePage ? "#how-it-works" : "/#how-it-works" },
+    { key: 'faq.title', href: isHomePage ? "#faq" : "/#faq" },
+    { key: 'nav.contact', href: '/contact', isRoute: true },
   ];
 
   const linkClass =
@@ -46,7 +49,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop center nav */}
-        <div className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) =>
             link.href.startsWith('/') ? (
               <Link key={link.key} to={link.href} className={linkClass}>
