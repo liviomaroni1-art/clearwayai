@@ -19,12 +19,12 @@ const creatives: Creative[] = [
     alt: "Meta Ads auf Autopilot",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
-    alt: "Leads kommen von allein",
-  },
-  {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/adf8ac7a-dd28-496f-8964-4aa8d7674dc6/v1-1774210283040.png",
     alt: "Mehr Umsatz weniger Aufwand Kampagne",
+  },
+  {
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
+    alt: "Leads kommen von allein",
   },
 ];
 
