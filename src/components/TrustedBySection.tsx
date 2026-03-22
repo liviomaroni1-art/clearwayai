@@ -4,13 +4,6 @@ import { useLanguage } from "@/lib/i18n";
 const TrustedBySection = () => {
   const { t } = useLanguage();
 
-  const stats = [
-    t('trusted.stat1'),
-    t('trusted.stat2'),
-    t('trusted.stat3'),
-    t('trusted.stat4'),
-  ];
-
   const industries = [
     t('trusted.industry1'),
     t('trusted.industry2'),
@@ -47,27 +40,6 @@ const TrustedBySection = () => {
           >
             {t('trusted.link')}
           </a>
-        </motion.div>
-
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-0 mb-12"
-        >
-          {stats.map((stat, i) => (
-            <div key={i} className="flex items-center">
-              {i > 0 && (
-                <span className="hidden sm:block w-px h-5 bg-white/12 mx-6" />
-              )}
-              {i > 0 && (
-                <span className="sm:hidden text-white/15 mx-4">·</span>
-              )}
-              <span className="text-sm font-medium text-zinc-300">{stat}</span>
-            </div>
-          ))}
         </motion.div>
 
         {/* Industry name tags */}

@@ -15,7 +15,7 @@ const Navbar = () => {
   const navLinks = [
     { key: 'nav.product', href: isHomePage ? "#features" : "/#features" },
     { key: 'nav.solutions', href: isHomePage ? "#who-its-for" : "/#who-its-for" },
-    { key: 'nav.pricing', href: isHomePage ? "#pricing" : "/#pricing" },
+
     { key: 'nav.results', href: isHomePage ? "#outcomes" : "/#outcomes" },
   ];
 

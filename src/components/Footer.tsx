@@ -72,11 +72,6 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
-                    {t('nav.pricing')}
-                  </a>
-                </li>
-                <li>
                   <a href="#outcomes" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
                     {t('footer.link.results')}
                   </a>

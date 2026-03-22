@@ -4,13 +4,12 @@ import HeroSection from "@/components/HeroSection";
 import SEOHead from "@/components/SEOHead";
 import StructuredData from "@/components/StructuredData";
 
-const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
 const TrustedBySection = lazy(() => import("@/components/TrustedBySection"));
 const FeaturesSection = lazy(() => import("@/components/FeaturesSection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
 const FitSection = lazy(() => import("@/components/FitSection"));
-const PricingSection = lazy(() => import("@/components/PricingSection"));
+
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -30,14 +29,13 @@ const Index = () => {
       <HeroSection />
 
       <Suspense fallback={null}>
-        <SocialProofSection />
         <StickyCTA />
         <FeaturesSection />
         <TrustedBySection />
         <HowItWorksSection />
         <BenefitsSection />
         <FitSection />
-        <PricingSection />
+
         <FAQSection />
         <CTASection />
         <Footer />
