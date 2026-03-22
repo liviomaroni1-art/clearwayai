@@ -9,10 +9,9 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative bg-black/50 border-t border-white/8 overflow-hidden">
-      {/* Subtle background glow */}
+    <footer className="relative overflow-hidden" style={{ background: '#0A0A0F', borderTop: '1px solid #1E1E2E' }}>
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute bottom-0 left-0 w-[500px] h-[300px] bg-blue-600/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[300px] rounded-full blur-[120px]" style={{ background: 'rgba(79, 110, 247, 0.05)' }} />
       </div>
 
       <div className="relative z-10">
@@ -22,13 +21,13 @@ const Footer = () => {
             {/* Brand column */}
             <div className="lg:col-span-1">
               <h3 className="font-bold text-xl text-white mb-3">Clearway AI</h3>
-              <p className="text-zinc-500 text-sm leading-relaxed mb-6 max-w-xs">
+              <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: '#8B8BA3' }}>
                 {t('footer.tagline')}
               </p>
-              <div className="flex flex-col gap-2.5 text-sm text-zinc-500">
+              <div className="flex flex-col gap-2.5 text-sm" style={{ color: '#8B8BA3' }}>
                 <a
                   href="mailto:hello@clearwayai.co"
-                  className="hover:text-zinc-300 transition-colors inline-flex items-center gap-2"
+                  className="hover:text-[#F1F1F5] transition-colors inline-flex items-center gap-2"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   hello@clearwayai.co
@@ -47,7 +46,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/clearway-ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors inline-flex items-center gap-2 mt-1"
+                  className="hover:text-[#4F6EF7] transition-colors inline-flex items-center gap-2 mt-1"
                 >
                   <Linkedin className="w-4 h-4 flex-shrink-0" />
                   LinkedIn
@@ -57,23 +56,18 @@ const Footer = () => {
 
             {/* Product links */}
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600 mb-5">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] mb-5" style={{ color: '#8B8BA3' }}>
                 {t('footer.product')}
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="#features" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
+                  <a href="#features" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('nav.product')}
                   </a>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
+                  <a href="#how-it-works" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('footer.link.howItWorks')}
-                  </a>
-                </li>
-                <li>
-                  <a href="#outcomes" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
-                    {t('footer.link.results')}
                   </a>
                 </li>
               </ul>
@@ -81,22 +75,22 @@ const Footer = () => {
 
             {/* Company links */}
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600 mb-5">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] mb-5" style={{ color: '#8B8BA3' }}>
                 {t('footer.company')}
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
+                  <Link to="/contact" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('footer.link.contact')}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
+                  <Link to="/privacy" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('footer.link.privacy')}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors">
+                  <Link to="/terms" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('footer.link.terms')}
                   </Link>
                 </li>
@@ -105,19 +99,20 @@ const Footer = () => {
 
             {/* Contact */}
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-600 mb-5">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.18em] mb-5" style={{ color: '#8B8BA3' }}>
                 {t('footer.contact')}
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                  <Link to="/contact" className="text-sm hover:text-[#7C3AED] transition-colors" style={{ color: '#4F6EF7' }}>
                     {t('footer.cta')}
                   </Link>
                 </li>
                 <li>
                   <a
                     href="mailto:hello@clearwayai.co"
-                    className="text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
+                    className="text-sm hover:text-[#F1F1F5] transition-colors"
+                    style={{ color: '#8B8BA3' }}
                   >
                     hello@clearwayai.co
                   </a>
@@ -127,9 +122,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/8">
+        <div style={{ borderTop: '1px solid #1E1E2E' }}>
           <div className="container mx-auto px-6 py-5">
-            <p className="text-xs text-zinc-700 text-center">
+            <p className="text-xs text-center" style={{ color: '#8B8BA3' }}>
               © 2026 Clearway AI GmbH, Freienbach, Switzerland. {t('footer.rights')}
               {isAdmin && (
                 <Link to="/admin/leads" className="ml-3 opacity-40 hover:opacity-80 transition-opacity">

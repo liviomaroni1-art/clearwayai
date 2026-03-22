@@ -6,61 +6,19 @@ const FeaturesSection = () => {
   const { t } = useLanguage();
 
   const features = [
-    {
-      icon: Brain,
-      title: t('features.f1.title'),
-      desc: t('features.f1.desc'),
-      color: 'text-blue-400',
-      bg: 'bg-blue-500/10',
-      border: 'border-blue-500/20',
-    },
-    {
-      icon: Target,
-      title: t('features.f2.title'),
-      desc: t('features.f2.desc'),
-      color: 'text-violet-400',
-      bg: 'bg-violet-500/10',
-      border: 'border-violet-500/20',
-    },
-    {
-      icon: Calendar,
-      title: t('features.f3.title'),
-      desc: t('features.f3.desc'),
-      color: 'text-emerald-400',
-      bg: 'bg-emerald-500/10',
-      border: 'border-emerald-500/20',
-    },
-    {
-      icon: BarChart3,
-      title: t('features.f4.title'),
-      desc: t('features.f4.desc'),
-      color: 'text-amber-400',
-      bg: 'bg-amber-500/10',
-      border: 'border-amber-500/20',
-    },
-    {
-      icon: RefreshCw,
-      title: t('features.f5.title'),
-      desc: t('features.f5.desc'),
-      color: 'text-cyan-400',
-      bg: 'bg-cyan-500/10',
-      border: 'border-cyan-500/20',
-    },
-    {
-      icon: MessageSquare,
-      title: t('features.f6.title'),
-      desc: t('features.f6.desc'),
-      color: 'text-rose-400',
-      bg: 'bg-rose-500/10',
-      border: 'border-rose-500/20',
-    },
+    { icon: Brain, title: t('features.f1.title'), desc: t('features.f1.desc') },
+    { icon: Target, title: t('features.f2.title'), desc: t('features.f2.desc') },
+    { icon: Calendar, title: t('features.f3.title'), desc: t('features.f3.desc') },
+    { icon: BarChart3, title: t('features.f4.title'), desc: t('features.f4.desc') },
+    { icon: RefreshCw, title: t('features.f5.title'), desc: t('features.f5.desc') },
+    { icon: MessageSquare, title: t('features.f6.title'), desc: t('features.f6.desc') },
   ];
 
   return (
-    <section id="features" className="py-24 md:py-36 border-t border-white/8 relative overflow-hidden">
+    <section id="features" className="py-24 md:py-36 border-t border-[#1E1E2E] relative overflow-hidden" style={{ background: '#0F0F1A' }}>
       {/* Subtle glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-violet-600/6 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] rounded-full blur-[120px]" style={{ background: 'rgba(124, 58, 237, 0.06)' }} />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -74,7 +32,7 @@ const FeaturesSection = () => {
           <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
             {t('features.title')}
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg leading-relaxed">
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: '#8B8BA3' }}>
             {t('features.subtitle')}
           </p>
         </motion.div>
@@ -87,15 +45,30 @@ const FeaturesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="glass-card rounded-xl p-6 hover:border-white/14 transition-all duration-300 group"
+              className="rounded-2xl p-6 transition-all duration-300 group"
+              style={{
+                background: '#13131F',
+                border: '1px solid #1E1E2E',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#4F6EF7';
+                e.currentTarget.style.boxShadow = '0 0 24px -4px rgba(79, 110, 247, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = '#1E1E2E';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             >
-              <div className={`inline-flex p-3 rounded-lg ${feature.bg} border ${feature.border} mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                <feature.icon className={`w-5 h-5 ${feature.color}`} strokeWidth={1.5} />
+              <div
+                className="inline-flex p-3 rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300"
+                style={{ background: '#1A1A2E' }}
+              >
+                <feature.icon className="w-5 h-5" style={{ color: '#4F6EF7' }} strokeWidth={1.5} />
               </div>
               <h3 className="font-bold text-white text-lg mb-2 leading-snug">
                 {feature.title}
               </h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: '#8B8BA3' }}>
                 {feature.desc}
               </p>
             </motion.div>
