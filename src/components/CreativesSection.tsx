@@ -7,24 +7,24 @@ interface Creative {
 
 const creatives: Creative[] = [
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/ca69c4e7-8f55-4c0a-a090-70828fd13da6/v1-1774186025378.png",
-    alt: "Vom Einzelkaempfer zum Champion",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/85879f60-a606-4537-8f1d-d2ccbbb75b7f/v1-1774186032594.png",
+    alt: "Nie wieder kalte Akquise",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/d208e8f1-1644-4626-8ca6-ad521345d0e5/v1-1774185960903.png",
-    alt: "Dominiere deinen Markt",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/64fad027-f451-452c-82fa-d8a6d8840339/v1-1774186016674.png",
+    alt: "Wir verstehen Dienstleister",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/6847d5bd-d26e-45b2-a67a-d3b0d01225c1/v1-1774185963401.png",
-    alt: "Deine Konkurrenz schlaeft noch",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
+    alt: "Meta Ads auf Autopilot",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/96d39f6d-9007-4515-abfd-7052f12c71f7/v1-1774185973670.png",
-    alt: "Endlich Zeit fuer Business",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
+    alt: "Leads kommen von allein",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/49ae7619-7617-4bf1-afb1-82e6e1ed89f6/v1-1774185999675.png",
-    alt: "DACH-Region Leadgeneration Experten",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/750123a7-3b75-4271-bfd7-f4c9d3e848fa/v1-1774185970776.png",
+    alt: "Planbare Leads fuer Steuerberater",
   },
 ];
 
