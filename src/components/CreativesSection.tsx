@@ -37,7 +37,7 @@ function CreativeCard({ creative }: { creative: Creative }) {
                           className="w-full h-auto object-cover"
                           loading="lazy"
                         />
-          </div>div>
+          </div></div>
         );
 }
 
@@ -57,11 +57,11 @@ const CreativesSection = () => {
                                               Beispiel-Anzeigen aus unserer laufenden Arbeit. Kundenkampagnen zeigen
                                               wir aus Datenschutzgruenden nicht.
                                   </p>p>
-                        </div>div>
+                        </div></div>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
                           {creatives.map(renderCreative)}
-                        </div>div>
-                </div>div>
+                        </div></div>
+                </div></div>
           </section>section>
         );
 };
