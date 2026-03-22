@@ -7,12 +7,12 @@ interface Creative {
 
 const creatives: Creative[] = [
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/85879f60-a606-4537-8f1d-d2ccbbb75b7f/v1-1774186032594.png",
-    alt: "Nie wieder kalte Akquise",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/835dfbfc-9275-4d99-abe1-48d82e7f39f3/v1-1774185958548.png",
+    alt: "Endlich planbare Umsätze",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/64fad027-f451-452c-82fa-d8a6d8840339/v1-1774186016674.png",
-    alt: "Wir verstehen Dienstleister",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/d208e8f1-1644-4626-8ca6-ad521345d0e5/v1-1774185960903.png",
+    alt: "Dominiere deinen Markt",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
