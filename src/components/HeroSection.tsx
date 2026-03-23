@@ -137,10 +137,11 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-6 text-xs"
+              className="mt-5 text-xs flex items-center gap-1.5"
               style={{ color: '#8B8BA3' }}
             >
-              ✓ Keine Agentur. Keine Kaltakquise. Nur qualifizierte Leads.
+              <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#4F6EF7' }} />
+              {t('hero.guarantee')}
             </motion.p>
           </div>
 
