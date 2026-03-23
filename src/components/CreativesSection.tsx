@@ -5,7 +5,6 @@ interface Creative {
   alt: string;
   industry: string;
   result: string;
-  metric: string;
 }
 
 const creatives: Creative[] = [
@@ -14,35 +13,30 @@ const creatives: Creative[] = [
     alt: "Mehr Umsatz, weniger Aufwand",
     industry: "Steuerberatung",
     result: "37 gebuchte Gespräche in 30 Tagen",
-    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/c08e9f0b-3796-4cfa-83a3-f7f5cdf655de/v1-1774210285926.png",
     alt: "Automatisch zu neuen Kunden",
     industry: "Coaching",
     result: "4.2× ROAS nach 60 Tagen",
-    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
     alt: "Meta Ads auf Autopilot",
     industry: "Handwerk",
     result: "€23 Kosten pro qualifiziertem Lead",
-    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/adf8ac7a-dd28-496f-8964-4aa8d7674dc6/v1-1774210283040.png",
     alt: "Mehr Umsatz weniger Aufwand Kampagne",
     industry: "Agenturen",
     result: "Stabile Lead-Pipeline in 45 Tagen",
-    metric: "€4.89 CPL",
   },
   {
     url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
     alt: "Leads kommen von allein",
     industry: "Immobilien",
     result: "29 qualifizierte Leads in 3 Wochen",
-    metric: "€4.89 CPL",
   },
 ];
 
@@ -107,12 +101,6 @@ const CreativesSection = () => {
             {current.industry}
           </span>
           <span className="text-zinc-400 text-sm">{current.result}</span>
-          <span
-            className="px-3 py-1 rounded-full text-xs font-bold"
-            style={{ background: 'rgba(124,58,237,0.15)', color: '#a78bfa' }}
-          >
-            {current.metric}
-          </span>
         </div>
 
         <div
@@ -145,6 +133,7 @@ const CreativesSection = () => {
               </div>
             );
           })}
+
           <button
             onClick={prev}
             aria-label="Previous"
