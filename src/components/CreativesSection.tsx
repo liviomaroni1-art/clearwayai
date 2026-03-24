@@ -167,23 +167,6 @@ const CreativesSection = () => {
               </div>
             );
           })}
-
-          <button
-            onClick={() => { prev(); resetAutoPlay(); }}
-            aria-label="Previous"
-            style={{ position: "absolute", left: "calc(50% - 260px)", zIndex: 20 }}
-            className="hidden sm:flex w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
-          >
-            &#8592;
-          </button>
-          <button
-            onClick={() => { next(); resetAutoPlay(); }}
-            aria-label="Next"
-            style={{ position: "absolute", right: "calc(50% - 260px)", zIndex: 20 }}
-            className="hidden sm:flex w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
-          >
-            &#8594;
-          </button>
         </div>
 
         <div className="flex justify-center gap-2 mt-4">
