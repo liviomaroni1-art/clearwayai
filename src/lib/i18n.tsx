@@ -84,8 +84,8 @@ const translations: Record<Language, Record<string, string>> = {
           'features.f4.desc': 'Verfolgen Sie Kampagnenleistung, Lead-Kosten und Conversion-Raten in Echtzeit – vollständig transparent und auf einen Blick.',
           'features.f5.title': 'Lead-Benachrichtigung',
           'features.f5.desc': 'Sobald ein neuer Lead eingeht, werden Sie sofort per E-Mail oder SMS benachrichtigt – damit kein Interessent unbeachtet bleibt.',
-          'features.f6.title': 'Multi-Channel Follow-up',
-          'features.f6.desc': 'Automatisierte E-Mail- und SMS-Sequenzen halten Leads warm und steigern die Buchungsrate – ohne manuellen Aufwand Ihrerseits.',
+          'features.f6.title': 'Automatische Terminbuchung',
+          'features.f6.desc': 'Qualifizierte Leads buchen direkt einen Gesprächstermin in Ihren Kalender – vollautomatisch, ohne manuellen Aufwand.',
 
           // How It Works
           'how.title': 'So funktioniert es',
@@ -142,7 +142,7 @@ const translations: Record<Language, Record<string, string>> = {
           'pricing.growth.badge': 'Beliebteste Wahl',
           'pricing.growth.f1': 'Alles aus Starter, plus:',
           'pricing.growth.f2': 'Kalender-Integration & automatische Terminbuchung',
-          'pricing.growth.f3': 'Multi-Channel Follow-up (E-Mail + SMS)',
+          'pricing.growth.f3': 'Automatische Terminbuchung (E-Mail + SMS)',
           'pricing.growth.f4': 'Echtzeit-Dashboard & Kampagnen-Tracking',
           'pricing.growth.f5': 'Sofortige Lead-Benachrichtigungen',
           'pricing.growth.f6': 'Wöchentliche Optimierungs-Calls',
@@ -267,7 +267,7 @@ const translations: Record<Language, Record<string, string>> = {
           'features.f4.desc': 'Track campaign performance, lead costs, and conversion rates in real time — fully transparent and at a glance.',
           'features.f5.title': 'Instant Lead Alerts',
                   'features.f5.desc': 'The moment a new lead comes in, you get notified instantly via email or SMS — so no interested prospect ever slips through the cracks.',
-          'features.f6.title': 'Multi-Channel Follow-Up',
+          'features.f6.title': 'Automatische Terminbuchung',
           'features.f6.desc': 'Automated email and SMS sequences keep leads warm and drive booking rates higher — without any manual effort on your part.',
 
           // How It Works
@@ -325,7 +325,7 @@ const translations: Record<Language, Record<string, string>> = {
           'pricing.growth.badge': 'Most Popular',
           'pricing.growth.f1': 'Everything in Starter, plus:',
           'pricing.growth.f2': 'Calendar integration & automatic appointment booking',
-          'pricing.growth.f3': 'Multi-channel follow-up (email + SMS)',
+          'pricing.growth.f3': 'Automatische Terminbuchung',
           'pricing.growth.f4': 'Real-time dashboard & campaign tracking',
           'pricing.growth.f5': 'Instant lead notifications',
           'pricing.growth.f6': 'Weekly optimisation calls',
