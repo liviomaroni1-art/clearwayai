@@ -56,7 +56,7 @@ const CTASection = () => {
               asChild
             >
               <Link
-                to="/contact"
+                to="https://funnel.clearwayai.co/"
                 onClick={() =>
                   trackEvent({
                     event_name: "cta_click",

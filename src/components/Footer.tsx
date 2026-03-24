@@ -80,7 +80,7 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
+                  <Link to="https://funnel.clearwayai.co/" className="text-sm hover:text-[#F1F1F5] transition-colors" style={{ color: '#8B8BA3' }}>
                     {t('footer.link.contact')}
                   </Link>
                 </li>
@@ -104,7 +104,7 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm hover:text-[#7C3AED] transition-colors" style={{ color: '#4F6EF7' }}>
+                  <Link to="https://funnel.clearwayai.co/" className="text-sm hover:text-[#7C3AED] transition-colors" style={{ color: '#4F6EF7' }}>
                     {t('footer.cta')}
                   </Link>
                 </li>

@@ -62,7 +62,7 @@ const SecurityComplianceSection = () => {
                   </Link>
                 </Button>
                 <Button variant="outline" size="sm" className="gap-2 border-border/50 hover:border-primary/30" asChild>
-                  <Link to="/contact">
+                  <Link to="https://funnel.clearwayai.co/">
                     Request DPA / BAA
                   </Link>
                 </Button>

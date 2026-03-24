@@ -154,7 +154,7 @@ const HomeServicesPage = () => {
             >
               <Button variant="hero" size="lg" className="w-full sm:w-auto btn-glow hover:scale-[1.03] transition-all" asChild>
                 <Link
-                  to="/contact"
+                  to="https://funnel.clearwayai.co/"
                   onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "home-services-hero", label: "Book Your Free Call Flow Review" } })}
                 >
                   Book Your Free Call Flow Review
@@ -401,7 +401,7 @@ const HomeServicesPage = () => {
               </p>
               <Button variant="hero" size="lg" className="btn-glow hover:scale-105 transition-all" asChild>
                 <Link
-                  to="/contact"
+                  to="https://funnel.clearwayai.co/"
                   onClick={() => trackEvent({ event_name: "cta_click", event_category: "cta", metadata: { location: "home-services-bottom", label: "Book Your Free Call Flow Review" } })}
                 >
                   Book Your Free Call Flow Review

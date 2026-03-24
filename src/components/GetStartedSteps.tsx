@@ -75,7 +75,7 @@ const GetStartedSteps = () => {
           className="text-center"
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
-            <Link to="/contact">
+            <Link to="https://funnel.clearwayai.co/">
               Start Your Growth Audit
               <ArrowRight className="w-5 h-5" />
             </Link>

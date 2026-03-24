@@ -87,7 +87,7 @@ const TransformationSection = () => {
           className="text-center"
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
-            <Link to="/contact">
+            <Link to="https://funnel.clearwayai.co/">
               Book Your Free Demo
               <ArrowRight className="w-5 h-5" />
             </Link>

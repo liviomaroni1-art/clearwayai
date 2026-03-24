@@ -369,12 +369,12 @@ const AddOnCard = ({ addon, index }: { addon: AddOn; index: number }) => {
           className="flex-1 border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all text-xs h-8"
           asChild
         >
-          <Link to="/contact">
+          <Link to="https://funnel.clearwayai.co/">
             Add to Plan
           </Link>
         </Button>
         <Link 
-          to="/contact" 
+          to="https://funnel.clearwayai.co/" 
           className="text-[11px] text-muted-foreground hover:text-primary transition-colors"
         >
           Talk to us
@@ -518,7 +518,7 @@ const AddOns = () => {
               Not sure which add-ons you need? We'll help you decide during your demo.
             </p>
             <Button variant="hero" size="default" className="btn-glow" asChild>
-              <Link to="/contact">
+              <Link to="https://funnel.clearwayai.co/">
                 Book a Demo
                 <ArrowRight className="w-4 h-4" />
               </Link>

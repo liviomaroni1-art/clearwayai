@@ -36,7 +36,7 @@ const StickyCTA = () => {
               className="relative shadow-2xl px-7 gap-2 text-sm"
               asChild
             >
-              <Link to="/contact">
+              <Link to="https://funnel.clearwayai.co/">
                 {t('hero.cta')}
                 <ArrowRight className="w-4 h-4" />
               </Link>

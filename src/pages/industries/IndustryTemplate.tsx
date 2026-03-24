@@ -227,7 +227,7 @@ const IndustryTemplate = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">
+                <Link to="https://funnel.clearwayai.co/">
                   Book a Demo
                   <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -360,7 +360,7 @@ const IndustryTemplate = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
-                <Link to="/contact">
+                <Link to="https://funnel.clearwayai.co/">
                   {data.cta}
                   <ArrowRight className="w-5 h-5" />
                 </Link>

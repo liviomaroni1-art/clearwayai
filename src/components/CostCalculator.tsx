@@ -199,7 +199,7 @@ const CostCalculator = () => {
 
                 <div className="text-center">
                   <Button variant="hero" size="xl" className="w-full sm:w-auto min-h-[48px] btn-glow" asChild>
-                    <Link to="/contact">
+                    <Link to="https://funnel.clearwayai.co/">
                       Book Your Free Growth Audit
                       <ArrowRight className="w-5 h-5" />
                     </Link>

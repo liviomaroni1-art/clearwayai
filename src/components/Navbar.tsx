@@ -93,7 +93,7 @@ const Navbar = () => {
           </div>
 
           <Button variant="hero" size="default" className="text-sm px-5 rounded-lg" asChild>
-            <Link to="/contact">{t('hero.cta')}</Link>
+            <Link to="https://funnel.clearwayai.co/">{t('hero.cta')}</Link>
           </Button>
         </div>
 
@@ -165,7 +165,7 @@ const Navbar = () => {
               </div>
 
               <Button variant="hero" size="lg" className="w-full mt-2 text-sm" asChild>
-                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Link to="https://funnel.clearwayai.co/" onClick={() => setIsOpen(false)}>
                   {t('hero.cta')}
                 </Link>
               </Button>

@@ -87,7 +87,7 @@ const CaseStudiesSection = () => {
           className="text-center mt-10 md:mt-14"
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
-            <Link to="/contact">
+            <Link to="https://funnel.clearwayai.co/">
               See What We Can Do For You
               <ArrowRight className="w-5 h-5" />
             </Link>

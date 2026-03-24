@@ -82,7 +82,7 @@ const ServicesSection = () => {
           className="text-center mt-12"
         >
           <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
+            <Link to="https://funnel.clearwayai.co/">
               See What We'd Build For You
               <ArrowRight className="w-5 h-5" />
             </Link>

@@ -134,7 +134,7 @@ const PricingSection = () => {
                 className="w-full gap-2"
                 asChild
               >
-                <Link to="/contact">
+                <Link to="https://funnel.clearwayai.co/">
                   {plan.highlighted ? t('hero.cta') : t('nav.bookACall')}
                   {plan.highlighted && <ArrowRight className="w-4 h-4" />}
                 </Link>
