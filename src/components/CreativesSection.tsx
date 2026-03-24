@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 
 interface Creative {
   url: string;
@@ -39,6 +39,38 @@ const CreativesSection = () => {
   const n = creatives.length;
   const prev = () => setActive((active - 1 + n) % n);
   const next = () => setActive((active + 1) % n);
+
+  // Touch swipe handling – one slide per swipe regardless of distance
+  const touchStartX = useRef<number | null>(null);
+  const swiped = useRef(false);
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    swiped.current = false;
+  }, []);
+
+  const onTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartX.current === null || swiped.current) return;
+      const diff = e.touches[0].clientX - touchStartX.current;
+      const threshold = 30; // minimal px to register a swipe
+      if (Math.abs(diff) > threshold) {
+        swiped.current = true;
+        if (diff < 0) {
+          next();
+        } else {
+          prev();
+        }
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [active],
+  );
+
+  const onTouchEnd = useCallback(() => {
+    touchStartX.current = null;
+    swiped.current = false;
+  }, []);
 
   const getStyle = (offset: number): React.CSSProperties => {
     if (offset === 0) {
@@ -99,6 +131,9 @@ const CreativesSection = () => {
         <div
           className="relative flex items-center justify-center"
           style={{ height: "580px", perspective: "1000px" }}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {creatives.map((creative, i) => {
             const offset = ((i - active + n) % n + n) % n;
@@ -131,7 +166,7 @@ const CreativesSection = () => {
             onClick={prev}
             aria-label="Previous"
             style={{ position: "absolute", left: "calc(50% - 260px)", zIndex: 20 }}
-            className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
+            className="hidden md:flex w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
           >
             &#8592;
           </button>
@@ -139,7 +174,7 @@ const CreativesSection = () => {
             onClick={next}
             aria-label="Next"
             style={{ position: "absolute", right: "calc(50% - 260px)", zIndex: 20 }}
-            className="w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
+            className="hidden md:flex w-12 h-12 rounded-full bg-white/10 hover:bg-primary/70 border border-white/20 text-white items-center justify-center text-xl transition-all duration-200 hover:scale-110 backdrop-blur-sm"
           >
             &#8594;
           </button>
