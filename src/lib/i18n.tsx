@@ -94,8 +94,8 @@ const translations: Record<Language, Record<string, string>> = {
           'how.step1.desc': 'Wir erstellen und schalten gezielte Meta-Kampagnen, die Ihr Angebot vor die richtigen Entscheidungsträger bringen.',
           'how.step2.title': 'Leads landen in unserem Funnel',
           'how.step2.desc': 'Interessierte Personen klicken auf unsere hochkonvertierende Landingpage und füllen ein kurzes Qualifikationsformular aus.',
-          'how.step3.title': 'Automatisiertes Follow-up & Qualifikation',
-          'how.step3.desc': 'Unser KI-gestütztes Follow-up-System kontaktiert Leads automatisch per E-Mail und SMS, qualifiziert sie und bucht Termine in Ihren Kalender.',
+                  'how.step3.title': 'KI-Qualifizierung & Terminbuchung',
+                  'how.step3.desc': 'Unsere KI bewertet jeden Lead automatisch anhand des ausgefüllten Formulars – qualifizierte Interessenten buchen direkt einen Termin in Ihren Kalender.',
           'how.step4.title': 'Kontinuierliche Optimierung',
           'how.step4.desc': 'Wir analysieren die Kampagnendaten fortlaufend und optimieren Anzeigen, Zielgruppen und Funnel – damit Ihre Kosten pro Lead sinken.',
 
@@ -277,8 +277,8 @@ const translations: Record<Language, Record<string, string>> = {
           'how.step1.desc': 'We build and launch targeted Meta ad campaigns that put your offer in front of the right business owners.',
           'how.step2.title': 'Leads Land in Our Funnel',
           'how.step2.desc': 'Interested prospects click through to our high-converting landing page and fill out a short qualification form.',
-          'how.step3.title': 'Automated Follow-Up & Qualification',
-          'how.step3.desc': 'Our AI-powered follow-up system contacts leads automatically via email and SMS, qualifies them, and books appointments directly into your calendar.',
+          'how.step3.title': 'AI Qualification & Appointment Booking',
+                  'how.step3.desc': 'Our AI automatically evaluates each lead based on their completed form — qualified prospects book directly into your calendar.',
           'how.step4.title': 'Continuous Optimisation',
           'how.step4.desc': 'We continuously analyse campaign data and optimise ads, audiences, and the funnel — so your cost per lead keeps improving.',
 
