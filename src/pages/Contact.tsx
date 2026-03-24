@@ -126,19 +126,22 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase.functions.invoke('submit-lead', {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
         body: {
-          first_name: formData.firstName,
-          last_name: formData.lastName,
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
           phone: `${formData.phonePrefix.split(' ')[0]} ${formData.phone}`,
           company: formData.company,
-          business_type: formData.businessType,
+          businessName: formData.company,
+          businessType: formData.businessType,
           website: formData.website,
-          challenge: formData.challenge,
-          message: formData.message,
-          language,
-          source: 'contact_form',
+          message: formData.challenge
+            ? `${formData.challenge}${formData.message ? '\n\n' + formData.message : ''}`
+            : formData.message || '',
+          formType: 'demo',
+          preferredContact: 'email',
+          timezone: '',
+          callVolume: '',
         },
       });
 
