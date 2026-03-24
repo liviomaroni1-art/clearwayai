@@ -13,7 +13,7 @@ const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ va
     return (
       <motion.a
         href={`tel:${demoNumber.replace(/\s/g, '')}`}
-        aria-label={`Call AI demo at ${demoNumber}`}
+        aria-label={`Book your free strategy call at ${demoNumber}`}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
@@ -23,7 +23,7 @@ const LiveDemoPhone = React.forwardRef<HTMLDivElement, LiveDemoPhoneProps>(({ va
           <Phone className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <div className="text-left">
-          <div className="text-xs md:text-sm font-medium">Try the AI live</div>
+          <div className="text-xs md:text-sm font-medium">Book a free strategy call</div>
           <div className="text-sm md:text-base font-bold">{demoNumber}</div>
         </div>
       </motion.a>
