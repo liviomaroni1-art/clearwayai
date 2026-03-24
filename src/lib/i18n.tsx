@@ -267,8 +267,8 @@ const translations: Record<Language, Record<string, string>> = {
           'features.f4.desc': 'Track campaign performance, lead costs, and conversion rates in real time — fully transparent and at a glance.',
           'features.f5.title': 'Instant Lead Alerts',
                   'features.f5.desc': 'The moment a new lead comes in, you get notified instantly via email or SMS — so no interested prospect ever slips through the cracks.',
-          'features.f6.title': 'Automatische Terminbuchung',
-          'features.f6.desc': 'Automated email and SMS sequences keep leads warm and drive booking rates higher — without any manual effort on your part.',
+          'features.f6.title': 'Automatic Appointment Booking',
+                  'features.f6.desc': 'Qualified leads book a call directly into your calendar — fully automated, no manual effort required.',
 
           // How It Works
           'how.title': 'How It Works',
@@ -325,7 +325,7 @@ const translations: Record<Language, Record<string, string>> = {
           'pricing.growth.badge': 'Most Popular',
           'pricing.growth.f1': 'Everything in Starter, plus:',
           'pricing.growth.f2': 'Calendar integration & automatic appointment booking',
-          'pricing.growth.f3': 'Automatische Terminbuchung',
+          'pricing.growth.f3': 'Automatic appointment booking',
           'pricing.growth.f4': 'Real-time dashboard & campaign tracking',
           'pricing.growth.f5': 'Instant lead notifications',
           'pricing.growth.f6': 'Weekly optimisation calls',
