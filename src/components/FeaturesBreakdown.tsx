@@ -87,7 +87,7 @@ const FeaturesBreakdown = () => {
         >
           <Button variant="hero" size="lg" className="btn-glow" asChild>
             <Link to="https://funnel.clearwayai.co/">
-              Book a Demo
+              Kostenloses Strategiegespräch
               <ArrowRight className="w-5 h-5" />
             </Link>
           </Button>

@@ -274,7 +274,7 @@ const Security = () => {
               </a>
               <div className="mt-4">
                 <Button variant="hero" size="default" asChild>
-                  <Link to="https://funnel.clearwayai.co/">Book a Demo</Link>
+                  <Link to="https://funnel.clearwayai.co/">Kostenloses Strategiegespräch</Link>
                 </Button>
               </div>
             </motion.section>

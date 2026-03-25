@@ -519,7 +519,7 @@ const AddOns = () => {
             </p>
             <Button variant="hero" size="default" className="btn-glow" asChild>
               <Link to="https://funnel.clearwayai.co/">
-                Book a Demo
+                Kostenloses Strategiegespräch
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
