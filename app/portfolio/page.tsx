@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { Holding } from "@/lib/types";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -172,7 +173,7 @@ export default function PortfolioPage() {
                     <tr key={h.id} className="border-b border-border/50 hover:bg-card/50 transition-colors">
                       <td className="p-4">
                         <div>
-                          <span className="font-mono font-semibold text-foreground">{h.ticker}</span>
+                          <Link href={`/stock/${h.ticker}`} className="font-mono font-semibold text-foreground hover:text-accent transition-colors">{h.ticker}</Link>
                           <div className="text-xs text-muted-foreground">{h.dateBought}</div>
                         </div>
                       </td>

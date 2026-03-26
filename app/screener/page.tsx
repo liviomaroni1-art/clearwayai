@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import Link from "next/link";
 import { ScreenerStock } from "@/lib/types";
 import { SP500_SECTORS } from "@/lib/sp500";
 import { Card, CardContent } from "@/components/ui/card";
@@ -393,7 +394,7 @@ export default function ScreenerPage() {
                       <tr key={stock.ticker} className="border-b border-border/50 hover:bg-card/50 transition-colors">
                         <td className="p-3">
                           <div>
-                            <span className="font-mono font-semibold text-foreground">{stock.ticker}</span>
+                            <Link href={`/stock/${stock.ticker}`} className="font-mono font-semibold text-foreground hover:text-accent transition-colors">{stock.ticker}</Link>
                             <div className="text-xs text-muted-foreground">{stock.sector}</div>
                           </div>
                         </td>

@@ -5,6 +5,7 @@ import { MacroRegimeBanner } from "@/components/dashboard/macro-regime-banner";
 import { PortfolioSummary } from "@/components/dashboard/portfolio-summary";
 import { WatchNowPanel } from "@/components/dashboard/watch-now-panel";
 import { PortfolioAlerts } from "@/components/dashboard/portfolio-alerts";
+import { InvestmentTips } from "@/components/dashboard/investment-tips";
 import { MacroData, Holding, ScreenerStock, PortfolioAlert } from "@/lib/types";
 
 export default function DashboardPage() {
@@ -127,6 +128,9 @@ export default function DashboardPage() {
 
       <MacroRegimeBanner data={macro} loading={loading} />
       <PortfolioSummary holdings={holdings} prices={prices} loading={loading} />
+
+      {/* Investment Tips - Full Width */}
+      <InvestmentTips loading={loading} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <WatchNowPanel stocks={watchStocks} loading={loading} />

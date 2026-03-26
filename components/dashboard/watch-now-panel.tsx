@@ -60,9 +60,9 @@ export function WatchNowPanel({ stocks, loading }: Props) {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-semibold text-foreground">
+                    <a href={`/stock/${stock.ticker}`} className="font-mono font-semibold text-foreground hover:text-accent transition-colors">
                       {stock.ticker}
-                    </span>
+                    </a>
                     <span className="text-xs text-muted-foreground truncate">
                       {stock.name}
                     </span>
