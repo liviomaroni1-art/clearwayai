@@ -74,3 +74,62 @@ export interface Settings {
   refreshInterval: number;
   currency: string;
 }
+
+export interface Transaction {
+  id: string;
+  type: 'deposit' | 'withdrawal';
+  amount: number;
+  date: string;
+  note: string;
+}
+
+export interface Account {
+  cashBalance: number;
+  transactions: Transaction[];
+  riskTolerance: 'conservative' | 'moderate' | 'aggressive';
+  monthlyTarget: number; // target return %
+  maxPositionPct: number; // max % of portfolio in single position
+  maxSectorPct: number; // max % in single sector
+}
+
+export interface AllocationRecommendation {
+  ticker: string;
+  name: string;
+  signal: string;
+  confidence: number;
+  currentShares: number;
+  currentValue: number;
+  recommendedAction: 'BUY' | 'ADD' | 'HOLD' | 'TRIM' | 'SELL' | 'NEW_POSITION';
+  recommendedShares: number;
+  recommendedDollarAmount: number;
+  positionPctOfPortfolio: number;
+  reasoning: string;
+  priority: number; // 1-10, higher = more urgent
+  riskLevel: string;
+  sector: string;
+  price: number;
+  targets: {
+    entry: number;
+    stopLoss: number;
+    target1: number;
+    target2: number;
+  };
+}
+
+export interface DailyBriefing {
+  date: string;
+  greeting: string;
+  marketSentiment: string;
+  portfolioHealth: string;
+  totalAUM: number;
+  cashAvailable: number;
+  investedValue: number;
+  todayPL: number;
+  totalPL: number;
+  cashPct: number;
+  actionItems: AllocationRecommendation[];
+  sectorAllocation: { sector: string; value: number; pct: number }[];
+  topPerformers: { ticker: string; plPct: number }[];
+  bottomPerformers: { ticker: string; plPct: number }[];
+  riskAlerts: string[];
+}

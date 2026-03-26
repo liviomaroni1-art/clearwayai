@@ -9,12 +9,14 @@ import {
   Search,
   Settings,
   Activity,
+  Wallet,
 } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/", label: "Fund Manager", icon: LayoutDashboard },
   { href: "/portfolio", label: "Portfolio", icon: Briefcase },
   { href: "/screener", label: "Screener", icon: Search },
+  { href: "/transactions", label: "Account", icon: Wallet },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
