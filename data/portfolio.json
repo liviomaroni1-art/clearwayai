@@ -1,0 +1,60 @@
+{
+  "holdings": [
+    {
+      "id": "demo-1",
+      "ticker": "AAPL",
+      "shares": 50,
+      "avgPrice": 165.00,
+      "dateBought": "2024-01-15"
+    },
+    {
+      "id": "demo-2",
+      "ticker": "MSFT",
+      "shares": 30,
+      "avgPrice": 340.00,
+      "dateBought": "2024-02-10"
+    },
+    {
+      "id": "demo-3",
+      "ticker": "NVDA",
+      "shares": 25,
+      "avgPrice": 480.00,
+      "dateBought": "2024-03-05"
+    },
+    {
+      "id": "demo-4",
+      "ticker": "GOOGL",
+      "shares": 40,
+      "avgPrice": 135.00,
+      "dateBought": "2024-01-20"
+    },
+    {
+      "id": "demo-5",
+      "ticker": "AMZN",
+      "shares": 35,
+      "avgPrice": 145.00,
+      "dateBought": "2024-04-01"
+    },
+    {
+      "id": "demo-6",
+      "ticker": "JPM",
+      "shares": 20,
+      "avgPrice": 175.00,
+      "dateBought": "2024-05-15"
+    },
+    {
+      "id": "demo-7",
+      "ticker": "JNJ",
+      "shares": 45,
+      "avgPrice": 155.00,
+      "dateBought": "2024-02-28"
+    },
+    {
+      "id": "demo-8",
+      "ticker": "XOM",
+      "shares": 60,
+      "avgPrice": 98.00,
+      "dateBought": "2024-03-20"
+    }
+  ]
+}

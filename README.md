@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# StockPulse — Stock Screener & Portfolio Tracker
 
-## Project info
+A full-stack stock screener and portfolio tracker built with Next.js 14, TypeScript, Tailwind CSS, and Yahoo Finance data.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Portfolio Tracker** — Track holdings with live prices, P&L, sparkline charts
+- **Macro Regime Engine** — GDP, unemployment, CPI, Fed Funds, sentiment scoring via FRED API
+- **Stock Screener** — Filter S&P 500 by RSI, P/E, EPS growth, moving averages, sector, market cap
+- **Confluence Alerts** — Scoring engine (0–10) combining technical, fundamental, and macro signals
+- **Portfolio Alerts** — HOLD / REVIEW / EXIT / ADD MORE signals for each position
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui components
+- Recharts
+- Yahoo Finance (`yahoo-finance2`)
+- Local JSON file storage
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Setup
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# Install dependencies
+npm install
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Run development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:3000](http://localhost:3000).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## FRED API Key (Optional)
 
-**Use GitHub Codespaces**
+For macro regime analysis, get a free API key from [FRED](https://fred.stlouisfed.org/docs/api/api_key.html) and enter it in Settings (`/settings`).
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Without a key, the macro regime defaults to "Late Cycle".
 
-## What technologies are used for this project?
+## Demo Data
 
-This project is built with:
+The app comes pre-loaded with 8 demo portfolio holdings (AAPL, MSFT, NVDA, GOOGL, AMZN, JPM, JNJ, XOM). Edit them in the Portfolio page or directly in `data/portfolio.json`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project Structure
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+app/
+  page.tsx              # Dashboard
+  portfolio/page.tsx    # Portfolio tracker
+  screener/page.tsx     # Stock screener
+  settings/page.tsx     # Settings
+  api/
+    quote/route.ts      # Single stock quote
+    history/route.ts    # Price history (OHLCV)
+    screener/route.ts   # Batch S&P 500 screening
+    macro/route.ts      # FRED macro data
+    portfolio/route.ts  # Portfolio CRUD
+    settings/route.ts   # Settings CRUD
+components/
+  dashboard/            # Dashboard widgets
+  portfolio/            # Portfolio components
+  ui/                   # Shadcn/ui primitives
+lib/
+  types.ts              # TypeScript interfaces
+  utils.ts              # Formatting utilities
+  calculations.ts       # RSI, SMA, confluence scoring
+  sp500.ts              # S&P 500 ticker list
+data/
+  portfolio.json        # Portfolio holdings
+  settings.json         # App settings
+```
