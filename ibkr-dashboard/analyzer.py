@@ -127,3 +127,34 @@ Be specific with ticker symbols and current market context. Max 400 words."""
         messages=[{"role": "user", "content": user_content}],
     )
     return message.content[0].text
+
+
+def sector_top_picks(sector: str, positions: list[dict] | None = None) -> str:
+    """Get top 10-15 investment picks for a specific sector."""
+    system = """You are an elite investment analyst specializing in sector-specific research.
+When asked about a sector, provide the **Top 10-15 Best Investments** in that sector.
+
+For each pick include:
+- **Ticker** (US-listed, ADR, or ETF)
+- **Company name**
+- **Market cap category** (Large/Mid/Small)
+- **Why** — 1-sentence reason
+- **Risk level** (Low/Medium/High)
+
+Focus on stocks listed in major financial capitals (NYSE, NASDAQ, LSE, XETRA, SIX, HKEX, TSE).
+Include a mix of established leaders AND high-growth opportunities.
+Organize by sub-category within the sector.
+Format with clear markdown tables or bullet points."""
+
+    user_content = f"Give me the top 10-15 investment picks for the **{sector}** sector.\n"
+    if positions:
+        user_content += f"\nMy current portfolio for context:\n```json\n{json.dumps(positions, indent=2)}\n```"
+    user_content += "\nFocus on stocks in major financial capitals (US, Europe, Asia)."
+
+    message = client.messages.create(
+        model=config.ANTHROPIC_MODEL,
+        max_tokens=3000,
+        system=system,
+        messages=[{"role": "user", "content": user_content}],
+    )
+    return message.content[0].text

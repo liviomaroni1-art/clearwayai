@@ -117,18 +117,39 @@ def account_summary() -> dict:
     if not ib.isConnected():
         connect()
 
-    tags = (
-        "NetLiquidation,TotalCashValue,GrossPositionValue,"
-        "UnrealizedPnL,RealizedPnL,BuyingPower,AvailableFunds,"
-        "Cushion,Currency"
-    )
     summary_items = ib.accountSummary(config.IBKR_ACCOUNT_ID)
 
     result = {}
     for item in summary_items:
-        if item.tag in tags:
-            try:
-                result[item.tag] = float(item.value)
-            except ValueError:
-                result[item.tag] = item.value
+        try:
+            result[item.tag] = float(item.value)
+        except ValueError:
+            result[item.tag] = item.value
+    return result
+
+
+def open_orders() -> list[dict]:
+    """Get all open/pending orders."""
+    if not ib.isConnected():
+        connect()
+
+    trades = ib.openTrades()
+    result = []
+    for trade in trades:
+        contract = trade.contract
+        order = trade.order
+        status = trade.orderStatus
+        result.append({
+            "ticker": contract.symbol,
+            "secType": contract.secType,
+            "action": order.action,
+            "qty": order.totalQuantity,
+            "orderType": order.orderType,
+            "limitPrice": order.lmtPrice if order.lmtPrice else None,
+            "stopPrice": order.auxPrice if order.auxPrice else None,
+            "status": status.status,
+            "filled": status.filled,
+            "remaining": status.remaining,
+            "avgFillPrice": status.avgFillPrice,
+        })
     return result

@@ -23,124 +23,136 @@ DASHBOARD_HTML = r"""
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.6.0/dist/jsvectormap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-               background: #0a0e1a; color: #e2e8f0; }
-        .container { max-width: 1600px; margin: 0 auto; padding: 1.5rem; }
-        h1 { color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.8rem; }
-        h2 { color: #7dd3fc; margin: 0 0 1rem; font-size: 1.2rem; }
-        .subtitle { color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
-        @media (max-width: 1200px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-        .card { background: #111827; border-radius: 12px; padding: 1.25rem;
-                margin-bottom: 1rem; border: 1px solid #1e293b; }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .status-bar { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;
-                      background: #111827; border-radius: 12px; padding: 1rem 1.25rem; border: 1px solid #1e293b; }
-        .status { display: inline-block; padding: 3px 10px; border-radius: 9999px;
-                  font-size: 0.75rem; font-weight: 600; }
-        .status.ok { background: #065f46; color: #6ee7b7; }
-        .status.error { background: #7f1d1d; color: #fca5a5; }
-        .status.loading { background: #1e3a5f; color: #93c5fd; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #1e293b; font-size: 0.9rem; }
-        th { color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .positive { color: #4ade80; }
-        .negative { color: #f87171; }
-        .clickable { cursor: pointer; transition: background 0.15s; }
-        .clickable:hover { background: #1e293b; }
-        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem; }
-        .summary-item { background: #0a0e1a; border-radius: 8px; padding: 0.75rem; }
-        .summary-item .label { color: #64748b; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .summary-item .value { font-size: 1.2rem; font-weight: 600; margin-top: 0.2rem; }
-        .ai-text { line-height: 1.7; font-size: 0.9rem; color: #cbd5e1; }
-        .ai-text strong { color: #f1f5f9; }
-        .ai-text h1, .ai-text h2, .ai-text h3 { color: #7dd3fc; margin: 1rem 0 0.5rem; font-size: 1rem; }
-        .ai-text ul, .ai-text ol { padding-left: 1.5rem; margin: 0.5rem 0; }
-        .ai-text li { margin: 0.3rem 0; }
-        .loading-text { color: #64748b; font-style: italic; font-size: 0.9rem; }
-        .refresh-info { color: #475569; font-size: 0.7rem; }
-        #world-map { width: 100%; height: 380px; }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                         background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-overlay.active { display: flex; }
-        .modal { background: #111827; border-radius: 16px; width: 90%; max-width: 1000px;
-                 max-height: 90vh; overflow: auto; border: 1px solid #1e293b; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center;
-                        padding: 1rem 1.25rem; border-bottom: 1px solid #1e293b; }
-        .modal-header h2 { margin: 0; }
-        .modal-body { padding: 1.25rem; }
-        .modal-close { background: none; border: none; color: #94a3b8; font-size: 1.5rem;
-                       cursor: pointer; padding: 0.25rem 0.5rem; }
-        .modal-close:hover { color: #f1f5f9; }
-        .chart-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-        .chart-tab { background: #1e293b; color: #94a3b8; border: none; padding: 6px 16px;
-                     border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
-        .chart-tab.active { background: #2563eb; color: white; }
-        .country-result { margin-top: 1rem; }
-        .map-hint { color: #475569; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; }
-        .pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .badge { font-size: 0.65rem; background: #1e3a5f; color: #93c5fd; padding: 2px 8px;
-                 border-radius: 4px; margin-left: 0.5rem; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0e1a;color:#e2e8f0;font-size:13px}
+        .container{max-width:1600px;margin:0 auto;padding:1rem}
+        h1{color:#38bdf8;font-size:1.4rem;margin-bottom:0.25rem}
+        h2{color:#7dd3fc;margin:0 0 0.5rem;font-size:1rem}
+        h3{color:#7dd3fc;font-size:0.85rem;margin:0.5rem 0 0.3rem}
+        .subtitle{color:#64748b;font-size:0.75rem;margin-bottom:1rem}
+        .g2{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+        .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem}
+        .g4{display:grid;grid-template-columns:2fr 1fr;gap:0.75rem}
+        @media(max-width:1200px){.g2,.g3,.g4{grid-template-columns:1fr}}
+        .card{background:#111827;border-radius:10px;padding:0.85rem;margin-bottom:0.75rem;border:1px solid #1e293b}
+        .card-sm{padding:0.6rem}
+        .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem}
+        .status-bar{display:flex;gap:1rem;align-items:center;margin-bottom:0.75rem;background:#111827;border-radius:10px;padding:0.6rem 1rem;border:1px solid #1e293b}
+        .status{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:0.65rem;font-weight:600}
+        .status.ok{background:#065f46;color:#6ee7b7}
+        .status.error{background:#7f1d1d;color:#fca5a5}
+        .status.loading{background:#1e3a5f;color:#93c5fd}
+        table{width:100%;border-collapse:collapse}
+        th,td{text-align:left;padding:4px 8px;border-bottom:1px solid #1e293b;font-size:0.8rem}
+        th{color:#64748b;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.05em}
+        .positive{color:#4ade80}.negative{color:#f87171}
+        .clickable{cursor:pointer;transition:background 0.15s}
+        .clickable:hover{background:#1e293b}
+        .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.5rem}
+        .summary-item{background:#0a0e1a;border-radius:6px;padding:0.5rem}
+        .summary-item .label{color:#64748b;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em}
+        .summary-item .value{font-size:0.95rem;font-weight:600;margin-top:0.1rem}
+        .ai-text{line-height:1.6;font-size:0.8rem;color:#cbd5e1;max-height:300px;overflow-y:auto}
+        .ai-text strong{color:#f1f5f9}
+        .ai-text h1,.ai-text h2,.ai-text h3{color:#7dd3fc;margin:0.5rem 0 0.3rem;font-size:0.85rem}
+        .ai-text ul,.ai-text ol{padding-left:1.2rem;margin:0.3rem 0}
+        .ai-text li{margin:0.15rem 0}
+        .ai-text table{margin:0.5rem 0}
+        .loading-text{color:#64748b;font-style:italic;font-size:0.8rem}
+        .refresh-info{color:#475569;font-size:0.65rem}
+        #world-map{width:100%;height:250px}
+        .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;justify-content:center;align-items:center}
+        .modal-overlay.active{display:flex}
+        .modal{background:#111827;border-radius:12px;width:90%;max-width:1000px;max-height:90vh;overflow:auto;border:1px solid #1e293b}
+        .modal-header{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;border-bottom:1px solid #1e293b}
+        .modal-header h2{margin:0}
+        .modal-body{padding:1rem}
+        .modal-close{background:none;border:none;color:#94a3b8;font-size:1.3rem;cursor:pointer}
+        .modal-close:hover{color:#f1f5f9}
+        .chart-tabs{display:flex;gap:0.4rem;margin-bottom:0.75rem}
+        .chart-tab{background:#1e293b;color:#94a3b8;border:none;padding:4px 12px;border-radius:5px;cursor:pointer;font-size:0.75rem}
+        .chart-tab.active{background:#2563eb;color:white}
+        .sector-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:0.75rem;transition:all 0.15s}
+        .sector-btn:hover,.sector-btn.active{background:#2563eb;color:white;border-color:#2563eb}
+        .sector-grid{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.75rem}
+        .map-hint{color:#475569;font-size:0.7rem;text-align:center;margin-top:0.3rem}
+        .pulse{animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+        .badge{font-size:0.6rem;background:#1e3a5f;color:#93c5fd;padding:1px 6px;border-radius:3px;margin-left:0.4rem}
+        .orders-empty{color:#475569;font-size:0.75rem;font-style:italic}
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>IBKR Portfolio Dashboard</h1>
-    <p class="subtitle">AI-Powered Portfolio Intelligence</p>
-
-    <div class="status-bar">
-        <div><span id="conn-status" class="status loading">Connecting...</span></div>
-        <div class="refresh-info">Auto-refresh: <span id="last-update">&mdash;</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div><h1>IBKR Portfolio Dashboard</h1><p class="subtitle">AI-Powered Portfolio Intelligence</p></div>
+        <div class="status-bar" style="margin:0">
+            <span id="conn-status" class="status loading">Connecting...</span>
+            <span class="refresh-info">Auto-refresh: <span id="last-update">&mdash;</span></span>
+        </div>
     </div>
 
-    <div class="card" id="briefing-card">
-        <div class="card-header">
-            <h2>AI Hedge Fund Manager Briefing</h2>
-            <span class="badge pulse" id="briefing-badge">LOADING</span>
-        </div>
+    <!-- AI Briefing -->
+    <div class="card card-sm">
+        <div class="card-header"><h2>AI Hedge Fund Manager</h2><span class="badge pulse" id="briefing-badge">LOADING</span></div>
         <div id="briefing" class="ai-text loading-text">Analyzing your portfolio...</div>
     </div>
 
-    <div class="grid-2">
-        <div class="card">
+    <!-- Summary + Sector + Orders -->
+    <div class="g3">
+        <div class="card card-sm">
             <h2>Account Summary</h2>
             <div id="summary" class="summary-grid"><p class="loading-text">Loading...</p></div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <h2>Sector Allocation</h2>
-                <span class="badge" id="sector-badge">AI-CLASSIFIED</span>
-            </div>
-            <canvas id="sectorChart" height="220"></canvas>
-            <div id="sector-recs" style="margin-top:0.75rem;font-size:0.8rem;color:#94a3b8;"></div>
+        <div class="card card-sm">
+            <div class="card-header"><h2>Sector Allocation</h2><span class="badge" id="sector-badge">AI</span></div>
+            <canvas id="sectorChart" height="140"></canvas>
+            <div id="sector-recs" style="margin-top:0.4rem;font-size:0.7rem;color:#94a3b8"></div>
+        </div>
+        <div class="card card-sm">
+            <h2>Open Orders</h2>
+            <div id="orders"><p class="orders-empty">Loading...</p></div>
         </div>
     </div>
 
-    <div class="card">
-        <h2>Portfolio Positions <span class="refresh-info">(click a symbol for charts)</span></h2>
+    <!-- Positions -->
+    <div class="card card-sm">
+        <h2>Portfolio Positions <span class="refresh-info">(click symbol for chart)</span></h2>
         <div id="positions"><p class="loading-text">Loading...</p></div>
     </div>
 
-    <div class="grid-2">
-        <div class="card">
-            <div class="card-header">
-                <h2>Deep AI Analysis</h2>
-                <span class="badge pulse" id="analysis-badge">LOADING</span>
-            </div>
+    <!-- Analysis + World Map + Sector Picks -->
+    <div class="g3">
+        <div class="card card-sm">
+            <div class="card-header"><h2>Deep AI Analysis</h2><span class="badge pulse" id="analysis-badge">LOADING</span></div>
             <div id="analysis" class="ai-text loading-text">Running deep analysis...</div>
         </div>
-        <div class="card">
+        <div class="card card-sm">
             <h2>Global Investment Map</h2>
             <div id="world-map"></div>
-            <p class="map-hint">Click any country for AI investment recommendations</p>
-            <div id="country-result" class="country-result ai-text"></div>
+            <p class="map-hint">Click any country for AI recommendations</p>
+            <div id="country-result" class="ai-text" style="max-height:200px;overflow-y:auto"></div>
+        </div>
+        <div class="card card-sm">
+            <h2>Top Picks by Sector</h2>
+            <div class="sector-grid" id="sector-buttons">
+                <button class="sector-btn" onclick="loadSectorPicks('Startups & Growth')">Startups</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Defense & Aerospace')">Defense</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Healthcare & Biotech')">Healthcare</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Finance & Banking')">Finance</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Technology & AI')">Tech & AI</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Energy & Clean Energy')">Energy</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Real Estate & REITs')">Real Estate</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Consumer & Retail')">Consumer</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Industrials & Infrastructure')">Industrials</button>
+                <button class="sector-btn" onclick="loadSectorPicks('Semiconductors & Chips')">Semis</button>
+            </div>
+            <div id="sector-picks" class="ai-text" style="max-height:280px;overflow-y:auto"></div>
         </div>
     </div>
 </div>
 
+<!-- Chart Modal -->
 <div class="modal-overlay" id="chart-modal">
     <div class="modal">
         <div class="modal-header">
@@ -149,287 +161,49 @@ DASHBOARD_HTML = r"""
         </div>
         <div class="modal-body">
             <div class="chart-tabs" id="chart-tabs"></div>
-            <div id="tradingview-widget" style="height:500px;"></div>
+            <div id="tradingview-widget" style="height:500px"></div>
         </div>
     </div>
 </div>
 
 <script>
-    var currentSymbol = '';
-    var sectorChart = null;
+var currentSymbol='';var sectorChart=null;
 
-    function fmt(n) {
-        if (n === null || n === undefined) return '\u2014';
-        return Number(n).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    }
-    function renderMd(text) {
-        try { return marked.parse(text); } catch(e) { return text; }
-    }
-    function updateTime() {
-        document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
-    }
+function fmt(n){if(n===null||n===undefined)return'\u2014';return Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function renderMd(t){try{return marked.parse(t)}catch(e){return t}}
+function updateTime(){document.getElementById('last-update').textContent=new Date().toLocaleTimeString()}
 
-    async function checkAuth() {
-        try {
-            var res = await fetch('/api/auth-status');
-            var data = await res.json();
-            var el = document.getElementById('conn-status');
-            if (data.authenticated) { el.className = 'status ok'; el.textContent = 'Connected'; }
-            else { el.className = 'status error'; el.textContent = 'Disconnected'; }
-        } catch(e) {
-            var el2 = document.getElementById('conn-status');
-            el2.className = 'status error'; el2.textContent = 'Error';
-        }
-    }
+async function checkAuth(){try{var r=await fetch('/api/auth-status');var d=await r.json();var e=document.getElementById('conn-status');if(d.authenticated){e.className='status ok';e.textContent='Connected'}else{e.className='status error';e.textContent='Disconnected'}}catch(x){document.getElementById('conn-status').className='status error';document.getElementById('conn-status').textContent='Error'}}
 
-    async function loadSummary() {
-        try {
-            var res = await fetch('/api/summary');
-            var data = await res.json();
-            if (data.error) return;
-            var labels = {
-                'NetLiquidation': 'Net Liquidation', 'TotalCashValue': 'Cash',
-                'GrossPositionValue': 'Positions', 'UnrealizedPnL': 'Unrealized P&L',
-                'RealizedPnL': 'Realized P&L', 'BuyingPower': 'Buying Power',
-                'AvailableFunds': 'Available'
-            };
-            var html = '';
-            for (var key in labels) {
-                if (data[key] !== undefined) {
-                    var val = Number(data[key]);
-                    var cls = key.indexOf('PnL') >= 0 ? (val >= 0 ? 'positive' : 'negative') : '';
-                    html += '<div class="summary-item"><div class="label">' + labels[key] +
-                        '</div><div class="value ' + cls + '">$' + fmt(val) + '</div></div>';
-                }
-            }
-            document.getElementById('summary').innerHTML = html;
-        } catch(e) {}
-    }
+async function loadSummary(){try{var r=await fetch('/api/summary');var d=await r.json();if(d.error)return;var labels={'NetLiquidation':'Net Liquidation','TotalCashValue':'Cash','GrossPositionValue':'Positions','UnrealizedPnL':'Unrealized P&L','RealizedPnL':'Realized P&L','BuyingPower':'Buying Power','AvailableFunds':'Available','MaintMarginReq':'Margin Req','InitMarginReq':'Init Margin','Cushion':'Cushion %'};var html='';for(var key in labels){if(d[key]!==undefined){var val=Number(d[key]);var cls=key.indexOf('PnL')>=0?(val>=0?'positive':'negative'):'';var display=key==='Cushion'?(val*100).toFixed(1)+'%':'$'+fmt(val);html+='<div class="summary-item"><div class="label">'+labels[key]+'</div><div class="value '+cls+'">'+display+'</div></div>'}}document.getElementById('summary').innerHTML=html}catch(e){}}
 
-    async function loadPositions() {
-        try {
-            var res = await fetch('/api/positions');
-            var data = await res.json();
-            if (data.error || !data.positions || data.positions.length === 0) {
-                document.getElementById('positions').innerHTML = '<p class="loading-text">No positions found.</p>';
-                return;
-            }
-            var html = '<table><tr><th>Symbol</th><th>Type</th><th>Qty</th>' +
-                '<th>Avg Cost</th><th>Mkt Price</th><th>Mkt Value</th><th>P&L</th></tr>';
-            data.positions.forEach(function(p) {
-                var pnl = p.unrealizedPnl || 0;
-                var cls = pnl >= 0 ? 'positive' : 'negative';
-                html += '<tr class="clickable" onclick="openChartModal(\'' + p.ticker + '\')">' +
-                    '<td><strong style="color:#38bdf8">' + p.ticker + '</strong></td>' +
-                    '<td>' + (p.secType || '') + '</td>' +
-                    '<td>' + p.position + '</td>' +
-                    '<td>$' + fmt(p.avgCost) + '</td>' +
-                    '<td>$' + fmt(p.marketPrice) + '</td>' +
-                    '<td>$' + fmt(p.mktValue) + '</td>' +
-                    '<td class="' + cls + '">$' + fmt(pnl) + '</td></tr>';
-            });
-            html += '</table>';
-            document.getElementById('positions').innerHTML = html;
-        } catch(e) {}
-    }
+async function loadOrders(){try{var r=await fetch('/api/orders');var d=await r.json();var el=document.getElementById('orders');if(d.error||!d.orders||d.orders.length===0){el.innerHTML='<p class="orders-empty">No pending orders</p>';return}var html='<table><tr><th>Symbol</th><th>Action</th><th>Qty</th><th>Type</th><th>Price</th><th>Status</th></tr>';d.orders.forEach(function(o){html+='<tr><td><strong style="color:#38bdf8">'+o.ticker+'</strong></td><td>'+(o.action||'')+'</td><td>'+o.qty+'</td><td>'+o.orderType+'</td><td>'+(o.limitPrice?'$'+fmt(o.limitPrice):(o.stopPrice?'$'+fmt(o.stopPrice):'MKT'))+'</td><td>'+o.status+'</td></tr>'});html+='</table>';el.innerHTML=html}catch(e){}}
 
-    async function loadBriefing() {
-        try {
-            var res = await fetch('/api/briefing', { method: 'POST' });
-            var data = await res.json();
-            var badge = document.getElementById('briefing-badge');
-            if (data.error) {
-                document.getElementById('briefing').innerHTML = '<p class="negative">' + data.error + '</p>';
-                badge.textContent = 'ERROR'; badge.classList.remove('pulse');
-                return;
-            }
-            document.getElementById('briefing').innerHTML = renderMd(data.briefing);
-            badge.textContent = 'LIVE'; badge.classList.remove('pulse');
-            badge.style.background = '#065f46'; badge.style.color = '#6ee7b7';
-        } catch(e) {
-            document.getElementById('briefing').innerHTML = '<p class="negative">Failed to load briefing</p>';
-        }
-    }
+async function loadPositions(){try{var r=await fetch('/api/positions');var d=await r.json();if(d.error||!d.positions||d.positions.length===0){document.getElementById('positions').innerHTML='<p class="loading-text">No positions found.</p>';return}var html='<table><tr><th>Symbol</th><th>Type</th><th>Qty</th><th>Avg Cost</th><th>Mkt Price</th><th>Mkt Value</th><th>P&L</th></tr>';d.positions.forEach(function(p){var pnl=p.unrealizedPnl||0;var cls=pnl>=0?'positive':'negative';html+='<tr class="clickable" onclick="openChartModal(\''+p.ticker+'\')"><td><strong style="color:#38bdf8">'+p.ticker+'</strong></td><td>'+(p.secType||'')+'</td><td>'+p.position+'</td><td>$'+fmt(p.avgCost)+'</td><td>$'+fmt(p.marketPrice)+'</td><td>$'+fmt(p.mktValue)+'</td><td class="'+cls+'">$'+fmt(pnl)+'</td></tr>'});html+='</table>';document.getElementById('positions').innerHTML=html}catch(e){}}
 
-    async function loadAnalysis() {
-        try {
-            var res = await fetch('/api/analyze', { method: 'POST' });
-            var data = await res.json();
-            var badge = document.getElementById('analysis-badge');
-            if (data.error) {
-                document.getElementById('analysis').innerHTML = '<p class="negative">' + data.error + '</p>';
-                badge.textContent = 'ERROR'; badge.classList.remove('pulse');
-                return;
-            }
-            document.getElementById('analysis').innerHTML = renderMd(data.analysis);
-            badge.textContent = 'COMPLETE'; badge.classList.remove('pulse');
-            badge.style.background = '#065f46'; badge.style.color = '#6ee7b7';
-        } catch(e) {
-            document.getElementById('analysis').innerHTML = '<p class="negative">Failed to load analysis</p>';
-        }
-    }
+async function loadBriefing(){try{var r=await fetch('/api/briefing',{method:'POST'});var d=await r.json();var b=document.getElementById('briefing-badge');if(d.error){document.getElementById('briefing').innerHTML='<p class="negative">'+d.error+'</p>';b.textContent='ERROR';b.classList.remove('pulse');return}document.getElementById('briefing').innerHTML=renderMd(d.briefing);b.textContent='LIVE';b.classList.remove('pulse');b.style.background='#065f46';b.style.color='#6ee7b7'}catch(e){document.getElementById('briefing').innerHTML='<p class="negative">Failed</p>'}}
 
-    async function loadSectors() {
-        try {
-            var res = await fetch('/api/sectors', { method: 'POST' });
-            var data = await res.json();
-            if (data.error || !data.holdings) return;
+async function loadAnalysis(){try{var r=await fetch('/api/analyze',{method:'POST'});var d=await r.json();var b=document.getElementById('analysis-badge');if(d.error){document.getElementById('analysis').innerHTML='<p class="negative">'+d.error+'</p>';b.textContent='ERROR';b.classList.remove('pulse');return}document.getElementById('analysis').innerHTML=renderMd(d.analysis);b.textContent='DONE';b.classList.remove('pulse');b.style.background='#065f46';b.style.color='#6ee7b7'}catch(e){document.getElementById('analysis').innerHTML='<p class="negative">Failed</p>'}}
 
-            var sectorMap = {};
-            data.holdings.forEach(function(h) {
-                sectorMap[h.sector] = (sectorMap[h.sector] || 0) + h.percentage;
-            });
+async function loadSectors(){try{var r=await fetch('/api/sectors',{method:'POST'});var d=await r.json();if(d.error||!d.holdings)return;var sm={};d.holdings.forEach(function(h){sm[h.sector]=(sm[h.sector]||0)+h.percentage});var labels=Object.keys(sm);var values=Object.values(sm);var colors=['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6','#e11d48'];var ctx=document.getElementById('sectorChart').getContext('2d');if(sectorChart)sectorChart.destroy();sectorChart=new Chart(ctx,{type:'doughnut',data:{labels:labels,datasets:[{data:values,backgroundColor:colors.slice(0,labels.length),borderColor:'#111827',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:10},boxWidth:10,padding:6}}}}});if(d.recommended_sectors&&d.recommended_sectors.length>0){var rh='';d.recommended_sectors.slice(0,2).forEach(function(r){var a=r.recommended>r.current?'\u2191':'\u2193';rh+=a+' '+r.sector+': '+r.current.toFixed(0)+'%\u2192'+r.recommended+'%<br>'});document.getElementById('sector-recs').innerHTML=rh}}catch(e){}}
 
-            var labels = Object.keys(sectorMap);
-            var values = Object.values(sectorMap);
-            var colors = ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6',
-                          '#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6','#e11d48'];
+var worldMap;
+function initMap(){worldMap=new jsVectorMap({selector:'#world-map',map:'world',backgroundColor:'transparent',regionStyle:{initial:{fill:'#1e293b',stroke:'#0a0e1a',strokeWidth:0.5},hover:{fill:'#2563eb',cursor:'pointer'},selected:{fill:'#3b82f6'}},onRegionClick:function(ev,code){var name=worldMap.getRegionName(code);loadCountryInvestments(name)}})}
 
-            var ctx = document.getElementById('sectorChart').getContext('2d');
-            if (sectorChart) sectorChart.destroy();
-            sectorChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: labels,
-                    datasets: [{ data: values, backgroundColor: colors.slice(0, labels.length),
-                                 borderColor: '#111827', borderWidth: 2 }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: { legend: { position: 'right', labels: { color: '#94a3b8', font: { size: 11 } } } }
-                }
-            });
+async function loadCountryInvestments(country){var el=document.getElementById('country-result');el.innerHTML='<p class="loading-text pulse">Loading '+country+'...</p>';try{var r=await fetch('/api/country-investments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:country})});var d=await r.json();if(d.error){el.innerHTML='<p class="negative">'+d.error+'</p>';return}el.innerHTML=renderMd(d.recommendations)}catch(e){el.innerHTML='<p class="negative">Failed</p>'}}
 
-            if (data.recommended_sectors && data.recommended_sectors.length > 0) {
-                var recHtml = '<strong style="color:#7dd3fc">AI Recommendations:</strong><br>';
-                data.recommended_sectors.slice(0, 3).forEach(function(r) {
-                    var arrow = r.recommended > r.current ? '\u2191' : '\u2193';
-                    recHtml += arrow + ' ' + r.sector + ': ' + r.current.toFixed(0) + '% \u2192 ' +
-                        r.recommended + '% \u2014 ' + r.reason + '<br>';
-                });
-                document.getElementById('sector-recs').innerHTML = recHtml;
-            }
-        } catch(e) {}
-    }
+async function loadSectorPicks(sector){document.querySelectorAll('.sector-btn').forEach(function(b){b.classList.remove('active')});event.target.classList.add('active');var el=document.getElementById('sector-picks');el.innerHTML='<p class="loading-text pulse">Loading '+sector+' picks...</p>';try{var r=await fetch('/api/sector-picks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sector:sector})});var d=await r.json();if(d.error){el.innerHTML='<p class="negative">'+d.error+'</p>';return}el.innerHTML=renderMd(d.picks)}catch(e){el.innerHTML='<p class="negative">Failed</p>'}}
 
-    var worldMap;
-    function initMap() {
-        worldMap = new jsVectorMap({
-            selector: '#world-map',
-            map: 'world',
-            backgroundColor: 'transparent',
-            regionStyle: {
-                initial: { fill: '#1e293b', stroke: '#0a0e1a', strokeWidth: 0.5 },
-                hover: { fill: '#2563eb', cursor: 'pointer' },
-                selected: { fill: '#3b82f6' }
-            },
-            onRegionClick: function(event, code) {
-                var name = worldMap.getRegionName(code);
-                loadCountryInvestments(name);
-            }
-        });
-    }
+function openChartModal(symbol){currentSymbol=symbol;document.getElementById('chart-title').textContent=symbol+' \u2014 Chart';document.getElementById('chart-modal').classList.add('active');var periods=['1M','3M','6M','1Y','5Y'];var th='';periods.forEach(function(p,i){th+='<button class="chart-tab'+(i===0?' active':'')+'" onclick="switchChart(\''+p+'\',this)">'+p+'</button>'});document.getElementById('chart-tabs').innerHTML=th;showTVChart('1M')}
+function closeChartModal(){document.getElementById('chart-modal').classList.remove('active');document.getElementById('tradingview-widget').innerHTML=''}
+function switchChart(p,btn){document.querySelectorAll('.chart-tab').forEach(function(t){t.classList.remove('active')});btn.classList.add('active');showTVChart(p)}
+function showTVChart(period){var ranges={'1M':'1M','3M':'3M','6M':'6M','1Y':'12M','5Y':'60M'};var el=document.getElementById('tradingview-widget');el.innerHTML='<div id="tv_chart_container"></div>';var s=document.createElement('script');s.src='https://s3.tradingview.com/tv.js';s.onload=function(){new TradingView.widget({container_id:'tv_chart_container',symbol:currentSymbol,interval:period==='5Y'?'M':(period==='1Y'||period==='6M'?'W':'D'),timezone:'Europe/Zurich',theme:'dark',style:'1',locale:'en',toolbar_bg:'#111827',enable_publishing:false,width:'100%',height:480,range:ranges[period]})};document.head.appendChild(s)}
+document.getElementById('chart-modal').addEventListener('click',function(e){if(e.target===this)closeChartModal()});
 
-    async function loadCountryInvestments(country) {
-        var el = document.getElementById('country-result');
-        el.innerHTML = '<p class="loading-text pulse">Loading AI recommendations for ' + country + '...</p>';
-        try {
-            var res = await fetch('/api/country-investments', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({country: country})
-            });
-            var data = await res.json();
-            if (data.error) { el.innerHTML = '<p class="negative">' + data.error + '</p>'; return; }
-            el.innerHTML = renderMd(data.recommendations);
-        } catch(e) {
-            el.innerHTML = '<p class="negative">Failed to load recommendations</p>';
-        }
-    }
-
-    function openChartModal(symbol) {
-        currentSymbol = symbol;
-        document.getElementById('chart-title').textContent = symbol + ' \u2014 Stock Chart';
-        document.getElementById('chart-modal').classList.add('active');
-
-        var periods = ['1M','3M','6M','1Y','5Y'];
-        var tabsHtml = '';
-        periods.forEach(function(p, i) {
-            tabsHtml += '<button class="chart-tab' + (i === 0 ? ' active' : '') +
-                '" onclick="switchChart(\'' + p + '\', this)">' + p + '</button>';
-        });
-        document.getElementById('chart-tabs').innerHTML = tabsHtml;
-        showTradingViewChart('1M');
-    }
-
-    function closeChartModal() {
-        document.getElementById('chart-modal').classList.remove('active');
-        document.getElementById('tradingview-widget').innerHTML = '';
-    }
-
-    function switchChart(period, btn) {
-        document.querySelectorAll('.chart-tab').forEach(function(t) { t.classList.remove('active'); });
-        btn.classList.add('active');
-        showTradingViewChart(period);
-    }
-
-    function showTradingViewChart(period) {
-        var ranges = {'1M':'1M','3M':'3M','6M':'6M','1Y':'12M','5Y':'60M'};
-        var el = document.getElementById('tradingview-widget');
-        el.innerHTML = '<div id="tv_chart_container"></div>';
-
-        var script = document.createElement('script');
-        script.src = 'https://s3.tradingview.com/tv.js';
-        script.onload = function() {
-            new TradingView.widget({
-                container_id: 'tv_chart_container',
-                symbol: currentSymbol,
-                interval: period === '5Y' ? 'M' : (period === '1Y' || period === '6M' ? 'W' : 'D'),
-                timezone: 'Europe/Zurich',
-                theme: 'dark',
-                style: '1',
-                locale: 'en',
-                toolbar_bg: '#111827',
-                enable_publishing: false,
-                hide_top_toolbar: false,
-                hide_legend: false,
-                save_image: false,
-                width: '100%',
-                height: 480,
-                range: ranges[period]
-            });
-        };
-        document.head.appendChild(script);
-    }
-
-    document.getElementById('chart-modal').addEventListener('click', function(e) {
-        if (e.target === this) closeChartModal();
-    });
-
-    async function init() {
-        checkAuth();
-        loadSummary();
-        loadPositions();
-        updateTime();
-        // Load AI features sequentially to avoid blocking
-        setTimeout(async function() {
-            await loadBriefing();
-            await loadSectors();
-            await loadAnalysis();
-        }, 2000);
-        initMap();
-    }
-
-    setInterval(function() {
-        checkAuth();
-        loadSummary();
-        loadPositions();
-        updateTime();
-    }, 30000);
-
-    setInterval(function() { loadBriefing(); }, 300000);
-
-    init();
+async function init(){checkAuth();loadSummary();loadPositions();loadOrders();updateTime();setTimeout(async function(){await loadBriefing();await loadSectors();await loadAnalysis()},2000);initMap()}
+setInterval(function(){checkAuth();loadSummary();loadPositions();loadOrders();updateTime()},30000);
+setInterval(function(){loadBriefing()},300000);
+init();
 </script>
 </body>
 </html>
@@ -464,6 +238,15 @@ def api_summary():
     try:
         summary = ibkr_client.account_summary()
         return jsonify(summary)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/orders")
+def api_orders():
+    try:
+        orders = ibkr_client.open_orders()
+        return jsonify({"orders": orders})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -513,7 +296,7 @@ def api_sectors():
         pos = ibkr_client.portfolio()
         print(f"[SECTORS] Got {len(pos)} positions. Calling Claude AI...")
         sectors = analyzer.sector_analysis(pos)
-        print(f"[SECTORS] Done!")
+        print("[SECTORS] Done!")
         return jsonify(sectors)
     except Exception as e:
         print(f"[SECTORS] ERROR: {e}")
@@ -535,6 +318,27 @@ def api_country_investments():
         recs = analyzer.country_investments(country, pos)
         return jsonify({"recommendations": recs})
     except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/sector-picks", methods=["POST"])
+def api_sector_picks():
+    try:
+        data = request.get_json()
+        sector = data.get("sector", "")
+        if not sector:
+            return jsonify({"error": "Sector is required"}), 400
+        print(f"[SECTOR PICKS] Loading {sector}...")
+        pos = None
+        try:
+            pos = ibkr_client.portfolio()
+        except Exception:
+            pass
+        picks = analyzer.sector_top_picks(sector, pos)
+        print(f"[SECTOR PICKS] Done!")
+        return jsonify({"picks": picks})
+    except Exception as e:
+        print(f"[SECTOR PICKS] ERROR: {e}")
         return jsonify({"error": str(e)}), 500
 
 
