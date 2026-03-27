@@ -7,7 +7,7 @@ load_dotenv()
 # TWS paper: 7497, TWS live: 7496
 # IB Gateway paper: 4002, IB Gateway live: 4001
 IBKR_HOST = os.getenv("IBKR_HOST", "127.0.0.1")
-IBKR_PORT = int(os.getenv("IBKR_PORT", "7497"))
+IBKR_PORT = int(os.getenv("IBKR_PORT", "4001"))
 IBKR_CLIENT_ID = int(os.getenv("IBKR_CLIENT_ID", "1"))
 IBKR_ACCOUNT_ID = os.getenv("IBKR_ACCOUNT_ID", "U23250336")
 

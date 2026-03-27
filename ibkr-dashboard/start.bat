@@ -31,7 +31,7 @@ if not exist .env (
     echo Creating .env file...
     (
         echo IBKR_HOST=127.0.0.1
-        echo IBKR_PORT=7497
+        echo IBKR_PORT=4001
         echo IBKR_CLIENT_ID=1
         echo IBKR_ACCOUNT_ID=U23250336
         echo ANTHROPIC_API_KEY=YOUR_KEY_HERE
