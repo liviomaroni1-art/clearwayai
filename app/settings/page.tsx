@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Settings as SettingsIcon, Key, Clock, DollarSign, Save, CheckCircle } from "lucide-react";
+import { Settings as SettingsIcon, Key, Clock, DollarSign, Save, CheckCircle, Link2, Unlink, RefreshCw, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function SettingsPage() {
   const [settings, setSettings] = useState<SettingsType>({
@@ -18,6 +18,12 @@ export default function SettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [ibkrToken, setIbkrToken] = useState("");
+  const [ibkrQueryId, setIbkrQueryId] = useState("");
+  const [ibkrConnected, setIbkrConnected] = useState(false);
+  const [ibkrSyncing, setIbkrSyncing] = useState(false);
+  const [ibkrSyncResult, setIbkrSyncResult] = useState<string | null>(null);
+  const [ibkrError, setIbkrError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/settings")
@@ -28,6 +34,63 @@ export default function SettingsPage() {
       })
       .catch(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    fetch("/api/ibkr")
+      .then(res => res.json())
+      .then(data => {
+        setIbkrConnected(data.connected);
+        if (data.queryId) setIbkrQueryId(data.queryId);
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleIbkrSave = async () => {
+    setIbkrError(null);
+    try {
+      await fetch("/api/ibkr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "save_credentials", token: ibkrToken, queryId: ibkrQueryId }),
+      });
+      setIbkrConnected(true);
+      setIbkrToken("");
+    } catch (err: any) {
+      setIbkrError(err.message);
+    }
+  };
+
+  const handleIbkrSync = async () => {
+    setIbkrSyncing(true);
+    setIbkrSyncResult(null);
+    setIbkrError(null);
+    try {
+      const res = await fetch("/api/ibkr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "sync" }),
+      });
+      const data = await res.json();
+      if (data.error) {
+        setIbkrError(data.error);
+      } else {
+        setIbkrSyncResult(`Synced ${data.positions} positions, cash: $${data.cashBalance.toFixed(2)}`);
+      }
+    } catch (err: any) {
+      setIbkrError(err.message);
+    }
+    setIbkrSyncing(false);
+  };
+
+  const handleIbkrDisconnect = async () => {
+    await fetch("/api/ibkr", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "disconnect" }),
+    });
+    setIbkrConnected(false);
+    setIbkrSyncResult(null);
+  };
 
   const handleSave = async () => {
     setSaving(true);
@@ -68,6 +131,99 @@ export default function SettingsPage() {
         <SettingsIcon className="h-6 w-6 text-accent" />
         Settings
       </h1>
+
+      {/* IBKR Connection */}
+      <Card className={ibkrConnected ? "border-positive/30" : ""}>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Link2 className="h-4 w-4 text-accent" />
+            Interactive Brokers (Read-Only)
+          </CardTitle>
+          <CardDescription>
+            Connect your IBKR account to auto-sync positions and cash balance. Read-only — cannot execute trades.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {ibkrConnected ? (
+            <>
+              <div className="flex items-center gap-2 p-3 rounded-lg bg-positive/10 border border-positive/20">
+                <CheckCircle2 className="h-4 w-4 text-positive" />
+                <span className="text-sm text-positive font-medium">Connected to IBKR</span>
+                <span className="text-xs text-muted-foreground font-mono ml-auto">Query: {ibkrQueryId}</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Button onClick={handleIbkrSync} disabled={ibkrSyncing} className="flex-1">
+                  <RefreshCw className={`h-4 w-4 mr-2 ${ibkrSyncing ? "animate-spin" : ""}`} />
+                  {ibkrSyncing ? "Syncing..." : "Sync Now"}
+                </Button>
+                <Button variant="outline" onClick={handleIbkrDisconnect}>
+                  <Unlink className="h-4 w-4 mr-2" />
+                  Disconnect
+                </Button>
+              </div>
+
+              {ibkrSyncResult && (
+                <div className="flex items-center gap-2 text-sm text-positive">
+                  <CheckCircle2 className="h-4 w-4" />
+                  {ibkrSyncResult}
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div className="space-y-3">
+                <div className="p-3 rounded-lg bg-card border border-border">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground">Setup steps:</strong><br />
+                    1. Log into IBKR Account Management<br />
+                    2. Go to Performance &amp; Reports → Flex Queries<br />
+                    3. Create Activity Flex Query with Open Positions + Cash Report<br />
+                    4. Enable Flex Web Service → Create Token<br />
+                    5. Paste Token + Query ID below
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="ibkrToken">Flex Web Service Token</Label>
+                  <Input
+                    id="ibkrToken"
+                    type="password"
+                    placeholder="Enter your IBKR Flex token"
+                    value={ibkrToken}
+                    onChange={(e) => setIbkrToken(e.target.value)}
+                    className="font-mono"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="ibkrQueryId">Flex Query ID</Label>
+                  <Input
+                    id="ibkrQueryId"
+                    placeholder="e.g. 123456"
+                    value={ibkrQueryId}
+                    onChange={(e) => setIbkrQueryId(e.target.value)}
+                    className="font-mono"
+                  />
+                </div>
+                <Button
+                  onClick={handleIbkrSave}
+                  disabled={!ibkrToken || !ibkrQueryId}
+                  className="w-full"
+                >
+                  <Link2 className="h-4 w-4 mr-2" />
+                  Connect IBKR Account
+                </Button>
+              </div>
+            </>
+          )}
+
+          {ibkrError && (
+            <div className="flex items-start gap-2 p-3 rounded-lg bg-negative/10 border border-negative/20">
+              <AlertCircle className="h-4 w-4 text-negative mt-0.5 shrink-0" />
+              <span className="text-sm text-negative">{ibkrError}</span>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       {/* FRED API Key */}
       <Card>
