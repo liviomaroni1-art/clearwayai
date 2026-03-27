@@ -411,10 +411,11 @@ DASHBOARD_HTML = r"""
         loadSummary();
         loadPositions();
         updateTime();
-        setTimeout(function() {
-            loadBriefing();
-            loadSectors();
-            loadAnalysis();
+        // Load AI features sequentially to avoid blocking
+        setTimeout(async function() {
+            await loadBriefing();
+            await loadSectors();
+            await loadAnalysis();
         }, 2000);
         initMap();
     }
@@ -470,40 +471,52 @@ def api_summary():
 @app.route("/api/briefing", methods=["POST"])
 def api_briefing():
     try:
+        print("[BRIEFING] Fetching positions...")
         pos = ibkr_client.portfolio()
+        print(f"[BRIEFING] Got {len(pos)} positions. Calling Claude AI...")
         summary = None
         try:
             summary = ibkr_client.account_summary()
         except Exception:
             pass
         briefing = analyzer.hedge_fund_briefing(pos, summary)
+        print(f"[BRIEFING] Done! Response length: {len(briefing)}")
         return jsonify({"briefing": briefing})
     except Exception as e:
+        print(f"[BRIEFING] ERROR: {e}")
         return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/analyze", methods=["POST"])
 def api_analyze():
     try:
+        print("[ANALYSIS] Fetching positions...")
         pos = ibkr_client.portfolio()
+        print(f"[ANALYSIS] Got {len(pos)} positions. Calling Claude AI...")
         summary = None
         try:
             summary = ibkr_client.account_summary()
         except Exception:
             pass
         analysis = analyzer.analyze_portfolio(pos, summary)
+        print(f"[ANALYSIS] Done! Response length: {len(analysis)}")
         return jsonify({"analysis": analysis})
     except Exception as e:
+        print(f"[ANALYSIS] ERROR: {e}")
         return jsonify({"error": str(e)}), 500
 
 
 @app.route("/api/sectors", methods=["POST"])
 def api_sectors():
     try:
+        print("[SECTORS] Fetching positions...")
         pos = ibkr_client.portfolio()
+        print(f"[SECTORS] Got {len(pos)} positions. Calling Claude AI...")
         sectors = analyzer.sector_analysis(pos)
+        print(f"[SECTORS] Done!")
         return jsonify(sectors)
     except Exception as e:
+        print(f"[SECTORS] ERROR: {e}")
         return jsonify({"error": str(e)}), 500
 
 
@@ -529,4 +542,5 @@ if __name__ == "__main__":
     print(f"Starting IBKR Dashboard on http://localhost:{config.FLASK_PORT}")
     print(f"Connecting to TWS/IB Gateway at {config.IBKR_HOST}:{config.IBKR_PORT}")
     print(f"Account ID: {config.IBKR_ACCOUNT_ID}")
-    app.run(host=config.FLASK_HOST, port=config.FLASK_PORT, debug=config.FLASK_DEBUG)
+    print(f"API Key: {'***' + config.ANTHROPIC_API_KEY[-8:] if config.ANTHROPIC_API_KEY else 'NOT SET'}")
+    app.run(host=config.FLASK_HOST, port=config.FLASK_PORT, debug=config.FLASK_DEBUG, threaded=True)
