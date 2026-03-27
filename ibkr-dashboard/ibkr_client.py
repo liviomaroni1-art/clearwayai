@@ -1,5 +1,13 @@
 """IBKR client using ib_insync (connects to TWS or IB Gateway)."""
 
+import asyncio
+
+# Python 3.14+ removed auto-creation of event loops — create one explicitly
+try:
+    asyncio.get_event_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
 from ib_insync import IB, util
 import config
 
