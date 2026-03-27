@@ -5,7 +5,10 @@ import anthropic
 import config
 
 
-client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
+client = anthropic.Anthropic(
+    api_key=config.ANTHROPIC_API_KEY,
+    timeout=60.0,
+)
 
 
 def hedge_fund_briefing(positions: list[dict], summary: dict | None = None) -> str:

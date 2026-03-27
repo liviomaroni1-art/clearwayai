@@ -13,7 +13,7 @@ IBKR_ACCOUNT_ID = os.getenv("IBKR_ACCOUNT_ID", "U23250336")
 
 # Anthropic API
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
 
 # Flask
 FLASK_HOST = "0.0.0.0"
