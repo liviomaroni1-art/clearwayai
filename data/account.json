@@ -1,21 +1,18 @@
 {
-  "cashBalance": 25000,
+  "cashBalance": 5004.75,
   "transactions": [
-    { "id": "init-1", "type": "deposit", "amount": 100000, "date": "2024-01-01", "note": "Initial IBKR transfer" },
-    { "id": "init-2", "type": "withdrawal", "amount": 8250, "date": "2024-01-15", "note": "Bought AAPL (50 shares @ $165)" },
-    { "id": "init-3", "type": "withdrawal", "amount": 10200, "date": "2024-02-10", "note": "Bought MSFT (30 shares @ $340)" },
-    { "id": "init-4", "type": "withdrawal", "amount": 12000, "date": "2024-03-05", "note": "Bought NVDA (25 shares @ $480)" },
-    { "id": "init-5", "type": "withdrawal", "amount": 5400, "date": "2024-01-20", "note": "Bought GOOGL (40 shares @ $135)" },
-    { "id": "init-6", "type": "withdrawal", "amount": 5075, "date": "2024-04-01", "note": "Bought AMZN (35 shares @ $145)" },
-    { "id": "init-7", "type": "withdrawal", "amount": 3500, "date": "2024-05-15", "note": "Bought JPM (20 shares @ $175)" },
-    { "id": "init-8", "type": "withdrawal", "amount": 6975, "date": "2024-02-28", "note": "Bought JNJ (45 shares @ $155)" },
-    { "id": "init-9", "type": "withdrawal", "amount": 5880, "date": "2024-03-20", "note": "Bought XOM (60 shares @ $98)" },
-    { "id": "txn-10", "type": "deposit", "amount": 15000, "date": "2024-06-01", "note": "Monthly deposit" },
-    { "id": "txn-11", "type": "deposit", "amount": 10000, "date": "2024-09-01", "note": "Bonus deposit" },
-    { "id": "txn-12", "type": "withdrawal", "amount": 7720, "date": "2024-10-01", "note": "Living expenses" }
+    { "id": "ibkr-init", "type": "deposit", "amount": 6000, "date": "2025-01-01", "note": "Initial IBKR deposit (CHF)" },
+    { "id": "ibkr-t1", "type": "withdrawal", "amount": 379.50, "date": "2025-01-15", "note": "Bought BURU (550 shares @ $0.69)" },
+    { "id": "ibkr-t2", "type": "withdrawal", "amount": 157.53, "date": "2025-02-10", "note": "Bought LMT (0.2855 fractional @ $551.77)" },
+    { "id": "ibkr-t3", "type": "withdrawal", "amount": 112.20, "date": "2025-01-20", "note": "Bought RR (20 shares @ $5.61)" },
+    { "id": "ibkr-t4", "type": "withdrawal", "amount": 251.92, "date": "2025-03-01", "note": "Bought SNDK (0.5257 fractional @ $479.22)" },
+    { "id": "ibkr-t5", "type": "withdrawal", "amount": 151.65, "date": "2025-02-20", "note": "Bought SOUN (15 shares @ $10.11)" },
+    { "id": "ibkr-t6", "type": "withdrawal", "amount": 219.00, "date": "2025-03-10", "note": "Bought WYFI (10 shares @ $21.90)" },
+    { "id": "ibkr-div", "type": "deposit", "amount": 0.55, "date": "2025-03-15", "note": "Dividend received" },
+    { "id": "ibkr-dep2", "type": "deposit", "amount": 276.00, "date": "2025-03-20", "note": "Additional deposit" }
   ],
-  "riskTolerance": "moderate",
-  "monthlyTarget": 3,
-  "maxPositionPct": 10,
-  "maxSectorPct": 30
+  "riskTolerance": "aggressive",
+  "monthlyTarget": 5,
+  "maxPositionPct": 25,
+  "maxSectorPct": 40
 }

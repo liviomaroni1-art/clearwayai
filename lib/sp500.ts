@@ -236,6 +236,13 @@ export const SP500_STOCKS: SP500Stock[] = [
   { ticker: 'ALB', name: 'Albemarle Corp', sector: 'Basic Materials' },
   { ticker: 'CF', name: 'CF Industries', sector: 'Basic Materials' },
   { ticker: 'CTVA', name: 'Corteva Inc', sector: 'Basic Materials' },
+
+  // User portfolio stocks (non-S&P 500)
+  { ticker: 'BURU', name: 'Nuburu Inc', sector: 'Technology' },
+  { ticker: 'RR', name: 'Richtech Robotics Inc', sector: 'Technology' },
+  { ticker: 'SOUN', name: 'SoundHound AI Inc', sector: 'Technology' },
+  { ticker: 'WYFI', name: 'WhiteFiber Inc', sector: 'Technology' },
+  { ticker: 'SNDK', name: 'SanDisk Corp', sector: 'Technology' },
 ];
 
 export const SP500_SECTORS = Array.from(new Set(SP500_STOCKS.map(s => s.sector))).sort();
