@@ -8,28 +8,28 @@ interface Creative {
 
 const creatives: Creative[] = [
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/838b53e1-7281-4526-9cfa-ec39e5d4044e/v1-1774210293766.png",
-    alt: "Mehr Umsatz, weniger Aufwand",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/ba8219f4-210b-421f-b661-015cedf79c44/v1-1774709771554.png",
+    alt: "Keine Zeit für Akquise? Wir übernehmen.",
     industry: "Steuerberatung",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/c08e9f0b-3796-4cfa-83a3-f7f5cdf655de/v1-1774210285926.png",
-    alt: "Automatisch zu neuen Kunden",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/e251ac25-3bb5-49c2-abc0-e69165dc92af/v1-1774710931758.png",
+    alt: "15+ Leads oder gratis arbeiten",
     industry: "Coaching",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/7df9703a-cfe1-4675-9ba2-aafd934502ad/v1-1774186027653.png",
-    alt: "Meta Ads auf Autopilot",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/502e7c22-f7b6-4b26-bf54-f1e626b1291d/v1-1774709762907.png",
+    alt: "Planbar neue Kunden gewinnen",
     industry: "Handwerk",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/adf8ac7a-dd28-496f-8964-4aa8d7674dc6/v1-1774210283040.png",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/3997ddf1-ad18-469a-81a7-71f35b119ecd/v1-1774711091732.png",
     alt: "Mehr Umsatz weniger Aufwand Kampagne",
     industry: "Agenturen",
   },
   {
-    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/cd143fc0-da99-4e75-a84e-4be49410a553/eb9cb143-ae7b-4668-8811-9954ac477641/v1-1774185951726.png",
-    alt: "Leads kommen von allein",
+    url: "https://www.vibiz.ai/media/org_3BIjs02VoMt4mvY0wjBCIq8fnv1/9110f47d-d168-4e42-8fda-082196413433/010efa1b-a38b-4424-96d6-747739595ec7/v1-1774710916175.png",
+    alt: "Erfolgsgarantie für Dienstleister",
     industry: "Immobilien",
   },
 ];
