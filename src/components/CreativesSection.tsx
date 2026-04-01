@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n";
 
 interface Creative {
   url: string;
@@ -35,6 +37,7 @@ const creatives: Creative[] = [
 ];
 
 const CreativesSection = () => {
+  const { t, language } = useLanguage();
   const [active, setActive] = useState(0);
   const n = creatives.length;
   const touchStartX = useRef<number | null>(null);
@@ -65,11 +68,7 @@ const CreativesSection = () => {
     if (touchStartX.current === null) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        next();
-      } else {
-        prev();
-      }
+      if (diff > 0) next(); else prev();
       resetAutoPlay();
     }
     touchStartX.current = null;
@@ -86,18 +85,18 @@ const CreativesSection = () => {
     }
     if (offset === 1 || offset === -(n - 1)) {
       return {
-        transform: "translateX(65%) scale(0.76) translateZ(-120px)",
+        transform: "translateX(65%) scale(0.78) translateZ(-120px)",
         zIndex: 5,
-        opacity: 0.6,
-        filter: "brightness(0.6)",
+        opacity: 0.5,
+        filter: "brightness(0.5)",
       };
     }
     if (offset === -1 || offset === (n - 1)) {
       return {
-        transform: "translateX(-65%) scale(0.76) translateZ(-120px)",
+        transform: "translateX(-65%) scale(0.78) translateZ(-120px)",
         zIndex: 5,
-        opacity: 0.6,
-        filter: "brightness(0.6)",
+        opacity: 0.5,
+        filter: "brightness(0.5)",
       };
     }
     return {
@@ -110,21 +109,34 @@ const CreativesSection = () => {
   const current = creatives[active];
 
   return (
-    <section className="py-16 bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            So sehen unsere Kampagnen aus
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Beispiel-Anzeigen aus unserer laufenden Arbeit. Kundenkampagnen zeigen wir aus Datenschutzgruenden nicht.
-          </p>
-        </div>
+    <section className="py-24 md:py-32 overflow-hidden relative">
+      <div className="absolute inset-0 bg-mesh-section pointer-events-none" />
 
-        <div className="flex items-center justify-center gap-3 mb-8 flex-wrap">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white mb-4 tracking-tight">
+            {language === 'de' ? 'So sehen unsere Kampagnen aus' : 'What our campaigns look like'}
+          </h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: '#7E8594' }}>
+            {language === 'de'
+              ? 'Beispiel-Anzeigen aus unserer laufenden Arbeit. Kundenkampagnen zeigen wir aus Datenschutzgründen nicht.'
+              : 'Sample ads from our ongoing work. We don\'t show client campaigns for privacy reasons.'}
+          </p>
+        </motion.div>
+
+        <div className="flex items-center justify-center mb-8">
           <span
-            className="px-3 py-1 rounded-full text-xs font-semibold border"
-            style={{ borderColor: '#4F6EF7', color: '#4F6EF7', background: 'rgba(79,110,247,0.1)' }}
+            className="px-4 py-1.5 rounded-full text-xs font-semibold"
+            style={{
+              border: '1px solid hsl(224 76% 58% / 0.2)',
+              color: '#4B7BF5',
+              background: 'hsl(224 76% 58% / 0.06)',
+            }}
           >
             {current.industry}
           </span>
@@ -132,7 +144,7 @@ const CreativesSection = () => {
 
         <div
           className="relative flex items-center justify-center"
-          style={{ height: "580px", perspective: "1000px" }}
+          style={{ height: "560px", perspective: "1000px" }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -152,7 +164,7 @@ const CreativesSection = () => {
                 style={{
                   position: "absolute",
                   width: "320px",
-                  transition: "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                   cursor: normOffset === 0 ? "default" : "pointer",
                   ...style,
                 }}
@@ -160,7 +172,12 @@ const CreativesSection = () => {
                 <img
                   src={creative.url}
                   alt={creative.alt}
-                  className="w-full h-auto rounded-xl shadow-2xl"
+                  className="w-full h-auto rounded-2xl"
+                  style={{
+                    boxShadow: normOffset === 0
+                      ? '0 20px 60px -12px rgba(0,0,0,0.6), 0 0 40px -8px hsl(224 76% 58% / 0.1)'
+                      : '0 8px 24px -4px rgba(0,0,0,0.4)',
+                  }}
                   loading="lazy"
                   draggable={false}
                 />
@@ -169,12 +186,20 @@ const CreativesSection = () => {
           })}
         </div>
 
-        <div className="flex justify-center gap-2 mt-4">
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
           {creatives.map((_, i) => (
             <button
               key={i}
               onClick={() => { setActive(i); resetAutoPlay(); }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === active ? "bg-primary w-6" : "bg-white/30"}`}
+              className="transition-all duration-300 rounded-full"
+              style={{
+                width: i === active ? '24px' : '8px',
+                height: '8px',
+                background: i === active
+                  ? 'linear-gradient(135deg, #4B7BF5, #7C3AED)'
+                  : 'hsl(225 14% 20%)',
+              }}
             />
           ))}
         </div>

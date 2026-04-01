@@ -21,110 +21,122 @@ const Navbar = () => {
   ];
 
   const linkClass =
-    "text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors duration-200 text-sm font-medium";
+    "text-[#7E8594] hover:text-white transition-colors duration-200 text-[13px] font-medium tracking-wide";
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-[#1E1E2E]"
-      style={{ background: 'rgba(10, 10, 15, 0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 left-0 right-0 z-50"
     >
-      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center flex-shrink-0"
+      <div className="mx-auto px-4 pt-3">
+        <div
+          className="container mx-auto px-5 h-14 flex items-center justify-between rounded-2xl border border-white/[0.06]"
+          style={{
+            background: 'rgba(9, 11, 16, 0.7)',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            boxShadow: '0 4px 24px -1px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04)',
+          }}
         >
-          <img
-            src={logo}
-            alt="Clearway AI"
-            width="140"
-            height="28"
-            loading="eager"
-            className="h-7 w-auto object-contain"
-          />
-        </Link>
+          {/* Logo */}
+          <Link
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center flex-shrink-0"
+          >
+            <img
+              src={logo}
+              alt="Clearway AI"
+              width="130"
+              height="26"
+              loading="eager"
+              className="h-6 w-auto object-contain"
+            />
+          </Link>
 
-        {/* Desktop center nav */}
-        <div className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
-          {navLinks.map((link) =>
-            link.href.startsWith('/') ? (
-              <Link key={link.key} to={link.href} className={linkClass}>
-                {t(link.key)}
-              </Link>
-            ) : (
-              <a key={link.key} href={link.href} className={linkClass}>
-                {t(link.key)}
-              </a>
-            )
-          )}
-        </div>
-
-        {/* Desktop right side */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Language toggle */}
-          <div className="flex items-center gap-1">
-            <button
-              onClick={() => setLanguage('de')}
-              className={`text-xs px-2 py-1 rounded transition-colors uppercase tracking-wide ${
-                language === 'de'
-                  ? 'text-white font-bold'
-                  : 'text-[#8B8BA3] hover:text-[#F1F1F5]'
-              }`}
-              aria-label="Deutsch"
-            >
-              De
-            </button>
-            <span className="text-[#1E1E2E]">|</span>
-            <button
-              onClick={() => setLanguage('en')}
-              className={`text-xs px-2 py-1 rounded transition-colors uppercase tracking-wide ${
-                language === 'en'
-                  ? 'text-white font-bold'
-                  : 'text-[#8B8BA3] hover:text-[#F1F1F5]'
-              }`}
-              aria-label="English"
-            >
-              En
-            </button>
+          {/* Desktop center nav */}
+          <div className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link key={link.key} to={link.href} className={linkClass}>
+                  {t(link.key)}
+                </Link>
+              ) : (
+                <a key={link.key} href={link.href} className={linkClass}>
+                  {t(link.key)}
+                </a>
+              )
+            )}
           </div>
 
-          <Button variant="hero" size="default" className="text-sm px-5 rounded-lg" asChild>
-            <Link to="https://funnel.clearwayai.co/">{t('hero.cta')}</Link>
-          </Button>
-        </div>
+          {/* Desktop right side */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Language toggle */}
+            <div className="flex items-center gap-0.5 mr-1">
+              <button
+                onClick={() => setLanguage('de')}
+                className={`text-[11px] px-2 py-1 rounded-lg transition-all uppercase tracking-widest font-medium ${
+                  language === 'de'
+                    ? 'text-white bg-white/[0.08]'
+                    : 'text-[#7E8594] hover:text-white'
+                }`}
+                aria-label="Deutsch"
+              >
+                De
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`text-[11px] px-2 py-1 rounded-lg transition-all uppercase tracking-widest font-medium ${
+                  language === 'en'
+                    ? 'text-white bg-white/[0.08]'
+                    : 'text-[#7E8594] hover:text-white'
+                }`}
+                aria-label="English"
+              >
+                En
+              </button>
+            </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white p-3 min-w-[48px] min-h-[48px] flex items-center justify-center"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+            <Button variant="hero" size="sm" className="text-[13px] px-5 h-9" asChild>
+              <Link to="https://funnel.clearwayai.co/">{t('hero.cta')}</Link>
+            </Button>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden text-white/80 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-white/[0.06] transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden border-t border-[#1E1E2E]"
-            style={{ background: 'rgba(10, 10, 15, 0.95)', backdropFilter: 'blur(12px)' }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="md:hidden mx-4 mt-2 rounded-2xl border border-white/[0.06] overflow-hidden"
+            style={{
+              background: 'rgba(9, 11, 16, 0.9)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              boxShadow: '0 8px 32px -4px rgba(0,0,0,0.5)',
+            }}
           >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-1">
+            <div className="px-5 py-5 flex flex-col gap-1">
               {navLinks.map((link) =>
                 link.href.startsWith('/') ? (
                   <Link
                     key={link.key}
                     to={link.href}
-                    className="text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
+                    className="text-[#7E8594] hover:text-white transition-colors py-3 min-h-[44px] flex items-center text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {t(link.key)}
@@ -133,7 +145,7 @@ const Navbar = () => {
                   <a
                     key={link.key}
                     href={link.href}
-                    className="text-[#8B8BA3] hover:text-[#F1F1F5] transition-colors py-3 min-h-[48px] flex items-center text-sm font-medium"
+                    className="text-[#7E8594] hover:text-white transition-colors py-3 min-h-[44px] flex items-center text-sm font-medium"
                     onClick={() => setIsOpen(false)}
                   >
                     {t(link.key)}
@@ -141,23 +153,23 @@ const Navbar = () => {
                 )
               )}
 
-              <div className="flex items-center gap-3 py-3 border-t border-[#1E1E2E] mt-2">
+              <div className="flex items-center gap-2 py-3 border-t border-white/[0.06] mt-2">
                 <button
                   onClick={() => setLanguage('de')}
-                  className={`text-sm px-3 py-1.5 rounded-full border transition-colors uppercase tracking-wide ${
+                  className={`text-sm px-3 py-1.5 rounded-xl transition-all uppercase tracking-wide ${
                     language === 'de'
-                      ? 'border-[#4F6EF7]/40 bg-[#4F6EF7]/10 text-white font-semibold'
-                      : 'border-[#1E1E2E] text-[#8B8BA3]'
+                      ? 'bg-white/[0.08] text-white font-semibold'
+                      : 'text-[#7E8594]'
                   }`}
                 >
                   De
                 </button>
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`text-sm px-3 py-1.5 rounded-full border transition-colors uppercase tracking-wide ${
+                  className={`text-sm px-3 py-1.5 rounded-xl transition-all uppercase tracking-wide ${
                     language === 'en'
-                      ? 'border-[#4F6EF7]/40 bg-[#4F6EF7]/10 text-white font-semibold'
-                      : 'border-[#1E1E2E] text-[#8B8BA3]'
+                      ? 'bg-white/[0.08] text-white font-semibold'
+                      : 'text-[#7E8594]'
                   }`}
                 >
                   En

@@ -21,35 +21,56 @@ const FitSection = () => {
   ];
 
   return (
-    <section id="who-its-for" className="py-16 md:py-20 border-t border-[#1E1E2E]" style={{ background: '#0F0F1A' }}>
+    <section id="who-its-for" className="py-24 md:py-32" style={{ background: 'hsl(225 16% 7%)' }}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h2 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-5 leading-tight">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-6"
+            style={{
+              border: '1px solid hsl(262 83% 58% / 0.2)',
+              color: '#7C3AED',
+              background: 'hsl(262 83% 58% / 0.06)',
+            }}
+          >
+            {t('nav.solutions')}
+          </motion.div>
+          <h2 className="font-bold text-3xl md:text-4xl lg:text-[2.75rem] text-white mb-5 leading-[1.15] tracking-tight">
             {t('fit.title')}
           </h2>
-          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#8B8BA3' }}>
+          <p className="text-base md:text-lg max-w-lg mx-auto leading-relaxed" style={{ color: '#7E8594' }}>
             {t('fit.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
           {/* Good fit */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="rounded-2xl p-7"
-            style={{ background: '#13131F', border: '1px solid #1E1E2E' }}
+            className="rounded-2xl p-7 relative overflow-hidden"
+            style={{
+              background: 'hsl(225 18% 8%)',
+              border: '1px solid hsl(160 84% 39% / 0.12)',
+            }}
           >
-            <h3 className="font-bold text-white text-base mb-6 flex items-center gap-3">
-              <div className="p-2 rounded-xl" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
+            {/* Subtle green glow */}
+            <div
+              className="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
+              style={{ background: 'linear-gradient(90deg, hsl(160 84% 39% / 0.4), transparent)' }}
+            />
+            <h3 className="font-bold text-white text-base mb-7 flex items-center gap-3">
+              <div className="p-2 rounded-xl" style={{ background: 'hsl(160 84% 39% / 0.08)' }}>
                 <CheckCircle2 className="w-4 h-4" style={{ color: '#10B981' }} />
               </div>
               {t('fit.good.heading')}
@@ -58,8 +79,8 @@ const FitSection = () => {
               {goodFit.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-sm leading-relaxed"
-                  style={{ color: '#8B8BA3' }}
+                  className="flex items-start gap-3 text-sm leading-[1.7]"
+                  style={{ color: '#7E8594' }}
                 >
                   <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#10B981' }} />
                   {item}
@@ -74,11 +95,18 @@ const FitSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.08 }}
-            className="rounded-2xl p-7"
-            style={{ background: '#13131F', border: '1px solid #1E1E2E' }}
+            className="rounded-2xl p-7 relative overflow-hidden"
+            style={{
+              background: 'hsl(225 18% 8%)',
+              border: '1px solid hsl(0 84% 60% / 0.08)',
+            }}
           >
-            <h3 className="font-bold text-white text-base mb-6 flex items-center gap-3">
-              <div className="p-2 rounded-xl" style={{ background: 'rgba(239, 68, 68, 0.1)' }}>
+            <div
+              className="absolute top-0 left-0 w-full h-1 rounded-t-2xl"
+              style={{ background: 'linear-gradient(90deg, hsl(0 84% 60% / 0.3), transparent)' }}
+            />
+            <h3 className="font-bold text-white text-base mb-7 flex items-center gap-3">
+              <div className="p-2 rounded-xl" style={{ background: 'hsl(0 84% 60% / 0.08)' }}>
                 <XCircle className="w-4 h-4" style={{ color: '#EF4444' }} />
               </div>
               {t('fit.notgood.heading')}
@@ -87,8 +115,8 @@ const FitSection = () => {
               {notFit.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-sm leading-relaxed"
-                  style={{ color: '#8B8BA3' }}
+                  className="flex items-start gap-3 text-sm leading-[1.7]"
+                  style={{ color: '#7E8594' }}
                 >
                   <XCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#EF4444' }} />
                   {item}

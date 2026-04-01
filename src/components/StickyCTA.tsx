@@ -24,16 +24,19 @@ const StickyCTA = () => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-5 left-0 right-0 z-40 flex justify-center md:hidden px-4"
         >
-          {/* Subtle glow behind the button */}
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/30 rounded-full blur-xl scale-110 pointer-events-none" />
+            <div
+              className="absolute inset-0 rounded-xl blur-xl scale-110 pointer-events-none"
+              style={{ background: 'hsl(224 76% 58% / 0.25)' }}
+            />
             <Button
               variant="hero"
               size="lg"
-              className="relative shadow-2xl px-7 gap-2 text-sm"
+              className="relative px-7 gap-2 text-sm"
+              style={{ boxShadow: '0 8px 32px -4px rgba(0,0,0,0.5), 0 0 20px -4px hsl(224 76% 58% / 0.3)' }}
               asChild
             >
               <Link to="https://funnel.clearwayai.co/">
